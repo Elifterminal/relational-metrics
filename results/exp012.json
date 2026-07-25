@@ -1,0 +1,224 @@
+{
+  "experiment": "EXP-012",
+  "claim": "F-04a survives adversarial worlds it was not designed against",
+  "n": 8000,
+  "n_permutations": 120,
+  "results": {
+    "driver_only_3way": {
+      "expectation": "MUST NOT report outcome-relevant structure",
+      "description": "a^b^c==0 among the drivers; outcome is an independent coin.",
+      "I_C": {
+        "1": 0.0006,
+        "2": 0.0008,
+        "3": 0.9994,
+        "4": 0.0
+      },
+      "order4": 0.0,
+      "order3": 0.9994,
+      "order2": 0.0008,
+      "p_order4": 1.0,
+      "p_order3": 0.2479,
+      "ipf_residual_order2": 0.0,
+      "ipf_residual_order3": 0.0
+    },
+    "driver_only_pairwise": {
+      "expectation": "MUST NOT report outcome-relevant structure",
+      "description": "b copies a; outcome is an independent coin.",
+      "I_C": {
+        "1": 0.0005,
+        "2": 1.0,
+        "3": 0.0001,
+        "4": 0.0
+      },
+      "order4": 0.0,
+      "order3": 0.0001,
+      "order2": 1.0,
+      "p_order4": 1.0,
+      "p_order3": 0.2975,
+      "ipf_residual_order2": 0.0,
+      "ipf_residual_order3": 0.0
+    },
+    "mixed": {
+      "expectation": "order 2 carries the redundancy, order 3 the synergy, and only the order-3 term is outcome-significant",
+      "description": "c copies a (redundancy among drivers) AND outcome is the parity of a and b (synergy with the outcome).",
+      "I_C": {
+        "1": 0.0003,
+        "2": 1.0003,
+        "3": 0.706,
+        "4": 0.0
+      },
+      "order4": 0.0,
+      "order3": 0.706,
+      "order2": 1.0003,
+      "p_order4": 1.0,
+      "p_order3": 0.0083,
+      "ipf_residual_order2": 0.0,
+      "ipf_residual_order3": 0.0
+    },
+    "deterministic": {
+      "expectation": "order 4 fires; IPF must not break on hard zeros",
+      "description": "3-way parity, no noise. Joint contains structural zeros.",
+      "I_C": {
+        "1": 0.0002,
+        "2": 0.0003,
+        "3": 0.0003,
+        "4": 0.9996
+      },
+      "order4": 0.9996,
+      "order3": 0.0003,
+      "order2": 0.0003,
+      "p_order4": 0.0083,
+      "p_order3": 0.6612,
+      "ipf_residual_order2": 0.0,
+      "ipf_residual_order3": 0.0
+    },
+    "skewed_marginal": {
+      "expectation": "order 4 fires despite an unbalanced driver",
+      "description": "c is 1 about 97% of the time; rare cells destabilise fitting.",
+      "I_C": {
+        "1": 0.8154,
+        "2": 0.0002,
+        "3": 0.6221,
+        "4": 0.0937
+      },
+      "order4": 0.0937,
+      "order3": 0.6221,
+      "order2": 0.0002,
+      "p_order4": 0.0083,
+      "p_order3": 0.0083,
+      "ipf_residual_order2": 0.0,
+      "ipf_residual_order3": 0.0
+    },
+    "synergy_000": {
+      "expectation": "order 4 should scale with strength, monotonically",
+      "description": "3-way parity with probability 0.00, else a coin.",
+      "I_C": {
+        "1": 0.0001,
+        "2": 0.0002,
+        "3": 0.0003,
+        "4": 0.0002
+      },
+      "order4": 0.0002,
+      "order3": 0.0003,
+      "order2": 0.0002,
+      "p_order4": 0.2231,
+      "p_order3": 0.4793,
+      "ipf_residual_order2": 0.0,
+      "ipf_residual_order3": 0.0
+    },
+    "synergy_025": {
+      "expectation": "order 4 should scale with strength, monotonically",
+      "description": "3-way parity with probability 0.25, else a coin.",
+      "I_C": {
+        "1": 0.0003,
+        "2": 0.0003,
+        "3": 0.0009,
+        "4": 0.0474
+      },
+      "order4": 0.0474,
+      "order3": 0.0009,
+      "order2": 0.0003,
+      "p_order4": 0.0083,
+      "p_order3": 0.0579,
+      "ipf_residual_order2": 0.0,
+      "ipf_residual_order3": 0.0
+    },
+    "synergy_050": {
+      "expectation": "order 4 should scale with strength, monotonically",
+      "description": "3-way parity with probability 0.50, else a coin.",
+      "I_C": {
+        "1": 0.0002,
+        "2": 0.0002,
+        "3": 0.0006,
+        "4": 0.1971
+      },
+      "order4": 0.1971,
+      "order3": 0.0006,
+      "order2": 0.0002,
+      "p_order4": 0.0083,
+      "p_order3": 0.0826,
+      "ipf_residual_order2": 0.0,
+      "ipf_residual_order3": 0.0
+    },
+    "synergy_075": {
+      "expectation": "order 4 should scale with strength, monotonically",
+      "description": "3-way parity with probability 0.75, else a coin.",
+      "I_C": {
+        "1": 0.0003,
+        "2": 0.0003,
+        "3": 0.0002,
+        "4": 0.4509
+      },
+      "order4": 0.4509,
+      "order3": 0.0002,
+      "order2": 0.0003,
+      "p_order4": 0.0083,
+      "p_order3": 0.6529,
+      "ipf_residual_order2": 0.0,
+      "ipf_residual_order3": 0.0
+    },
+    "synergy_100": {
+      "expectation": "order 4 should scale with strength, monotonically",
+      "description": "3-way parity with probability 1.00, else a coin.",
+      "I_C": {
+        "1": 0.0002,
+        "2": 0.0004,
+        "3": 0.0002,
+        "4": 0.9995
+      },
+      "order4": 0.9995,
+      "order3": 0.0002,
+      "order2": 0.0004,
+      "p_order4": 0.0083,
+      "p_order3": 0.5702,
+      "ipf_residual_order2": 0.0,
+      "ipf_residual_order3": 0.0
+    }
+  },
+  "outcome_irrelevance_survives": true,
+  "implementation_symmetric": true,
+  "max_symmetry_drift": 8.881784197001252e-16,
+  "power_monotone": true,
+  "power_sweep": [
+    [
+      "synergy_000",
+      0.0002
+    ],
+    [
+      "synergy_025",
+      0.0474
+    ],
+    [
+      "synergy_050",
+      0.1971
+    ],
+    [
+      "synergy_075",
+      0.4509
+    ],
+    [
+      "synergy_100",
+      0.9995
+    ]
+  ],
+  "max_ipf_residual": 0.0,
+  "ipf_converged": true,
+  "null_calibration_by_n": {
+    "200": {
+      "order4_raw": 0.0047,
+      "p_value": 0.2893
+    },
+    "800": {
+      "order4_raw": 0.0016,
+      "p_value": 0.1405
+    },
+    "3200": {
+      "order4_raw": 0.0,
+      "p_value": 0.9504
+    },
+    "8000": {
+      "order4_raw": 0.0001,
+      "p_value": 0.3802
+    }
+  }
+}

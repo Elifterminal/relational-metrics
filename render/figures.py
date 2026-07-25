@@ -416,6 +416,57 @@ def fig_orders(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 9 — raw structure vs outcome-relevant structure
+# ---------------------------------------------------------------------------
+
+def fig_relevance(data: dict) -> str:
+    W, H = 800, 400
+    L, R, T, B = 210, 190, 62, 56
+    pw, ph = W - L - R, H - T - B
+    picks = [
+        ("driver_only_3way", "order3", "p_order3"),
+        ("driver_only_pairwise", "order2", None),
+        ("mixed", "order3", "p_order3"),
+        ("mixed", "order2", None),
+        ("deterministic", "order4", "p_order4"),
+        ("synergy_100", "order4", "p_order4"),
+        ("synergy_050", "order4", "p_order4"),
+        ("synergy_000", "order4", "p_order4"),
+    ]
+    rows = []
+    for w, key, pk in picks:
+        r = data["results"][w]
+        pv = r[pk] if pk else 1.0
+        rows.append((f"{w}  ·  I_C({key[-1]})", r[key], pv < 0.05))
+    vmax = max(v for _, v, _ in rows) * 1.05 or 1.0
+
+    out = ['<text class="ttl" x="24" y="26">Structure is objective. Relevance is not.</text>',
+           '<text class="sub" x="24" y="44">Bar length is the raw connected information — '
+           'how much structure is there. Colour is whether it survives shuffling the '
+           'outcome.</text>']
+    bh = ph / len(rows)
+    for i, (lbl, v, sig) in enumerate(rows):
+        y = T + i * bh
+        col = "#2563eb" if sig else "#94a3b8"
+        w = (v / vmax) * pw
+        out.append(f'<text class="lbl" x="{L-12}" y="{y+bh/2+4:.1f}" '
+                   f'text-anchor="end">{esc(lbl)}</text>')
+        out.append(f'<rect x="{L}" y="{y+bh*0.2:.1f}" width="{max(w,1):.1f}" '
+                   f'height="{bh*0.6:.1f}" fill="{col}" rx="2"/>')
+        tag = "about the outcome" if sig else "NOT about the outcome"
+        out.append(f'<text class="tick" x="{L+max(w,1)+9:.1f}" y="{y+bh/2+4:.1f}" '
+                   f'fill="{col}">{v:.4f}  —  {tag}</text>')
+
+    out.append(f'<text class="sub" x="24" y="{H-30}">'
+               'The top two rows carry a FULL BIT of genuine structure and say nothing '
+               'whatever about the outcome. The raw statistic cannot tell the difference;</text>')
+    out.append(f'<text class="sub" x="24" y="{H-14}">'
+               'the calibration can, because shuffling only the outcome leaves structure '
+               'among the participants intact in the null.</text>')
+    return svg(W, H, "".join(out), "Structure versus relevance")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -482,6 +533,7 @@ def main() -> None:
     c = json.loads((RESULTS / "exp000c.json").read_text())
     e2 = json.loads((RESULTS / "exp002.json").read_text())
     e11 = json.loads((RESULTS / "exp011.json").read_text())
+    e12 = json.loads((RESULTS / "exp012.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -497,6 +549,7 @@ def main() -> None:
         "fig5_harness.svg": fig_harness(c),
         "fig7_arity.svg": fig_arity(e2),
         "fig8_orders.svg": fig_orders(e11),
+        "fig9_relevance.svg": fig_relevance(e12),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

@@ -523,6 +523,82 @@ reported it. Caught only because this measure separates orders and the number lo
 place it shouldn't. Fixed, both experiments re-run, everything else unchanged. Four instances now
 of the same error: asserting a property from how code reads rather than computing it.</div>
 
+<h2>Finding 8 — attacking the thing that worked, and what broke</h2>
+<p>F-04a passed its acceptance test on the first attempt, on worlds written by the same person who
+wrote the measure. That is a reason for suspicion, not confidence — it is the exact shape of a
+measure fitted to its own test. So the next step was to try to break it, including with one case
+I expected to fail.</p>
+
+<h3>The case I expected to fail — and it did</h3>
+<p>Connected information is a property of a <i>joint distribution</i>. It does not privilege any
+variable. So what happens when structure exists purely among the participants and has nothing
+to do with the outcome? Built two such worlds: a hard three-way constraint among the drivers with
+the outcome an independent coin, and the same one order down.</p>
+<div class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-label="Structure versus relevance">
+<style>
+  :root { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  }
+  :root[data-theme="dark"] { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  :root[data-theme="light"] { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  .bg { fill: var(--bg); }
+  .ax { stroke: var(--grid); stroke-width: 1; }
+  .tick { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .lbl { fill: var(--fg); font: 12px ui-sans-serif, system-ui, sans-serif; }
+  .ttl { fill: var(--fg); font: 600 14px ui-sans-serif, system-ui, sans-serif; }
+  .sub { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .node { fill: var(--bg); stroke: var(--fg); stroke-width: 1.5; }
+  .ntxt { fill: var(--fg); font: 10px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; }
+</style>
+<rect class="bg" width="800" height="400"/><text class="ttl" x="24" y="26">Structure is objective. Relevance is not.</text><text class="sub" x="24" y="44">Bar length is the raw connected information — how much structure is there. Colour is whether it survives shuffling the outcome.</text><text class="lbl" x="198" y="83.6" text-anchor="end">driver_only_3way  ·  I_C(3)</text><rect x="210" y="69.0" width="380.6" height="21.1" fill="#94a3b8" rx="2"/><text class="tick" x="599.6" y="83.6" fill="#94a3b8">0.9994  —  NOT about the outcome</text><text class="lbl" x="198" y="118.9" text-anchor="end">driver_only_pairwise  ·  I_C(2)</text><rect x="210" y="104.3" width="380.8" height="21.1" fill="#94a3b8" rx="2"/><text class="tick" x="599.8" y="118.9" fill="#94a3b8">1.0000  —  NOT about the outcome</text><text class="lbl" x="198" y="154.1" text-anchor="end">mixed  ·  I_C(3)</text><rect x="210" y="139.6" width="268.9" height="21.1" fill="#2563eb" rx="2"/><text class="tick" x="487.9" y="154.1" fill="#2563eb">0.7060  —  about the outcome</text><text class="lbl" x="198" y="189.4" text-anchor="end">mixed  ·  I_C(2)</text><rect x="210" y="174.8" width="381.0" height="21.1" fill="#94a3b8" rx="2"/><text class="tick" x="600.0" y="189.4" fill="#94a3b8">1.0003  —  NOT about the outcome</text><text class="lbl" x="198" y="224.6" text-anchor="end">deterministic  ·  I_C(4)</text><rect x="210" y="210.1" width="380.7" height="21.1" fill="#2563eb" rx="2"/><text class="tick" x="599.7" y="224.6" fill="#2563eb">0.9996  —  about the outcome</text><text class="lbl" x="198" y="259.9" text-anchor="end">synergy_100  ·  I_C(4)</text><rect x="210" y="245.3" width="380.6" height="21.1" fill="#2563eb" rx="2"/><text class="tick" x="599.6" y="259.9" fill="#2563eb">0.9995  —  about the outcome</text><text class="lbl" x="198" y="295.1" text-anchor="end">synergy_050  ·  I_C(4)</text><rect x="210" y="280.6" width="75.1" height="21.1" fill="#2563eb" rx="2"/><text class="tick" x="294.1" y="295.1" fill="#2563eb">0.1971  —  about the outcome</text><text class="lbl" x="198" y="330.4" text-anchor="end">synergy_000  ·  I_C(4)</text><rect x="210" y="315.8" width="1.0" height="21.1" fill="#94a3b8" rx="2"/><text class="tick" x="220.0" y="330.4" fill="#94a3b8">0.0002  —  NOT about the outcome</text><text class="sub" x="24" y="370">The top two rows carry a FULL BIT of genuine structure and say nothing whatever about the outcome. The raw statistic cannot tell the difference;</text><text class="sub" x="24" y="386">the calibration can, because shuffling only the outcome leaves structure among the participants intact in the null.</text></svg></div>
+<div class="read warn"><b>The raw statistic fires, hard.</b> <code>driver_only_3way</code> reports
+<b>I_C(3) = 0.9994</b> — a full bit of structure — with an outcome that is a coin flip.
+<code>driver_only_pairwise</code> reports <b>I_C(2) = 1.0000</b>. Both are <i>correct</i> about
+the structure and <i>useless</i> as answers to a question. Anyone reading raw connected
+information as "relational structure detected" gets confident irrelevance.</div>
+<div class="read ok"><b>The calibration is what saves it, and that is not a detail.</b> The
+permutation test shuffles <i>only the outcome</i>, which leaves structure among the participants
+intact in the null. So driver-only structure appears in the null distribution too, and comes back
+non-significant (p = 0.25, p = 0.30). The <code>mixed</code> world confirms the separation
+directly: redundancy among the drivers sits at order 2 (1.0003, not outcome-significant) while
+genuine outcome-synergy sits at order 3 (0.7060, p = 0.0083).</div>
+<p><b>So the formula has been amended.</b> F-04a is no longer the statistic — it is the statistic
+<i>plus</i> the outcome-permutation calibration, as one object. The statistic alone answers a
+different question than the one being asked.</p>
+
+<h3>Which lands on the thesis, not just the method</h3>
+<div class="read"><b>The observer enters through the calibration, not through the statistic.</b>
+Whether structure is <i>present</i> is a fact about the joint distribution — objective, and
+provably indifferent to which variable you nominate as the outcome (measured: symmetry drift
+8.9×10⁻¹⁶). Whether that structure <i>counts as an answer</i> depends entirely on the question
+being asked. Those are two different operations and the mathematics separates them cleanly.
+<br><br>That is the project's founding axiom — <i>relational completeness belongs to reality,
+relational selectivity belongs to observers</i> — arrived at from the arithmetic rather than
+assumed. It was written as a philosophical commitment. It came back as a measurement.</div>
+
+<h3>What survived the rest of the attack</h3>
+<table><thead><tr><th>test</th><th>result</th></tr></thead><tbody>
+<tr><td><b>Implementation symmetry</b> — is I_C really indifferent to which variable is called the
+outcome, or is there an axis bug?</td><td>Indifferent. Drift 8.9×10⁻¹⁶ across permutations.</td></tr>
+<tr><td><b>Monotone power</b> — is it a measure of degree or a threshold detector?</td>
+<td>Monotone and smooth across the strength sweep (below).</td></tr>
+<tr><td><b>Numerical robustness</b> — iterative fitting fails on hard zeros and skewed
+marginals.</td><td>Converged everywhere. Worst marginal residual 0.0, including a deterministic
+world with structural zeros and one with a driver at 97:3.</td></tr>
+<tr><td><b>Null calibration vs sample size</b> — where does the permutation test stop
+protecting?</td><td>Held down to n=200, where raw bias is 0.0047 and p = 0.29.</td></tr>
+</tbody></table>
+<table><thead><tr><th>synergy strength</th><th>I_C(4)</th></tr></thead><tbody><tr><td><code>synergy_000</code></td><td>0.0002</td></tr><tr><td><code>synergy_025</code></td><td>0.0474</td></tr><tr><td><code>synergy_050</code></td><td>0.1971</td></tr><tr><td><code>synergy_075</code></td><td>0.4509</td></tr><tr><td><code>synergy_100</code></td><td>0.9995</td></tr></tbody></table>
+<p>One further honest note: <code>skewed_marginal</code> puts most of its weight at order 3 rather
+than order 4. That is correct rather than a failure — when a driver is 97% constant, a nominal
+three-way rule <i>is</i> effectively a two-way one. The measure tracks the structure that is
+actually there, not the rule that generated it.</p>
+<div class="read warn"><b>Fifth wrong construction.</b> The world meant to test redundancy and
+synergy together placed the redundant copy in a variable that was not in the tested set, so it
+tested nothing it claimed to. Caught by reading an output that disagreed with the intent — 0.0004
+where a full bit was planted. Fixed and re-run. The running count stands at five.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -536,6 +612,12 @@ Composition buys real information and costs nothing cross-domain, so it stays. B
 "how many loops did this disturb", not "does this matter". The harder discovery is that the
 question itself was sloppy: a structure with several interacting loops has no single behaviour
 to invert. Significance needs a sharper definition before a measure can be built for it.</div>
+<div class="q"><b>Structure and relevance are different measurements, and the mathematics knows
+it.</b> Connected information says what structure is present — objectively, indifferent to any
+question. The outcome-permutation calibration says whether that structure bears on what you
+asked. Using the first without the second produces true statements that are not answers. This is
+the founding axiom recovered from arithmetic rather than asserted, and it is the strongest result
+the project has.</div>
 <div class="q"><b>The central claim is demonstrated and there is now an instrument for it.</b>
 Structure that no pair can see exists, is measurable, and connected information places it at the
 right order while correctly assigning redundancy to the low orders where it belongs. Bounded to

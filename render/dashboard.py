@@ -319,6 +319,10 @@ def build() -> str:
     e9 = json.loads((RESULTS / "exp009.json").read_text())
     e2 = json.loads((RESULTS / "exp002.json").read_text())
     e11 = json.loads((RESULTS / "exp011.json").read_text())
+    e12 = json.loads((RESULTS / "exp012.json").read_text())
+    sweep_rows = "".join(
+        f"<tr><td><code>{n}</code></td><td>{v:.4f}</td></tr>"
+        for n, v in e12["power_sweep"])
     e11_rows = "".join(
         f"<tr><td><code>{w}</code></td><td>{d['true_arity']}</td>"
         f"<td>{d['order2']:.4f}</td><td>{d['order3']:.4f}</td>"
@@ -627,6 +631,65 @@ reported it. Caught only because this measure separates orders and the number lo
 place it shouldn't. Fixed, both experiments re-run, everything else unchanged. Four instances now
 of the same error: asserting a property from how code reads rather than computing it.</div>
 
+<h2>Finding 8 — attacking the thing that worked, and what broke</h2>
+<p>F-04a passed its acceptance test on the first attempt, on worlds written by the same person who
+wrote the measure. That is a reason for suspicion, not confidence — it is the exact shape of a
+measure fitted to its own test. So the next step was to try to break it, including with one case
+I expected to fail.</p>
+
+<h3>The case I expected to fail — and it did</h3>
+<p>Connected information is a property of a <i>joint distribution</i>. It does not privilege any
+variable. So what happens when structure exists purely among the participants and has nothing
+to do with the outcome? Built two such worlds: a hard three-way constraint among the drivers with
+the outcome an independent coin, and the same one order down.</p>
+<div class="fig">{figs['fig9_relevance.svg']}</div>
+<div class="read warn"><b>The raw statistic fires, hard.</b> <code>driver_only_3way</code> reports
+<b>I_C(3) = 0.9994</b> — a full bit of structure — with an outcome that is a coin flip.
+<code>driver_only_pairwise</code> reports <b>I_C(2) = 1.0000</b>. Both are <i>correct</i> about
+the structure and <i>useless</i> as answers to a question. Anyone reading raw connected
+information as "relational structure detected" gets confident irrelevance.</div>
+<div class="read ok"><b>The calibration is what saves it, and that is not a detail.</b> The
+permutation test shuffles <i>only the outcome</i>, which leaves structure among the participants
+intact in the null. So driver-only structure appears in the null distribution too, and comes back
+non-significant (p = 0.25, p = 0.30). The <code>mixed</code> world confirms the separation
+directly: redundancy among the drivers sits at order 2 (1.0003, not outcome-significant) while
+genuine outcome-synergy sits at order 3 (0.7060, p = 0.0083).</div>
+<p><b>So the formula has been amended.</b> F-04a is no longer the statistic — it is the statistic
+<i>plus</i> the outcome-permutation calibration, as one object. The statistic alone answers a
+different question than the one being asked.</p>
+
+<h3>Which lands on the thesis, not just the method</h3>
+<div class="read"><b>The observer enters through the calibration, not through the statistic.</b>
+Whether structure is <i>present</i> is a fact about the joint distribution — objective, and
+provably indifferent to which variable you nominate as the outcome (measured: symmetry drift
+8.9×10⁻¹⁶). Whether that structure <i>counts as an answer</i> depends entirely on the question
+being asked. Those are two different operations and the mathematics separates them cleanly.
+<br><br>That is the project's founding axiom — <i>relational completeness belongs to reality,
+relational selectivity belongs to observers</i> — arrived at from the arithmetic rather than
+assumed. It was written as a philosophical commitment. It came back as a measurement.</div>
+
+<h3>What survived the rest of the attack</h3>
+<table><thead><tr><th>test</th><th>result</th></tr></thead><tbody>
+<tr><td><b>Implementation symmetry</b> — is I_C really indifferent to which variable is called the
+outcome, or is there an axis bug?</td><td>Indifferent. Drift 8.9×10⁻¹⁶ across permutations.</td></tr>
+<tr><td><b>Monotone power</b> — is it a measure of degree or a threshold detector?</td>
+<td>Monotone and smooth across the strength sweep (below).</td></tr>
+<tr><td><b>Numerical robustness</b> — iterative fitting fails on hard zeros and skewed
+marginals.</td><td>Converged everywhere. Worst marginal residual 0.0, including a deterministic
+world with structural zeros and one with a driver at 97:3.</td></tr>
+<tr><td><b>Null calibration vs sample size</b> — where does the permutation test stop
+protecting?</td><td>Held down to n=200, where raw bias is 0.0047 and p = 0.29.</td></tr>
+</tbody></table>
+<table><thead><tr><th>synergy strength</th><th>I_C(4)</th></tr></thead><tbody>{sweep_rows}</tbody></table>
+<p>One further honest note: <code>skewed_marginal</code> puts most of its weight at order 3 rather
+than order 4. That is correct rather than a failure — when a driver is 97% constant, a nominal
+three-way rule <i>is</i> effectively a two-way one. The measure tracks the structure that is
+actually there, not the rule that generated it.</p>
+<div class="read warn"><b>Fifth wrong construction.</b> The world meant to test redundancy and
+synergy together placed the redundant copy in a variable that was not in the tested set, so it
+tested nothing it claimed to. Caught by reading an output that disagreed with the intent — 0.0004
+where a full bit was planted. Fixed and re-run. The running count stands at five.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -640,6 +703,12 @@ Composition buys real information and costs nothing cross-domain, so it stays. B
 "how many loops did this disturb", not "does this matter". The harder discovery is that the
 question itself was sloppy: a structure with several interacting loops has no single behaviour
 to invert. Significance needs a sharper definition before a measure can be built for it.</div>
+<div class="q"><b>Structure and relevance are different measurements, and the mathematics knows
+it.</b> Connected information says what structure is present — objectively, indifferent to any
+question. The outcome-permutation calibration says whether that structure bears on what you
+asked. Using the first without the second produces true statements that are not answers. This is
+the founding axiom recovered from arithmetic rather than asserted, and it is the strongest result
+the project has.</div>
 <div class="q"><b>The central claim is demonstrated and there is now an instrument for it.</b>
 Structure that no pair can see exists, is measurable, and connected information places it at the
 right order while correctly assigning redundancy to the low orders where it belongs. Bounded to

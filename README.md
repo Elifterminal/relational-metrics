@@ -37,6 +37,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-009` | Can composing relation signs recover significance? | Not as asked. The question was malformed. But sign survives translation |
 | `EXP-002` | **Does structure exist that no pair can see — and can we detect it?** | **It exists.** Best pair 0.0008 bits vs 0.7340 for the triple. But the statistic for it is demoted |
 | `EXP-011` | Can a replacement separate synergy from redundancy? | **Yes.** Connected information places structure at the right order; redundancy drops from a false positive to 0.0003 |
+| `EXP-012` | Can the replacement be broken? | Partly. The raw statistic reports a full bit of structure that has nothing to do with the question. The calibration is what makes it an answer |
 
 ### The findings worth your time
 
@@ -68,13 +69,23 @@ is read off rather than assumed.
 
 **A controlled experiment is blind exactly where it controls.** This one generalises past the project. Every condition in `EXP-000a` was matched on size, deliberately, to remove a confound. That control is what made a size bias in the replacement measure invisible — it was winning on volume, not on shared organisation — *and* made one cheating method undetectable. Both defects were found by widening a control. Neither was found by reasoning, and both formulas had been reasoned about at length.
 
+**Structure is objective; relevance is not.** Attacking the new measure found that it fires
+at full strength on structure existing purely among the participants, with the outcome an
+independent coin flip — true statements that are not answers. What separates them is the
+permutation calibration, which shuffles only the outcome and so leaves participant structure in
+the null. Whether structure is *present* is a fact about the joint distribution, provably
+indifferent to which variable you nominate as the outcome. Whether it *counts as an answer*
+depends on the question. The project's founding axiom — relational completeness belongs to
+reality, relational selectivity belongs to observers — was written as a philosophical commitment
+and came back out of the arithmetic as a measurement.
+
 ## Honest limits
 
 - Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
 - Four of five conditions hand-authored by the same party running the measure.
 - Exhaustive mapping search. Nothing here speaks to whether any of it computes at scale.
 - Rung 1 of 7 on the project's own evidence ladder ("mathematically coherent"). Rung 7 is "supports a broader physical interpretation" and is not currently reachable.
-- **Four** ground truths in here were wrong, all mine, all corrected in place rather than quietly fixed — including a pure-noise control that turned out to be a deterministic function of the variables it was meant to be independent of. Each was caught by computing something previously asserted from inspection. The running count is the honest measure of how often careful reasoning about one's own constructions is simply wrong.
+- **Five** ground truths or test constructions in here were wrong, all mine, all corrected in place rather than quietly fixed — including a pure-noise control that turned out to be a deterministic function of the variables it was meant to be independent of. Each was caught by computing something previously asserted from inspection. The running count is the honest measure of how often careful reasoning about one's own constructions is simply wrong.
 
 ## Running it
 
@@ -88,6 +99,7 @@ python3 run_exp000c.py     # harness self-test — run this before trusting anyt
 python3 run_exp009.py      # cycle sign by typed composition
 python3 run_exp002.py      # higher-order recovery -- the arity claim
 python3 run_exp011.py      # the replacement measure, connected information
+python3 run_exp012.py      # adversarial stress test of the replacement
 
 cd ../render
 python3 figures.py         # regenerate the SVGs
@@ -107,6 +119,7 @@ lab/
   composition.py     cycle sign by composing relation polarity
   interaction.py     the higher-order remainder + permutation calibration
   maxent.py          connected information via maximum-entropy hierarchy (IPF)
+  stressworlds.py    adversarial worlds built to break the measure
   hyperworlds.py     synthetic worlds with a KNOWN interaction order
   worlds.py          the condition set — A/B/C/D/E/F plus a held-out case
   impostors.py       seven deliberately cheating methods
