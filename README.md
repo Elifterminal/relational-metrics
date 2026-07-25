@@ -35,7 +35,8 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-000b` | Can the replacement tell which changes matter? | No. Five of six single-edge changes score identically |
 | `EXP-000c` | Can the laboratory catch a cheat? | Yes — 7/7. And it caught a defect in the author's own measure |
 | `EXP-009` | Can composing relation signs recover significance? | Not as asked. The question was malformed. But sign survives translation |
-| `EXP-002` | **Does structure exist that no pair can see — and can we detect it?** | **It exists. We can't yet.** Best pair 0.0008 bits vs 0.7340 for the triple. The statistic for it is demoted |
+| `EXP-002` | **Does structure exist that no pair can see — and can we detect it?** | **It exists.** Best pair 0.0008 bits vs 0.7340 for the triple. But the statistic for it is demoted |
+| `EXP-011` | Can a replacement separate synergy from redundancy? | **Yes.** Connected information places structure at the right order; redundancy drops from a false positive to 0.0003 |
 
 ### The findings worth your time
 
@@ -45,11 +46,21 @@ together carry **0.7340**. Decompose that into pairwise relations and the thing 
 measuring is gone, not approximated. This is the claim the whole project rests on and it is now
 measured rather than argued.
 
-**The statistic written down to detect it doesn't work.** Same run, predeclared falsification
-condition, fired. Above two variables the remainder conflates *synergy* (the configuration does
-something the parts can't) with *redundancy* (several parts carry the same information). Make
-three variables exact copies of each other — zero synergy by construction — and it returns the
-maximum possible value. Sound at arity 2, unusable at arity 3, and arity 3 is the point.
+**The statistic written down to detect it didn't work.** Predeclared falsification condition,
+fired. Above two variables the remainder conflates *synergy* (the configuration does something
+the parts can't) with *redundancy* (several parts carry the same information). Make three
+variables exact copies of each other — zero synergy by construction — and it returns the maximum
+possible value.
+
+**Reading the literature beat inventing a fix.** The obvious replacement was partial information
+decomposition. Reading it first revealed that for three or more sources, antichain-lattice PID is
+*provably impossible* — the desired axioms are mutually incompatible and two systems can carry
+identical atoms with different mutual information. That route was a proved dead end. The
+construction that does work sits outside the impossibility: connected information via a
+maximum-entropy hierarchy. Redundancy is fully visible in low-order marginals, so it lands at
+order 2 where it belongs; genuine higher-order structure is exactly what low-order marginals
+cannot reproduce. The false positive drops from 0.0876 to 0.0003, and the *order* of a dependence
+is read off rather than assumed.
 
 **A tunable penalty doesn't scale results, it reorders them.** The inherited formula divides match quality by a mapping-complexity penalty. That penalty charges for asserting correspondence *across vocabularies* — so it charges most for exactly the cross-domain analogy the whole thing exists to find. Above η=0.22 a near-miss beats a true analogue. Nobody would blink at η=0.22.
 
@@ -63,7 +74,7 @@ maximum possible value. Sound at arity 2, unusable at arity 3, and arity 3 is th
 - Four of five conditions hand-authored by the same party running the measure.
 - Exhaustive mapping search. Nothing here speaks to whether any of it computes at scale.
 - Rung 1 of 7 on the project's own evidence ladder ("mathematically coherent"). Rung 7 is "supports a broader physical interpretation" and is not currently reachable.
-- **Three** ground truths in here were wrong, all mine, all corrected in place rather than quietly fixed. Each was caught by computing something I had asserted from inspection. How the errors happened matters more than the rows they corrupted.
+- **Four** ground truths in here were wrong, all mine, all corrected in place rather than quietly fixed — including a pure-noise control that turned out to be a deterministic function of the variables it was meant to be independent of. Each was caught by computing something previously asserted from inspection. The running count is the honest measure of how often careful reasoning about one's own constructions is simply wrong.
 
 ## Running it
 
@@ -76,6 +87,7 @@ python3 run_exp000b.py     # criticality blindness
 python3 run_exp000c.py     # harness self-test — run this before trusting anything
 python3 run_exp009.py      # cycle sign by typed composition
 python3 run_exp002.py      # higher-order recovery -- the arity claim
+python3 run_exp011.py      # the replacement measure, connected information
 
 cd ../render
 python3 figures.py         # regenerate the SVGs
@@ -94,6 +106,7 @@ lab/
   measures.py        the two correspondence measures, side by side
   composition.py     cycle sign by composing relation polarity
   interaction.py     the higher-order remainder + permutation calibration
+  maxent.py          connected information via maximum-entropy hierarchy (IPF)
   hyperworlds.py     synthetic worlds with a KNOWN interaction order
   worlds.py          the condition set — A/B/C/D/E/F plus a held-out case
   impostors.py       seven deliberately cheating methods

@@ -318,6 +318,12 @@ def build() -> str:
     c = json.loads((RESULTS / "exp000c.json").read_text())
     e9 = json.loads((RESULTS / "exp009.json").read_text())
     e2 = json.loads((RESULTS / "exp002.json").read_text())
+    e11 = json.loads((RESULTS / "exp011.json").read_text())
+    e11_rows = "".join(
+        f"<tr><td><code>{w}</code></td><td>{d['true_arity']}</td>"
+        f"<td>{d['order2']:.4f}</td><td>{d['order3']:.4f}</td>"
+        f"<td><b>{d['order4']:.4f}</b></td><td>{d['p_value']:.4f}</td>"
+        f"<td>{d['omega_F04']:.4f}</td></tr>" for w, d in e11["results"].items())
     big2 = str(e2["sample_sizes"][-1])
     e2_rows = "".join(
         f"<tr><td><code>{w}</code></td><td>{r['true_arity']}</td>"
@@ -582,6 +588,45 @@ information decomposition exists. What's new here is only that it was measured a
 predeclared falsification condition rather than assumed away, and the formula is demoted
 accordingly.</p>
 
+<h2>Finding 7 — a replacement that works, found by reading instead of inventing</h2>
+<p>The obvious replacement was <b>partial information decomposition</b>, which exists precisely
+because interaction information conflates synergy with redundancy. Reading it first turned out to
+matter: for <b>three or more sources, antichain-lattice PID is provably impossible</b>. The
+desired axioms — whole-equals-sum-of-parts, commutativity, monotonicity, self-redundancy,
+independent identity — are mutually incompatible, and the obstruction is structural rather than
+axiomatic. There exist two systems carrying <i>identical atoms but different mutual
+information</i>, so no universal reconstruction function can exist. Building there would have
+been building on a proved dead end.</p>
+<p>That impossibility is scoped to antichain-indexed decompositions. A different construction sits
+outside it: <b>connected information</b> via the maximum-entropy hierarchy. Let <code>p̃(k)</code>
+be the maximum-entropy distribution matching every marginal of order ≤ k. Then</p>
+<p style="text-align:center"><code>I_C(k) = H[p̃(k−1)] − H[p̃(k)]</code></p>
+<p>— how much the maximum possible entropy drops once order-k marginals are also known. The
+reason this fixes the exact defect: <b>redundancy is entirely visible in low-order marginals.</b>
+If two variables are copies of a third, the pairwise marginals already pin the joint, so the
+maximum-entropy distribution matching them reproduces the data and every higher order contributes
+nothing. Genuine higher-order structure is precisely what low-order marginals cannot reproduce.</p>
+<div class="fig">{figs['fig8_orders.svg']}</div>
+<table><thead><tr><th>world</th><th>true arity</th><th>I_C(2)</th><th>I_C(3)</th>
+<th>I_C(4)</th><th>p</th><th>old Ω</th></tr></thead><tbody>{e11_rows}</tbody></table>
+<div class="read ok"><b>Reading.</b> The acceptance test written when Ω was demoted — near zero
+on <code>redundant</code>, ≈0.73 on <code>order3</code> — passes. <code>redundant</code> goes from
+Ω = 0.0876 (a false positive) to <b>I_C(4) = 0.0003, not significant</b>, with all 1.23 bits of
+its structure correctly placed at order 2. And the <i>order is read off rather than assumed</i>:
+<code>Y = a XOR b</code> puts its structure at order 3, <code>Y = a XOR b XOR c</code> at order 4.
+Every term is non-negative by construction and they sum to the total, so this is a real
+decomposition rather than a residual.</div>
+<div class="read"><b>What it costs.</b> Iterative proportional fitting over the full joint —
+exponential in the number of variables. Trivial at four binary variables, a hard limit at scale,
+and the continuous case needs a different estimator entirely. This is a working instrument for
+small configurations, not a general one.</div>
+<div class="read warn"><b>And a fourth ground truth was wrong.</b> The pure-noise control turned
+out to be a <i>deterministic function</i> of the very variables it was meant to be independent
+of — a pseudo-random generator seeded on them. It showed 0.36 bits of "structure" and I nearly
+reported it. Caught only because this measure separates orders and the number looked wrong in a
+place it shouldn't. Fixed, both experiments re-run, everything else unchanged. Four instances now
+of the same error: asserting a property from how code reads rather than computing it.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -595,19 +640,24 @@ Composition buys real information and costs nothing cross-domain, so it stays. B
 "how many loops did this disturb", not "does this matter". The harder discovery is that the
 question itself was sloppy: a structure with several interacting loops has no single behaviour
 to invert. Significance needs a sharper definition before a measure can be built for it.</div>
-<div class="q"><b>The central claim is demonstrated; the instrument for it is not.</b> Structure
-that no pair can see does exist and is recoverable in principle — that much is now measured
-rather than asserted. But the statistic written down to detect it conflates "several
-participants carry information" with "the configuration does something the parts cannot," which
-is precisely the distinction the whole project turns on. Needs replacing with a decomposition
-that separates synergy from redundancy, not patching.</div>
-<div class="q"><b>Three ground truths were wrong, all mine, all found by widening a control.</b>
+<div class="q"><b>The central claim is demonstrated and there is now an instrument for it.</b>
+Structure that no pair can see exists, is measurable, and connected information places it at the
+right order while correctly assigning redundancy to the low orders where it belongs. Bounded to
+small discrete configurations. That is the first thing in this project that actually works.</div>
+<div class="q"><b>Reading beat inventing, measurably.</b> The replacement was found by reading the
+literature rather than deriving it, and the reading is what revealed that the obvious route was
+provably closed. The project's own vocabulary hides its connections to existing work, which is
+now a standing risk with a standing mitigation: before building a formula, find the established
+name of the problem.</div>
+<div class="q"><b>Four ground truths were wrong, all mine.</b>
 Size-matching every condition hid a size bias in the measure. Hand-identifying one loop instead
 of enumerating produced a critical/benign split that doesn't exist. And a function assumed
 decomposable because it's called "majority" turned out to be genuinely synergistic — whenever
-the first two disagree, the third decides alone. None was caught by reasoning; all three were
-caught by building the case that would expose them. That is the whole argument for the
-laboratory.</div>
+the first two disagree, the third decides alone. And the pure-noise control was a deterministic
+function of the variables it was supposed to be independent of. None was caught by reasoning; all
+four were caught by building the thing that would expose them. That is the whole argument for the
+laboratory — and the running count is the honest measure of how often careful reasoning about
+one's own constructions is simply wrong.</div>
 <div class="q"><b>Methodological.</b> The tunable measure passed invariance. Batteries do not
 substitute for one another, and a suite that only tests what we thought of will keep clearing
 formulas that fail in ways we didn't.</div>

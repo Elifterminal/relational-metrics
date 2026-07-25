@@ -47,9 +47,17 @@ class World:
 
 
 WORLDS: tuple[World, ...] = (
+    # First written as a pseudo-random function seeded on a, b and c. That is
+    # a DETERMINISTIC function of the drivers -- the opposite of a null, and
+    # it went unnoticed until EXP-011 showed the "null" carrying 0.36 bits of
+    # pairwise structure. Fourth instance of the same error class in this
+    # project: a property asserted from how the code reads rather than
+    # computed (R-12). Now Y is driven by `e`, which is outside DRIVERS, so
+    # independence of a, b, c holds by construction.
     World("null", 0, (),
-          "Y independent of everything. The pure null.",
-          lambda r: random.Random(r["a"] * 7 + r["b"] * 13 + r["c"] * 29).randint(0, 1)),
+          "Y = e, which is not among the drivers under test. Independent of "
+          "a, b and c by construction. The pure null.",
+          lambda r: r["e"]),
 
     World("order1", 1, ("a",),
           "Y = a. Single-variable dependence, no interaction at all.",

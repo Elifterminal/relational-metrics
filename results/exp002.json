@@ -12,78 +12,78 @@
     "null": {
       "true_arity": 0,
       "drivers": [],
-      "description": "Y independent of everything. The pure null.",
+      "description": "Y = e, which is not among the drivers under test. Independent of a, b and c by construction. The pure null.",
       "by_n": {
         "200": {
-          "omega_raw": -0.018,
-          "null_mean": 0.0035,
-          "omega_calibrated": -0.0216,
-          "z": -4.57,
-          "p_value": 1.0,
+          "omega_raw": 0.0045,
+          "null_mean": 0.0039,
+          "omega_calibrated": 0.0007,
+          "z": 0.11,
+          "p_value": 0.2893,
           "significant": false,
           "profile": {
             "singles": {
-              "a": 0.0052,
-              "b": 0.172,
-              "c": 0.1455
+              "a": 0.0002,
+              "b": 0.0045,
+              "c": 0.0001
             },
             "pairs": {
-              "ab": 0.353,
-              "ac": 0.3545,
-              "bc": 0.3468
+              "ab": 0.0067,
+              "ac": 0.0011,
+              "bc": 0.0212
             },
-            "triple": 0.7135,
-            "best_single": 0.172,
-            "best_pair": 0.3545,
-            "pairwise_ceiling_gap": 0.3591
+            "triple": 0.0287,
+            "best_single": 0.0045,
+            "best_pair": 0.0212,
+            "pairwise_ceiling_gap": 0.0075
           }
         },
         "1000": {
-          "omega_raw": -0.0221,
+          "omega_raw": 0.0007,
           "null_mean": 0.0007,
-          "omega_calibrated": -0.0228,
-          "z": -22.36,
-          "p_value": 1.0,
+          "omega_calibrated": -0.0,
+          "z": -0.01,
+          "p_value": 0.3441,
           "significant": false,
           "profile": {
             "singles": {
-              "a": 0.0021,
-              "b": 0.1631,
-              "c": 0.1615
+              "a": 0.0015,
+              "b": 0.0021,
+              "c": 0.0001
             },
             "pairs": {
-              "ab": 0.3556,
-              "ac": 0.3562,
-              "bc": 0.3532
+              "ab": 0.0039,
+              "ac": 0.0029,
+              "bc": 0.0024
             },
-            "triple": 0.7162,
-            "best_single": 0.1631,
-            "best_pair": 0.3562,
-            "pairwise_ceiling_gap": 0.36
+            "triple": 0.0061,
+            "best_single": 0.0021,
+            "best_pair": 0.0039,
+            "pairwise_ceiling_gap": 0.0023
           }
         },
         "5000": {
-          "omega_raw": -0.0571,
+          "omega_raw": -0.0,
           "null_mean": 0.0001,
-          "omega_calibrated": -0.0572,
-          "z": -254.97,
-          "p_value": 1.0,
+          "omega_calibrated": -0.0001,
+          "z": -0.8,
+          "p_value": 0.9776,
           "significant": false,
           "profile": {
             "singles": {
               "a": 0.0001,
-              "b": 0.1563,
-              "c": 0.1458
+              "b": 0.0001,
+              "c": 0.0
             },
             "pairs": {
-              "ab": 0.3743,
-              "ac": 0.3587,
-              "bc": 0.3603
+              "ab": 0.0003,
+              "ac": 0.0002,
+              "bc": 0.0004
             },
-            "triple": 0.7339,
-            "best_single": 0.1563,
-            "best_pair": 0.3743,
-            "pairwise_ceiling_gap": 0.3597
+            "triple": 0.0006,
+            "best_single": 0.0001,
+            "best_pair": 0.0004,
+            "pairwise_ceiling_gap": 0.0002
           }
         }
       }
@@ -598,8 +598,8 @@
   "separates_order3_from_redundant": false,
   "arity2_control": {
     "null": {
-      "omega_ab": 0.2179,
-      "omega_abc": -0.0571
+      "omega_ab": 0.0001,
+      "omega_abc": -0.0
     },
     "order1": {
       "omega_ab": 0.001,

@@ -1,0 +1,131 @@
+{
+  "experiment": "EXP-011",
+  "claim": "F-04a passes the acceptance test F-04 failed",
+  "n": 5000,
+  "noise": 0.05,
+  "n_permutations": 120,
+  "results": {
+    "null": {
+      "true_arity": 0,
+      "connected": {
+        "1": 0.0003,
+        "2": 0.0007,
+        "3": 0.0004,
+        "4": 0.0
+      },
+      "order4": 0.0,
+      "order3": 0.0004,
+      "order2": 0.0007,
+      "null_mean_order4": 0.0001,
+      "order4_calibrated": -0.0001,
+      "p_value": 1.0,
+      "significant": false,
+      "omega_F04": -0.0
+    },
+    "order1": {
+      "true_arity": 1,
+      "connected": {
+        "1": 0.0002,
+        "2": 0.7337,
+        "3": 0.0007,
+        "4": 0.0001
+      },
+      "order4": 0.0001,
+      "order3": 0.0007,
+      "order2": 0.7337,
+      "null_mean_order4": 0.0001,
+      "order4_calibrated": -0.0,
+      "p_value": 0.4545,
+      "significant": false,
+      "omega_F04": 0.0005
+    },
+    "order2": {
+      "true_arity": 2,
+      "connected": {
+        "1": 0.0006,
+        "2": 0.0006,
+        "3": 0.7335,
+        "4": 0.0001
+      },
+      "order4": 0.0001,
+      "order3": 0.7335,
+      "order2": 0.0006,
+      "null_mean_order4": 0.0001,
+      "order4_calibrated": -0.0,
+      "p_value": 0.3471,
+      "significant": false,
+      "omega_F04": 0.0003
+    },
+    "order3": {
+      "true_arity": 3,
+      "connected": {
+        "1": 0.0002,
+        "2": 0.0013,
+        "3": 0.0004,
+        "4": 0.7328
+      },
+      "order4": 0.7328,
+      "order3": 0.0004,
+      "order2": 0.0013,
+      "null_mean_order4": 0.0002,
+      "order4_calibrated": 0.7326,
+      "p_value": 0.0083,
+      "significant": true,
+      "omega_F04": 0.7328
+    },
+    "order3_and": {
+      "true_arity": 3,
+      "connected": {
+        "1": 0.3904,
+        "2": 0.2307,
+        "3": 0.0951,
+        "4": 0.0186
+      },
+      "order4": 0.0186,
+      "order3": 0.0951,
+      "order2": 0.2307,
+      "null_mean_order4": 0.0002,
+      "order4_calibrated": 0.0184,
+      "p_value": 0.0083,
+      "significant": true,
+      "omega_F04": 0.0433
+    },
+    "majority": {
+      "true_arity": 3,
+      "connected": {
+        "1": 0.0002,
+        "2": 0.6537,
+        "3": 0.0043,
+        "4": 0.0765
+      },
+      "order4": 0.0765,
+      "order3": 0.0043,
+      "order2": 0.6537,
+      "null_mean_order4": 0.0002,
+      "order4_calibrated": 0.0763,
+      "p_value": 0.0083,
+      "significant": true,
+      "omega_F04": 0.1159
+    },
+    "redundant": {
+      "true_arity": 1,
+      "connected": {
+        "1": 0.0029,
+        "2": 1.2296,
+        "3": 0.0004,
+        "4": 0.0004
+      },
+      "order4": 0.0004,
+      "order3": 0.0004,
+      "order2": 1.2296,
+      "null_mean_order4": 0.0001,
+      "order4_calibrated": 0.0003,
+      "p_value": 0.1488,
+      "significant": false,
+      "omega_F04": 0.0876
+    }
+  },
+  "acceptance_test_passes": true,
+  "reads_off_the_order": true,
+  "fixes_the_F04_defect": true
+}

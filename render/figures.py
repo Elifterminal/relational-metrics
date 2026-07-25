@@ -354,6 +354,68 @@ def fig_arity(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 8 — connected information by order (F-04a)
+# ---------------------------------------------------------------------------
+
+def fig_orders(data: dict) -> str:
+    W, H = 780, 420
+    L, R, T, B = 62, 200, 58, 74
+    pw, ph = W - L - R, H - T - B
+    worlds = list(data["results"])
+    orders = [("order 2 (pairwise)", "#94a3b8", "order2"),
+              ("order 3", "#2563eb", "order3"),
+              ("order 4 (all three + outcome)", "#dc2626", "order4")]
+    vmax = math.ceil(max(sum(max(data["results"][w][k], 0) for _, _, k in orders)
+                         for w in worlds) * 4) / 4
+
+    out = ['<text class="ttl" x="24" y="26">F-04a: structure lands at the order it actually belongs to</text>',
+           '<text class="sub" x="24" y="43">Connected information in bits — how much the maximum '
+           'possible entropy drops once marginals of that order are known.</text>']
+    for i in range(6):
+        v = i / 5 * vmax
+        y = T + ph - (v / vmax) * ph
+        out.append(f'<line class="ax" x1="{L}" y1="{y:.1f}" x2="{L+pw}" y2="{y:.1f}"/>')
+        out.append(f'<text class="tick" x="{L-9}" y="{y+4:.1f}" text-anchor="end">{v:.2f}</text>')
+
+    gw = pw / len(worlds)
+    bw = gw * 0.5
+    for wi, w in enumerate(worlds):
+        d = data["results"][w]
+        gx = L + wi * gw + (gw - bw) / 2
+        acc = 0.0
+        for lbl, col, key in orders:
+            v = max(d[key], 0.0)
+            if v <= 0:
+                continue
+            h = (v / vmax) * ph
+            y = T + ph - (acc / vmax) * ph - h
+            out.append(f'<rect x="{gx:.1f}" y="{y:.1f}" width="{bw:.1f}" '
+                       f'height="{h:.1f}" fill="{col}" rx="1.5"/>')
+            acc += v
+        sig = " *" if d["significant"] else ""
+        out.append(f'<text class="lbl" x="{gx+bw/2:.1f}" y="{T+ph+20}" '
+                   f'text-anchor="middle">{esc(w)}</text>')
+        out.append(f'<text class="sub" x="{gx+bw/2:.1f}" y="{T+ph+35}" '
+                   f'text-anchor="middle">arity {d["true_arity"]}{sig}</text>')
+
+    ly = T + 8
+    for lbl, col, _ in orders:
+        out.append(f'<rect x="{L+pw+20}" y="{ly-9}" width="13" height="12" fill="{col}" rx="2"/>')
+        out.append(f'<text class="lbl" x="{L+pw+39}" y="{ly+1}">{esc(lbl)}</text>')
+        ly += 21
+    out.append(f'<text class="sub" x="{L+pw+20}" y="{ly+16}">order2 -&gt; order 3.</text>')
+    out.append(f'<text class="sub" x="{L+pw+20}" y="{ly+31}">order3 -&gt; order 4.</text>')
+    out.append(f'<text class="sub" x="{L+pw+20}" y="{ly+52}">redundant puts ALL of</text>')
+    out.append(f'<text class="sub" x="{L+pw+20}" y="{ly+67}">its 1.23 bits at order 2</text>')
+    out.append(f'<text class="sub" x="{L+pw+20}" y="{ly+82}">— where it belongs.</text>')
+    out.append(f'<text class="sub" x="{L+pw+20}" y="{ly+97}">F-04 called it 3-way.</text>')
+    out.append(f'<text class="sub" x="24" y="{H-14}">'
+               '* marks a significant order-4 term against a 120-permutation null. '
+               'Every term is non-negative by construction, and they sum to the total.</text>')
+    return svg(W, H, "".join(out), "Connected information by order")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -419,6 +481,7 @@ def main() -> None:
     b = json.loads((RESULTS / "exp000b.json").read_text())
     c = json.loads((RESULTS / "exp000c.json").read_text())
     e2 = json.loads((RESULTS / "exp002.json").read_text())
+    e11 = json.loads((RESULTS / "exp011.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -433,6 +496,7 @@ def main() -> None:
         ]),
         "fig5_harness.svg": fig_harness(c),
         "fig7_arity.svg": fig_arity(e2),
+        "fig8_orders.svg": fig_orders(e11),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),
