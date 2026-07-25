@@ -286,6 +286,74 @@ def fig_harness(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 7 — arity: what the pairs can see vs what the triple can see
+# ---------------------------------------------------------------------------
+
+def fig_arity(data: dict) -> str:
+    W, H = 780, 430
+    L, R, T, B = 62, 176, 58, 74
+    pw, ph = W - L - R, H - T - B
+    big = str(data["sample_sizes"][-1])
+    worlds = list(data["results"])
+    series = [("best pair", "#94a3b8"), ("all three", "#2563eb"), ("Omega", "#dc2626")]
+    vals = []
+    for w in worlds:
+        d = data["results"][w]["by_n"][big]
+        vals += [d["profile"]["best_pair"], d["profile"]["triple"], d["omega_raw"]]
+    vmax = math.ceil(max(vals + [0]) * 10) / 10
+    vmin = min(math.floor(min(vals + [0]) * 10) / 10, 0.0)
+    span = (vmax - vmin) or 1
+
+    def py(v): return T + ph - ((v - vmin) / span) * ph
+    zero = py(0.0)
+
+    out = ['<text class="ttl" x="24" y="26">Arity: information visible to the pairs vs to the whole triple</text>',
+           '<text class="sub" x="24" y="43">Mutual information with the outcome, in bits. '
+           'Omega is the remainder after subtracting everything the subsets already explain.</text>']
+
+    for i in range(6):
+        v = vmin + i / 5 * span
+        y = py(v)
+        out.append(f'<line class="ax" x1="{L}" y1="{y:.1f}" x2="{L+pw}" y2="{y:.1f}"/>')
+        out.append(f'<text class="tick" x="{L-9}" y="{y+4:.1f}" text-anchor="end">{v:.1f}</text>')
+    out.append(f'<line x1="{L}" y1="{zero:.1f}" x2="{L+pw}" y2="{zero:.1f}" '
+               'stroke="var(--fg)" stroke-width="1.3" opacity="0.65"/>')
+
+    gw = pw / len(worlds)
+    bw = gw / (len(series) + 1.3)
+    for wi, w in enumerate(worlds):
+        d = data["results"][w]["by_n"][big]
+        gx = L + wi * gw
+        vv = [d["profile"]["best_pair"], d["profile"]["triple"], d["omega_raw"]]
+        for si, ((lbl, col), v) in enumerate(zip(series, vv)):
+            x = gx + bw * 0.65 + si * bw
+            y = py(v)
+            out.append(f'<rect x="{x:.1f}" y="{min(y,zero):.1f}" width="{bw*0.8:.1f}" '
+                       f'height="{abs(zero-y):.1f}" fill="{col}" rx="2"/>')
+        arity = data["results"][w]["true_arity"]
+        out.append(f'<text class="lbl" x="{gx+gw/2:.1f}" y="{T+ph+20}" '
+                   f'text-anchor="middle">{esc(w)}</text>')
+        out.append(f'<text class="sub" x="{gx+gw/2:.1f}" y="{T+ph+35}" '
+                   f'text-anchor="middle">true arity {arity}</text>')
+
+    ly = T + 8
+    for lbl, col in series:
+        out.append(f'<rect x="{L+pw+20}" y="{ly-9}" width="13" height="12" fill="{col}" rx="2"/>')
+        out.append(f'<text class="lbl" x="{L+pw+39}" y="{ly+1}">{esc(lbl)}</text>')
+        ly += 21
+    out.append(f'<text class="sub" x="{L+pw+20}" y="{ly+16}">order3: the pairs see</text>')
+    out.append(f'<text class="sub" x="{L+pw+20}" y="{ly+31}">NOTHING (0.0008) while</text>')
+    out.append(f'<text class="sub" x="{L+pw+31}" y="{ly+46}">the triple sees 0.734.</text>')
+    out.append(f'<text class="sub" x="{L+pw+20}" y="{ly+68}">redundant: Omega fires</text>')
+    out.append(f'<text class="sub" x="{L+pw+20}" y="{ly+83}">positive with ZERO</text>')
+    out.append(f'<text class="sub" x="{L+pw+20}" y="{ly+98}">synergy present.</text>')
+    out.append(f'<text class="sub" x="24" y="{H-14}">'
+               'The claim the project rests on is visible in `order3`. The defect that '
+               'demotes the statistic is visible in `redundant`.</text>')
+    return svg(W, H, "".join(out), "Arity: pairs vs triple")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -350,6 +418,7 @@ def main() -> None:
     a = json.loads((RESULTS / "exp000a.json").read_text())
     b = json.loads((RESULTS / "exp000b.json").read_text())
     c = json.loads((RESULTS / "exp000c.json").read_text())
+    e2 = json.loads((RESULTS / "exp002.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -363,6 +432,7 @@ def main() -> None:
             ("E", E, "one edge flipped"),
         ]),
         "fig5_harness.svg": fig_harness(c),
+        "fig7_arity.svg": fig_arity(e2),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

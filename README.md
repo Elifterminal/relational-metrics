@@ -35,8 +35,21 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-000b` | Can the replacement tell which changes matter? | No. Five of six single-edge changes score identically |
 | `EXP-000c` | Can the laboratory catch a cheat? | Yes — 7/7. And it caught a defect in the author's own measure |
 | `EXP-009` | Can composing relation signs recover significance? | Not as asked. The question was malformed. But sign survives translation |
+| `EXP-002` | **Does structure exist that no pair can see — and can we detect it?** | **It exists. We can't yet.** Best pair 0.0008 bits vs 0.7340 for the triple. The statistic for it is demoted |
 
-### The three findings worth your time
+### The findings worth your time
+
+**Structure that no pair can see is real.** In a world where the outcome is `a XOR b XOR c`,
+every pair of variables carries **0.0008 bits** about the outcome — nothing — while the three
+together carry **0.7340**. Decompose that into pairwise relations and the thing you were
+measuring is gone, not approximated. This is the claim the whole project rests on and it is now
+measured rather than argued.
+
+**The statistic written down to detect it doesn't work.** Same run, predeclared falsification
+condition, fired. Above two variables the remainder conflates *synergy* (the configuration does
+something the parts can't) with *redundancy* (several parts carry the same information). Make
+three variables exact copies of each other — zero synergy by construction — and it returns the
+maximum possible value. Sound at arity 2, unusable at arity 3, and arity 3 is the point.
 
 **A tunable penalty doesn't scale results, it reorders them.** The inherited formula divides match quality by a mapping-complexity penalty. That penalty charges for asserting correspondence *across vocabularies* — so it charges most for exactly the cross-domain analogy the whole thing exists to find. Above η=0.22 a near-miss beats a true analogue. Nobody would blink at η=0.22.
 
@@ -46,11 +59,11 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 
 ## Honest limits
 
-- One motif family. 5 nodes, 6 relations, **binary relations only**. The higher-arity structure the theory is actually about is completely untested.
+- Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
 - Four of five conditions hand-authored by the same party running the measure.
 - Exhaustive mapping search. Nothing here speaks to whether any of it computes at scale.
 - Rung 1 of 7 on the project's own evidence ladder ("mathematically coherent"). Rung 7 is "supports a broader physical interpretation" and is not currently reachable.
-- One ground truth in here was **wrong** and is corrected in place rather than quietly fixed. How the error happened matters more than the row it corrupted.
+- **Three** ground truths in here were wrong, all mine, all corrected in place rather than quietly fixed. Each was caught by computing something I had asserted from inspection. How the errors happened matters more than the rows they corrupted.
 
 ## Running it
 
@@ -62,6 +75,7 @@ python3 run_exp000a.py     # the penalty pathology
 python3 run_exp000b.py     # criticality blindness
 python3 run_exp000c.py     # harness self-test — run this before trusting anything
 python3 run_exp009.py      # cycle sign by typed composition
+python3 run_exp002.py      # higher-order recovery -- the arity claim
 
 cd ../render
 python3 figures.py         # regenerate the SVGs
@@ -79,6 +93,8 @@ lab/
   mapping.py         exhaustive search over candidate correspondences
   measures.py        the two correspondence measures, side by side
   composition.py     cycle sign by composing relation polarity
+  interaction.py     the higher-order remainder + permutation calibration
+  hyperworlds.py     synthetic worlds with a KNOWN interaction order
   worlds.py          the condition set — A/B/C/D/E/F plus a held-out case
   impostors.py       seven deliberately cheating methods
   run_exp*.py        the experiments

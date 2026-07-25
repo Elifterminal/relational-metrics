@@ -69,8 +69,96 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);
 
 
 
+METHOD_PANEL = """
+<h2 style="margin-top:26px">How the tests work</h2>
+<p class="sub">The rules every experiment here follows, and why they exist. The
+<b>Thesis</b> tab is what the project is for; <b>Tests &amp; results</b> is the running log.</p>
+
+<p>A relational framework can relate anything to anything if the criteria are loose enough.
+That is the characteristic failure of this family of ideas, and it usually kills the project
+<i>by succeeding</i> — producing striking, plausible, well-visualised connections that are
+worthless. Everything below exists to make that failure detectable.</p>
+
+<h3>1. Six statements before anything runs</h3>
+<p>No experiment starts without these on paper. If any is missing the result isn't admissible.</p>
+<table><thead><tr><th>#</th><th>what</th><th>why</th></tr></thead><tbody>
+<tr><td>1</td><td><b>Exact claim</b></td><td>One test, one sharply defined claim. Not "does this
+work" — "can it identify equivalent organisation when labels, coordinates and vocabulary all
+differ?"</td></tr>
+<tr><td>2</td><td><b>Intended signal</b></td><td>The specific feature that should cause success.
+If you can't name it, you can't tell success from luck.</td></tr>
+<tr><td>3</td><td><b>Rival explanations</b></td><td>Everything <i>else</i> that could produce
+the same result — listed before seeing any output.</td></tr>
+<tr><td>4</td><td><b>Positive control</b></td><td>A case where the signal is definitely there.</td></tr>
+<tr><td>5</td><td><b>Adversarial control</b></td><td>A case built to look convincing while
+lacking the signal.</td></tr>
+<tr><td>6</td><td><b>Falsification condition</b></td><td>The specific result that would make us
+reject the idea — written down first, so it can't be renegotiated afterwards.</td></tr>
+</tbody></table>
+
+<h3>2. The condition matrix</h3>
+<p>Comparing two things is not one test, it is five.</p>
+<table><thead><tr><th></th><th>surface</th><th>structure</th><th>required result</th></tr></thead>
+<tbody>
+<tr><td><b>A</b></td><td>same</td><td>same</td><td>high</td></tr>
+<tr><td><b>B</b></td><td>different</td><td>same</td><td><b>high</b> — can it see past vocabulary</td></tr>
+<tr><td><b>C</b></td><td>same</td><td>different</td><td><b>low</b> — is it just reading words</td></tr>
+<tr><td><b>D</b></td><td>different</td><td>different</td><td>low</td></tr>
+<tr><td><b>E</b></td><td>persuasively similar</td><td><i>almost</i>, critically different</td>
+<td><b>must locate the mismatch</b></td></tr>
+</tbody></table>
+<p>B and C are the real tests. <b>E matters most</b>: two systems both containing feedback, where
+one settles and one runs away. A vague measure calls them identical. A useful one keeps them
+apart and says where.</p>
+
+<h3>3. The impostors</h3>
+<p>Before a measure is trusted, methods that <i>cheat</i> get built and the controls have to
+catch all of them: ones that read node names, count edges, compare densities or degree
+sequences, predict a constant, memorise the development set, or refit a parameter after seeing
+each pair. They aren't strawmen — each is a shortcut a real implementation could take by
+accident.</p>
+<p>This has already paid for itself twice. The first version of the battery caught six of seven,
+and fixing the seventh is what exposed a defect in the <i>real</i> measure.</p>
+
+<h3>4. Evidence rungs</h3>
+<p>Every claim states its rung. They are not interchangeable, and nothing here is above rung 1.</p>
+<table><thead><tr><th>rung</th><th>means</th></tr></thead><tbody>
+<tr><td>1</td><td>mathematically coherent — well-formed, behaves consistently</td></tr>
+<tr><td>2</td><td>recovers planted ground truth in synthetic worlds</td></tr>
+<tr><td>3</td><td>transfers across independently written generators</td></tr>
+<tr><td>4</td><td>works on natural data</td></tr>
+<tr><td>5</td><td>improves a real application against relevant baselines</td></tr>
+<tr><td>6</td><td>predicts something withheld</td></tr>
+<tr><td>7</td><td>supports a broader physical interpretation — <i>not currently reachable</i></td></tr>
+</tbody></table>
+
+<h3>5. Two rules learned the hard way</h3>
+<div class="read warn"><b>A controlled experiment is blind exactly where it controls.</b>
+Matching every condition on some property removes it as a confound <i>and</i> makes every defect
+that operates through it undetectable. Measured twice here. Practice: for every property a
+condition set holds fixed, keep one condition where it varies.</div>
+<div class="read warn"><b>Never state a synthetic ground truth from inspection.</b> In a world
+you built yourself it feels certain — which is the trap. Twice now a "known" answer written
+from looking at it turned out wrong when enumerated: a structure had two feedback loops rather
+than one, and a function assumed to be decomposable wasn't. Compute the ground truth with code,
+from the same object the measure sees.</div>
+
+<h3>6. What gets reported</h3>
+<ul>
+<li>Never a single number as the outcome — a profile, not a score.</li>
+<li>Which rung, which controls survived, and <b>which rival explanations are still live</b>.</li>
+<li>Failures written up with the same care as successes. Two of the results in this log are
+failures of the author's own proposals, and one is a correction to an earlier entry.</li>
+<li>The question is never "did it work". It is: <i>which precise claim survived which controls,
+and what else could still explain this?</i></li>
+</ul>
+"""
+
+
 PROJECT_PANEL = """
 <h2 style="margin-top:26px">What this is trying to be</h2>
+<p class="sub">The standing explanation: goals, architecture, predictions, applications.
+<b>Tests &amp; results</b> is the experimental log — every test and result as it lands.</p>
 <p>A small set of <b>general, domain-neutral relational quantities</b> — the kind of compact
 reusable relationship you can carry into a new field by supplying units and relation types.
 Not one giant master equation. The comparison is E=mc²: you don't need to compute an entire
@@ -89,6 +177,36 @@ prediction, a chord</td><td>domain-specific, and that's fine</td></tr>
 <p>The one-line commitment underneath all of it: <b>relational completeness belongs to reality;
 relational selectivity belongs to observers.</b> Reality contains the whole structure. Any
 instrument receives a projection. The map's edge is the instrument's edge — never reality's.</p>
+
+<h2>Arity — the claim everything rests on</h2>
+<p>An ordinary graph records relations between <b>pairs</b>. A relation's <b>arity</b> is how
+many participants it involves: <code>causes(erosion, capacity)</code> has arity 2,
+<code>evidence(claim, observation, method)</code> has arity 3.</p>
+<p>The load-bearing claim of this whole project is that <b>some structure exists only in
+configurations of three or more participants, and is not recoverable from any collection of the
+pairs inside it.</b></p>
+<p>A concrete case. Suppose an outcome happens only when three conditions hold together —
+<code>Y = a AND b AND c</code>. Look at any single condition: no signal. Look at any pair: still
+no reliable signal, because the third is missing half the time. Only the full triple predicts
+anything. Decompose that into pairwise relations and the thing you were trying to measure is
+gone — not approximated, <i>gone</i>. The same shape shows up in evidence (a statement becomes
+evidence only in the presence of a claim, an observation and a method), in chemistry, in
+epistasis between genes, and in most of what people mean informally by "context".</p>
+<p>This is why the project can't just be graph similarity with better vocabulary. If everything
+interesting were pairwise, existing graph methods would already do it and there would be nothing
+here to build.</p>
+<div class="read warn"><b>And it is the biggest untested gap.</b> Every experiment on the
+Findings tab so far uses <b>arity 2 only</b>. Binary relations, five participants, one motif.
+So everything demonstrated to date could in principle be done by ordinary graph methods — the
+findings are about measurement hygiene, which is real and necessary, but they are not yet
+evidence for the distinctive claim. The statistic meant to detect higher-arity structure
+(subtract everything the smaller subsets already explain; whatever remains needed the whole
+configuration) is written down and has never been run.</p>
+<p>Two ways it can fail, and they need separating. It might miss interactions that are really
+there. Or it might fire on interactions that aren't — because the residual it measures also
+appears when the model is simply wrong about something else. A statistic that cannot tell
+"genuine higher-order structure" from "my model is misspecified" is not measuring what it
+claims to.</div>
 
 <h2>Predictions</h2>
 <p>Written down in advance so they can be wrong in public. A prediction that gets quietly
@@ -199,6 +317,19 @@ def build() -> str:
     figs = json.loads((RESULTS / "figures_inline.json").read_text())
     c = json.loads((RESULTS / "exp000c.json").read_text())
     e9 = json.loads((RESULTS / "exp009.json").read_text())
+    e2 = json.loads((RESULTS / "exp002.json").read_text())
+    big2 = str(e2["sample_sizes"][-1])
+    e2_rows = "".join(
+        f"<tr><td><code>{w}</code></td><td>{r['true_arity']}</td>"
+        f"<td>{r['by_n'][big2]['profile']['best_pair']:.4f}</td>"
+        f"<td>{r['by_n'][big2]['profile']['triple']:.4f}</td>"
+        f"<td><b>{r['by_n'][big2]['omega_raw']:.4f}</b></td>"
+        f"<td>{r['by_n'][big2]['p_value']:.4f}</td></tr>"
+        for w, r in e2["results"].items())
+    a2 = e2["arity2_control"]
+    a2_rows = "".join(
+        f"<tr><td><code>{w}</code></td><td>{v['omega_ab']:+.4f}</td>"
+        f"<td>{v['omega_abc']:+.4f}</td></tr>" for w, v in a2.items())
 
     e9_rows = "".join(
         f"<tr><td><code>{r['edge']}</code></td>"
@@ -249,14 +380,21 @@ measurement you can trust — not evidence that relational measurement works.</p
 </header>
 
 <nav class="tabs">
-<button class="tab active" data-panel="findings">Findings</button>
-<button class="tab" data-panel="project">The Project</button>
+<button class="tab active" data-panel="method">How the tests work</button>
+<button class="tab" data-panel="project">The thesis</button>
+<button class="tab" data-panel="findings">Tests &amp; results</button>
 </nav>
 
-<div class="panel active" id="findings">
+<div class="panel active" id="method">{METHOD_PANEL}</div>
+
+<div class="panel" id="findings">
 
 <div class="card">
 <h3 style="margin-top:0">What you are looking at</h3>
+<p class="sub" style="margin-bottom:12px"><b>This tab is the running record of tests and their
+results</b> — one section per experiment, added as they run, including the ones that failed and
+the three that caught errors in my own work. For the rules every experiment follows see
+<b>How the tests work</b>; for what the project is <i>for</i> see <b>The thesis</b>.</p>
 <p>Before trusting a relational measure, the protocol requires showing the laboratory can
 catch a method that cheats. These two runs do something slightly stronger: they take the
 correspondence formula we inherited from the founding conversation and show it contains a
@@ -402,6 +540,48 @@ held-out traffic one — polarity travels with the relation type, not the vocabu
 structures agree about every reinforcing and self-limiting loop they contain despite sharing
 no words. Sign survives translation.</div>
 
+<h2>Finding 6 — the central claim demonstrated, and the statistic for it demoted</h2>
+<p>Everything above uses <b>arity 2</b>. So none of it touched the one claim that makes this
+project different from ordinary graph similarity: that some structure exists only in
+configurations of three or more participants and cannot be recovered from the pairs inside it.</p>
+<p>Six synthetic worlds where the true arity of the dependence is generated by an explicit rule,
+not identified by eye. Five drivers, only some matter, 5% outcome noise, 400-permutation
+calibration.</p>
+<div class="fig">{figs['fig7_arity.svg']}</div>
+<table><thead><tr><th>world</th><th>true arity</th><th>best pair</th><th>all three</th>
+<th>Ω</th><th>p</th></tr></thead><tbody>{e2_rows}</tbody></table>
+<div class="read ok"><b>The claim is real.</b> Look at <code>order3</code>
+(<code>Y = a XOR b XOR c</code>). The best pair carries <b>0.0008 bits</b> — nothing at all —
+while the three together carry <b>0.7340</b>. Structure completely invisible to every pair
+inside it, and the remainder recovers essentially all of it (0.7328, p=0.0025). This is the
+thing the theory is about, and it exists.</div>
+<div class="read warn"><b>And the statistic meant to detect it does not work.</b> The
+falsification condition was: if Ω can't separate genuine three-way structure from a world where
+three variables are involved but contribute no synergy, it should be demoted. It can't.
+<code>redundant</code> — where <code>b</code> and <code>c</code> are just noisy copies of
+<code>a</code>, so there is zero synergy by construction — fires at Ω = 0.0876, p = 0.0025.</div>
+<h3>Why, exactly</h3>
+<p>Pushed to the clean case: make <code>b</code> and <code>c</code> <i>exact</i> copies of
+<code>a</code>. Every subset then carries the same information H, and the alternating sum
+becomes</p>
+<p style="text-align:center"><code>Ω = H − 3H + 3H = +H</code></p>
+<p>Measured: <b>Ω = 1.0000</b> on perfect redundancy — the maximum possible, identical to what
+perfect synergy would give. The statistic is reporting <i>how much information is present among
+these participants</i>, not <i>how much required all of them at once</i>.</p>
+<h3>Where it breaks — and where it doesn't</h3>
+<table><thead><tr><th>world</th><th>Ω over the pair</th><th>Ω over the triple</th></tr></thead>
+<tbody>{a2_rows}</tbody></table>
+<div class="read"><b>Reading.</b> At arity 2 the sign convention is correct:
+<code>redundant</code> gives <b>−0.2118</b> — negative, properly marking redundancy — while pure
+pairwise synergy gives +0.7329. At arity 3 the same redundancy flips to <b>+0.0876</b> and
+becomes indistinguishable from synergy. The failure isn't "the statistic is broken." It is
+specific to arity ≥ 3, which is exactly the regime the theory needs it for.</div>
+<p>This is a known hazard in information theory rather than a novel discovery — interaction
+information conflates synergy and redundancy above two variables, which is why partial
+information decomposition exists. What's new here is only that it was measured against a
+predeclared falsification condition rather than assumed away, and the formula is demoted
+accordingly.</p>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -415,11 +595,19 @@ Composition buys real information and costs nothing cross-domain, so it stays. B
 "how many loops did this disturb", not "does this matter". The harder discovery is that the
 question itself was sloppy: a structure with several interacting loops has no single behaviour
 to invert. Significance needs a sharper definition before a measure can be built for it.</div>
-<div class="q"><b>Two ground truths were wrong, both mine, both found by widening a control.</b>
+<div class="q"><b>The central claim is demonstrated; the instrument for it is not.</b> Structure
+that no pair can see does exist and is recoverable in principle — that much is now measured
+rather than asserted. But the statistic written down to detect it conflates "several
+participants carry information" with "the configuration does something the parts cannot," which
+is precisely the distinction the whole project turns on. Needs replacing with a decomposition
+that separates synergy from redundancy, not patching.</div>
+<div class="q"><b>Three ground truths were wrong, all mine, all found by widening a control.</b>
 Size-matching every condition hid a size bias in the measure. Hand-identifying one loop instead
-of enumerating produced a critical/benign split that doesn't exist. Neither was caught by
-reasoning — both were caught by building the case that would expose them. That is the whole
-argument for the laboratory.</div>
+of enumerating produced a critical/benign split that doesn't exist. And a function assumed
+decomposable because it's called "majority" turned out to be genuinely synergistic — whenever
+the first two disagree, the third decides alone. None was caught by reasoning; all three were
+caught by building the case that would expose them. That is the whole argument for the
+laboratory.</div>
 <div class="q"><b>Methodological.</b> The tunable measure passed invariance. Batteries do not
 substitute for one another, and a suite that only tests what we thought of will keep clearing
 formulas that fail in ways we didn't.</div>
