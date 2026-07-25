@@ -1,0 +1,253 @@
+{
+  "experiment": "EXP-013",
+  "n": 20000,
+  "noise": 0.05,
+  "metric": "retention = I(Y; visible) / I(Y; all)",
+  "sweep_arity_parity": {
+    "parity_k3": {
+      "full_bits": 0.7056,
+      "best_partial_bits": 0.0002,
+      "worst_partial_bits": 0.0001,
+      "retention_best": 0.0003,
+      "retention_worst": 0.0001,
+      "per_hidden": {
+        "a": 0.0001,
+        "b": 0.0001,
+        "c": 0.0002
+      }
+    },
+    "parity_k4": {
+      "full_bits": 0.7216,
+      "best_partial_bits": 0.0004,
+      "worst_partial_bits": 0.0002,
+      "retention_best": 0.0006,
+      "retention_worst": 0.0002,
+      "per_hidden": {
+        "a": 0.0003,
+        "b": 0.0004,
+        "c": 0.0002,
+        "d": 0.0002
+      }
+    },
+    "parity_k5": {
+      "full_bits": 0.7211,
+      "best_partial_bits": 0.0008,
+      "worst_partial_bits": 0.0005,
+      "retention_best": 0.0011,
+      "retention_worst": 0.0007,
+      "per_hidden": {
+        "a": 0.0005,
+        "b": 0.0006,
+        "c": 0.0005,
+        "d": 0.0008,
+        "e": 0.0006
+      }
+    }
+  },
+  "sweep_structure_type": {
+    "parity_k3": {
+      "full_bits": 0.7056,
+      "best_partial_bits": 0.0002,
+      "worst_partial_bits": 0.0001,
+      "retention_best": 0.0003,
+      "retention_worst": 0.0001,
+      "per_hidden": {
+        "a": 0.0001,
+        "b": 0.0001,
+        "c": 0.0002
+      }
+    },
+    "and_k3": {
+      "full_bits": 0.348,
+      "best_partial_bits": 0.1728,
+      "worst_partial_bits": 0.1695,
+      "retention_best": 0.4965,
+      "retention_worst": 0.4871,
+      "per_hidden": {
+        "a": 0.1728,
+        "b": 0.1703,
+        "c": 0.1695
+      }
+    },
+    "or_k3": {
+      "full_bits": 0.3387,
+      "best_partial_bits": 0.1703,
+      "worst_partial_bits": 0.1645,
+      "retention_best": 0.5028,
+      "retention_worst": 0.4857,
+      "per_hidden": {
+        "a": 0.1676,
+        "b": 0.1703,
+        "c": 0.1645
+      }
+    },
+    "majority_k3": {
+      "full_bits": 0.7055,
+      "best_partial_bits": 0.3525,
+      "worst_partial_bits": 0.3461,
+      "retention_best": 0.4996,
+      "retention_worst": 0.4905,
+      "per_hidden": {
+        "a": 0.3461,
+        "b": 0.3461,
+        "c": 0.3525
+      }
+    },
+    "threshold2_k3": {
+      "full_bits": 0.7055,
+      "best_partial_bits": 0.3525,
+      "worst_partial_bits": 0.3461,
+      "retention_best": 0.4996,
+      "retention_worst": 0.4905,
+      "per_hidden": {
+        "a": 0.3461,
+        "b": 0.3461,
+        "c": 0.3525
+      }
+    },
+    "parity_k4": {
+      "full_bits": 0.7216,
+      "best_partial_bits": 0.0004,
+      "worst_partial_bits": 0.0002,
+      "retention_best": 0.0006,
+      "retention_worst": 0.0002,
+      "per_hidden": {
+        "a": 0.0003,
+        "b": 0.0004,
+        "c": 0.0002,
+        "d": 0.0002
+      }
+    },
+    "and_k4": {
+      "full_bits": 0.2062,
+      "best_partial_bits": 0.1149,
+      "worst_partial_bits": 0.1099,
+      "retention_best": 0.5574,
+      "retention_worst": 0.5327,
+      "per_hidden": {
+        "a": 0.1099,
+        "b": 0.1129,
+        "c": 0.1149,
+        "d": 0.1122
+      }
+    },
+    "or_k4": {
+      "full_bits": 0.201,
+      "best_partial_bits": 0.1164,
+      "worst_partial_bits": 0.1105,
+      "retention_best": 0.5794,
+      "retention_worst": 0.5499,
+      "per_hidden": {
+        "a": 0.1151,
+        "b": 0.1164,
+        "c": 0.1105,
+        "d": 0.1143
+      }
+    },
+    "threshold2_k4": {
+      "full_bits": 0.629,
+      "best_partial_bits": 0.3683,
+      "worst_partial_bits": 0.358,
+      "retention_best": 0.5855,
+      "retention_worst": 0.5692,
+      "per_hidden": {
+        "a": 0.3622,
+        "b": 0.358,
+        "c": 0.3683,
+        "d": 0.3664
+      }
+    }
+  },
+  "sweep_involvement": {
+    "w_0.0": {
+      "full_bits": 0.7261,
+      "best_partial_bits": 0.7259,
+      "worst_partial_bits": 0.0,
+      "retention_best": 0.9997,
+      "retention_worst": 0.0,
+      "per_hidden": {
+        "a": 0.0,
+        "b": 0.0001,
+        "c": 0.7259
+      },
+      "hiding_c_bits": 0.7259
+    },
+    "w_0.2": {
+      "full_bits": 0.4692,
+      "best_partial_bits": 0.4184,
+      "worst_partial_bits": 0.0,
+      "retention_best": 0.8916,
+      "retention_worst": 0.0001,
+      "per_hidden": {
+        "a": 0.0,
+        "b": 0.0001,
+        "c": 0.4184
+      },
+      "hiding_c_bits": 0.4184
+    },
+    "w_0.4": {
+      "full_bits": 0.3687,
+      "best_partial_bits": 0.2214,
+      "worst_partial_bits": 0.0,
+      "retention_best": 0.6006,
+      "retention_worst": 0.0001,
+      "per_hidden": {
+        "a": 0.0,
+        "b": 0.0001,
+        "c": 0.2214
+      },
+      "hiding_c_bits": 0.2214
+    },
+    "w_0.6": {
+      "full_bits": 0.3704,
+      "best_partial_bits": 0.0951,
+      "worst_partial_bits": 0.0001,
+      "retention_best": 0.2568,
+      "retention_worst": 0.0002,
+      "per_hidden": {
+        "a": 0.0001,
+        "b": 0.0001,
+        "c": 0.0951
+      },
+      "hiding_c_bits": 0.0951
+    },
+    "w_0.8": {
+      "full_bits": 0.4703,
+      "best_partial_bits": 0.0239,
+      "worst_partial_bits": 0.0,
+      "retention_best": 0.0507,
+      "retention_worst": 0.0001,
+      "per_hidden": {
+        "a": 0.0,
+        "b": 0.0001,
+        "c": 0.0239
+      },
+      "hiding_c_bits": 0.0239
+    },
+    "w_1.0": {
+      "full_bits": 0.7261,
+      "best_partial_bits": 0.0001,
+      "worst_partial_bits": 0.0,
+      "retention_best": 0.0001,
+      "retention_worst": 0.0,
+      "per_hidden": {
+        "a": 0.0,
+        "b": 0.0001,
+        "c": 0.0001
+      },
+      "hiding_c_bits": 0.0001
+    }
+  },
+  "parity_cliffs_at_every_arity": true,
+  "non_parity_structures_retain": true,
+  "involvement_curve_monotone": true,
+  "involvement_curve": [
+    0.7259,
+    0.4184,
+    0.2214,
+    0.0951,
+    0.0239,
+    0.0001
+  ],
+  "cliff_is_general": false
+}

@@ -511,6 +511,69 @@ def fig_cliff(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 11 — the cliff is a gradient
+# ---------------------------------------------------------------------------
+
+def fig_gradient(data: dict) -> str:
+    W, H = 800, 400
+    L, R, T, B = 62, 250, 62, 58
+    pw, ph = W - L - R, H - T - B
+    ws = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+    curve = []
+    for w in ws:
+        v = data["sweep_involvement"][f"w_{w:.1f}"]
+        full = v["full_bits"]
+        curve.append(v["per_hidden"]["c"] / full if full > 1e-9 else 0.0)
+
+    def px(w): return L + w * pw
+    def py(v): return T + ph - v * ph
+
+    out = ['<text class="ttl" x="24" y="26">The cliff is the endpoint of a gradient, not a wall</text>',
+           '<text class="sub" x="24" y="44">Information retained after hiding one participant, '
+           'as that participant goes from irrelevant to essential.</text>']
+    for i in range(6):
+        v = i / 5
+        y = py(v)
+        out.append(f'<line class="ax" x1="{L}" y1="{y:.1f}" x2="{L+pw}" y2="{y:.1f}"/>')
+        out.append(f'<text class="tick" x="{L-9}" y="{y+4:.1f}" text-anchor="end">{v:.1f}</text>')
+    for w in ws:
+        x = px(w)
+        out.append(f'<text class="tick" x="{x:.1f}" y="{T+ph+18}" text-anchor="middle">{w:.1f}</text>')
+    out.append(f'<text class="lbl" x="{L+pw/2:.0f}" y="{H-14}" text-anchor="middle">'
+               'how often the hidden participant actually matters</text>')
+    out.append(f'<text class="lbl" transform="translate(18,{T+ph/2:.0f}) rotate(-90)" '
+               'text-anchor="middle">information retained</text>')
+
+    pts = " ".join(f"{px(w):.1f},{py(v):.1f}" for w, v in zip(ws, curve))
+    out.append(f'<polyline points="{pts}" fill="none" stroke="#2563eb" stroke-width="2.6"/>')
+    for w, v in zip(ws, curve):
+        out.append(f'<circle cx="{px(w):.1f}" cy="{py(v):.1f}" r="4" fill="#2563eb"/>')
+        out.append(f'<text class="tick" x="{px(w):.1f}" y="{py(v)-11:.1f}" '
+                   f'text-anchor="middle">{v:.2f}</text>')
+
+    # reference band for real structures
+    types = data["sweep_structure_type"]
+    band = [v["retention_best"] for k, v in types.items() if not k.startswith("parity")]
+    lo, hi = min(band), max(band)
+    out.append(f'<rect x="{L}" y="{py(hi):.1f}" width="{pw}" height="{py(lo)-py(hi):.1f}" '
+               'fill="#15803d" opacity="0.10"/>')
+    out.append(f'<text class="sub" x="{L+8}" y="{py(hi)-6:.1f}" fill="#15803d">'
+               'where AND / OR / majority / threshold actually sit</text>')
+
+    ly = T + 10
+    for lbl in ["parity is the ONLY structure", "that vanishes completely.",
+                "It is built so no subset",
+                "carries any information —", "the worst case, by",
+                "construction.", "",
+                "Everything with lower-order",
+                "leakage keeps roughly half",
+                "of what it had."]:
+        out.append(f'<text class="sub" x="{L+pw+22}" y="{ly}">{esc(lbl)}</text>')
+        ly += 16
+    return svg(W, H, "".join(out), "Retention gradient")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -579,6 +642,7 @@ def main() -> None:
     e11 = json.loads((RESULTS / "exp011.json").read_text())
     e12 = json.loads((RESULTS / "exp012.json").read_text())
     e10 = json.loads((RESULTS / "exp010.json").read_text())
+    e13 = json.loads((RESULTS / "exp013.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -596,6 +660,7 @@ def main() -> None:
         "fig8_orders.svg": fig_orders(e11),
         "fig9_relevance.svg": fig_relevance(e12),
         "fig10_cliff.svg": fig_cliff(e10),
+        "fig11_gradient.svg": fig_gradient(e13),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

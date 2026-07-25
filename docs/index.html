@@ -635,7 +635,15 @@ accessible and what gets resolved, made concrete.</p>
   .ntxt { fill: var(--fg); font: 10px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; }
 </style>
 <rect class="bg" width="760" height="380"/><text class="ttl" x="24" y="26">Partial observation does not weaken higher-order structure. It erases it.</text><text class="sub" x="24" y="45">The same three-way dependence, measured with every participant visible and with one hidden.</text><text class="lbl" x="238" y="101.5" text-anchor="end">all three participants</text><rect x="250" y="79.9" width="360.0" height="35.3" fill="#2563eb" rx="2"/><text class="tick" x="619.0" y="101.5" fill="#2563eb">0.7246</text><text class="lbl" x="238" y="164.5" text-anchor="end">missing one (c)</text><rect x="250" y="142.9" width="1.2" height="35.3" fill="#dc2626" rx="2"/><text class="tick" x="260.2" y="164.5" fill="#dc2626">0.00000</text><text class="lbl" x="238" y="227.5" text-anchor="end">missing one (b)</text><rect x="250" y="205.9" width="1.2" height="35.3" fill="#dc2626" rx="2"/><text class="tick" x="260.2" y="227.5" fill="#dc2626">0.00053</text><text class="lbl" x="238" y="290.5" text-anchor="end">missing one, 5x the data</text><rect x="250" y="268.9" width="1.2" height="35.3" fill="#dc2626" rx="2"/><text class="tick" x="260.2" y="290.5" fill="#dc2626">0.00006</text><text class="sub" x="24" y="340">A three-way dependence marginalised over one of its three participants is uniform. There is nothing left to detect —</text><text class="sub" x="24" y="356">not a faint signal, nothing. Five times the data moves it from 0.00005 to 0.00006. This is an identifiability limit,</text><text class="sub" x="24" y="372">not a power limit: no quantity of observation recovers it.</text></svg></div>
-<div class="read warn"><b>This is a cliff, not a slope, and it is the most consequential result
+<div class="read warn" style="border-color:#dc2626"><b>⚠ CORRECTED by Finding 10.</b> What
+follows is true and was <i>over-generalised</i>. It was measured on parity — the maximally
+synergistic function there is, built so that no subset of its inputs carries any information at
+all. That is the worst case by construction. Finding 10 tests four other structure types and
+finds they retain roughly <b>half</b> their information under the same treatment. The cliff is
+real and it is the endpoint of a gradient, not a universal wall. The claim as originally written
+— "you either observe a configuration whole or you detect nothing" — is <b>false for anything
+except pure synergy</b>. Left visible rather than edited away.</div>
+<div class="read warn"><b>This is a cliff for parity, and it is the most consequential result
 here for anything practical.</b> With all three participants visible the dependence is
 unmistakable: <b>0.7246</b>. Hide any one of them and it reads <b>0.00000</b>. Not weakened —
 gone. A three-way dependence marginalised over one of its three participants is <i>uniform</i>;
@@ -663,6 +671,67 @@ cannot be defined without naming a question.</b> That is not a missing feature o
 to be engineered around. It is a property of the subject matter, and it is now measured from
 three independent directions rather than assumed.</div>
 
+<h2>Finding 10 — the cliff is a gradient, and the last finding was over-stated</h2>
+<p>Finding 9 concluded that partial observation erases higher-order structure, and turned that
+into a governing constraint on applications. But it was measured on <b>parity</b> — a function
+built so that no subset of its inputs carries any information whatsoever. That is the worst case
+by construction, and generalising a constraint from its worst case is how a true finding becomes
+a false rule.</p>
+
+<h3>Parity does cliff, at every arity</h3>
+<table><thead><tr><th>world</th><th>all visible</th><th>one hidden</th><th>retained</th></tr>
+</thead><tbody><tr><td><code>parity_k3</code></td><td>0.7056</td><td>0.0002</td><td><b>0.0003</b></td></tr><tr><td><code>parity_k4</code></td><td>0.7216</td><td>0.0004</td><td><b>0.0006</b></td></tr><tr><td><code>parity_k5</code></td><td>0.7211</td><td>0.0008</td><td><b>0.0011</b></td></tr></tbody></table>
+<p>Three, four or five participants — retention stays under 0.2%. That part of Finding 9 holds
+without qualification.</p>
+
+<h3>Nothing else does</h3>
+<table><thead><tr><th>world</th><th>all visible</th><th>one hidden</th><th>retained</th></tr>
+</thead><tbody><tr><td><code>parity_k3</code></td><td>0.7056</td><td>0.0002</td><td><b>0.0003</b></td></tr><tr><td><code>and_k3</code></td><td>0.3480</td><td>0.1728</td><td><b>0.4965</b></td></tr><tr><td><code>or_k3</code></td><td>0.3387</td><td>0.1703</td><td><b>0.5028</b></td></tr><tr><td><code>majority_k3</code></td><td>0.7055</td><td>0.3525</td><td><b>0.4996</b></td></tr><tr><td><code>threshold2_k3</code></td><td>0.7055</td><td>0.3525</td><td><b>0.4996</b></td></tr><tr><td><code>parity_k4</code></td><td>0.7216</td><td>0.0004</td><td><b>0.0006</b></td></tr><tr><td><code>and_k4</code></td><td>0.2062</td><td>0.1149</td><td><b>0.5574</b></td></tr><tr><td><code>or_k4</code></td><td>0.2010</td><td>0.1164</td><td><b>0.5794</b></td></tr><tr><td><code>threshold2_k4</code></td><td>0.6290</td><td>0.3683</td><td><b>0.5855</b></td></tr></tbody></table>
+<div class="read ok"><b>Reading.</b> AND, OR, majority and threshold functions all retain
+<b>roughly half</b> their outcome-relevant information when a participant is hidden — about 50%
+at three participants and slightly more at four. They have lower-order leakage: knowing some of
+the inputs genuinely tells you something. Parity is the only structure here with none, and it is
+the only one that vanishes.</div>
+
+<h3>And the shape between them is smooth</h3>
+<p>Take a participant that matters only some of the time, and sweep how often.</p>
+<div class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-label="Retention gradient">
+<style>
+  :root { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  }
+  :root[data-theme="dark"] { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  :root[data-theme="light"] { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  .bg { fill: var(--bg); }
+  .ax { stroke: var(--grid); stroke-width: 1; }
+  .tick { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .lbl { fill: var(--fg); font: 12px ui-sans-serif, system-ui, sans-serif; }
+  .ttl { fill: var(--fg); font: 600 14px ui-sans-serif, system-ui, sans-serif; }
+  .sub { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .node { fill: var(--bg); stroke: var(--fg); stroke-width: 1.5; }
+  .ntxt { fill: var(--fg); font: 10px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; }
+</style>
+<rect class="bg" width="800" height="400"/><text class="ttl" x="24" y="26">The cliff is the endpoint of a gradient, not a wall</text><text class="sub" x="24" y="44">Information retained after hiding one participant, as that participant goes from irrelevant to essential.</text><line class="ax" x1="62" y1="342.0" x2="550" y2="342.0"/><text class="tick" x="53" y="346.0" text-anchor="end">0.0</text><line class="ax" x1="62" y1="286.0" x2="550" y2="286.0"/><text class="tick" x="53" y="290.0" text-anchor="end">0.2</text><line class="ax" x1="62" y1="230.0" x2="550" y2="230.0"/><text class="tick" x="53" y="234.0" text-anchor="end">0.4</text><line class="ax" x1="62" y1="174.0" x2="550" y2="174.0"/><text class="tick" x="53" y="178.0" text-anchor="end">0.6</text><line class="ax" x1="62" y1="118.0" x2="550" y2="118.0"/><text class="tick" x="53" y="122.0" text-anchor="end">0.8</text><line class="ax" x1="62" y1="62.0" x2="550" y2="62.0"/><text class="tick" x="53" y="66.0" text-anchor="end">1.0</text><text class="tick" x="62.0" y="360" text-anchor="middle">0.0</text><text class="tick" x="159.6" y="360" text-anchor="middle">0.2</text><text class="tick" x="257.2" y="360" text-anchor="middle">0.4</text><text class="tick" x="354.8" y="360" text-anchor="middle">0.6</text><text class="tick" x="452.4" y="360" text-anchor="middle">0.8</text><text class="tick" x="550.0" y="360" text-anchor="middle">1.0</text><text class="lbl" x="306" y="386" text-anchor="middle">how often the hidden participant actually matters</text><text class="lbl" transform="translate(18,202) rotate(-90)" text-anchor="middle">information retained</text><polyline points="62.0,62.1 159.6,92.3 257.2,173.9 354.8,270.1 452.4,327.8 550.0,342.0" fill="none" stroke="#2563eb" stroke-width="2.6"/><circle cx="62.0" cy="62.1" r="4" fill="#2563eb"/><text class="tick" x="62.0" y="51.1" text-anchor="middle">1.00</text><circle cx="159.6" cy="92.3" r="4" fill="#2563eb"/><text class="tick" x="159.6" y="81.3" text-anchor="middle">0.89</text><circle cx="257.2" cy="173.9" r="4" fill="#2563eb"/><text class="tick" x="257.2" y="162.9" text-anchor="middle">0.60</text><circle cx="354.8" cy="270.1" r="4" fill="#2563eb"/><text class="tick" x="354.8" y="259.1" text-anchor="middle">0.26</text><circle cx="452.4" cy="327.8" r="4" fill="#2563eb"/><text class="tick" x="452.4" y="316.8" text-anchor="middle">0.05</text><circle cx="550.0" cy="342.0" r="4" fill="#2563eb"/><text class="tick" x="550.0" y="331.0" text-anchor="middle">0.00</text><rect x="62" y="178.1" width="488" height="24.9" fill="#15803d" opacity="0.10"/><text class="sub" x="70" y="172.1" fill="#15803d">where AND / OR / majority / threshold actually sit</text><text class="sub" x="572" y="72">parity is the ONLY structure</text><text class="sub" x="572" y="88">that vanishes completely.</text><text class="sub" x="572" y="104">It is built so no subset</text><text class="sub" x="572" y="120">carries any information —</text><text class="sub" x="572" y="136">the worst case, by</text><text class="sub" x="572" y="152">construction.</text><text class="sub" x="572" y="168"></text><text class="sub" x="572" y="184">Everything with lower-order</text><text class="sub" x="572" y="200">leakage keeps roughly half</text><text class="sub" x="572" y="216">of what it had.</text></svg></div>
+<div class="read"><b>A continuum, not a step.</b> 1.00 → 0.89 → 0.60 → 0.26 → 0.05 → 0.00 as the
+hidden participant goes from irrelevant to essential. There is no threshold where detection
+suddenly fails; there is a slope, and parity sits at the bottom of it.</div>
+
+<h3>The corrected statement</h3>
+<div class="read ok"><b>Partial observation destroys higher-order structure in proportion to how
+purely synergistic that structure is.</b> Pure synergy — no information in any subset — is erased
+completely, at any arity, and no amount of data recovers it. Structures with lower-order leakage
+degrade gracefully. Real systems are mostly the second kind.<br><br>This is a <i>better</i>
+result for applications than the one it replaces. The constraint is real but bounded: what you
+lose to incomplete observation is predictable from how much of the structure lives in the parts.
+The pessimistic version would have ruled out most practical work; the measured version tells you
+what to expect.</div>
+<div class="read warn"><b>One number left unexplained.</b> The four non-parity structures at three
+participants land at 0.4965, 0.5028, 0.4996 and 0.4996 — suspiciously close to exactly half.
+That may be a real property of these functions or a coincidence of the four chosen. It is not
+claimed as a finding, and it is flagged here because a suggestive round number is exactly the
+kind of thing that gets promoted to a law without anyone checking.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -676,12 +745,13 @@ Composition buys real information and costs nothing cross-domain, so it stays. B
 "how many loops did this disturb", not "does this matter". The harder discovery is that the
 question itself was sloppy: a structure with several interacting loops has no single behaviour
 to invert. Significance needs a sharper definition before a measure can be built for it.</div>
-<div class="q"><b>Higher-order structure is fragile to partial observation in a way nothing else
-here is.</b> Hide one participant of a three-way dependence and it does not degrade — it reads
-exactly zero, and five times the data does not move it. For any application this is the governing
-constraint: you either observe a configuration whole or you do not detect it at all. It also
-means an absent result is genuinely uninformative, which is the project's own first principle
-(omission is never a claim of nonexistence) arriving as a hard measurement.</div>
+<div class="q"><b>Partial observation costs you in proportion to how purely synergistic the
+structure is.</b> Pure synergy is erased completely at any arity and no amount of data recovers
+it — an identifiability limit, not a power limit. Everything with lower-order leakage degrades
+smoothly and keeps roughly half. That is the corrected form of a claim this log made one finding
+earlier and over-stated; the correction is left visible above rather than edited away. It still
+means an absent higher-order result is uninformative — the project's own principle that omission
+is never a claim of nonexistence, arriving as a measurement.</div>
 <div class="q"><b>Structure and relevance are different measurements, and the mathematics knows
 it.</b> Connected information says what structure is present — objectively, indifferent to any
 question. The outcome-permutation calibration says whether that structure bears on what you

@@ -321,6 +321,17 @@ def build() -> str:
     e11 = json.loads((RESULTS / "exp011.json").read_text())
     e12 = json.loads((RESULTS / "exp012.json").read_text())
     e10 = json.loads((RESULTS / "exp010.json").read_text())
+    e13 = json.loads((RESULTS / "exp013.json").read_text())
+    t13_rows = "".join(
+        f"<tr><td><code>{k}</code></td><td>{v['full_bits']:.4f}</td>"
+        f"<td>{v['best_partial_bits']:.4f}</td>"
+        f"<td><b>{v['retention_best']:.4f}</b></td></tr>"
+        for k, v in e13["sweep_structure_type"].items())
+    a13_rows = "".join(
+        f"<tr><td><code>{k}</code></td><td>{v['full_bits']:.4f}</td>"
+        f"<td>{v['best_partial_bits']:.4f}</td>"
+        f"<td><b>{v['retention_best']:.4f}</b></td></tr>"
+        for k, v in e13["sweep_arity_parity"].items())
     qa_rows = "".join(
         f"<tr><td><code>{v['question']}</code></td><td>{v['I_C']['2']:.4f}</td>"
         f"<td>{v['I_C']['3']:.4f}</td><td>{v['I_C']['4']:.4f}</td>"
@@ -715,7 +726,15 @@ question, and changing the question changes the answer by an entire order.</div>
 <p>Now hold the question fixed and take away a participant. This is the gap between what is
 accessible and what gets resolved, made concrete.</p>
 <div class="fig">{figs['fig10_cliff.svg']}</div>
-<div class="read warn"><b>This is a cliff, not a slope, and it is the most consequential result
+<div class="read warn" style="border-color:#dc2626"><b>⚠ CORRECTED by Finding 10.</b> What
+follows is true and was <i>over-generalised</i>. It was measured on parity — the maximally
+synergistic function there is, built so that no subset of its inputs carries any information at
+all. That is the worst case by construction. Finding 10 tests four other structure types and
+finds they retain roughly <b>half</b> their information under the same treatment. The cliff is
+real and it is the endpoint of a gradient, not a universal wall. The claim as originally written
+— "you either observe a configuration whole or you detect nothing" — is <b>false for anything
+except pure synergy</b>. Left visible rather than edited away.</div>
+<div class="read warn"><b>This is a cliff for parity, and it is the most consequential result
 here for anything practical.</b> With all three participants visible the dependence is
 unmistakable: <b>0.7246</b>. Hide any one of them and it reads <b>0.00000</b>. Not weakened —
 gone. A three-way dependence marginalised over one of its three participants is <i>uniform</i>;
@@ -743,6 +762,50 @@ cannot be defined without naming a question.</b> That is not a missing feature o
 to be engineered around. It is a property of the subject matter, and it is now measured from
 three independent directions rather than assumed.</div>
 
+<h2>Finding 10 — the cliff is a gradient, and the last finding was over-stated</h2>
+<p>Finding 9 concluded that partial observation erases higher-order structure, and turned that
+into a governing constraint on applications. But it was measured on <b>parity</b> — a function
+built so that no subset of its inputs carries any information whatsoever. That is the worst case
+by construction, and generalising a constraint from its worst case is how a true finding becomes
+a false rule.</p>
+
+<h3>Parity does cliff, at every arity</h3>
+<table><thead><tr><th>world</th><th>all visible</th><th>one hidden</th><th>retained</th></tr>
+</thead><tbody>{a13_rows}</tbody></table>
+<p>Three, four or five participants — retention stays under 0.2%. That part of Finding 9 holds
+without qualification.</p>
+
+<h3>Nothing else does</h3>
+<table><thead><tr><th>world</th><th>all visible</th><th>one hidden</th><th>retained</th></tr>
+</thead><tbody>{t13_rows}</tbody></table>
+<div class="read ok"><b>Reading.</b> AND, OR, majority and threshold functions all retain
+<b>roughly half</b> their outcome-relevant information when a participant is hidden — about 50%
+at three participants and slightly more at four. They have lower-order leakage: knowing some of
+the inputs genuinely tells you something. Parity is the only structure here with none, and it is
+the only one that vanishes.</div>
+
+<h3>And the shape between them is smooth</h3>
+<p>Take a participant that matters only some of the time, and sweep how often.</p>
+<div class="fig">{figs['fig11_gradient.svg']}</div>
+<div class="read"><b>A continuum, not a step.</b> 1.00 → 0.89 → 0.60 → 0.26 → 0.05 → 0.00 as the
+hidden participant goes from irrelevant to essential. There is no threshold where detection
+suddenly fails; there is a slope, and parity sits at the bottom of it.</div>
+
+<h3>The corrected statement</h3>
+<div class="read ok"><b>Partial observation destroys higher-order structure in proportion to how
+purely synergistic that structure is.</b> Pure synergy — no information in any subset — is erased
+completely, at any arity, and no amount of data recovers it. Structures with lower-order leakage
+degrade gracefully. Real systems are mostly the second kind.<br><br>This is a <i>better</i>
+result for applications than the one it replaces. The constraint is real but bounded: what you
+lose to incomplete observation is predictable from how much of the structure lives in the parts.
+The pessimistic version would have ruled out most practical work; the measured version tells you
+what to expect.</div>
+<div class="read warn"><b>One number left unexplained.</b> The four non-parity structures at three
+participants land at 0.4965, 0.5028, 0.4996 and 0.4996 — suspiciously close to exactly half.
+That may be a real property of these functions or a coincidence of the four chosen. It is not
+claimed as a finding, and it is flagged here because a suggestive round number is exactly the
+kind of thing that gets promoted to a law without anyone checking.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -756,12 +819,13 @@ Composition buys real information and costs nothing cross-domain, so it stays. B
 "how many loops did this disturb", not "does this matter". The harder discovery is that the
 question itself was sloppy: a structure with several interacting loops has no single behaviour
 to invert. Significance needs a sharper definition before a measure can be built for it.</div>
-<div class="q"><b>Higher-order structure is fragile to partial observation in a way nothing else
-here is.</b> Hide one participant of a three-way dependence and it does not degrade — it reads
-exactly zero, and five times the data does not move it. For any application this is the governing
-constraint: you either observe a configuration whole or you do not detect it at all. It also
-means an absent result is genuinely uninformative, which is the project's own first principle
-(omission is never a claim of nonexistence) arriving as a hard measurement.</div>
+<div class="q"><b>Partial observation costs you in proportion to how purely synergistic the
+structure is.</b> Pure synergy is erased completely at any arity and no amount of data recovers
+it — an identifiability limit, not a power limit. Everything with lower-order leakage degrades
+smoothly and keeps roughly half. That is the corrected form of a claim this log made one finding
+earlier and over-stated; the correction is left visible above rather than edited away. It still
+means an absent higher-order result is uninformative — the project's own principle that omission
+is never a claim of nonexistence, arriving as a measurement.</div>
 <div class="q"><b>Structure and relevance are different measurements, and the mathematics knows
 it.</b> Connected information says what structure is present — objectively, indifferent to any
 question. The outcome-permutation calibration says whether that structure bears on what you
