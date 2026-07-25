@@ -1,0 +1,273 @@
+{
+  "experiment": "EXP-000c",
+  "claim": "the condition set separates real measures from cheats",
+  "spread_floor": 0.02,
+  "results": {
+    "name_reader": {
+      "scores": {
+        "B": 0.0,
+        "C": 1.0,
+        "D": 1.0,
+        "E": 1.0,
+        "F": 1.0,
+        "B2": 0.0
+      },
+      "spread": 1.0,
+      "checks": {
+        "C1_ranks_true_analogue_top": false,
+        "C2_sees_past_vocabulary": false,
+        "C3_rejects_matched_random": false,
+        "C4_discriminates_at_all": true,
+        "C5_generalises_to_heldout": false,
+        "C6_rejects_superset_distractor": false
+      },
+      "passed_all": false,
+      "failed": [
+        "C1_ranks_true_analogue_top",
+        "C2_sees_past_vocabulary",
+        "C3_rejects_matched_random",
+        "C5_generalises_to_heldout",
+        "C6_rejects_superset_distractor"
+      ],
+      "is_impostor": true
+    },
+    "size_matcher": {
+      "scores": {
+        "B": 1.0,
+        "C": 1.0,
+        "D": 1.0,
+        "E": 1.0,
+        "F": 0.7143,
+        "B2": 1.0
+      },
+      "spread": 0.2857,
+      "checks": {
+        "C1_ranks_true_analogue_top": false,
+        "C2_sees_past_vocabulary": false,
+        "C3_rejects_matched_random": false,
+        "C4_discriminates_at_all": true,
+        "C5_generalises_to_heldout": false,
+        "C6_rejects_superset_distractor": true
+      },
+      "passed_all": false,
+      "failed": [
+        "C1_ranks_true_analogue_top",
+        "C2_sees_past_vocabulary",
+        "C3_rejects_matched_random",
+        "C5_generalises_to_heldout"
+      ],
+      "is_impostor": true
+    },
+    "density_matcher": {
+      "scores": {
+        "B": 1.0,
+        "C": 1.0,
+        "D": 1.0,
+        "E": 1.0,
+        "F": 0.6,
+        "B2": 1.0
+      },
+      "spread": 0.4,
+      "checks": {
+        "C1_ranks_true_analogue_top": false,
+        "C2_sees_past_vocabulary": false,
+        "C3_rejects_matched_random": false,
+        "C4_discriminates_at_all": true,
+        "C5_generalises_to_heldout": false,
+        "C6_rejects_superset_distractor": true
+      },
+      "passed_all": false,
+      "failed": [
+        "C1_ranks_true_analogue_top",
+        "C2_sees_past_vocabulary",
+        "C3_rejects_matched_random",
+        "C5_generalises_to_heldout"
+      ],
+      "is_impostor": true
+    },
+    "degree_matcher": {
+      "scores": {
+        "B": 1.0,
+        "C": 1.0,
+        "D": 0.7143,
+        "E": 1.0,
+        "F": 0.4286,
+        "B2": 1.0
+      },
+      "spread": 0.5714,
+      "checks": {
+        "C1_ranks_true_analogue_top": false,
+        "C2_sees_past_vocabulary": false,
+        "C3_rejects_matched_random": false,
+        "C4_discriminates_at_all": true,
+        "C5_generalises_to_heldout": false,
+        "C6_rejects_superset_distractor": true
+      },
+      "passed_all": false,
+      "failed": [
+        "C1_ranks_true_analogue_top",
+        "C2_sees_past_vocabulary",
+        "C3_rejects_matched_random",
+        "C5_generalises_to_heldout"
+      ],
+      "is_impostor": true
+    },
+    "constant": {
+      "scores": {
+        "B": 0.5,
+        "C": 0.5,
+        "D": 0.5,
+        "E": 0.5,
+        "F": 0.5,
+        "B2": 0.5
+      },
+      "spread": 0.0,
+      "checks": {
+        "C1_ranks_true_analogue_top": false,
+        "C2_sees_past_vocabulary": false,
+        "C3_rejects_matched_random": true,
+        "C4_discriminates_at_all": false,
+        "C5_generalises_to_heldout": false,
+        "C6_rejects_superset_distractor": false
+      },
+      "passed_all": false,
+      "failed": [
+        "C1_ranks_true_analogue_top",
+        "C2_sees_past_vocabulary",
+        "C4_discriminates_at_all",
+        "C5_generalises_to_heldout",
+        "C6_rejects_superset_distractor"
+      ],
+      "is_impostor": true
+    },
+    "seed_memoriser": {
+      "scores": {
+        "B": 1.0,
+        "C": 0.3,
+        "D": 0.1,
+        "E": 0.8,
+        "F": 0.0,
+        "B2": 0.0
+      },
+      "spread": 1.0,
+      "checks": {
+        "C1_ranks_true_analogue_top": true,
+        "C2_sees_past_vocabulary": true,
+        "C3_rejects_matched_random": false,
+        "C4_discriminates_at_all": true,
+        "C5_generalises_to_heldout": false,
+        "C6_rejects_superset_distractor": true
+      },
+      "passed_all": false,
+      "failed": [
+        "C3_rejects_matched_random",
+        "C5_generalises_to_heldout"
+      ],
+      "is_impostor": true
+    },
+    "penalty_fitter": {
+      "scores": {
+        "B": 1.0,
+        "C": 0.6667,
+        "D": 0.5,
+        "E": 0.8333,
+        "F": 1.0,
+        "B2": 1.0
+      },
+      "spread": 0.5,
+      "checks": {
+        "C1_ranks_true_analogue_top": false,
+        "C2_sees_past_vocabulary": true,
+        "C3_rejects_matched_random": true,
+        "C4_discriminates_at_all": true,
+        "C5_generalises_to_heldout": true,
+        "C6_rejects_superset_distractor": false
+      },
+      "passed_all": false,
+      "failed": [
+        "C1_ranks_true_analogue_top",
+        "C6_rejects_superset_distractor"
+      ],
+      "is_impostor": true
+    },
+    "tunable_eta_0.5": {
+      "scores": {
+        "B": 0.6316,
+        "C": 0.5714,
+        "D": 0.4,
+        "E": 0.7692,
+        "F": 1.0,
+        "B2": 0.6316
+      },
+      "spread": 0.6,
+      "checks": {
+        "C1_ranks_true_analogue_top": false,
+        "C2_sees_past_vocabulary": true,
+        "C3_rejects_matched_random": true,
+        "C4_discriminates_at_all": true,
+        "C5_generalises_to_heldout": true,
+        "C6_rejects_superset_distractor": false
+      },
+      "passed_all": false,
+      "failed": [
+        "C1_ranks_true_analogue_top",
+        "C6_rejects_superset_distractor"
+      ],
+      "is_impostor": false
+    },
+    "mdl_gain_bits": {
+      "scores": {
+        "B": 26.7863,
+        "C": 12.7616,
+        "D": 2.7027,
+        "E": 19.7274,
+        "F": 27.9562,
+        "B2": 26.7863
+      },
+      "spread": 25.2535,
+      "checks": {
+        "C1_ranks_true_analogue_top": false,
+        "C2_sees_past_vocabulary": true,
+        "C3_rejects_matched_random": true,
+        "C4_discriminates_at_all": true,
+        "C5_generalises_to_heldout": true,
+        "C6_rejects_superset_distractor": false
+      },
+      "passed_all": false,
+      "failed": [
+        "C1_ranks_true_analogue_top",
+        "C6_rejects_superset_distractor"
+      ],
+      "is_impostor": false
+    },
+    "mdl_ratio_F06a": {
+      "scores": {
+        "B": 2.3342,
+        "C": 1.3742,
+        "D": 1.0612,
+        "E": 1.727,
+        "F": 1.4232,
+        "B2": 2.3342
+      },
+      "spread": 1.273,
+      "checks": {
+        "C1_ranks_true_analogue_top": true,
+        "C2_sees_past_vocabulary": true,
+        "C3_rejects_matched_random": true,
+        "C4_discriminates_at_all": true,
+        "C5_generalises_to_heldout": true,
+        "C6_rejects_superset_distractor": true
+      },
+      "passed_all": true,
+      "failed": [],
+      "is_impostor": false
+    }
+  },
+  "n_impostors": 7,
+  "n_impostors_caught": 7,
+  "impostors_missed": [],
+  "candidates_passing": [
+    "mdl_ratio_F06a"
+  ],
+  "harness_ready": true
+}

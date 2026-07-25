@@ -1,0 +1,78 @@
+{
+  "experiment": "EXP-000b",
+  "claim": "MDL charges the same bits for behaviour-critical and behaviour-neutral single-edge changes",
+  "base_behaviour": "reinforcing",
+  "rows": [
+    {
+      "edge": "paths -POS-> advantage",
+      "on_loop": false,
+      "behaviour_after_flip": "reinforcing",
+      "behaviour_changed": false,
+      "mdl_gain_bits": 19.727,
+      "tunable_K_eta0.5": 0.769231,
+      "matched": 5
+    },
+    {
+      "edge": "advantage -POS-> flow",
+      "on_loop": false,
+      "behaviour_after_flip": "reinforcing",
+      "behaviour_changed": false,
+      "mdl_gain_bits": 19.727,
+      "tunable_K_eta0.5": 0.769231,
+      "matched": 5
+    },
+    {
+      "edge": "flow -POS-> erosion",
+      "on_loop": true,
+      "behaviour_after_flip": "self-limiting",
+      "behaviour_changed": true,
+      "mdl_gain_bits": 19.727,
+      "tunable_K_eta0.5": 0.769231,
+      "matched": 5
+    },
+    {
+      "edge": "erosion -POS-> capacity",
+      "on_loop": true,
+      "behaviour_after_flip": "self-limiting",
+      "behaviour_changed": true,
+      "mdl_gain_bits": 19.727,
+      "tunable_K_eta0.5": 0.769231,
+      "matched": 5
+    },
+    {
+      "edge": "capacity -POS-> flow",
+      "on_loop": true,
+      "behaviour_after_flip": "self-limiting",
+      "behaviour_changed": true,
+      "mdl_gain_bits": 19.727,
+      "tunable_K_eta0.5": 0.769231,
+      "matched": 5
+    },
+    {
+      "edge": "capacity -NEG-> paths",
+      "on_loop": false,
+      "behaviour_after_flip": "reinforcing",
+      "behaviour_changed": false,
+      "mdl_gain_bits": 22.956,
+      "tunable_K_eta0.5": 0.923077,
+      "matched": 6
+    }
+  ],
+  "n_critical": 3,
+  "n_benign": 3,
+  "mdl_gains_critical": [
+    19.727
+  ],
+  "mdl_gains_benign": [
+    19.727,
+    22.956
+  ],
+  "mdl_separates_critical_from_benign": false,
+  "tunable_gains_critical": [
+    0.769231
+  ],
+  "tunable_gains_benign": [
+    0.769231,
+    0.923077
+  ]
+}

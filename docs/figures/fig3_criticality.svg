@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400" role="img" aria-label="Criticality blindness">
+<style>
+  :root { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  }
+  :root[data-theme="dark"] { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  :root[data-theme="light"] { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  .bg { fill: var(--bg); }
+  .ax { stroke: var(--grid); stroke-width: 1; }
+  .tick { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .lbl { fill: var(--fg); font: 12px ui-sans-serif, system-ui, sans-serif; }
+  .ttl { fill: var(--fg); font: 600 14px ui-sans-serif, system-ui, sans-serif; }
+  .sub { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .node { fill: var(--bg); stroke: var(--fg); stroke-width: 1.5; }
+  .ntxt { fill: var(--fg); font: 10px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; }
+</style>
+<rect class="bg" width="700" height="400"/><text class="ttl" x="24" y="26">MDL is blind to which change matters</text><text class="sub" x="24" y="43">Every single-edge flip in A, scored in bits. Red = flip inverts the feedback loop (runaway → self-limiting).</text><text class="lbl" x="240" y="90.3" text-anchor="end">paths -POS-&gt; advantage</text><rect x="250" y="70.8" width="323.5" height="31.1" fill="#64748b" rx="2" opacity="0.9"/><text class="tick" x="581.5" y="90.3">19.73 bits</text><text class="lbl" x="240" y="139.0" text-anchor="end">advantage -POS-&gt; flow</text><rect x="250" y="119.4" width="323.5" height="31.1" fill="#64748b" rx="2" opacity="0.9"/><text class="tick" x="581.5" y="139.0">19.73 bits</text><text class="lbl" x="240" y="187.7" text-anchor="end">flow -POS-&gt; erosion</text><rect x="250" y="168.1" width="323.5" height="31.1" fill="#dc2626" rx="2" opacity="0.9"/><text class="tick" x="581.5" y="187.7">19.73 bits  ← inverts behaviour</text><text class="lbl" x="240" y="236.3" text-anchor="end">erosion -POS-&gt; capacity</text><rect x="250" y="216.8" width="323.5" height="31.1" fill="#dc2626" rx="2" opacity="0.9"/><text class="tick" x="581.5" y="236.3">19.73 bits  ← inverts behaviour</text><text class="lbl" x="240" y="285.0" text-anchor="end">capacity -POS-&gt; flow</text><rect x="250" y="265.4" width="323.5" height="31.1" fill="#dc2626" rx="2" opacity="0.9"/><text class="tick" x="581.5" y="285.0">19.73 bits  ← inverts behaviour</text><text class="lbl" x="240" y="333.7" text-anchor="end">capacity -NEG-&gt; paths</text><rect x="250" y="314.1" width="376.5" height="31.1" fill="#64748b" rx="2" opacity="0.9"/><text class="tick" x="634.5" y="333.7">22.96 bits</text><line x1="573.5" y1="56" x2="573.5" y2="358" stroke="var(--fg)" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.6"/><text class="sub" x="579.5" y="52">five of six flips score identically</text><text class="sub" x="24" y="386">The one outlier (22.96) is a benign flip. It scores highest only because it leaves the target with a single relation type — an alphabet artifact, not structure.</text></svg>
