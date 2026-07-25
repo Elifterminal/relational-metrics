@@ -40,6 +40,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-012` | Can the replacement be broken? | Partly. The raw statistic reports a full bit of structure that has nothing to do with the question. The calibration is what makes it an answer |
 | `EXP-010` | What does the observer actually choose, and what does it cost? | Everything. Six questions of one system give verdicts spanning three different orders — and hiding one participant erases a three-way dependence outright |
 | `EXP-013` | Is that erasure general? | **No — and it corrects the previous entry.** Parity vanishes at every arity; AND, OR, majority and threshold all keep ~half. A gradient, not a wall |
+| `EXP-014` | Is that "~half" real, or a coincidence? | **Both.** Exhaustive census of all 256 Boolean functions: retention is quantised to 7 values and 0.5 is a real class of 56. But the four measurements offered as evidence were two functions plus a noise artifact |
 
 ### The findings worth your time
 
@@ -106,7 +107,7 @@ thing. That is a property of the subject matter, not a gap in the instrument.
 - Four of five conditions hand-authored by the same party running the measure.
 - Exhaustive mapping search. Nothing here speaks to whether any of it computes at scale.
 - Rung 1 of 7 on the project's own evidence ladder ("mathematically coherent"). Rung 7 is "supports a broader physical interpretation" and is not currently reachable.
-- **Five** ground truths or test constructions in here were wrong, all mine, all corrected in place rather than quietly fixed — including a pure-noise control that turned out to be a deterministic function of the variables it was meant to be independent of. Each was caught by computing something previously asserted from inspection. The running count is the honest measure of how often careful reasoning about one's own constructions is simply wrong.
+- **Six** ground truths or test constructions in here were wrong, all mine, all corrected in place rather than quietly fixed — including a pure-noise control that turned out to be a deterministic function of the variables it was meant to be independent of. Each was caught by computing something previously asserted from inspection. The running count is the honest measure of how often careful reasoning about one's own constructions is simply wrong.
 
 ## Running it
 

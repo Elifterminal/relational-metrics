@@ -574,6 +574,64 @@ def fig_gradient(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 12 — exhaustive census: retention is quantised
+# ---------------------------------------------------------------------------
+
+def fig_census(data: dict) -> str:
+    W, H = 800, 400
+    L, R, T, B = 70, 210, 66, 66
+    pw, ph = W - L - R, H - T - B
+    classes = data["retention_classes"]
+    vals = [c["retention"] for c in classes]
+    counts = [c["count"] for c in classes]
+    cmax = max(counts)
+
+    out = ['<text class="ttl" x="24" y="26">All 256 Boolean functions of three variables, computed exactly</text>',
+           '<text class="sub" x="24" y="45">Retention takes only SEVEN distinct values. It is '
+           'quantised, not continuous — and one half is a real class.</text>']
+    for i in range(5):
+        v = i / 4 * cmax
+        y = T + ph - (v / cmax) * ph
+        out.append(f'<line class="ax" x1="{L}" y1="{y:.1f}" x2="{L+pw}" y2="{y:.1f}"/>')
+        out.append(f'<text class="tick" x="{L-9}" y="{y+4:.1f}" text-anchor="end">{v:.0f}</text>')
+    out.append(f'<text class="lbl" transform="translate(22,{T+ph/2:.0f}) rotate(-90)" '
+               'text-anchor="middle">how many functions</text>')
+    out.append(f'<text class="lbl" x="{L+pw/2:.0f}" y="{H-12}" text-anchor="middle">'
+               'information retained after hiding one participant</text>')
+
+    bw = pw / len(classes)
+    for i, c in enumerate(classes):
+        x = L + i * bw + bw * 0.16
+        hgt = (c["count"] / cmax) * ph
+        y = T + ph - hgt
+        v = c["retention"]
+        col = "#2563eb" if abs(v - 0.5) < 1e-6 else ("#dc2626" if v < 1e-6 else "#94a3b8")
+        out.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bw*0.68:.1f}" '
+                   f'height="{hgt:.1f}" fill="{col}" rx="2"/>')
+        out.append(f'<text class="tick" x="{x+bw*0.34:.1f}" y="{y-6:.1f}" '
+                   f'text-anchor="middle">{c["count"]}</text>')
+        out.append(f'<text class="lbl" x="{x+bw*0.34:.1f}" y="{T+ph+20}" '
+                   f'text-anchor="middle">{v:.3f}</text>')
+        if c.get("label"):
+            out.append(f'<text class="sub" x="{x+bw*0.34:.1f}" y="{T+ph+36}" '
+                       f'text-anchor="middle" fill="{col}">{esc(c["label"])}</text>')
+
+    ly = T + 12
+    for lbl in ["0.500 is a REAL class:", "56 functions, every one of",
+                "them balanced (four ones", "in its truth table).",
+                "Majority is one of them.", "",
+                "But AND and OR sit at",
+                "0.540 — a DIFFERENT class.",
+                "They only looked like 0.5",
+                "because 5% noise pulled",
+                "them there.", "",
+                "Parity alone reaches zero."]:
+        out.append(f'<text class="sub" x="{L+pw+20}" y="{ly}">{esc(lbl)}</text>')
+        ly += 15
+    return svg(W, H, "".join(out), "Retention census")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -643,6 +701,7 @@ def main() -> None:
     e12 = json.loads((RESULTS / "exp012.json").read_text())
     e10 = json.loads((RESULTS / "exp010.json").read_text())
     e13 = json.loads((RESULTS / "exp013.json").read_text())
+    e14 = json.loads((RESULTS / "exp014.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -661,6 +720,7 @@ def main() -> None:
         "fig9_relevance.svg": fig_relevance(e12),
         "fig10_cliff.svg": fig_cliff(e10),
         "fig11_gradient.svg": fig_gradient(e13),
+        "fig12_census.svg": fig_census(e14),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

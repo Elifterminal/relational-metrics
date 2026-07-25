@@ -1,0 +1,165 @@
+{
+  "experiment": "EXP-014",
+  "question": "is the ~0.5 retention from EXP-013 a real attractor?",
+  "deflation": {
+    "majority_equals_threshold2": true,
+    "and_or_are_de_morgan_duals": true,
+    "distinct_structures_in_exp013": 2,
+    "reported_as": 4
+  },
+  "census": {
+    "noise_0.0": {
+      "n_functions": 256,
+      "n_degenerate": 2,
+      "n_scored": 254,
+      "within_0.01_of_half": 56,
+      "fraction_within_0.01_of_half": 0.2205,
+      "distinct_values": 7,
+      "min": 0.0,
+      "max": 1.0,
+      "median": 0.7381,
+      "histogram_rounded_to_0.1": {
+        "0.0": 2,
+        "0.2": 16,
+        "0.4": 32,
+        "0.5": 72,
+        "0.7": 96,
+        "1.0": 36
+      }
+    },
+    "noise_0.05": {
+      "n_functions": 256,
+      "n_degenerate": 2,
+      "n_scored": 254,
+      "within_0.01_of_half": 72,
+      "fraction_within_0.01_of_half": 0.2835,
+      "distinct_values": 7,
+      "min": 0.0,
+      "max": 1.0,
+      "median": 0.7364,
+      "histogram_rounded_to_0.1": {
+        "0.0": 2,
+        "0.2": 16,
+        "0.4": 32,
+        "0.5": 72,
+        "0.7": 96,
+        "1.0": 36
+      }
+    }
+  },
+  "named_functions_exact": {
+    "AND": {
+      "retention_noiseless": 0.5401,
+      "retention_at_5pct_noise": 0.4958
+    },
+    "OR": {
+      "retention_noiseless": 0.5401,
+      "retention_at_5pct_noise": 0.4958
+    },
+    "majority": {
+      "retention_noiseless": 0.5,
+      "retention_at_5pct_noise": 0.5
+    },
+    "parity": {
+      "retention_noiseless": 0.0,
+      "retention_at_5pct_noise": 0.0
+    }
+  },
+  "noise_pull": {
+    "0.00": {
+      "AND": 0.5401,
+      "OR": 0.5401,
+      "majority": 0.5,
+      "parity": 0.0
+    },
+    "0.01": {
+      "AND": 0.5247,
+      "OR": 0.5247,
+      "majority": 0.5,
+      "parity": 0.0
+    },
+    "0.05": {
+      "AND": 0.4958,
+      "OR": 0.4958,
+      "majority": 0.5,
+      "parity": 0.0
+    },
+    "0.10": {
+      "AND": 0.4752,
+      "OR": 0.4752,
+      "majority": 0.5,
+      "parity": 0.0
+    },
+    "0.20": {
+      "AND": 0.451,
+      "OR": 0.451,
+      "majority": 0.5,
+      "parity": 0.0
+    }
+  },
+  "is_half_a_real_attractor": true,
+  "retention_classes": [
+    {
+      "retention": 0.0,
+      "count": 2,
+      "ones_in_truth_table": [
+        4
+      ],
+      "label": "parity only"
+    },
+    {
+      "retention": 0.2142,
+      "count": 16,
+      "ones_in_truth_table": [
+        3,
+        5
+      ],
+      "label": ""
+    },
+    {
+      "retention": 0.3837,
+      "count": 32,
+      "ones_in_truth_table": [
+        2,
+        6
+      ],
+      "label": ""
+    },
+    {
+      "retention": 0.5,
+      "count": 56,
+      "ones_in_truth_table": [
+        4
+      ],
+      "label": "balanced"
+    },
+    {
+      "retention": 0.5401,
+      "count": 16,
+      "ones_in_truth_table": [
+        1,
+        7
+      ],
+      "label": "AND / OR"
+    },
+    {
+      "retention": 0.7381,
+      "count": 96,
+      "ones_in_truth_table": [
+        3,
+        5
+      ],
+      "label": ""
+    },
+    {
+      "retention": 1.0,
+      "count": 36,
+      "ones_in_truth_table": [
+        2,
+        4,
+        6
+      ],
+      "label": "one input idle"
+    }
+  ]
+}

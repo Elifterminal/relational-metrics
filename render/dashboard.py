@@ -322,6 +322,15 @@ def build() -> str:
     e12 = json.loads((RESULTS / "exp012.json").read_text())
     e10 = json.loads((RESULTS / "exp010.json").read_text())
     e13 = json.loads((RESULTS / "exp013.json").read_text())
+    e14 = json.loads((RESULTS / "exp014.json").read_text())
+    cls_rows = "".join(
+        f"<tr><td><b>{c['retention']:.4f}</b></td><td>{c['count']}</td>"
+        f"<td>{c['ones_in_truth_table']}</td><td>{c['label'] or '—'}</td></tr>"
+        for c in e14["retention_classes"])
+    np_rows = "".join(
+        f"<tr><td><code>{e}</code></td>" + "".join(
+            f"<td>{v.get(n, float('nan')):.4f}</td>" for n in ("AND","OR","majority","parity"))
+        + "</tr>" for e, v in e14["noise_pull"].items())
     t13_rows = "".join(
         f"<tr><td><code>{k}</code></td><td>{v['full_bits']:.4f}</td>"
         f"<td>{v['best_partial_bits']:.4f}</td>"
@@ -800,11 +809,63 @@ result for applications than the one it replaces. The constraint is real but bou
 lose to incomplete observation is predictable from how much of the structure lives in the parts.
 The pessimistic version would have ruled out most practical work; the measured version tells you
 what to expect.</div>
-<div class="read warn"><b>One number left unexplained.</b> The four non-parity structures at three
-participants land at 0.4965, 0.5028, 0.4996 and 0.4996 — suspiciously close to exactly half.
-That may be a real property of these functions or a coincidence of the four chosen. It is not
-claimed as a finding, and it is flagged here because a suggestive round number is exactly the
-kind of thing that gets promoted to a law without anyone checking.</div>
+<div class="read warn"><b>One number left unexplained — now resolved in Finding 11, and the
+evidence here turned out to be invalid.</b> The four structures land at 0.4965, 0.5028, 0.4996
+and 0.4996, suspiciously close to exactly half. Flagged rather than claimed. Finding 11 shows
+one half <i>is</i> real — and that these four were not four, and two of them are not in that
+class at all.</div>
+
+<h2>Finding 11 — the number was real. The evidence for it was not.</h2>
+<p>The previous finding flagged a suspicious result: four structures all retaining almost exactly
+half. Flagged, not claimed. Testing it turned up something in both directions.</p>
+
+<h3>First, the four were two</h3>
+<div class="read warn"><b>Found before running anything.</b> <code>majority</code> and
+<code>threshold2</code> are <b>the same function</b> at three variables — identical truth tables.
+And <code>AND</code> and <code>OR</code> are De Morgan duals, related by a transformation that
+preserves mutual information exactly. So "four independent structures agreeing on 0.5" was
+<b>two structures, each counted twice</b>. The consistency was manufactured by which functions
+I happened to pick.</div>
+
+<h3>Then, the exhaustive census</h3>
+<p>No sampling. For a Boolean function with uniform inputs and symmetric noise the joint
+distribution is known exactly, so the information can be computed in closed form. Which means
+every Boolean function of three variables can be checked — all 256 of them, not a sample.</p>
+<div class="fig">{figs['fig12_census.svg']}</div>
+<table><thead><tr><th>retention</th><th>how many functions</th><th>ones in truth table</th>
+<th>what these are</th></tr></thead><tbody>{cls_rows}</tbody></table>
+<div class="read ok"><b>Retention is quantised.</b> Across all 256 functions it takes only
+<b>seven distinct values</b>. And 0.5 is a genuine class — <b>56 functions, 22% of the
+non-degenerate ones</b>, every single one of them <i>balanced</i> (exactly four ones in its truth
+table). Majority is one of them, at exactly 0.5000 regardless of noise. <b>So the number is
+real.</b></div>
+
+<h3>But not for the reason the last finding suggested</h3>
+<table><thead><tr><th>noise</th><th>AND</th><th>OR</th><th>majority</th><th>parity</th></tr>
+</thead><tbody>{np_rows}</tbody></table>
+<div class="read warn"><b>AND and OR are not in the 0.5 class at all.</b> Their exact retention
+is <b>0.5401</b> — a different class entirely, the one-or-seven-ones functions. They appeared to
+sit at 0.5 in the previous finding purely because <b>5% noise pulls 0.5401 down to 0.4958</b>.
+At 1% they read 0.525; at 20% they read 0.451. The agreement was an artifact of the noise level
+I happened to choose.<br><br>So of four reported measurements: two were the same function, two
+were duals in a different class, and their apparent agreement came from noise. <b>One genuine
+data point, dressed as four.</b></div>
+
+<h3>What I got wrong</h3>
+<p>I predicted the distribution would be <i>spread</i> and that 0.5 would evaporate under
+scrutiny. It didn't. Retention is sharply quantised and 0.5 is one of its largest classes — a
+structural fact about balanced functions, not a coincidence. I was right that noise had moved
+AND, and wrong about the headline. The census settled it in a way no amount of further reasoning
+would have.</p>
+<div class="read"><b>The useful form of the result.</b> Retention under partial observation is
+not a continuous property to be estimated — it falls into a small number of exact classes
+determined by the shape of the function. Parity alone reaches zero. Balanced non-parity functions
+sit at one half. Functions with an idle input lose nothing. If that quantisation survives past
+three Boolean variables it is a genuinely useful thing to know before designing any measurement:
+what you stand to lose is predictable from the shape of what you are looking at, in advance.</p>
+<div class="read warn"><b>Untested and therefore not claimed:</b> whether the quantisation holds
+at four or more variables, for non-Boolean participants, or for non-uniform inputs. Three binary
+variables is a very small world, and the clean structure found here may be a property of it.</div>
 
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
@@ -841,12 +902,19 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
-<div class="q"><b>Four ground truths were wrong, all mine.</b>
+<div class="q"><b>A suspicious number was worth chasing, and the chase went both ways.</b> The
+~0.5 retention flagged as "not claimed" turned out to be a real structural class — 56 of 256
+functions, all balanced — while the four measurements offered as evidence for it were two
+functions counted twice plus a noise artifact. Right answer, invalid evidence. Flagging it rather
+than claiming it was the thing that made the difference; had it been asserted, it would have been
+asserted correctly and for entirely the wrong reason.</div>
+<div class="q"><b>Six wrong constructions, all mine.</b>
 Size-matching every condition hid a size bias in the measure. Hand-identifying one loop instead
 of enumerating produced a critical/benign split that doesn't exist. And a function assumed
 decomposable because it's called "majority" turned out to be genuinely synergistic — whenever
-the first two disagree, the third decides alone. And the pure-noise control was a deterministic
-function of the variables it was supposed to be independent of. None was caught by reasoning; all
+the first two disagree, the third decides alone. The pure-noise control was a deterministic
+function of the variables it was supposed to be independent of. And two of four "independent"
+test structures were the same function, with the other two being duals of each other. None was caught by reasoning; all
 four were caught by building the thing that would expose them. That is the whole argument for the
 laboratory — and the running count is the honest measure of how often careful reasoning about
 one's own constructions is simply wrong.</div>
