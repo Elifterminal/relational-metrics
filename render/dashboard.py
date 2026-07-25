@@ -102,12 +102,12 @@ def build() -> str:
 
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Relational Metrics — EXP-000</title><style>{CSS}</style></head><body><div class="wrap">
+<title>Relational Metrics — findings</title><style>{CSS}</style></head><body><div class="wrap">
 
 <header>
-<h1>Relational Metrics — EXP-000</h1>
-<p class="sub">Harness self-test. Two hazard demonstrations run 2026-07-25, before any
-claim about the theory is allowed to count.</p>
+<h1>Relational Metrics</h1>
+<p class="sub">Four runs, 2026-07-25. All of them findings about <i>method</i> — how to build a
+measurement you can trust — not evidence that relational measurement works.</p>
 <p style="margin-top:14px"><span class="tag">rung 1 — mathematically coherent</span>
 <span class="tag warn">hazard confirmed</span><span class="tag ok">one fix validated</span></p>
 </header>
