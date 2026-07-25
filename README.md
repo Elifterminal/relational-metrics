@@ -38,6 +38,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-002` | **Does structure exist that no pair can see — and can we detect it?** | **It exists.** Best pair 0.0008 bits vs 0.7340 for the triple. But the statistic for it is demoted |
 | `EXP-011` | Can a replacement separate synergy from redundancy? | **Yes.** Connected information places structure at the right order; redundancy drops from a false positive to 0.0003 |
 | `EXP-012` | Can the replacement be broken? | Partly. The raw statistic reports a full bit of structure that has nothing to do with the question. The calibration is what makes it an answer |
+| `EXP-010` | What does the observer actually choose, and what does it cost? | Everything. Six questions of one system give verdicts spanning three different orders — and hiding one participant erases a three-way dependence outright |
 
 ### The findings worth your time
 
@@ -79,6 +80,19 @@ depends on the question. The project's founding axiom — relational completenes
 reality, relational selectivity belongs to observers — was written as a philosophical commitment
 and came back out of the arithmetic as a measurement.
 
+**Higher-order structure is fragile to partial observation in a way nothing else is.** Hide one
+participant of a three-way dependence and the measured structure goes from 0.7246 to **0.00000**
+— not weakened, gone, because marginalising parity over one variable leaves it uniform. Five
+times the data moves it from 0.00005 to 0.00006. That is an identifiability limit, not a power
+limit: no quantity of observation recovers it. For anything practical this is the governing
+constraint — you either observe a configuration whole or you do not detect it at all.
+
+**And significance cannot be defined without naming a question.** One fixed system of
+participants, asked six legitimate questions, returns verdicts spanning three different orders.
+The only outcome-invariant structure is the participants' internal structure — which is exactly
+what the calibration correctly rejects as not being an answer to anything. There is no third
+thing. That is a property of the subject matter, not a gap in the instrument.
+
 ## Honest limits
 
 - Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
@@ -100,6 +114,7 @@ python3 run_exp009.py      # cycle sign by typed composition
 python3 run_exp002.py      # higher-order recovery -- the arity claim
 python3 run_exp011.py      # the replacement measure, connected information
 python3 run_exp012.py      # adversarial stress test of the replacement
+python3 run_exp010.py      # the observer's three choices, measured
 
 cd ../render
 python3 figures.py         # regenerate the SVGs

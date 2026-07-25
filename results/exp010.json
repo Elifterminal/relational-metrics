@@ -1,0 +1,120 @@
+{
+  "experiment": "EXP-010",
+  "n": 8000,
+  "n_permutations": 120,
+  "probe_a_which_question": {
+    "parity_abc": {
+      "question": "Y = a XOR b XOR c",
+      "I_C": {
+        "1": 0.0004,
+        "2": 0.0005,
+        "3": 0.0007,
+        "4": 0.7246
+      },
+      "significant_order": 4,
+      "p": 0.0083
+    },
+    "just_a": {
+      "question": "Y = a",
+      "I_C": {
+        "1": 0.0005,
+        "2": 0.7251,
+        "3": 0.0005,
+        "4": 0.0
+      },
+      "significant_order": 2,
+      "p": 0.0083
+    },
+    "and_ab": {
+      "question": "Y = a AND b",
+      "I_C": {
+        "1": 0.1347,
+        "2": 0.5162,
+        "3": 0.0752,
+        "4": 0.0
+      },
+      "significant_order": 3,
+      "p": 0.0083
+    },
+    "majority": {
+      "question": "Y = majority(a,b,c)",
+      "I_C": {
+        "1": 0.0007,
+        "2": 0.6631,
+        "3": 0.0052,
+        "4": 0.0573
+      },
+      "significant_order": 4,
+      "p": 0.0083
+    },
+    "parity_ab": {
+      "question": "Y = a XOR b",
+      "I_C": {
+        "1": 0.0005,
+        "2": 0.0009,
+        "3": 0.7247,
+        "4": 0.0
+      },
+      "significant_order": 3,
+      "p": 0.0083
+    },
+    "unrelated": {
+      "question": "Y = an independent coin",
+      "I_C": {
+        "1": 0.0004,
+        "2": 0.0005,
+        "3": 0.0006,
+        "4": 0.0
+      },
+      "significant_order": null,
+      "p": 1.0
+    }
+  },
+  "probe_b_which_participants": {
+    "all_three_participants": {
+      "I_C(4)": 0.7246,
+      "p": 0.0083
+    },
+    "missing_c": {
+      "I_C(3)": 0.0,
+      "p": 0.9835
+    },
+    "missing_b": {
+      "I_C(3)": 0.00053,
+      "p": 0.0165
+    },
+    "more_data_rescue": {
+      "8000": {
+        "I_C_top": 5e-05,
+        "p": 0.4098
+      },
+      "40000": {
+        "I_C_top": 6e-05,
+        "p": 0.0656
+      }
+    },
+    "is_a_cliff": true
+  },
+  "probe_c_invariant_core": {
+    "significant_orders_across_questions": [
+      4,
+      2,
+      3,
+      4,
+      3,
+      null
+    ],
+    "distinct_verdicts": [
+      2,
+      3,
+      4
+    ],
+    "any_outcome_invariant_relevant_claim": false,
+    "participant_internal_I_C": {
+      "1": 0.0005,
+      "2": 0.0005,
+      "3": 0.9995
+    },
+    "note": "participant-internal structure is outcome-invariant by construction and is exactly what EXP-012 showed the calibration rejects as a non-answer"
+  }
+}

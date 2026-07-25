@@ -320,6 +320,12 @@ def build() -> str:
     e2 = json.loads((RESULTS / "exp002.json").read_text())
     e11 = json.loads((RESULTS / "exp011.json").read_text())
     e12 = json.loads((RESULTS / "exp012.json").read_text())
+    e10 = json.loads((RESULTS / "exp010.json").read_text())
+    qa_rows = "".join(
+        f"<tr><td><code>{v['question']}</code></td><td>{v['I_C']['2']:.4f}</td>"
+        f"<td>{v['I_C']['3']:.4f}</td><td>{v['I_C']['4']:.4f}</td>"
+        f"<td><b>{('order ' + str(v['significant_order'])) if v['significant_order'] else 'none'}</b></td></tr>"
+        for v in e10["probe_a_which_question"].values())
     sweep_rows = "".join(
         f"<tr><td><code>{n}</code></td><td>{v:.4f}</td></tr>"
         for n, v in e12["power_sweep"])
@@ -690,6 +696,53 @@ synergy together placed the redundant copy in a variable that was not in the tes
 tested nothing it claimed to. Caught by reading an output that disagreed with the intent — 0.0004
 where a full bit was planted. Fixed and re-run. The running count stands at five.</div>
 
+<h2>Finding 9 — what the observer actually chooses, and what it costs</h2>
+<p>The last gap was that nothing in the mathematics says <i>what to condition on</i>. The
+temptation is to answer that philosophically. Instead: the observer makes three concrete choices,
+each can be varied while the world is held fixed, and if the answer moves then the size of the
+movement <i>is</i> the answer.</p>
+
+<h3>Probe A — which question you ask</h3>
+<p>One fixed system of participants. Six legitimate questions asked of it.</p>
+<table><thead><tr><th>question</th><th>I_C(2)</th><th>I_C(3)</th><th>I_C(4)</th>
+<th>verdict</th></tr></thead><tbody>{qa_rows}</tbody></table>
+<div class="read warn"><b>Reading.</b> Identical participants, identical joint distribution over
+them — and verdicts of order 4, order 2, order 3, order 4, order 3, and nothing. <b>There is no
+such thing as "the structure of this system."</b> Every structural claim is a claim relative to a
+question, and changing the question changes the answer by an entire order.</div>
+
+<h3>Probe B — which participants you can see</h3>
+<p>Now hold the question fixed and take away a participant. This is the gap between what is
+accessible and what gets resolved, made concrete.</p>
+<div class="fig">{figs['fig10_cliff.svg']}</div>
+<div class="read warn"><b>This is a cliff, not a slope, and it is the most consequential result
+here for anything practical.</b> With all three participants visible the dependence is
+unmistakable: <b>0.7246</b>. Hide any one of them and it reads <b>0.00000</b>. Not weakened —
+gone. A three-way dependence marginalised over one of its three participants is <i>uniform</i>;
+there is nothing left in the data to find.<br><br>And more data does not help: five times the
+sample moves it from 0.00005 to 0.00006. <b>This is an identifiability limit, not a power
+limit.</b> No quantity of observation recovers structure whose participants you cannot all see
+at once.</div>
+<div class="read"><b>A caution about our own instrument, from the same table.</b> The
+"missing b" case returns p = 0.0165 — nominally significant — on an effect of <b>0.0005</b>,
+some 1400× smaller than the real one. At this sample size the permutation test will happily flag
+arbitrarily small effects. <b>Significance is not effect size</b>, and any use of this machinery
+must report both. Noted because it is exactly the kind of thing that would later be mistaken for
+a finding.</div>
+
+<h3>Probe C — is there anything left that does not depend on the observer?</h3>
+<p>The participants in this system carry a full bit of genuine three-way structure among
+<i>themselves</i> — I_C(3) = 0.9995, computed with no outcome at all. That number is
+outcome-invariant by construction. It is also, per the previous finding, exactly what the
+calibration correctly rejects as not being an answer to anything.</p>
+<div class="read ok"><b>So the picture closes.</b> Participant-internal structure is objective
+and outcome-free — and is not an answer. Outcome-relative structure is an answer — and depends
+on the question. Across six legitimate questions there was <b>no invariant relevant claim</b>:
+the verdicts spanned three different orders. There is no third thing.<br><br><b>Significance
+cannot be defined without naming a question.</b> That is not a missing feature of the instrument
+to be engineered around. It is a property of the subject matter, and it is now measured from
+three independent directions rather than assumed.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -703,6 +756,12 @@ Composition buys real information and costs nothing cross-domain, so it stays. B
 "how many loops did this disturb", not "does this matter". The harder discovery is that the
 question itself was sloppy: a structure with several interacting loops has no single behaviour
 to invert. Significance needs a sharper definition before a measure can be built for it.</div>
+<div class="q"><b>Higher-order structure is fragile to partial observation in a way nothing else
+here is.</b> Hide one participant of a three-way dependence and it does not degrade — it reads
+exactly zero, and five times the data does not move it. For any application this is the governing
+constraint: you either observe a configuration whole or you do not detect it at all. It also
+means an absent result is genuinely uninformative, which is the project's own first principle
+(omission is never a claim of nonexistence) arriving as a hard measurement.</div>
 <div class="q"><b>Structure and relevance are different measurements, and the mathematics knows
 it.</b> Connected information says what structure is present — objectively, indifferent to any
 question. The outcome-permutation calibration says whether that structure bears on what you

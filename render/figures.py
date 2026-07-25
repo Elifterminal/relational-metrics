@@ -467,6 +467,50 @@ def fig_relevance(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 10 — the cliff: what partial observation does to higher-order structure
+# ---------------------------------------------------------------------------
+
+def fig_cliff(data: dict) -> str:
+    W, H = 760, 380
+    L, R, T, B = 250, 150, 66, 62
+    pw, ph = W - L - R, H - T - B
+    b = data["probe_b_which_participants"]
+    rows = [
+        ("all three participants", b["all_three_participants"]["I_C(4)"], True),
+        ("missing one (c)", b["missing_c"]["I_C(3)"], False),
+        ("missing one (b)", b["missing_b"]["I_C(3)"], False),
+        ("missing one, 5x the data", b["more_data_rescue"]["40000"]["I_C_top"], False),
+    ]
+    vmax = max(v for _, v, _ in rows) or 1.0
+
+    out = ['<text class="ttl" x="24" y="26">Partial observation does not weaken higher-order structure. It erases it.</text>',
+           '<text class="sub" x="24" y="45">The same three-way dependence, measured with every '
+           'participant visible and with one hidden.</text>']
+    bh = ph / len(rows)
+    for i, (lbl, v, full) in enumerate(rows):
+        y = T + i * bh
+        col = "#2563eb" if full else "#dc2626"
+        w = max((v / vmax) * pw, 1.2)
+        out.append(f'<text class="lbl" x="{L-12}" y="{y+bh/2+4:.1f}" '
+                   f'text-anchor="end">{esc(lbl)}</text>')
+        out.append(f'<rect x="{L}" y="{y+bh*0.22:.1f}" width="{w:.1f}" '
+                   f'height="{bh*0.56:.1f}" fill="{col}" rx="2"/>')
+        txt = f"{v:.5f}" if v < 0.01 else f"{v:.4f}"
+        out.append(f'<text class="tick" x="{L+w+9:.1f}" y="{y+bh/2+4:.1f}" '
+                   f'fill="{col}">{txt}</text>')
+
+    out.append(f'<text class="sub" x="24" y="{H-40}">'
+               'A three-way dependence marginalised over one of its three participants is '
+               'uniform. There is nothing left to detect —</text>')
+    out.append(f'<text class="sub" x="24" y="{H-24}">'
+               'not a faint signal, nothing. Five times the data moves it from 0.00005 to '
+               '0.00006. This is an identifiability limit,</text>')
+    out.append(f'<text class="sub" x="24" y="{H-8}">'
+               'not a power limit: no quantity of observation recovers it.</text>')
+    return svg(W, H, "".join(out), "The partial observation cliff")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -534,6 +578,7 @@ def main() -> None:
     e2 = json.loads((RESULTS / "exp002.json").read_text())
     e11 = json.loads((RESULTS / "exp011.json").read_text())
     e12 = json.loads((RESULTS / "exp012.json").read_text())
+    e10 = json.loads((RESULTS / "exp010.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -550,6 +595,7 @@ def main() -> None:
         "fig7_arity.svg": fig_arity(e2),
         "fig8_orders.svg": fig_orders(e11),
         "fig9_relevance.svg": fig_relevance(e12),
+        "fig10_cliff.svg": fig_cliff(e10),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),
