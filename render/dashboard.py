@@ -54,6 +54,142 @@ ul{padding-left:20px}li{margin:5px 0}
  border-radius:8px;padding:15px 18px;margin:12px 0}
 footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);
  color:var(--mut);font-size:13px}
+.tabs{display:flex;gap:4px;margin:26px 0 8px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tab{background:none;border:none;border-bottom:2px solid transparent;color:var(--mut);
+ font:600 14.5px ui-sans-serif,system-ui,sans-serif;padding:10px 16px;cursor:pointer;
+ margin-bottom:-1px;border-radius:6px 6px 0 0}
+.tab:hover{color:var(--fg);background:var(--panel)}
+.tab.active{color:var(--fg);border-bottom-color:var(--accent)}
+.panel{display:none}.panel.active{display:block}
+.pred{border-left:3px solid var(--mut);padding:2px 0 2px 15px;margin:14px 0}
+.pred b{color:var(--fg)}
+.conf{display:inline-block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+ padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--mut);margin-left:8px}
+"""
+
+
+
+PROJECT_PANEL = """
+<h2 style="margin-top:26px">What this is trying to be</h2>
+<p>A small set of <b>general, domain-neutral relational quantities</b> — the kind of compact
+reusable relationship you can carry into a new field by supplying units and relation types.
+Not one giant master equation. The comparison is E=mc²: you don't need to compute an entire
+relativistic spacetime to use the mass–energy relation, because it isolates one reusable
+relationship between particular quantities.</p>
+<p>Three layers, and keeping them apart is the whole discipline:</p>
+<table><thead><tr><th>layer</th><th>what lives there</th><th>rule</th></tr></thead><tbody>
+<tr><td><b>General relational language</b></td><td>participants, typed relations of any arity,
+relations among relations, transformations</td><td>no application terms — if "search", "time",
+"pitch" or "token" appears in a general law, the law is mis-specified</td></tr>
+<tr><td><b>Application projection</b></td><td>which relation classes a domain can use and
+afford</td><td>discarding is a budget decision, never a claim that something doesn't exist</td></tr>
+<tr><td><b>Operational function</b></td><td>the actual deliverable — a map, a point cloud, a
+prediction, a chord</td><td>domain-specific, and that's fine</td></tr>
+</tbody></table>
+<p>The one-line commitment underneath all of it: <b>relational completeness belongs to reality;
+relational selectivity belongs to observers.</b> Reality contains the whole structure. Any
+instrument receives a projection. The map's edge is the instrument's edge — never reality's.</p>
+
+<h2>Predictions</h2>
+<p>Written down in advance so they can be wrong in public. A prediction that gets quietly
+revised after the result isn't a prediction. Each has a stated confidence and the thing that
+would falsify it.</p>
+
+<div class="pred"><b>P1 — the compression-ratio measure survives cross-generator transfer.</b>
+<span class="conf">moderate</span><br>
+Right now it's validated on one hand-built condition set of six structures, all written by the
+same party running the measure. Three independently written world generators should not break
+it. <i>Falsified by:</i> the ranking degrading on generators it wasn't developed against —
+which would mean it learned our world-builder, not structure.</div>
+
+<div class="pred"><b>P2 — genuine three-way interactions will be detectable, and fragile.</b>
+<span class="conf">high / low</span><br>
+High confidence that the higher-order remainder fires on cleanly planted interactions where
+no pair suffices. Low confidence it survives realistic noise, redundancy, or a misspecified
+output function. <i>Falsified by:</i> the same statistic firing on a null where nothing
+higher-order was planted — which would mean it detects bad models, not structure.</div>
+
+<div class="pred"><b>P3 — "significance" will turn out to be relative to a declared output,
+not intrinsic to a structure.</b><span class="conf">moderate-high</span><br>
+The current blindness — no measure can say whether a change <i>matters</i> — looks like a
+missing feature. I think it's a missing definition. A structure with several interacting loops
+has no single behaviour to invert, so significance probably can't be read off the structure
+alone; it needs someone to say what output they care about. <i>Falsified by:</i> a purely
+structural criterion that separates behaviour-inverting changes from cosmetic ones without
+naming an output.</div>
+
+<div class="pred"><b>P4 — relation-class typing will matter more than any single formula.</b>
+<span class="conf">moderate</span><br>
+Keeping causal, structural, historical and analogical relations distinct is doing quiet work
+everywhere. Collapse them and the framework becomes a machine for producing attractive
+nonsense — plausible cross-domain connections that mean nothing. <i>Falsified by:</i> an
+ablation showing untyped relations perform as well across tasks.</div>
+
+<div class="pred"><b>P5 — applications will win on the weird results and lose on the obvious
+ones.</b><span class="conf">moderate</span><br>
+If a relational search engine beats keyword and embedding baselines, it should beat them on
+cross-domain structural analogy and roughly tie on direct topical relevance. That's the whole
+proposition. <i>Falsified by:</i> uniform improvement, which would suggest we built a better
+ordinary search engine and mislabelled it.</div>
+
+<div class="pred"><b>P6 — this will not reach a physical claim.</b><span class="conf">high</span><br>
+The evidence ladder has seven rungs, ending at "supports a broader physical interpretation."
+That requires a distinctive prediction competing methods don't make, and there isn't one.
+This is instrument design and measurement theory. Physical interpretation is a hope and stays
+labelled as one. <i>Falsified by:</i> being wrong, which would be the best outcome here.</div>
+
+<h2>Where the formulas could plug in</h2>
+
+<h3>Relational search</h3>
+<p>The query stops being a bag of words and becomes a <b>motif</b> — a small relational
+configuration. Ask about erosion on an alluvial fan and get back blood-vessel channel
+formation, current finding the low-resistance path, traffic consolidating onto one route.
+Not because they share vocabulary; they share an organisation. The output should be a map with
+one visual channel per measurement — distance for relational distance, colour for relation
+class, opacity for confidence, dashed for inferred — and it must fade into unresolved
+remainder at its edge rather than terminating cleanly, because a clean edge reads as
+"this is everything."</p>
+
+<h3>Music</h3>
+<p>Possibly the best test case anywhere, because in music the objects are already known to be
+secondary to the relations. A pitch has almost no musical content alone. C is nothing; C inside
+an F major chord resolving to B♭ is a specific thing. Transposition changes every surface value
+while preserving structure — an invariance test whose ground truth wasn't invented by us, it's
+what musicians already agree on. And a chord's function isn't recoverable from its pairwise
+intervals, so there's real higher-order structure to find with centuries of independent
+analysis to check against.</p>
+
+<h3>Language models</h3>
+<p>Three genuinely different questions that get conflated: is there relational structure
+<i>inside</i> a model beyond what pairwise probing finds; can a model reliably <i>extract</i>
+typed relations from prose at scale; does supplying a resolved relational map improve reasoning
+over the same content served flat. The third is the most testable and least interesting, which
+makes it the right one to do first. The trap in the second: if the extractor and the measurer
+are the same model, the "structure" found may be structure the model imposed.</p>
+
+<h3>Physical and measured domains</h3>
+<p>Terrain and fluid flow are where the ground truth was measured by someone else, with
+instruments, before any of this existed. Public LiDAR comes with survey-grade checkpoints;
+public flume datasets come with measured velocities. Rotation and unit conversion have
+unambiguous meanings there, which makes it the cleanest invariance test available anywhere in
+the project. Candidate question with a real answer: is a <i>relationally selected</i> subset of
+points better than uniform random sampling at the same budget?</p>
+
+<h3>Further out</h3>
+<p>Anywhere the interesting thing is coordination rather than composition — biological
+regulation, failure propagation through infrastructure, how a supply chain reorganises under
+stress, historical reconstruction from partial traces. These are speculative. Listing them is
+not a claim that any of them work.</p>
+
+<h2>What would make me drop it</h2>
+<ul>
+<li>Every law needing a different arbitrary definition per domain — that means we renamed
+existing domain methods rather than finding anything reusable.</li>
+<li>Random structures scoring as highly as intended analogues, after the controls.</li>
+<li>The framework explaining results it has seen and predicting nothing it hasn't.</li>
+<li>The correspondence measure rewarding elaborate mappings over simple accurate ones — the
+signature of a machine for producing attractive nonsense.</li>
+</ul>
 """
 
 
@@ -111,6 +247,13 @@ measurement you can trust — not evidence that relational measurement works.</p
 <p style="margin-top:14px"><span class="tag">rung 1 — mathematically coherent</span>
 <span class="tag warn">hazard confirmed</span><span class="tag ok">one fix validated</span></p>
 </header>
+
+<nav class="tabs">
+<button class="tab active" data-panel="findings">Findings</button>
+<button class="tab" data-panel="project">The Project</button>
+</nav>
+
+<div class="panel active" id="findings">
 
 <div class="card">
 <h3 style="margin-top:0">What you are looking at</h3>
@@ -281,13 +424,29 @@ argument for the laboratory.</div>
 substitute for one another, and a suite that only tests what we thought of will keep clearing
 formulas that fail in ways we didn't.</div>
 
+</div><!-- /findings -->
+
+<div class="panel" id="project">{PROJECT_PANEL}</div>
+
 <footer>
 Generated from <code>~/relational-metrics/</code> · figures also in <code>figures/</code> ·
 raw results in <code>exp000a.json</code> and <code>exp000b.json</code><br>
 Rung 1 on the evidence ladder. These are hazard demonstrations about method — not evidence
 that relational measurement works.
 </footer>
-</div></body></html>"""
+</div>
+<script>
+document.querySelectorAll('.tab').forEach(function (t) {{
+  t.addEventListener('click', function () {{
+    document.querySelectorAll('.tab').forEach(function (x) {{ x.classList.remove('active'); }});
+    document.querySelectorAll('.panel').forEach(function (p) {{ p.classList.remove('active'); }});
+    t.classList.add('active');
+    document.getElementById(t.dataset.panel).classList.add('active');
+    window.scrollTo({{ top: 0, behavior: 'smooth' }});
+  }});
+}});
+</script>
+</body></html>"""
 
 
 if __name__ == "__main__":
