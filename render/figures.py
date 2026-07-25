@@ -632,6 +632,62 @@ def fig_census(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 13 — quantisation at k=4, and the closed form
+# ---------------------------------------------------------------------------
+
+def fig_k4(data: dict) -> str:
+    W, H = 800, 400
+    L, R, T, B = 70, 210, 100, 64
+    pw, ph = W - L - R, H - T - B
+    cls = data["census_k4"]["top_classes"]
+    cmax = max(c["count"] for c in cls)
+
+    out = ['<text class="ttl" x="24" y="26">Quantisation survives at four variables — and there is a closed form</text>',
+           '<text class="sub" x="24" y="45">All 65,536 Boolean functions of four variables, '
+           'computed exactly. Only 21 distinct retention values.</text>',
+           f'<rect x="24" y="56" width="{W-48}" height="30" fill="var(--fg)" opacity="0.05" rx="6"/>',
+           '<text class="ttl" x="{}" y="76" text-anchor="middle">'.format(W // 2) +
+           'retention  =  1  −  Influence(hidden participant) / H(outcome)</text>']
+
+    for i in range(5):
+        v = i / 4 * cmax
+        y = T + ph - (v / cmax) * ph
+        out.append(f'<line class="ax" x1="{L}" y1="{y:.1f}" x2="{L+pw}" y2="{y:.1f}"/>')
+        out.append(f'<text class="tick" x="{L-9}" y="{y+4:.1f}" text-anchor="end">{v/1000:.0f}k</text>')
+    out.append(f'<text class="lbl" transform="translate(22,{T+ph/2:.0f}) rotate(-90)" '
+               'text-anchor="middle">functions</text>')
+
+    bw = pw / len(cls)
+    for i, c in enumerate(cls):
+        x = L + i * bw + bw * 0.14
+        hgt = (c["count"] / cmax) * ph
+        y = T + ph - hgt
+        v = c["retention"]
+        col = "#2563eb" if abs(v - 0.5) < 1e-9 else "#94a3b8"
+        out.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bw*0.72:.1f}" '
+                   f'height="{max(hgt,1.5):.1f}" fill="{col}" rx="2"/>')
+        out.append(f'<text class="tick" x="{x+bw*0.36:.1f}" y="{T+ph+18}" '
+                   f'text-anchor="middle" transform="rotate(-40 {x+bw*0.36:.1f} {T+ph+18})">'
+                   f'{v:.3f}</text>')
+
+    ly = T + 6
+    for lbl in ["k=3:  7 distinct values", "k=4: 21 distinct values", "",
+                "out of 65,534 functions.", "",
+                "Parity is still the unique",
+                "zero — the only function",
+                "where every participant",
+                "has maximal influence.", "",
+                "5,896 functions sit at",
+                "exactly one half."]:
+        out.append(f'<text class="sub" x="{L+pw+20}" y="{ly}">{esc(lbl)}</text>')
+        ly += 15
+    out.append(f'<text class="sub" x="24" y="{H-10}">'
+               'Verified against brute-force exact mutual information on every k=3 function and '
+               '478 at k=4: maximum error 1.1e-16.</text>')
+    return svg(W, H, "".join(out), "k=4 census and closed form")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -702,6 +758,7 @@ def main() -> None:
     e10 = json.loads((RESULTS / "exp010.json").read_text())
     e13 = json.loads((RESULTS / "exp013.json").read_text())
     e14 = json.loads((RESULTS / "exp014.json").read_text())
+    e15 = json.loads((RESULTS / "exp015.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -721,6 +778,7 @@ def main() -> None:
         "fig10_cliff.svg": fig_cliff(e10),
         "fig11_gradient.svg": fig_gradient(e13),
         "fig12_census.svg": fig_census(e14),
+        "fig13_k4.svg": fig_k4(e15),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

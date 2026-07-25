@@ -1,0 +1,83 @@
+{
+  "experiment": "EXP-015",
+  "question": "does quantisation survive at k=4?",
+  "closed_form_check_k3": {
+    "functions_checked": 254,
+    "max_abs_error": 1.1102230246251565e-16,
+    "matches": true
+  },
+  "closed_form_check_k4": {
+    "functions_checked": 478,
+    "max_abs_error": 1.1102230246251565e-16,
+    "matches": true
+  },
+  "census_k4": {
+    "n_functions": 65536,
+    "n_degenerate": 2,
+    "n_scored": 65534,
+    "n_distinct_retention_values": 21,
+    "min": 0.0,
+    "max": 1.0,
+    "at_exactly_half": 5896,
+    "at_exactly_zero": 2,
+    "parity_retention": 0.0,
+    "top_classes": [
+      {
+        "retention": 0.620714,
+        "count": 17056
+      },
+      {
+        "retention": 0.738065,
+        "count": 9568
+      },
+      {
+        "retention": 0.75,
+        "count": 6592
+      },
+      {
+        "retention": 0.581491,
+        "count": 6368
+      },
+      {
+        "retention": 0.5,
+        "count": 5896
+      },
+      {
+        "retention": 0.476129,
+        "count": 5888
+      },
+      {
+        "retention": 0.873571,
+        "count": 4032
+      },
+      {
+        "retention": 0.691844,
+        "count": 3008
+      },
+      {
+        "retention": 0.860497,
+        "count": 2112
+      },
+      {
+        "retention": 0.367856,
+        "count": 1760
+      },
+      {
+        "retention": 1.0,
+        "count": 940
+      },
+      {
+        "retention": 0.820457,
+        "count": 704
+      }
+    ]
+  },
+  "census_k3": {
+    "n_scored": 254,
+    "n_distinct_retention_values": 7,
+    "at_exactly_half": 56
+  },
+  "quantisation_survives": true,
+  "parity_still_unique_zero": true,
+  "half_still_a_class": true
+}

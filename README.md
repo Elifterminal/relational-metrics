@@ -41,6 +41,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-010` | What does the observer actually choose, and what does it cost? | Everything. Six questions of one system give verdicts spanning three different orders — and hiding one participant erases a three-way dependence outright |
 | `EXP-013` | Is that erasure general? | **No — and it corrects the previous entry.** Parity vanishes at every arity; AND, OR, majority and threshold all keep ~half. A gradient, not a wall |
 | `EXP-014` | Is that "~half" real, or a coincidence? | **Both.** Exhaustive census of all 256 Boolean functions: retention is quantised to 7 values and 0.5 is a real class of 56. But the four measurements offered as evidence were two functions plus a noise artifact |
+| `EXP-015` | Does it survive at four variables? | **Yes, and it has a closed form.** `retention = 1 − influence(hidden) / H(outcome)`, verified to 1e-16. 21 distinct values across all 65,536 functions |
 
 ### The findings worth your time
 
@@ -101,6 +102,22 @@ The only outcome-invariant structure is the participants' internal structure —
 what the calibration correctly rejects as not being an answer to anything. There is no third
 thing. That is a property of the subject matter, not a gap in the instrument.
 
+**And it reduces to an equation.** What you lose by not observing a participant turns out to be
+exactly that participant's *influence* — a standard quantity in Boolean function analysis, the
+fraction of input pairs on which flipping it changes the answer — divided by the entropy of the
+outcome:
+
+```
+retention  =  1  −  Influence(hidden participant) / H(outcome)
+```
+
+Verified against brute-force exact mutual information on every function at three variables and a
+spread sample at four: maximum error 1.1e-16. It explains the quantisation (both terms take
+discrete values), why parity is the unique zero (it is the only function where every participant
+has maximal influence), why one half is a real class, and the anomalous 0.5401. Not a new
+mathematical result — which is the point. It is a bridge from this project's question to work
+that already exists, and both terms are computable from the structure *before* any measurement.
+
 ## Honest limits
 
 - Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
@@ -124,6 +141,8 @@ python3 run_exp011.py      # the replacement measure, connected information
 python3 run_exp012.py      # adversarial stress test of the replacement
 python3 run_exp010.py      # the observer's three choices, measured
 python3 run_exp013.py      # is the partial-observation cliff general?
+python3 run_exp014.py      # exhaustive census, all 256 functions of 3 variables
+python3 run_exp015.py      # k=4 census + the closed form, verified
 
 cd ../render
 python3 figures.py         # regenerate the SVGs

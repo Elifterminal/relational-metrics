@@ -323,6 +323,10 @@ def build() -> str:
     e10 = json.loads((RESULTS / "exp010.json").read_text())
     e13 = json.loads((RESULTS / "exp013.json").read_text())
     e14 = json.loads((RESULTS / "exp014.json").read_text())
+    e15 = json.loads((RESULTS / "exp015.json").read_text())
+    k4_rows = "".join(
+        f"<tr><td><b>{c['retention']:.6f}</b></td><td>{c['count']:,}</td></tr>"
+        for c in e15["census_k4"]["top_classes"][:8])
     cls_rows = "".join(
         f"<tr><td><b>{c['retention']:.4f}</b></td><td>{c['count']}</td>"
         f"<td>{c['ones_in_truth_table']}</td><td>{c['label'] or '—'}</td></tr>"
@@ -867,6 +871,53 @@ what you stand to lose is predictable from the shape of what you are looking at,
 at four or more variables, for non-Boolean participants, or for non-uniform inputs. Three binary
 variables is a very small world, and the clean structure found here may be a property of it.</div>
 
+<h2>Finding 12 — it survives at four variables, and there is a closed form</h2>
+<p>The obvious worry about the last finding was that seven neat values might be a property of a
+very small world. Four variables is 65,536 functions — still exhaustive, still exact.</p>
+
+<h3>The algebra collapses</h3>
+<p>Setting this up, the computation turned out not to need computing. Hiding one participant
+groups the input patterns into pairs that differ only in that participant. Within a pair the
+outcome is either constant or evenly split, and everything else cancels:</p>
+<div class="fig">{figs['fig13_k4.svg']}</div>
+<p>The quantity in the numerator is the <b>influence</b> of a variable — a standard measure in
+Boolean function analysis, the fraction of input pairs on which flipping that one variable
+changes the answer. So what you lose by not seeing a participant is <b>exactly that participant's
+influence, divided by the entropy of the outcome.</b></p>
+<div class="read ok"><b>Both quantities are computable from the structure itself, in advance,
+without measuring any loss.</b> This is not a new mathematical result — influence is
+well-studied, and the relation follows directly once written down. That is precisely why it is
+usable: it is a bridge from this project's question to a body of work that already exists.</div>
+<div class="read"><b>Verified, not assumed.</b> Checked against brute-force exact mutual
+information on every non-degenerate function at three variables and 478 at four. Maximum
+absolute error <b>1.1 × 10⁻¹⁶</b> — floating-point noise. A derivation that had not been checked
+would have been the seventh construction error in this log rather than the first clean one.</div>
+
+<h3>And it explains everything that came before</h3>
+<table><thead><tr><th>retention at k=4</th><th>functions</th></tr></thead><tbody>{k4_rows}</tbody></table>
+<ul>
+<li><b>Quantisation survives</b> — 7 distinct values at k=3, <b>21 at k=4</b>, out of 65,534
+functions. Because influence takes only the values m/2<sup>k−1</sup> and the outcome entropy only
+h(ones/2<sup>k</sup>), retention is a ratio of two discrete sets.</li>
+<li><b>Parity is still the unique zero</b> — exactly two functions, parity and its complement. It
+is the only function where <i>every</i> participant has maximal influence, so there is no
+participant you can afford to lose.</li>
+<li><b>One half is still a real class</b> — 5,896 functions, and now with a reason: a balanced
+outcome has entropy 1, so any function whose least-influential participant has influence ½ lands
+there exactly.</li>
+<li><b>The old anomaly resolves</b> — AND at three variables has a least influence of ¼ and an
+outcome entropy of 0.5436, giving 1 − 0.25/0.5436 = <b>0.5401</b>. Exactly what was measured, and
+now derived rather than observed.</li>
+</ul>
+<div class="read ok"><b>Which makes the earlier claim concrete.</b> "What you lose to incomplete
+observation is predictable from the shape of what you are looking at" is no longer a hopeful
+summary of a histogram. It is an equation, verified, with both of its terms computable before any
+measurement is taken.</div>
+<div class="read warn"><b>Scope, stated plainly.</b> Deterministic Boolean functions, uniform
+inputs, hiding exactly one participant, noiseless. Noise adds a term that does not cancel — which
+is why AND drifted with noise in the previous finding. Non-Boolean participants, non-uniform
+inputs, and hiding several participants at once are all untested.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -902,6 +953,11 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The project has its first equation that predicts rather than describes.</b>
+Retention = 1 − influence of the hidden participant / entropy of the outcome. Verified to 1e-16
+against brute force, exhaustive at two arities, and it explains every earlier retention number
+including the anomalous one. Both terms are computable from the structure in advance. Everything
+else in this log measures what happened; this one says what will.</div>
 <div class="q"><b>A suspicious number was worth chasing, and the chase went both ways.</b> The
 ~0.5 retention flagged as "not claimed" turned out to be a real structural class — 56 of 256
 functions, all balanced — while the four measurements offered as evidence for it were two
