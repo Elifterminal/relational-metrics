@@ -2,7 +2,7 @@
 
 A measurement theory where the thing being measured is a **relational configuration** — participants, typed relations, context, higher-order structure, uncertainty — rather than a property of an isolated object.
 
-**📊 [Read the study page →](https://elif1203terminal.github.io/relational-metrics/)**
+**📊 [Read the study page →](https://elifterminal.github.io/relational-metrics/)**
 
 ---
 
