@@ -82,6 +82,8 @@ current. That check exists because both happened.
 | `EXP-043` | Can an independent reader given a format spec annotate real prose well enough for the comparison to work? | **No. Fully pre-registered — plan AND code locked before the data existed — and it fails.** Mean margin **+0.0048 bits**, 95% CI [−0.0347, +0.0444] spanning zero, effect size **0.045** against 0.788 on glosses, leave-one-out 0/30. Charter falsification 1. **And S2-2 failed in a way it didn't anticipate**: the same annotator abstained 6 times on 60 glosses and **0 times on 90 narratives** — a story never looks empty, because a sequence of events can always be read as causation. 3 of 4 predictions correct; the wrong one is the finding |
 | `EXP-045` | Does the hedge-channel hypothesis leave a trace in data already collected? | **Doesn't support Q-40.** If manufactured relations were noise, items with fewer relations should carry more signal: ρ = **−0.107, p = 0.565**; median split p = 0.212. Direction right, magnitude undetectable. Locked plan says **no commission on this basis**. Relation count is a crude proxy — stated as a limitation, not used as a rescue |
 | `EXP-046` | Is the signal BURIED in the prose annotations, or ABSENT from them? | **The signal is ABSENT, not buried. Q-40 is dead.** Exhaustive subset search over query relations: observed **+0.0787** against a label-permuted null of **+0.0932** — the observed value is *below* chance, p = 0.771. Subset selection genuinely works (strict subset chosen on 21/30) and cannot help. The locked plan carried a **commitment** to report this dead rather than propose a variant; honoured |
+| `EXP-047` | Settle C-03 at adequate n by generating structures instead of annotating them | **Design flawed — the sweep swept nothing.** Damage was specified as a fraction, and with 5 relations every level from 0.1 to 0.2 rounded to the same single rewire, so analogue and false friend ended up *equally damaged*. The apparent boundary was rounding. One interpretable point survives (exact relabelling: margin +0.399, d=3.31, 120/120 wins). Plan was locked and **not edited** — the corrected design is a separate experiment |
+| `EXP-048` | How much damage can a structural analogue take and still be preferred? | **Settled, and better than predicted.** 8 relations, analogue rewires k, false friend k+2, n=200 per level. Holds strongly to **2 rewires of 8** — a quarter of the structure altered — with **d=1.24 and 90% of individual cases agreeing**; gone by 4. **Not fragile.** My predeclared control rule fired at k=3 and was too coarse (by then the false friend is near-unrelated itself) — both readings reported, k=3 marked unreadable, rule not quietly replaced. **Fourth over-coarse verdict rule today** |
 
 ### What this project established
 
@@ -116,9 +118,9 @@ current. That check exists because both happened.
 
 **PROVISIONAL**
 
-- **MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.** · rung 3 · *rests on: hand annotation*  
-  *scope*: INDEPENDENTLY ANNOTATED (EXP-039): effect size 0.788, mean margin +0.165 bits, 95% CI excluding zero, both tests p<0.05 — but leave-one-act survives 3/9, so **fragile, not established** by the pre-locked rule. Sighted annotation inflates 2.6× (2.045 vs 0.788), confirmed from outside. Remaining exposure is SAMPLE SIZE not bias: 9 motifs where EXP-037 called for ~30 (Q-32). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal on an external benchmark annotated blind, because that annotation carries none (EXP-030)  
-  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`, `EXP-032`, `EXP-033`, `EXP-036`, `EXP-037`, `EXP-038`, `EXP-039`
+- **MDL correspondence ranks a structural analogue above a same-vocabulary rival — settled for the MEASURE, unsettled for the pipeline around it.** · rung 3 · *rests on: computation (mechanism) + annotation (pipeline)*  
+  *scope*: TWO LEGS OF VERY DIFFERENT STRENGTH. **The mechanism is settled** (EXP-048): with no annotation anywhere, the measure holds the property out to a quarter of the structure being altered — d=1.24, 90% of 200 cases agreeing, not fragile. **The pipeline is not**: on hand-annotated corpora it is effect size 0.788 with leave-one-out 3/9 (EXP-039), and sighted annotation inflates it 2.6×. Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal at all on prose, four ways (EXP-030, 042, 043, 046)  
+  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`, `EXP-032`, `EXP-033`, `EXP-036`, `EXP-037`, `EXP-038`, `EXP-039`, `EXP-047`, `EXP-048`
 - **The correspondence measure transfers to topologies it was not developed against.** · rung 2 · *rests on: computation*  
   *scope*: 5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process. One experiment, never repeated — the weakest active claim in the project  
   *evidence*: `EXP-005`
@@ -189,6 +191,8 @@ python3 run_exp044.py    # why prose is hard -- the causation is never stated
 python3 run_exp043.py    # the decisive Stage 2 test -- pre-registered, and negative
 python3 run_exp045.py    # cheap test before commissioning -- and it says don't
 python3 run_exp046.py    # buried or absent? absent. Q-40 closed
+python3 run_exp047.py    # a sweep that swept nothing -- my design error
+python3 run_exp048.py    # the measure's real boundary -- a quarter of the structure
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs

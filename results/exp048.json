@@ -1,0 +1,132 @@
+{
+  "experiment": "EXP-048",
+  "supersedes_design_of": "EXP-047",
+  "predeclared_global_control_rule": {
+    "as_written": "control positive anywhere -> nothing readable",
+    "it_fired": true,
+    "why_it_is_too_coarse": "by k=3 the false friend has 5 of 8 relations rewired and is close to unrelated itself, so 'unrelated beats false friend' stops meaning what the rule assumed. Fourth predeclared verdict rule today to be too coarse for its own result (P-23)",
+    "handling": "both readings reported. Levels with a clean control are marked readable; the rest are not read"
+  },
+  "readable_levels": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "last_significant_readable_k": 2,
+  "plan_locked_at": "55f587d8ce73ededa01c54ba0e2a51655aaee438",
+  "plan_sha256": "0cd87f3a744e7a30",
+  "n_per_level": 200,
+  "gap": 2,
+  "annotation_involved": "none",
+  "levels": [
+    {
+      "k_analogue_rewires": 0,
+      "k_false_friend_rewires": 2,
+      "n": 200,
+      "excluded": 0,
+      "excluded_pct": 0.0,
+      "mean_margin": 0.5374,
+      "ci95": [
+        0.5159,
+        0.5589
+      ],
+      "effect_size_d": 3.538,
+      "analogue_wins_fraction": 1.0,
+      "t_p_raw": 1.0933640959439611e-114,
+      "wilcoxon_p_raw": 0.0,
+      "control_unrelated_minus_false_friend": -0.1929,
+      "t_p_holm": 0.0,
+      "significant": true,
+      "control_clean": true,
+      "readable": true
+    },
+    {
+      "k_analogue_rewires": 1,
+      "k_false_friend_rewires": 3,
+      "n": 200,
+      "excluded": 0,
+      "excluded_pct": 0.0,
+      "mean_margin": 0.3007,
+      "ci95": [
+        0.2752,
+        0.3262
+      ],
+      "effect_size_d": 1.666,
+      "analogue_wins_fraction": 0.95,
+      "t_p_raw": 1.832618651150459e-59,
+      "wilcoxon_p_raw": 0.0,
+      "control_unrelated_minus_false_friend": -0.026,
+      "t_p_holm": 0.0,
+      "significant": true,
+      "control_clean": true,
+      "readable": true
+    },
+    {
+      "k_analogue_rewires": 2,
+      "k_false_friend_rewires": 4,
+      "n": 200,
+      "excluded": 0,
+      "excluded_pct": 0.0,
+      "mean_margin": 0.1868,
+      "ci95": [
+        0.1655,
+        0.2081
+      ],
+      "effect_size_d": 1.238,
+      "analogue_wins_fraction": 0.895,
+      "t_p_raw": 3.68989249180582e-42,
+      "wilcoxon_p_raw": 0.0,
+      "control_unrelated_minus_false_friend": -0.0136,
+      "t_p_holm": 0.0,
+      "significant": true,
+      "control_clean": true,
+      "readable": true
+    },
+    {
+      "k_analogue_rewires": 3,
+      "k_false_friend_rewires": 5,
+      "n": 200,
+      "excluded": 0,
+      "excluded_pct": 0.0,
+      "mean_margin": 0.0443,
+      "ci95": [
+        0.0211,
+        0.0676
+      ],
+      "effect_size_d": 0.27,
+      "analogue_wins_fraction": 0.51,
+      "t_p_raw": 0.00018342761409575022,
+      "wilcoxon_p_raw": 1.4555497883872448e-05,
+      "control_unrelated_minus_false_friend": 0.0114,
+      "t_p_holm": 0.000367,
+      "significant": true,
+      "control_clean": false,
+      "readable": false
+    },
+    {
+      "k_analogue_rewires": 4,
+      "k_false_friend_rewires": 6,
+      "n": 200,
+      "excluded": 0,
+      "excluded_pct": 0.0,
+      "mean_margin": -0.0026,
+      "ci95": [
+        -0.0226,
+        0.0174
+      ],
+      "effect_size_d": -0.019,
+      "analogue_wins_fraction": 0.4,
+      "t_p_raw": 0.7935558512837416,
+      "wilcoxon_p_raw": 0.6795235416285186,
+      "control_unrelated_minus_false_friend": -0.0119,
+      "t_p_holm": 0.793556,
+      "significant": false,
+      "control_clean": true,
+      "readable": true
+    }
+  ],
+  "control_arm_ok": false,
+  "boundary_k": 4,
+  "verdict": "SUPPORTED AND BOUNDED -- holds up to 2 rewires of 8 at readable levels, gone by k=4. That boundary is the result"
+}

@@ -27,7 +27,7 @@ TIER = {
     "C-14": "computation", "C-07": "computation",
     "C-04": "theorem (instances were annotation)",
     "C-12": "computation + annotation",
-    "C-03": "hand annotation", "C-13": "hand annotation", "C-09": "hand annotation",
+    "C-03": "computation (mechanism) + annotation (pipeline)", "C-13": "hand annotation", "C-09": "hand annotation",
     "C-11": "untested",
 }
 

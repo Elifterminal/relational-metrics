@@ -2624,6 +2624,60 @@ so most on the documents that contain the least — which is exactly where a fal
 created. Checking for that is now a precondition of using any annotator's output, logged in the Stage
 2 methodology record rather than edited into the charter.</div>
 
+
+<h2>Finding 39 — settling the small result, and a design error of mine on the way</h2>
+<p>The one real application result was fragile: nine test cases, and removing any one of them usually
+killed it. The obvious fix is more cases. But building thirty more by hand means I write the documents
+and someone annotates them — rebuilding both biases this project spent a day identifying.</p>
+<div class="read"><b>So I generated the structures instead.</b> No annotation anywhere in the
+experiment. That buys a clean test of the measure with no annotator to bias it; it costs realism,
+since the analogue and the decoy are what they are by construction rather than by judgement. So it
+settles the measure and says nothing about the hand-annotated pipeline — which is stated in the
+locked plan, not discovered afterwards.</div>
+
+<h3>First attempt: a sweep that swept nothing</h3>
+<div class="read warn"><b>I specified damage as a percentage, and the rounding ate it.</b> With five
+relations, 10% and 20% both round to one rewire — so from the second step onward the analogue and the
+decoy were <i>equally damaged</i> and there was nothing for the measure to prefer. The "boundary" the
+first run found was rounding.<br><br>The plan was locked before running and I didn't edit it. Editing
+would have been easier and would have destroyed the only thing that makes a locked plan worth having.
+The flawed run stands, its generator is kept unchanged, and the fix is a separate experiment.</div>
+
+<h3>Corrected: the measure's actual boundary</h3>
+<p>Damage in whole relations now, with the decoy always damaged two more than the analogue, so the
+analogue holds a real advantage at every point. Eight relations per structure, 200 cases per level.</p>
+<table><thead><tr><th>relations altered</th><th>margin</th><th>effect size</th><th>analogue wins</th></tr></thead><tbody>
+<tr><td>0 of 8</td><td>+0.537</td><td><b>3.54</b></td><td><b>100%</b></td></tr>
+<tr><td>1 of 8</td><td>+0.301</td><td><b>1.67</b></td><td><b>95%</b></td></tr>
+<tr><td><b>2 of 8</b></td><td><b>+0.187</b></td><td><b>1.24</b></td><td><b>90%</b></td></tr>
+<tr><td>3 of 8</td><td>+0.044</td><td>0.27</td><td>51% <i>— unreadable, see below</i></td></tr>
+<tr><td>4 of 8</td><td>−0.003</td><td>−0.02</td><td>40% <i>— gone</i></td></tr>
+</tbody></table>
+<div class="read ok"><b>The property is real and it holds until a quarter of the structure has been
+altered.</b> Nine cases in ten agree individually, at two hundred cases. <b>This is not fragile</b> —
+which is the thing that needed settling, and it's settled.</div>
+
+<h3>And my own verdict rule fired wrongly, for the fourth time today</h3>
+<div class="read warn"><b>I'd written a control into the locked plan:</b> if an unrelated structure
+ever beats the decoy, the measure is rewarding renaming rather than shape and nothing can be read. It
+fired at the fourth level, by 0.011.<br><br><b>The rule is wrong, and visibly so:</b> by that point
+the decoy has five of its eight relations rewired and is close to unrelated itself, so "unrelated
+beats decoy" stops meaning what the rule assumed. The control is cleanly negative everywhere
+else.<br><br><b>Both readings are published and I didn't quietly swap the rule for one I prefer.</b>
+That level is marked unreadable and excluded; the conclusion rests on the levels where the control is
+clean.<br><br>This is the fourth predeclared rule today to be too coarse for its own result. Four in
+one day isn't an anecdote — it's a standing weakness, and it's always the same shape: a global rule
+applied to a swept design, where the far end of the sweep breaks the rule's assumption.</div>
+<div class="read"><b>On predictions: two right, two wrong, and I was pessimistic rather than
+optimistic.</b> I expected the boundary early — one or two relations — and wrote down that if it were
+that early, the measure would be detecting near-copies rather than analogy and that would be bad news.
+It wasn't that early. The measure tolerates a quarter of the structure changing. Worth noting because
+every other error today ran the other way.</div>
+<div class="read ok"><b>Where the claim now stands: two legs of very different strength.</b> The
+mechanism is settled — the measure does what it claims, robustly, with no annotation involved. The
+pipeline around it is not — on hand-annotated material it's still effect size 0.788 with the
+fragility that implies, and fixing that needs documents and annotations commissioned from outside.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
