@@ -553,6 +553,20 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "rule-based reader on real prose -- predicted failure, run anyway"
+    },
+    {
+      "id": "EXP-044",
+      "question": "What specifically makes narrative prose hard to annotate, versus the glosses that worked?",
+      "result": "**The causation isn't written down.** In these narratives **88% of sentences contain no causal verb at all**, and explicit causal vocabulary is **22\u00d7 rarer per word** than in the glosses. Pronouns 10\u00d7 denser, names 5\u00d7 denser. **Clauses per sentence does NOT separate them** \u2014 the difficulty is not syntactic. A reader must infer unmarked causation, resolve reference across sentences, and abstract named individuals into roles. Explains EXP-042 completely. The planned length-matched arm **could not run** (2 glosses in the overlap window) and is reported as untested",
+      "status": "complete",
+      "rung": 2,
+      "stage": 2,
+      "entry_point": "lab/run_exp044.py",
+      "result_file": "results/exp044.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "why prose is hard -- the causation is never stated"
     }
   ],
   "claims": [

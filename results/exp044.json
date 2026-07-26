@@ -1,0 +1,87 @@
+{
+  "experiment": "EXP-044",
+  "plan_locked_at": "f0a14b10bd3b7251bf32d728c5ec4320aa7a7477",
+  "plan_sha256": "c9210c1a9b0dd987",
+  "labels_read": "none",
+  "n_easy": 60,
+  "n_hard": 90,
+  "measures": [
+    {
+      "measure": "causal_verbs_per_100_words",
+      "easy_mean": 14.66,
+      "hard_mean": 0.67,
+      "ratio_hard_over_easy": 0.05,
+      "t": 12.79,
+      "p_raw": 0.0,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "measure": "pct_sentences_without_a_causal_verb",
+      "easy_mean": 13.33,
+      "hard_mean": 88.45,
+      "ratio_hard_over_easy": 6.63,
+      "t": -15.34,
+      "p_raw": 0.0,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "measure": "pronouns_per_100_words",
+      "easy_mean": 1.14,
+      "hard_mean": 11.38,
+      "ratio_hard_over_easy": 10.0,
+      "t": -16.45,
+      "p_raw": 0.0,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "measure": "proper_nouns_per_100_words",
+      "easy_mean": 1.28,
+      "hard_mean": 6.35,
+      "ratio_hard_over_easy": 4.95,
+      "t": -6.95,
+      "p_raw": 6.02629057766535e-12,
+      "p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "measure": "clauses_per_sentence",
+      "easy_mean": 2.5,
+      "hard_mean": 2.26,
+      "ratio_hard_over_easy": 0.91,
+      "t": 1.35,
+      "p_raw": 0.18131646248633082,
+      "p_holm": 0.18132,
+      "significant": false
+    },
+    {
+      "measure": "words",
+      "easy_mean": 11.77,
+      "hard_mean": 67.61,
+      "ratio_hard_over_easy": 5.75,
+      "t": -26.66,
+      "p_raw": 0.0
+    },
+    {
+      "measure": "sentences",
+      "easy_mean": 1.0,
+      "hard_mean": 4.37,
+      "ratio_hard_over_easy": 4.37,
+      "t": -17.91,
+      "p_raw": 0.0
+    }
+  ],
+  "length_matched_check": {
+    "window_words": [
+      20,
+      60
+    ],
+    "n_easy": 2,
+    "n_hard": 33,
+    "survives": null,
+    "note": "too few passages overlap in length to test"
+  },
+  "verdict": "4 of 5 measures separate the sets; largest is 'causal_verbs_per_100_words' at 0.05x"
+}

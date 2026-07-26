@@ -348,6 +348,36 @@ result itself rather than the annotation.<br><br>The rule that the reader and th
 different parties applies to me iterating on a reader while watching the score, just as much as it
 applied to me annotating by hand. So the reader stays as it is.</div>
 
+<h3>S2-3 — why prose is hard, specifically</h3>
+<p class="sub">Measures properties of the text. No correct answer is read at any point, so nothing
+here can be steered by a score.</p>
+<p>"Prose is harder" isn't actionable. So what does the difference actually consist of?</p>
+<table><thead><tr><th>measure</th><th>tidy glosses</th><th>real narratives</th><th>ratio</th></tr></thead><tbody>
+<tr><td><b>causal words per 100 words</b></td><td><b>14.7</b></td><td><b>0.7</b></td><td><b>22&times; rarer</b></td></tr>
+<tr><td><b>sentences with no causal word at all</b></td><td><b>13%</b></td><td><b>88%</b></td><td>6.6&times;</td></tr>
+<tr><td>pronouns per 100 words</td><td>1.1</td><td>11.4</td><td>10&times;</td></tr>
+<tr><td>names per 100 words</td><td>1.3</td><td>6.4</td><td>5&times;</td></tr>
+<tr><td>clauses per sentence</td><td>2.5</td><td>2.3</td><td><i>no difference</i></td></tr>
+</tbody></table>
+<div class="read"><b>The difficulty isn't syntactic.</b> Sentence complexity is the one thing that
+<i>doesn't</i> differ — narrative sentences are no more tangled than the glosses were.<br><br>
+<b>It's that the causation is never written down.</b> In these stories, 88% of sentences contain no
+causal word at all. The glosses were written to describe a causal structure, so they state it.
+Stories convey causation through sequence and consequence instead. A reader hunting for causal verbs
+finds nothing — which is precisely the 69% blank measured above.</div>
+<div class="read ok"><b>So a reader has to do three things:</b> infer causation that no word marks;
+follow a chain running across sentences through "he" and "it"; and turn Johnny and Kate into roles
+rather than people. None are available to a word-list and a clause splitter, which closes the
+question of why the last attempt failed. All three are things a language model does natively — which
+is why the next experiment is worth running rather than a formality.<br><br>
+<b>It does not predict success.</b> A reader capable of all three can still produce annotations
+carrying no signal. That has already happened once.</div>
+<div class="read warn"><b>One planned check could not run.</b> I said I would verify the gap isn't
+just "prose is longer" by comparing length-matched samples. Only two glosses fall in the overlap
+window against thirty-three passages, so there wasn't enough to test. Four of the five measures are
+already rates — per 100 words, per sentence — so length is divided out by construction, but that's an
+argument rather than the check I promised, and it's reported as untested rather than assumed.</div>
+
 <h2>Methodology changes</h2>
 <div class="read sub"><b>None yet.</b> Every change to the charter gets logged here with its date and
 reason, rather than edited silently into the text above. Stage 1 had three occasions where a

@@ -78,6 +78,7 @@ current. That check exists because both happened.
 | `EXP-040` | Q-38/Q-34 — which relations did I invent, measured against an independent annotator? | **I was annotating to a template.** My sighted pass **never used fewer than 4 relations on any of 60 documents** (80% exactly 4); the independent annotator ranged 0–5 with its mode at 25%. I wrote more on **49 of 60** and fewer on **zero**. My sighted counts tracked sentence length *less* (+0.57) than my own blind counts (+0.79). On all 6 documents they refused entirely, I wrote exactly 4. One measured mechanism behind EXP-035's invented edge, EXP-032's 2.6× inflation and EXP-033's 9-word glosses |
 | `EXP-041` | Q-27 — can the representation express an ARN analogy at all, before building an annotator? | **Yes — PROCEED.** Correct answer and distractor are typed-isomorphic on **0 of 20** items (95% CI 0–0.168); untyped 2/20. And the confound points the safe way: a four-relation template *flattens* structures together, so a low rate is trustworthy where a high one would not be. **EXP-030's failure was the annotator, not the representation** — agreeing with EXP-040. But distinctness is a weak bar: it clears identifiability and shows nothing about whether a good annotator exists. 3/3 predictions |
 | `EXP-042` | Can a fully automatic rule-based annotator read real narrative prose? | **No — and the test did not even run.** 69% of passages produced nothing; **30 of 30 items excluded**. Charter falsification 3, no claim either way about the measure. I predicted failure in writing beforehand but predicted the *wrong mode* — expected a signal-free result, got one with no result at all. Establishes the floor any Stage 2 annotator must beat. Deliberately NOT hand-tuning the extractor against a benchmark whose answers I know — that would be the same bias in a new costume |
+| `EXP-044` | What specifically makes narrative prose hard to annotate, versus the glosses that worked? | **The causation isn't written down.** In these narratives **88% of sentences contain no causal verb at all**, and explicit causal vocabulary is **22× rarer per word** than in the glosses. Pronouns 10× denser, names 5× denser. **Clauses per sentence does NOT separate them** — the difficulty is not syntactic. A reader must infer unmarked causation, resolve reference across sentences, and abstract named individuals into roles. Explains EXP-042 completely. The planned length-matched arm **could not run** (2 glosses in the overlap window) and is reported as untested |
 
 ### What currently survives
 
@@ -181,6 +182,7 @@ python3 run_exp039.py    # the second annotator -- real, inflated, and fragile
 python3 run_exp040.py    # the template floor -- one mechanism behind four findings
 python3 run_exp041.py    # Stage 2 pre-test -- is the distinction even in the representation?
 python3 run_exp042.py    # rule-based reader on real prose -- predicted failure, run anyway
+python3 run_exp044.py    # why prose is hard -- the causation is never stated
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs
