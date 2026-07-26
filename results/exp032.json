@@ -265,10 +265,10 @@
       "ranking": "{P=V=X} > U > W",
       "scores": {
         "W": 1.0,
-        "V": 1.9898,
-        "P": 1.9898,
-        "X": 1.9898,
-        "U": 1.1461
+        "V": 1.5743,
+        "P": 1.5743,
+        "X": 1.5743,
+        "U": 1.1922
       },
       "analogue_beats_false_friend": true,
       "paraphrase_ties_analogue": true
@@ -277,9 +277,9 @@
       "motif": "diversity",
       "ranking": "{U=V} > {P=W=X}",
       "scores": {
-        "U": 1.4874,
+        "U": 1.3114,
         "P": 1.0,
-        "V": 1.4874,
+        "V": 1.3114,
         "W": 1.0,
         "X": 1.0
       },
@@ -288,13 +288,13 @@
     },
     {
       "motif": "regulator",
-      "ranking": "{P=V=X} > U > W",
+      "ranking": "{P=V=X} > W > U",
       "scores": {
-        "X": 1.8816,
-        "U": 1.2882,
-        "P": 1.8816,
-        "V": 1.8816,
-        "W": 1.1645
+        "X": 1.5393,
+        "U": 1.2014,
+        "P": 1.5393,
+        "V": 1.5393,
+        "W": 1.2029
       },
       "analogue_beats_false_friend": true,
       "paraphrase_ties_analogue": true
@@ -303,11 +303,11 @@
       "motif": "rivalry",
       "ranking": "P > {V=X} > W > U",
       "scores": {
-        "U": 0.9559,
-        "X": 1.1963,
-        "V": 1.1963,
-        "P": 1.3602,
-        "W": 1.1796
+        "U": 1.0939,
+        "X": 1.23,
+        "V": 1.23,
+        "P": 1.2506,
+        "W": 1.2208
       },
       "analogue_beats_false_friend": true,
       "paraphrase_ties_analogue": false

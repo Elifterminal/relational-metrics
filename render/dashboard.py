@@ -2003,6 +2003,63 @@ threshold doesn't make the threshold right — it makes it <i>fixed</i>, which o
 of possible outcomes was mapped properly first. A result that lands outside every declared bucket is
 evidence the buckets were wrong, not a result to be rounded to the nearest one.</div>
 
+
+<h2>Finding 32 — the missing channel, and a control that can fail again</h2>
+<p>The previous finding turned up something awkward: the measure never looked at how <i>strong</i> a
+relation was. Every structure carries a weight on every link, and the comparison threw them all away
+— so a thousandfold difference in coupling was invisible. Worse, the very first experiment had been
+publishing "invariant to unit conversion" ever since, on the strength of that blindness.</p>
+
+<h3>First, a correction to the finding that caught it</h3>
+<div class="read warn"><b>My witness pair for that was wrong.</b> I'd used two structures whose
+weights were 0.01, 0.01 against 10.0, 10.0 — but those differ only by a single global factor, which
+is a change of units, and a change of units is exactly what the measure is <i>supposed</i> to ignore.
+So the pair demonstrated a property it should have, not a defect. The verdict came out right for the
+wrong reason, because at that point weights were being ignored entirely.<br><br>A proper test needs
+the weights to differ <i>relative to each other</i>: one link dominant versus the other link
+dominant, same shape, not related by any rescaling.</div>
+
+<h3>The fix, and why it's built this way</h3>
+<div class="read"><b>Weights are recorded on a log scale, measured against their own average.</b>
+Multiply every weight by the same number and each one shifts by the same amount, so their positions
+relative to the average don't move at all — <b>a change of units is invariant because of how the
+quantity is defined, not because the measure failed to look.</b> That's the rule the project arrived
+at two findings ago: build the invariance into the definition of what's being measured rather than
+hoping the search stumbles on it.<br><br>Log scale because coupling is multiplicative — going from
+0.1 to 1 is the same size of step as going from 1 to 10, and a linear scale would disagree.</div>
+<div class="read ok"><b>It works in both directions.</b> Two structures with the same shape but
+opposite coupling now score differently. The same structure with every weight multiplied by a
+thousand scores <i>identically</i>, to the last digit.</div>
+
+<h3>The check I wrote down in advance</h3>
+<p>Every weight in every corpus is 1. So the prediction was: <b>nothing should move</b>, and if
+anything did, that would mean the new encoding was wrong rather than the old results. Re-ran every
+experiment that carries a claim — the retrieval result, the held-out and independent corpora, the
+re-encoding findings, the blind re-annotations.</p>
+<div class="read ok"><b>Nothing moved.</b> Not one claim-bearing number. The channel is inert where
+weights are uniform and active where they aren't, which is exactly the contract.</div>
+
+<h3>The control is a control again — and it now checks itself</h3>
+<div class="read ok">The rescaling test still passes, and it can now <b>fail</b>: perturbing a single
+weight moves the answer by four bits.<br><br>Rather than just flipping the "this test is vacuous"
+note I'd added, the file now <b>measures</b> it — on every run it perturbs the property the control
+holds fixed and requires the measure to notice. The old note would have gone stale the moment the
+channel was built, exactly as the thing it replaced did. A control that cannot fail is not a control,
+and the file now asserts that about itself instead of relying on anyone remembering.</div>
+
+<h3>And the audit had the very bug it was built to find</h3>
+<div class="read warn"><b>With the channel working, the audit still insisted relative coupling was
+impossible to detect</b> — while the measure was visibly detecting it. Its notion of "these two
+structures are the same" also ignored weights, because it predated the change.<br><br>So a tool that
+tests what a representation can express had gone out of date with the representation, and would have
+kept certifying impossibility for a distinction the project had just acquired. Same failure as the
+vacuous control, one level up. Fixed, and the audit re-run: magnitude moves from impossible to
+available, and four distinctions remain genuinely outside.</div>
+<div class="read"><b>Worth being plain about the limit:</b> no corpus in this project uses a weight
+other than 1, so the channel has never been exercised on real data. It's a capability, not a result,
+and shouldn't be described as more than that until there's a corpus where coupling strength actually
+carries information.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -2038,6 +2095,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>A control that had been passing since the first experiment could not have
+failed.</b> The measure never read relation strength, so "invariant to unit conversion" was
+blindness reported as a virtue. Building the channel — with the invariance defined into the quantity
+rather than left for the search to find — makes the control real, and it now tests its own capacity
+to fail on every run. The audit built to catch this class of problem had the same problem itself,
+one level up, and would have kept certifying impossibility for a distinction the project had just
+gained.</div>
 <div class="q"><b>Across all three corpora the blind score is 6 of 10, against 10 of 10 sighted —
 and the size of that gap is not yet measurable.</b> On two corpora the blind pass recorded half as
 many relations as the sighted one, which lowers the score independently of role-knowledge. Direction

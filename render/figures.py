@@ -1700,13 +1700,14 @@ def fig_identifiability(e31: dict) -> str:
     out.append(f'<text class="sub" x="24" y="{y+15}">'
                'identifiable, which is how you know the audit can return both answers. '
                'A test with only one possible result is not a test.</text>')
-    wc = e31["weight_blindness_check"]
-    out.append(f'<text class="sub" x="24" y="{y+37}" fill="#dc2626">'
-               f'Found by this audit, unpaid for: coupling strength differing 1000x scores '
-               f'{wc["corr(weak, strong)"]:.4f} — identical to comparing a structure with itself.</text>')
-    out.append(f'<text class="sub" x="24" y="{y+52}" fill="#d97706">'
-               'The very first experiment has published "invariant to unit conversion" ever since. '
-               'It cannot fail: the measure never reads weights.</text>')
+    wc = e31["weight_channel_check"]
+    out.append(f'<text class="sub" x="24" y="{y+37}" fill="#15803d">'
+               f'Found by this audit and since REPAIRED: relation strength was invisible. '
+               f'Now relative coupling shows ({wc["corr(a_dom, a_dom)"]:.4f} vs '
+               f'{wc["corr(a_dom, c_dom)"]:.4f})</text>')
+    out.append(f'<text class="sub" x="24" y="{y+52}" fill="#15803d">'
+               'while unit conversion stays invariant — so the first experiment\'s '
+               '"invariant to rescaling" control can finally fail, and passes honestly.</text>')
     return svg(W, H, "".join(out), "Expressivity boundary audit")
 
 

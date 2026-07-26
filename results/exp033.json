@@ -46,7 +46,7 @@
       "rows": [
         {
           "motif": "inhibition",
-          "ranking": "{V=W=X} > P > U",
+          "ranking": "P > {V=W=X} > U",
           "analogue_beats_false_friend": false
         },
         {

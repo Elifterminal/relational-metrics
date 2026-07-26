@@ -46,14 +46,14 @@
           "W"
         ],
         "scores": {
-          "P": 1.9898,
-          "U": 1.1461,
-          "W": 0.9949,
-          "X": 1.9898,
-          "V": 1.1796
+          "P": 1.5743,
+          "U": 1.1922,
+          "W": 1.1488,
+          "X": 1.5743,
+          "V": 1.2208
         },
         "analogue_beats_false_friend": true,
-        "margin_X_over_W": 0.9949,
+        "margin_X_over_W": 0.4254,
         "d_A": {
           "missing": 0,
           "spurious": 0,
@@ -86,14 +86,14 @@
           "U"
         ],
         "scores": {
-          "P": 1.9898,
-          "U": 1.1461,
-          "W": 1.9883,
-          "X": 1.9898,
-          "V": 1.9883
+          "P": 1.5743,
+          "U": 1.1922,
+          "W": 1.5422,
+          "X": 1.5743,
+          "V": 1.5422
         },
         "analogue_beats_false_friend": true,
-        "margin_X_over_W": 0.0014,
+        "margin_X_over_W": 0.032,
         "d_A": {
           "missing": 0,
           "spurious": 0,
@@ -104,7 +104,7 @@
         "perfect": false
       },
       "cascade": {
-        "ranking": "{P=U=X} > V > W",
+        "ranking": "{P=U=X} > W > V",
         "groups": [
           [
             "P",
@@ -112,33 +112,33 @@
             "X"
           ],
           [
-            "V"
+            "W"
           ],
           [
-            "W"
+            "V"
           ]
         ],
         "order_for_d_A": [
           "U",
           "X",
           "P",
-          "V",
-          "W"
+          "W",
+          "V"
         ],
         "scores": {
-          "P": 1.8676,
-          "U": 1.8676,
-          "W": 0.9943,
-          "X": 1.8676,
+          "P": 1.5074,
+          "U": 1.5074,
+          "W": 1.1387,
+          "X": 1.5074,
           "V": 1.0
         },
         "analogue_beats_false_friend": true,
-        "margin_X_over_W": 0.8733,
+        "margin_X_over_W": 0.3687,
         "d_A": {
           "missing": 0,
           "spurious": 0,
           "misclassified": 0,
-          "misordered": 5,
+          "misordered": 4,
           "rank_displacement": 1.4
         },
         "perfect": false
@@ -177,14 +177,14 @@
           "U"
         ],
         "scores": {
-          "P": 2.035,
-          "U": 0.9943,
-          "W": 1.1989,
-          "X": 2.035,
-          "V": 1.1804
+          "P": 1.5678,
+          "U": 1.1387,
+          "W": 1.2348,
+          "X": 1.5678,
+          "V": 1.2252
         },
         "analogue_beats_false_friend": true,
-        "margin_X_over_W": 0.836,
+        "margin_X_over_W": 0.333,
         "d_A": {
           "missing": 0,
           "spurious": 0,
@@ -219,14 +219,14 @@
           "V"
         ],
         "scores": {
-          "P": 1.9898,
-          "U": 1.1461,
-          "W": 1.9883,
-          "X": 1.9898,
+          "P": 1.5743,
+          "U": 1.1922,
+          "W": 1.5422,
+          "X": 1.5743,
           "V": 1.0
         },
         "analogue_beats_false_friend": true,
-        "margin_X_over_W": 0.0014,
+        "margin_X_over_W": 0.032,
         "d_A": {
           "missing": 0,
           "spurious": 0,
@@ -237,7 +237,7 @@
         "perfect": false
       },
       "substitution": {
-        "ranking": "{P=X} > U > V > W",
+        "ranking": "{P=X} > U > W > V",
         "groups": [
           [
             "P",
@@ -247,33 +247,33 @@
             "U"
           ],
           [
-            "V"
+            "W"
           ],
           [
-            "W"
+            "V"
           ]
         ],
         "order_for_d_A": [
           "X",
           "P",
           "U",
-          "V",
-          "W"
+          "W",
+          "V"
         ],
         "scores": {
-          "P": 1.9898,
-          "U": 1.1461,
-          "W": 0.9949,
-          "X": 1.9898,
+          "P": 1.5743,
+          "U": 1.1922,
+          "W": 1.1488,
+          "X": 1.5743,
           "V": 1.0
         },
         "analogue_beats_false_friend": true,
-        "margin_X_over_W": 0.9949,
+        "margin_X_over_W": 0.4254,
         "d_A": {
           "missing": 0,
           "spurious": 0,
           "misclassified": 0,
-          "misordered": 3,
+          "misordered": 2,
           "rank_displacement": 0.8
         },
         "perfect": false

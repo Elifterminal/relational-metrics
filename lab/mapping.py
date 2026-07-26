@@ -42,6 +42,19 @@ class Mapping:
         mapping is free; a translation costs."""
         return sum(1 for a, b in self.types if a != b)
 
+    def predicted_pairs(self, source: Structure):
+        """(image_edge, source_edge) for every relation this mapping carries.
+
+        predicted_edges() returns a set and therefore loses which source
+        relation produced each image -- fine when only topology mattered, not
+        once weights enter (Q-28), because the weight correction needs to know
+        which source edge to compare against.
+        """
+        nm, tm = self.node_map, self.type_map
+        for r in source.relations:
+            if r.src in nm and r.dst in nm and r.rtype in tm:
+                yield (nm[r.src], nm[r.dst], tm[r.rtype]), (r.src, r.dst, r.rtype)
+
     def predicted_edges(self, source: Structure) -> frozenset[tuple[str, str, str]]:
         nm, tm = self.node_map, self.type_map
         out = set()

@@ -27,16 +27,16 @@
         "W"
       ],
       "scores": {
-        "P": 2.1423,
-        "U": 1.2539,
-        "W": 1.1288,
-        "X": 2.1423,
-        "V": 2.1423
+        "P": 1.6053,
+        "U": 1.2528,
+        "W": 1.2351,
+        "X": 1.6053,
+        "V": 1.6053
       },
       "analogue_beats_false_friend": true,
       "generic_strictly_above_analogue": false,
       "generic_tied_with_analogue": true,
-      "margin_X_over_W": 1.0135,
+      "margin_X_over_W": 0.3701,
       "P_equals_X": true,
       "author_most_similar_is_top": true,
       "author_least_similar_is_bottom": false,
@@ -71,16 +71,16 @@
         "U"
       ],
       "scores": {
-        "P": 1.9898,
-        "U": 1.1461,
-        "W": 1.1963,
-        "X": 1.9898,
-        "V": 1.9898
+        "P": 1.5743,
+        "U": 1.1922,
+        "W": 1.23,
+        "X": 1.5743,
+        "V": 1.5743
       },
       "analogue_beats_false_friend": true,
       "generic_strictly_above_analogue": false,
       "generic_tied_with_analogue": true,
-      "margin_X_over_W": 0.7935,
+      "margin_X_over_W": 0.3442,
       "P_equals_X": true,
       "author_most_similar_is_top": true,
       "author_least_similar_is_bottom": true,
@@ -115,16 +115,16 @@
         "U"
       ],
       "scores": {
-        "P": 1.8816,
-        "U": 1.0984,
-        "W": 1.1645,
-        "X": 1.8816,
-        "V": 1.8816
+        "P": 1.5393,
+        "U": 1.1517,
+        "W": 1.2029,
+        "X": 1.5393,
+        "V": 1.5393
       },
       "analogue_beats_false_friend": true,
       "generic_strictly_above_analogue": false,
       "generic_tied_with_analogue": true,
-      "margin_X_over_W": 0.7171,
+      "margin_X_over_W": 0.3364,
       "P_equals_X": true,
       "author_most_similar_is_top": true,
       "author_least_similar_is_bottom": true,
@@ -159,16 +159,16 @@
         "U"
       ],
       "scores": {
-        "P": 2.2912,
-        "U": 0.8714,
-        "W": 1.1207,
-        "X": 2.2912,
-        "V": 2.2912
+        "P": 1.678,
+        "U": 1.0448,
+        "W": 1.2352,
+        "X": 1.678,
+        "V": 1.678
       },
       "analogue_beats_false_friend": true,
       "generic_strictly_above_analogue": false,
       "generic_tied_with_analogue": true,
-      "margin_X_over_W": 1.1705,
+      "margin_X_over_W": 0.4428,
       "P_equals_X": true,
       "author_most_similar_is_top": true,
       "author_least_similar_is_bottom": true,

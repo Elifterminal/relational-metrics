@@ -56,16 +56,33 @@ from __future__ import annotations
 import itertools
 from dataclasses import dataclass, field
 
+from codes import weight_levels
 from structure import Structure
 
 
 def isomorphic(a: Structure, b: Structure) -> bool:
-    """Exhaustive. Small structures only, which is what witness pairs are."""
+    """Exhaustive. Small structures only, which is what witness pairs are.
+
+    MUST reflect everything the representation actually carries, or the audit
+    gives wrong verdicts. Q-28 put relation weights into the comparison, and
+    this test still compared edge_set() -- which drops them -- so it declared
+    weight-distinguishable pairs non-identifiable while the measure was busy
+    distinguishing them. Caught in EXP-034.
+
+    Weights enter as their normalised LEVELS, not raw values, so a unit
+    conversion is still correctly treated as the same structure.
+    """
     if len(a.nodes) != len(b.nodes) or a.m != b.m:
         return False
+    la = weight_levels(tuple(r.weight for r in a.relations))
+    lb = weight_levels(tuple(r.weight for r in b.relations))
+    ea = {(r.src, r.dst, r.rtype): lv for r, lv in zip(a.relations, la)}
+    eb = {(r.src, r.dst, r.rtype): lv for r, lv in zip(b.relations, lb)}
     na, nb = sorted(a.nodes), sorted(b.nodes)
-    return any({(f[x], f[y], t) for x, y, t in a.edge_set()} == b.edge_set()
-               for f in (dict(zip(na, p)) for p in itertools.permutations(nb)))
+    for f in (dict(zip(na, p)) for p in itertools.permutations(nb)):
+        if {(f[x], f[y], t): v for (x, y, t), v in ea.items()} == eb:
+            return True
+    return False
 
 
 @dataclass(frozen=True)

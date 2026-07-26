@@ -69,6 +69,7 @@ current. That check exists because both happened.
 | `EXP-031` | Does the recurring wall have a name — and can it be tested before building a measure? | **Yes to both.** Representation-relative non-identifiability: a *witness pair* — isomorphic structures, different required answers — proves no measure on that representation can work. Certified EXP-027 and EXP-029 as proofs, then found **three dead ends nobody had paid for** (magnitude, temporal order, provenance) and **one vacuous control**: EXP-000a has published weight-invariance since the first experiment, and F-06a never reads weights |
 | `EXP-032` | Q-26 — does the corpus result survive BLIND re-annotation? | **The ordering survives; the magnitude does not.** Blind re-annotation (0/24 identical to sighted, so genuinely divergent) gives **3/4** against sighted 4/4. Corpus held constant, sighted annotation **inflates correspondence 1.34×** and drove paraphrase and analogue to a *perfect* 100% match vs 64.7% blind. But X (64.7%) still clears W (35.3%) — the record was flattered, not fabricated |
 | `EXP-033` | Q-30 — does the blind result hold on the dev and held-out corpora too? | **Blind rate falls to 6/10 across all three corpora, from 10/10 sighted** (dev 2/3, held-out 1/3). But blind annotations of those two carry ~half the relations of the sighted ones, so the drop **mixes role-knowledge with annotation granularity and is not cleanly attributable**. Found two corpus defects: six false-friend glosses **announce their role in the prose**, and sighted structures give 4 relations to 9-word glosses — encoding organisation the documents do not contain |
+| `EXP-034` | Q-28 — put relation weights into the comparison, and make the rescale control real | **Built.** Weights enter as log-weights normalised by geometric mean, so unit conversion is invariant *by construction* while relative coupling is visible (2.1168 vs 1.7160). **No claim-bearing result moved** — the predeclared requirement, since all corpus weights are 1.0. EXP-000a's rescale control can fail again and now **measures its own vacuity** each run. Also corrected EXP-031's witness pair (it differed only by a global factor) and the audit's own weight-blind equivalence test |
 
 ### What currently survives
 
@@ -94,6 +95,9 @@ current. That check exists because both happened.
 - **Canonicalising before measuring restores exact invariance under a DECLARED typed graph-homeomorphism relation, at no cost to capability.** · rung 2  
   *scope*: subdivision and suppression of degree-2 vertices only. Exact (cost 0, 6/6 recovery); capability 3/3, 3/3, 4/4 including under subdivision. Rewrite terminating, idempotent, confluent. NOT converse or reification (Q-25). And the equivalence must be DECLARED — blind suppression damages 5/6 structures, because whether a vertex is representational is not decidable from structure  
   *evidence*: `EXP-029`
+- **The measure is invariant to unit conversion of relation weights.** · rung 2  
+  *scope*: REPAIRED by EXP-034. Was vacuous — the measure did not read weights, so it could not fail the test. Weights now enter normalised by geometric mean, making rescaling invariant by construction while relative coupling is visible. The control now measures its own capacity to fail each run. Untested on data where weights actually vary (Q-33) — a capability, not yet a result  
+  *evidence*: `EXP-031`, `EXP-034`
 
 **PROVISIONAL**
 
@@ -127,9 +131,6 @@ current. That check exists because both happened.
 - **F-09 bridge value: discounting a match by genericness defends against the attractive-nonsense failure.**  
   *scope*: refuted by arithmetic, not by experiment - isomorphic structures have identical genericness, so the discount subtracts the same number from both at any strength  
   *evidence*: `EXP-027`
-- **The measure is invariant to unit conversion of relation weights.**  
-  *scope*: published in EXP-000a's invariance battery since the first experiment and VACUOUS for F-06a: mdl_correspondence compares edge_set(), which drops weight, so it cannot fail a test on a quantity it never reads. Blindness reported as invariance. Genuine for tunable_K, whose ratio cancels a constant factor. Repair is Q-28  
-  *evidence*: `EXP-031`
 
 ```bash
 cd lab
@@ -163,6 +164,7 @@ python3 run_exp030.py    # ARN benchmark, annotated blind -- and what it reveals
 python3 run_exp031.py    # the expressivity boundary audit -- test before you build
 python3 run_exp032.py    # blind re-annotation -- how much did knowing the answer help?
 python3 run_exp033.py    # blind protocol on dev + held-out, and two corpus defects
+python3 run_exp031.py    # the magnitude channel, and a control that can fail again
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs

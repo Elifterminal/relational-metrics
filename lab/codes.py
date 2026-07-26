@@ -60,6 +60,38 @@ def flat32(x: int) -> float:
     return 32.0
 
 
+# ---------------------------------------------------------------------------
+# Relation weights (Q-28)
+# ---------------------------------------------------------------------------
+
+def weight_levels(weights: tuple[float, ...], precision: int = 4) -> tuple[int, ...]:
+    """Quantised log-weights, normalised by their geometric mean.
+
+    SCALE INVARIANCE BY CONSTRUCTION, which is the point. Multiplying every
+    weight by k shifts every log by log2(k) and shifts the mean by the same
+    amount, so the normalised levels are unchanged EXACTLY. That makes
+    EXP-000a's `rescale` control a real test at last: the measure now reads
+    weights, so passing is a property rather than an inability.
+
+    This follows P-20 -- declare the invariance in the definition of the
+    measured object rather than hoping the search discovers it.
+
+    Log scale because coupling strength is naturally multiplicative: 0.1 vs 1.0
+    is the same size of difference as 1.0 vs 10.0, and a linear encoding would
+    disagree.
+    """
+    if not weights:
+        return ()
+    logs = [log2(max(w, 1e-12)) for w in weights]
+    mean = sum(logs) / len(logs)
+    return tuple(round((x - mean) * precision) for x in logs)
+
+
+def _zigzag(n: int) -> int:
+    """Signed integer -> positive, so the integer codes can price it."""
+    return 2 * n if n >= 0 else -2 * n - 1
+
+
 @dataclass(frozen=True)
 class Code:
     """A complete, fixed description-length scheme.
@@ -73,15 +105,24 @@ class Code:
 
     # -- L(R): describe a structure from scratch -------------------------
 
-    def structure(self, n: int, m: int, n_types: int) -> float:
+    def weights(self, levels: tuple[int, ...] = ()) -> float:
+        """Bits for a normalised weight profile. Empty profile costs nothing,
+        so structures without weights are priced exactly as before (Q-28)."""
+        if not levels:
+            return 0.0
+        return sum(self.integer(_zigzag(v) + 1) for v in levels)
+
+    def structure(self, n: int, m: int, n_types: int,
+                  levels: tuple[int, ...] = ()) -> float:
         """Bits to describe a typed directed structure with no help.
 
         Node LABELS are never encoded -- only a canonical index -- so the
         length is invariant to renaming by construction (P-08).
         """
         per_edge = 2.0 * log2(max(n, 1)) + log2(max(n_types, 1))
-        return self.integer(n) + self.integer(m) + self.integer(n_types) \
+        base = self.integer(n) + self.integer(m) + self.integer(n_types) \
             + m * per_edge
+        return base + self.weights(levels)
 
     # -- L(phi): describe the mapping ------------------------------------
 
@@ -123,11 +164,16 @@ class Code:
     # -- L(R2 | R1, phi): describe the target as corrections -------------
 
     def conditional(self, n2: int, n_types2: int,
-                    n_predicted: int, n_deleted: int, n_inserted: int) -> float:
+                    n_predicted: int, n_deleted: int, n_inserted: int,
+                    weight_deltas: tuple[int, ...] = ()) -> float:
         per_edge = 2.0 * log2(max(n2, 1)) + log2(max(n_types2, 1))
         dels = self.integer(n_deleted) + log2_choose(n_predicted, n_deleted)
         ins = self.integer(n_inserted) + n_inserted * per_edge
-        return dels + ins
+        # Each matched edge whose weight LEVEL differs must be corrected. A
+        # matching weight costs ~nothing, so structures that agree on coupling
+        # are cheaper than ones that agree only on topology (Q-28).
+        wts = sum(self.integer(_zigzag(d) + 1) for d in weight_deltas)
+        return dels + ins + wts
 
 
 CODES: tuple[Code, ...] = (

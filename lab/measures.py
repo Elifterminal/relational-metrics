@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from codes import Code, DEFAULT_CODE
+from codes import Code, DEFAULT_CODE, weight_levels
 from mapping import Mapping, enumerate_mappings
 from structure import Structure
 
@@ -111,7 +111,17 @@ def mdl_correspondence(a: Structure, b: Structure,
     If no, there is no correspondence worth claiming. Nothing to tune.
     """
     b_edges = b.edge_set()
-    baseline = code.structure(b.n, b.m, len(b.types))
+    # Q-28: weights now enter the comparison. Normalised by geometric mean, so
+    # a unit conversion is invariant BY CONSTRUCTION rather than by the measure
+    # failing to look -- which is what EXP-000a had been publishing since the
+    # first experiment (EXP-031 caught it).
+    a_levels = weight_levels(tuple(r.weight for r in a.relations))
+    b_levels = weight_levels(tuple(r.weight for r in b.relations))
+    a_wt = {(r.src, r.dst, r.rtype): lv
+            for r, lv in zip(a.relations, a_levels)}
+    b_wt = {(r.src, r.dst, r.rtype): lv
+            for r, lv in zip(b.relations, b_levels)}
+    baseline = code.structure(b.n, b.m, len(b.types), b_levels)
 
     best: MDLResult | None = None
     for phi in enumerate_mappings(a, b):
@@ -122,8 +132,13 @@ def mdl_correspondence(a: Structure, b: Structure,
 
         m_bits = code.mapping(a.n, b.n, phi.k,
                               len(a.types), len(b.types), phi.n_substitutions)
+        # Weight corrections for the edges that actually landed. Only matched
+        # edges are charged -- a deleted or inserted edge already pays for
+        # itself in full, so charging its weight too would double-count.
+        deltas = tuple(b_wt[img] - a_wt[src]
+                       for img, src in phi.predicted_pairs(a) if img in hits)
         c_bits = code.conditional(b.n, len(b.types),
-                                  len(predicted), deleted, inserted)
+                                  len(predicted), deleted, inserted, deltas)
         gain = baseline - (m_bits + c_bits)
 
         if best is None or gain > best.gain_bits:

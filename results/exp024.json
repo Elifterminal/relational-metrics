@@ -38,11 +38,11 @@
             "W"
           ],
           "scores": {
-            "P": 1.9898,
-            "U": 1.1461,
-            "W": 0.9949,
-            "X": 1.9898,
-            "V": 1.1796
+            "P": 1.5743,
+            "U": 1.1922,
+            "W": 1.1488,
+            "X": 1.5743,
+            "V": 1.2208
           },
           "analogue_beats_false_friend": true,
           "d_A": {
@@ -77,11 +77,11 @@
             "U"
           ],
           "scores": {
-            "P": 1.9898,
-            "U": 1.1461,
-            "W": 1.9883,
-            "X": 1.9898,
-            "V": 1.9883
+            "P": 1.5743,
+            "U": 1.1922,
+            "W": 1.5422,
+            "X": 1.5743,
+            "V": 1.5422
           },
           "analogue_beats_false_friend": true,
           "d_A": {
@@ -94,7 +94,7 @@
           "perfect": false
         },
         "cascade": {
-          "ranking": "{P=U=X} > V > W",
+          "ranking": "{P=U=X} > W > V",
           "groups": [
             [
               "P",
@@ -102,24 +102,24 @@
               "X"
             ],
             [
-              "V"
+              "W"
             ],
             [
-              "W"
+              "V"
             ]
           ],
           "order_for_d_A": [
             "U",
             "X",
             "P",
-            "V",
-            "W"
+            "W",
+            "V"
           ],
           "scores": {
-            "P": 1.8676,
-            "U": 1.8676,
-            "W": 0.9943,
-            "X": 1.8676,
+            "P": 1.5074,
+            "U": 1.5074,
+            "W": 1.1387,
+            "X": 1.5074,
             "V": 1.0
           },
           "analogue_beats_false_friend": true,
@@ -127,7 +127,7 @@
             "missing": 0,
             "spurious": 0,
             "misclassified": 0,
-            "misordered": 6,
+            "misordered": 5,
             "rank_displacement": 1.6
           },
           "perfect": false

@@ -101,6 +101,26 @@ def mdl_table() -> dict:
     return {"by_code": rows, "ranking_stable_across_codes": stable}
 
 
+def _control_can_fail(name: str) -> bool:
+    """Perturb the property this variant holds fixed; the measure must move.
+
+    Only `rescale` has a property that could be silently ignored -- the others
+    permute labels or ordering, which the measure demonstrably reads. For
+    rescale: change ONE weight (not all of them, which is the invariance) and
+    require a different answer.
+    """
+    if name != "rescale_x1000":
+        return True
+    from dataclasses import replace as _replace
+    perturbed = Structure(
+        A.name, A.nodes,
+        tuple(_replace(r, weight=(50.0 if i == 0 else r.weight))
+              for i, r in enumerate(A.relations)), A.domain)
+    base = mdl_correspondence(A, A, DEFAULT_CODE).gain_bits
+    moved = mdl_correspondence(A, perturbed, DEFAULT_CODE).gain_bits
+    return abs(base - moved) > 1e-9
+
+
 def invariance_battery() -> dict:
     """F-07. Change only the DESCRIPTION and require the measure not to move.
 
@@ -122,17 +142,19 @@ def invariance_battery() -> dict:
     for name, var in variants.items():
         g = mdl_correspondence(A, var, DEFAULT_CODE).gain_bits
         k = tunable_K(A, var, 0.5).score
-        # EXP-031: `rescale` is VACUOUS for F-06a. mdl_correspondence compares
-        # edge_set(), which returns (src, dst, type) and drops `weight`, so no
-        # weight change can move it. Passing here is blindness, not invariance,
-        # and it has been published as invariance since this file first ran.
-        # It IS a real invariance for tunable_K, which reads weights and whose
-        # ratio cancels a constant factor.
-        vacuous = name == "rescale_x1000"
+        # Is this control capable of failing? EXP-031 found `rescale` was not:
+        # F-06a dropped weights entirely, so no weight change could move it, and
+        # blindness had been published as invariance since this file first ran.
+        # Q-28 added the weight channel, so rather than hardcode the answer --
+        # which would go stale exactly as the last note did -- vacuity is now
+        # MEASURED: perturb the property under test and require the measure to
+        # notice. A control that cannot fail is not a control (protocol 4b).
+        vacuous = not _control_can_fail(name)
         results[name] = {
             "vacuous_for_mdl": vacuous,
-            "vacuity_note": ("F-06a never reads relation weights, so this cannot "
-                             "fail -- see EXP-031") if vacuous else "",
+            "vacuity_note": ("the measure does not respond to the property this "
+                             "control varies, so passing proves nothing "
+                             "-- see EXP-031") if vacuous else "",
             "mdl_gain_bits": round(g, 6),
             "mdl_delta": round(g - base_mdl, 9),
             "tunable_K_eta0.5": round(k, 6),

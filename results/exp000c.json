@@ -218,35 +218,38 @@
     "mdl_gain_bits": {
       "scores": {
         "B": 27.9562,
-        "C": 8.7616,
-        "D": -1.2973,
-        "E": 15.7274,
-        "F": 23.9562,
+        "C": 14.7616,
+        "D": 7.7027,
+        "E": 18.7274,
+        "F": 47.9562,
         "B2": 27.9562
       },
-      "spread": 29.2535,
+      "spread": 40.2535,
       "checks": {
-        "C1_ranks_true_analogue_top": true,
+        "C1_ranks_true_analogue_top": false,
         "C2_sees_past_vocabulary": true,
         "C3_rejects_matched_random": true,
         "C4_discriminates_at_all": true,
         "C5_generalises_to_heldout": true,
-        "C6_rejects_superset_distractor": true
+        "C6_rejects_superset_distractor": false
       },
-      "passed_all": true,
-      "failed": [],
+      "passed_all": false,
+      "failed": [
+        "C1_ranks_true_analogue_top",
+        "C6_rejects_superset_distractor"
+      ],
       "is_impostor": false
     },
     "mdl_ratio_F06a": {
       "scores": {
-        "B": 2.4786,
-        "C": 1.23,
-        "D": 0.9731,
-        "E": 1.5051,
-        "F": 1.342,
-        "B2": 2.4786
+        "B": 1.7575,
+        "C": 1.2946,
+        "D": 1.1348,
+        "E": 1.4059,
+        "F": 1.5446,
+        "B2": 1.7575
       },
-      "spread": 1.5056,
+      "spread": 0.6227,
       "checks": {
         "C1_ranks_true_analogue_top": true,
         "C2_sees_past_vocabulary": true,
@@ -264,7 +267,6 @@
   "n_impostors_caught": 7,
   "impostors_missed": [],
   "candidates_passing": [
-    "mdl_gain_bits",
     "mdl_ratio_F06a"
   ],
   "harness_ready": true

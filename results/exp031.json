@@ -29,16 +29,16 @@
       "note": "certifies EXP-029. A 3-cycle of real participants against a 2-cycle with a mediator spliced in -- identical typed topology, opposite modelling status"
     },
     {
-      "distinction": "strong coupling vs negligible coupling",
-      "identifiable_from_structure": false,
+      "distinction": "which link carries the coupling (relative weights)",
+      "identifiable_from_structure": true,
       "witness": [
-        "weak_link",
-        "strong_link"
+        "a_dominant",
+        "c_dominant"
       ],
-      "structures_equivalent": true,
+      "structures_equivalent": false,
       "answers_differ": true,
-      "required_channel": "magnitude channel (weights must enter the comparison)",
-      "note": "weight IS carried on Relation but edge_set() returns only (src, dst, type), so the measure never sees it"
+      "required_channel": "magnitude channel -- BUILT in Q-28 / EXP-034",
+      "note": "corrected witness. The original pair differed only by a global factor, which is a unit conversion the measure is SUPPOSED to ignore. Now identifiable: Q-28 put weights into the comparison, normalised by geometric mean so rescaling stays invariant by construction"
     },
     {
       "distinction": "reinforcing vs regulating by DELAY, same static graph",
@@ -78,15 +78,16 @@
     }
   ],
   "n_audited": 6,
-  "n_not_identifiable": 5,
-  "weight_blindness_check": {
-    "corr(weak, strong)": 1.377823,
-    "corr(weak, weak)": 1.377823,
-    "identical": true,
-    "note": "weights differ by 1000x and the measure returns the self-correspondence value -- confirms the audit"
+  "n_not_identifiable": 4,
+  "weight_channel_check": {
+    "corr(a_dom, a_dom)": 2.116757,
+    "corr(a_dom, c_dom)": 1.716038,
+    "relative_coupling_visible": true,
+    "corr(a_dom, rescaled_a_dom)": 2.116757,
+    "unit_conversion_invariant": true,
+    "note": "after Q-28: relative coupling is visible AND unit conversion is invariant. Before Q-28 both were invisible, and the invariance was vacuous"
   },
   "channels_required": [
-    "magnitude channel (weights must enter the comparison)",
     "ontological role declaration",
     "provenance / evidence channel",
     "specificity / referential content",

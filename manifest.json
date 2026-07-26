@@ -397,6 +397,19 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "blind protocol on dev + held-out, and two corpus defects"
+    },
+    {
+      "id": "EXP-034",
+      "question": "Q-28 \u2014 put relation weights into the comparison, and make the rescale control real",
+      "result": "**Built.** Weights enter as log-weights normalised by geometric mean, so unit conversion is invariant *by construction* while relative coupling is visible (2.1168 vs 1.7160). **No claim-bearing result moved** \u2014 the predeclared requirement, since all corpus weights are 1.0. EXP-000a's rescale control can fail again and now **measures its own vacuity** each run. Also corrected EXP-031's witness pair (it differed only by a global factor) and the audit's own weight-blind equivalence test",
+      "status": "complete",
+      "rung": 2,
+      "entry_point": "lab/run_exp031.py",
+      "result_file": "results/exp031.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the magnitude channel, and a control that can fail again"
     }
   ],
   "claims": [
@@ -551,11 +564,12 @@
     {
       "id": "C-14",
       "claim": "The measure is invariant to unit conversion of relation weights.",
-      "status": "REFUTED",
-      "rung": 0,
-      "scope": "published in EXP-000a's invariance battery since the first experiment and VACUOUS for F-06a: mdl_correspondence compares edge_set(), which drops weight, so it cannot fail a test on a quantity it never reads. Blindness reported as invariance. Genuine for tunable_K, whose ratio cancels a constant factor. Repair is Q-28",
+      "status": "ACTIVE_WITHIN_TESTED_SCOPE",
+      "rung": 2,
+      "scope": "REPAIRED by EXP-034. Was vacuous \u2014 the measure did not read weights, so it could not fail the test. Weights now enter normalised by geometric mean, making rescaling invariant by construction while relative coupling is visible. The control now measures its own capacity to fail each run. Untested on data where weights actually vary (Q-33) \u2014 a capability, not yet a result",
       "evidence": [
-        "EXP-031"
+        "EXP-031",
+        "EXP-034"
       ]
     }
   ]

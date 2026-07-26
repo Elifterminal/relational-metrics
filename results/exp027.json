@@ -15,26 +15,26 @@
       "discount_can_separate": false,
       "by_motif": {
         "diversity": {
-          "genericness_X": 1.237466,
-          "genericness_V": 1.237466,
+          "genericness_X": 1.25938,
+          "genericness_V": 1.25938,
           "gap": 0.0,
           "n_background": 19
         },
         "correction": {
-          "genericness_X": 1.042501,
-          "genericness_V": 1.042501,
+          "genericness_X": 1.055611,
+          "genericness_V": 1.055611,
           "gap": 0.0,
           "n_background": 19
         },
         "regulator": {
-          "genericness_X": 1.075035,
-          "genericness_V": 1.075035,
+          "genericness_X": 1.133895,
+          "genericness_V": 1.133895,
           "gap": 0.0,
           "n_background": 19
         },
         "rivalry": {
-          "genericness_X": 1.053744,
-          "genericness_V": 1.053744,
+          "genericness_X": 1.074615,
+          "genericness_V": 1.074615,
           "gap": 0.0,
           "n_background": 19
         }
@@ -62,11 +62,11 @@
             ]
           ],
           "scores": {
-            "P": 2.142279,
-            "X": 2.142279,
-            "W": 1.128784,
-            "V": 2.142279,
-            "U": 1.253873
+            "P": 1.605273,
+            "X": 1.605273,
+            "W": 1.23514,
+            "V": 1.605273,
+            "U": 1.252792
           },
           "analogue_strictly_above_false_friend": true,
           "generic_strictly_above_analogue": false,
@@ -95,11 +95,11 @@
             ]
           ],
           "scores": {
-            "P": 1.989754,
-            "X": 1.989754,
-            "W": 1.196304,
-            "V": 1.989754,
-            "U": 1.146082
+            "P": 1.574254,
+            "X": 1.574254,
+            "W": 1.230014,
+            "V": 1.574254,
+            "U": 1.19219
           },
           "analogue_strictly_above_false_friend": true,
           "generic_strictly_above_analogue": false,
@@ -128,11 +128,11 @@
             ]
           ],
           "scores": {
-            "P": 1.881612,
-            "X": 1.881612,
-            "W": 1.16447,
-            "V": 1.881612,
-            "U": 1.098426
+            "P": 1.539314,
+            "X": 1.539314,
+            "W": 1.202896,
+            "V": 1.539314,
+            "U": 1.151731
           },
           "analogue_strictly_above_false_friend": true,
           "generic_strictly_above_analogue": false,
@@ -161,11 +161,11 @@
             ]
           ],
           "scores": {
-            "P": 2.291232,
-            "X": 2.291232,
-            "W": 1.120716,
-            "V": 2.291232,
-            "U": 0.871354
+            "P": 1.678014,
+            "X": 1.678014,
+            "W": 1.235233,
+            "V": 1.678014,
+            "U": 1.044849
           },
           "analogue_strictly_above_false_friend": true,
           "generic_strictly_above_analogue": false,
@@ -206,11 +206,11 @@
             ]
           ],
           "scores": {
-            "P": 2.034952,
-            "X": 2.034952,
-            "W": 1.198943,
-            "V": 1.180411,
-            "U": 0.994294
+            "P": 1.567792,
+            "X": 1.567792,
+            "W": 1.234775,
+            "V": 1.225161,
+            "U": 1.138725
           },
           "analogue_strictly_above_false_friend": true,
           "generic_strictly_above_analogue": false,
@@ -241,11 +241,11 @@
             ]
           ],
           "scores": {
-            "P": 1.989754,
-            "X": 1.989754,
-            "W": 1.988349,
+            "P": 1.574254,
+            "X": 1.574254,
+            "W": 1.542225,
             "V": 1.0,
-            "U": 1.146082
+            "U": 1.19219
           },
           "analogue_strictly_above_false_friend": true,
           "generic_strictly_above_analogue": false,
@@ -259,7 +259,7 @@
           }
         },
         "substitution": {
-          "ranking": "{P=X} > U > V > W",
+          "ranking": "{P=X} > U > W > V",
           "groups": [
             [
               "P",
@@ -269,18 +269,18 @@
               "U"
             ],
             [
-              "V"
+              "W"
             ],
             [
-              "W"
+              "V"
             ]
           ],
           "scores": {
-            "P": 1.989754,
-            "X": 1.989754,
-            "W": 0.994877,
+            "P": 1.574254,
+            "X": 1.574254,
+            "W": 1.148841,
             "V": 1.0,
-            "U": 1.146082
+            "U": 1.19219
           },
           "analogue_strictly_above_false_friend": true,
           "generic_strictly_above_analogue": false,
@@ -321,11 +321,11 @@
             ]
           ],
           "scores": {
-            "P": 1.989754,
-            "X": 1.989754,
-            "W": 0.994877,
-            "V": 1.179583,
-            "U": 1.146082
+            "P": 1.574254,
+            "X": 1.574254,
+            "W": 1.148841,
+            "V": 1.220784,
+            "U": 1.19219
           },
           "analogue_strictly_above_false_friend": true,
           "generic_strictly_above_analogue": false,
@@ -354,11 +354,11 @@
             ]
           ],
           "scores": {
-            "P": 1.989754,
-            "X": 1.989754,
-            "W": 1.988349,
-            "V": 1.988349,
-            "U": 1.146082
+            "P": 1.574254,
+            "X": 1.574254,
+            "W": 1.542225,
+            "V": 1.542225,
+            "U": 1.19219
           },
           "analogue_strictly_above_false_friend": true,
           "generic_strictly_above_analogue": false,
@@ -372,7 +372,7 @@
           }
         },
         "cascade": {
-          "ranking": "{P=U=X} > V > W",
+          "ranking": "{P=U=X} > W > V",
           "groups": [
             [
               "P",
@@ -380,18 +380,18 @@
               "X"
             ],
             [
-              "V"
+              "W"
             ],
             [
-              "W"
+              "V"
             ]
           ],
           "scores": {
-            "P": 1.867607,
-            "X": 1.867607,
-            "W": 0.994294,
+            "P": 1.507441,
+            "X": 1.507441,
+            "W": 1.138725,
             "V": 1.0,
-            "U": 1.867607
+            "U": 1.507441
           },
           "analogue_strictly_above_false_friend": true,
           "generic_strictly_above_analogue": false,

@@ -76,16 +76,27 @@ def main() -> None:
 
     # ---- PART 2: distinctions nobody has built a measure for yet ----------
 
-    # relation STRENGTH. Structure carries `weight`, but edge_set() -- which is
-    # what the measure compares -- drops it.
-    weak = s("weak_link", [("a", "b", "POS"), ("b", "c", "POS")], [0.01, 0.01])
-    strong = s("strong_link", [("a", "b", "POS"), ("b", "c", "POS")], [10.0, 10.0])
+    # RELATION STRENGTH -- witness pair CORRECTED 2026-07-26.
+    #
+    # The original pair was weak=[0.01, 0.01] against strong=[10.0, 10.0]. Those
+    # differ only by a GLOBAL factor of 1000, which is a unit conversion -- the
+    # very thing EXP-000a's rescale control says the measure SHOULD ignore. So
+    # the pair demonstrated a property the measure is supposed to have, not a
+    # blindness. The verdict happened to be right for the wrong reason, because
+    # the measure then ignored weights entirely.
+    #
+    # A correct magnitude witness needs differing RELATIVE weights: same
+    # topology, same types, not related by any rescaling.
+    a_dom = s("a_dominant", [("a", "b", "POS"), ("b", "c", "POS")], [10.0, 0.01])
+    c_dom = s("c_dominant", [("a", "b", "POS"), ("b", "c", "POS")], [0.01, 10.0])
     audits.append(audit(
-        "strong coupling vs negligible coupling",
-        weak, strong, "strong", "negligible",
-        "magnitude channel (weights must enter the comparison)",
-        "weight IS carried on Relation but edge_set() returns only "
-        "(src, dst, type), so the measure never sees it").as_dict())
+        "which link carries the coupling (relative weights)",
+        a_dom, c_dom, "first link dominant", "second link dominant",
+        "magnitude channel -- BUILT in Q-28 / EXP-034",
+        "corrected witness. The original pair differed only by a global factor, "
+        "which is a unit conversion the measure is SUPPOSED to ignore. Now "
+        "identifiable: Q-28 put weights into the comparison, normalised by "
+        "geometric mean so rescaling stays invariant by construction").as_dict())
 
     # TEMPORAL ORDER. The signature has no time.
     early = s("a_then_b", [("cause", "effect", "POS"), ("effect", "state", "POS")])
@@ -120,9 +131,11 @@ def main() -> None:
         "differ and no witness pair can exist. If this came back "
         "non-identifiable the audit would be broken").as_dict())
 
-    # ---- does the measure actually confirm the weight blindness? ----------
-    w_ratio = mdl_correspondence(weak, strong, DEFAULT_CODE).ratio
-    w_self = mdl_correspondence(weak, weak, DEFAULT_CODE).ratio
+    # ---- weights: invariant to unit change, sensitive to relative coupling --
+    scaled = s("rescaled", [("a", "b", "POS"), ("b", "c", "POS")], [10000.0, 10.0])
+    w_ratio = mdl_correspondence(a_dom, c_dom, DEFAULT_CODE).ratio
+    w_self = mdl_correspondence(a_dom, a_dom, DEFAULT_CODE).ratio
+    w_scaled = mdl_correspondence(a_dom, scaled, DEFAULT_CODE).ratio
 
     not_ident = [a for a in audits if not a["identifiable_from_structure"]]
     report = {
@@ -134,12 +147,15 @@ def main() -> None:
         "audits": audits,
         "n_audited": len(audits),
         "n_not_identifiable": len(not_ident),
-        "weight_blindness_check": {
-            "corr(weak, strong)": round(w_ratio, 6),
-            "corr(weak, weak)": round(w_self, 6),
-            "identical": abs(w_ratio - w_self) < 1e-12,
-            "note": ("weights differ by 1000x and the measure returns the "
-                     "self-correspondence value -- confirms the audit"),
+        "weight_channel_check": {
+            "corr(a_dom, a_dom)": round(w_self, 6),
+            "corr(a_dom, c_dom)": round(w_ratio, 6),
+            "relative_coupling_visible": abs(w_ratio - w_self) > 1e-9,
+            "corr(a_dom, rescaled_a_dom)": round(w_scaled, 6),
+            "unit_conversion_invariant": abs(w_scaled - w_self) < 1e-9,
+            "note": ("after Q-28: relative coupling is visible AND unit "
+                     "conversion is invariant. Before Q-28 both were invisible, "
+                     "and the invariance was vacuous"),
         },
         "channels_required": sorted({a["required_channel"] for a in not_ident}),
     }
@@ -159,11 +175,13 @@ def main() -> None:
     for c in report["channels_required"]:
         print(f"   - {c}")
 
-    wc = report["weight_blindness_check"]
-    print(f"\nCONFIRMATION on the new finding -- relation strength:")
-    print(f"   corr(weak, strong) = {wc['corr(weak, strong)']:.6f}")
-    print(f"   corr(weak, weak)   = {wc['corr(weak, weak)']:.6f}")
-    print(f"   identical: {wc['identical']}  -- a 1000x difference in coupling is invisible")
+    wc = report["weight_channel_check"]
+    print("\nWEIGHT CHANNEL, after Q-28:")
+    print(f"   corr(a_dom, a_dom)          = {wc['corr(a_dom, a_dom)']:.6f}")
+    print(f"   corr(a_dom, c_dom)          = {wc['corr(a_dom, c_dom)']:.6f}"
+          f"   relative coupling visible: {wc['relative_coupling_visible']}")
+    print(f"   corr(a_dom, rescaled)       = {wc['corr(a_dom, rescaled_a_dom)']:.6f}"
+          f"   unit conversion invariant: {wc['unit_conversion_invariant']}")
 
 
 if __name__ == "__main__":
