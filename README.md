@@ -71,6 +71,7 @@ current. That check exists because both happened.
 | `EXP-033` | Q-30 — does the blind result hold on the dev and held-out corpora too? | **Blind rate falls to 6/10 across all three corpora, from 10/10 sighted** (dev 2/3, held-out 1/3). But blind annotations of those two carry ~half the relations of the sighted ones, so the drop **mixes role-knowledge with annotation granularity and is not cleanly attributable**. Found two corpus defects: six false-friend glosses **announce their role in the prose**, and sighted structures give 4 relations to 9-word glosses — encoding organisation the documents do not contain |
 | `EXP-034` | Q-28 — put relation weights into the comparison, and make the rescale control real | **Built.** Weights enter as log-weights normalised by geometric mean, so unit conversion is invariant *by construction* while relative coupling is visible (2.1168 vs 1.7160). **No claim-bearing result moved** — the predeclared requirement, since all corpus weights are 1.0. EXP-000a's rescale control can fail again and now **measures its own vacuity** each run. Also corrected EXP-031's witness pair (it differed only by a global factor) and the audit's own weight-blind equivalence test |
 | `EXP-035` | Q-29 — why did the `diversity` motif invert under blind annotation? | **Its analogue was being carried by the sighted annotation — and this corrects EXP-027.** In 4/4 motifs the sighted vacuous document matches its query *exactly* on relation count and loop closure. In `diversity` my sighted annotation contains an edge **no sentence states**, and it is the one closing the loop. Vacuous ≅ query: **4/4 sighted, 2/4 blind** — so EXP-027's premise that the *author* wrote isomorphic generics was wrong. The theorem survives; F-09 stays refuted empirically rather than by impossibility (it can act on 1/4 blind, helps on 0/4) |
+| `EXP-036` | Q-31 — control annotation granularity with a deterministic annotator | **My control failed** — the extractor was too weak (1.52 relations/sentence vs 4.2, couldn't parse 2 of 10 queries, **0 of 60** granularity matches), so 5/8 is uninformative exactly as predeclared. **But the check it prompted is the finding**: blind 6/10 is **p = 0.754, not significant**; 3/4 is p = 0.63. The only annotation mode producing a significant result (p = 0.002) is the one where the annotator knew the answers |
 
 ### What currently survives
 
@@ -103,8 +104,8 @@ current. That check exists because both happened.
 **PROVISIONAL**
 
 - **MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.** · rung 3  
-  *scope*: QUOTE AT THE BLIND RATE: 6/10 across dev, held-out and independent corpora (EXP-032, EXP-033), against 10/10 when annotated by someone who knew each document's role. The drop is confounded by annotation granularity and its size is unmeasured (Q-31). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). Hand-annotated typed structures, not natural text — and on an external benchmark annotated blind there is no signal at all, because the annotation carries none (EXP-030). Two corpus defects outstanding (Q-32)  
-  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`, `EXP-032`, `EXP-033`
+  *scope*: SIGNIFICANT ONLY UNDER SIGHTED ANNOTATION. 10/10 sighted (p = 0.002) — which is exactly the mode R-18 says to distrust. Blind: 6/10 across three corpora, **p = 0.754, NOT significant** (EXP-036); 3/4 on the independent corpus is p = 0.63. This is a null result at n = 10, not a degraded measurement — the design is underpowered (Q-35). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal at all on an external benchmark annotated blind, because the annotation carries none (EXP-030). Two corpus defects outstanding (Q-32, Q-34)  
+  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`, `EXP-032`, `EXP-033`, `EXP-036`
 - **The correspondence measure transfers to topologies it was not developed against.** · rung 2  
   *scope*: 5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process  
   *evidence*: `EXP-005`
@@ -115,8 +116,8 @@ current. That check exists because both happened.
   *scope*: unsupported and not currently testable. Prediction P6 says it will not, and P6 stands  
   *evidence*: —
 - **The corpus results measure analogy detection rather than annotation fidelity — for the ORDERING, though the magnitudes are inflated.** · rung 2  
-  *scope*: EXP-032 suggested the ordering survives; EXP-033 weakened that — 6/10 blind across three corpora, confounded by granularity. R-18 is confirmed in direction and unmeasured in size. Needs Q-31 (granularity control) before any verdict  
-  *evidence*: `EXP-030`, `EXP-032`, `EXP-033`
+  *scope*: EXP-036: no blind result is statistically significant, so there is currently no evidence either way. The second-annotator commission is the bottleneck. Do not quote 6/10 as a measurement — it is a null result at n = 10  
+  *evidence*: `EXP-030`, `EXP-032`, `EXP-033`, `EXP-036`
 
 **DEMOTED / REPLACED**
 
@@ -167,6 +168,7 @@ python3 run_exp032.py    # blind re-annotation -- how much did knowing the answe
 python3 run_exp033.py    # blind protocol on dev + held-out, and two corpus defects
 python3 run_exp031.py    # the magnitude channel, and a control that can fail again
 python3 run_exp032.py    # why diversity inverted -- and an edge the text never stated
+python3 run_exp036.py    # a failed control, and the significance test that mattered
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs

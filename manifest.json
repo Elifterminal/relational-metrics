@@ -423,6 +423,19 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "why diversity inverted -- and an edge the text never stated"
+    },
+    {
+      "id": "EXP-036",
+      "question": "Q-31 \u2014 control annotation granularity with a deterministic annotator",
+      "result": "**My control failed** \u2014 the extractor was too weak (1.52 relations/sentence vs 4.2, couldn't parse 2 of 10 queries, **0 of 60** granularity matches), so 5/8 is uninformative exactly as predeclared. **But the check it prompted is the finding**: blind 6/10 is **p = 0.754, not significant**; 3/4 is p = 0.63. The only annotation mode producing a significant result (p = 0.002) is the one where the annotator knew the answers",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp036.py",
+      "result_file": "results/exp036.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "a failed control, and the significance test that mattered"
     }
   ],
   "claims": [
@@ -454,7 +467,7 @@
       "claim": "MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.",
       "status": "PROVISIONAL",
       "rung": 3,
-      "scope": "QUOTE AT THE BLIND RATE: 6/10 across dev, held-out and independent corpora (EXP-032, EXP-033), against 10/10 when annotated by someone who knew each document's role. The drop is confounded by annotation granularity and its size is unmeasured (Q-31). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). Hand-annotated typed structures, not natural text \u2014 and on an external benchmark annotated blind there is no signal at all, because the annotation carries none (EXP-030). Two corpus defects outstanding (Q-32)",
+      "scope": "SIGNIFICANT ONLY UNDER SIGHTED ANNOTATION. 10/10 sighted (p = 0.002) \u2014 which is exactly the mode R-18 says to distrust. Blind: 6/10 across three corpora, **p = 0.754, NOT significant** (EXP-036); 3/4 on the independent corpus is p = 0.63. This is a null result at n = 10, not a degraded measurement \u2014 the design is underpowered (Q-35). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal at all on an external benchmark annotated blind, because the annotation carries none (EXP-030). Two corpus defects outstanding (Q-32, Q-34)",
       "evidence": [
         "EXP-024",
         "EXP-025",
@@ -464,7 +477,8 @@
         "EXP-029",
         "EXP-030",
         "EXP-032",
-        "EXP-033"
+        "EXP-033",
+        "EXP-036"
       ]
     },
     {
@@ -568,11 +582,12 @@
       "claim": "The corpus results measure analogy detection rather than annotation fidelity \u2014 for the ORDERING, though the magnitudes are inflated.",
       "status": "UNTESTED",
       "rung": 2,
-      "scope": "EXP-032 suggested the ordering survives; EXP-033 weakened that \u2014 6/10 blind across three corpora, confounded by granularity. R-18 is confirmed in direction and unmeasured in size. Needs Q-31 (granularity control) before any verdict",
+      "scope": "EXP-036: no blind result is statistically significant, so there is currently no evidence either way. The second-annotator commission is the bottleneck. Do not quote 6/10 as a measurement \u2014 it is a null result at n = 10",
       "evidence": [
         "EXP-030",
         "EXP-032",
-        "EXP-033"
+        "EXP-033",
+        "EXP-036"
       ]
     },
     {

@@ -2120,6 +2120,53 @@ candidate the query's own relation count and loop topology, then the measure is 
 answer inside its input — and the total absence of signal when a genuinely external benchmark was
 annotated blind is what that looks like once the help is withdrawn.</div>
 
+
+<h2>Finding 34 — a control that didn't work, and the check I should have run first</h2>
+<p>Two results here. The control I built failed, and while writing that up I ran a test that should
+have run two findings ago — and it changes how the whole record reads.</p>
+
+<h3>Part one: the control failed</h3>
+<p>Every comparison so far has mixed up two things — whether I knew each document's role, and how many
+relations I felt like writing down. A program removes both: it can't know the roles, and it produces
+identical output every time. So I wrote a deterministic extractor: split each sentence into clauses,
+look for a verb from a fixed list, take what's before it as source and after it as target.</p>
+<div class="read"><b>I wrote down in advance that this test only works in one direction.</b> If the
+result survived, that would mean something — a process that can't know which document is which still
+picks the right one. If it failed, it would be ambiguous between "the corpus was inflated" and "the
+extractor is too stupid to read these sentences."<br><br>It failed, so it's ambiguous. And the
+granularity comparison got <b>no data at all</b>: across sixty documents, the program and I never once
+produced the same number of relations. It manages 1.5 relations per sentence where I write 4.2, and
+it couldn't parse two of the ten queries at all.<br><br><b>So the control I built can't answer the
+question I built it for.</b> That's a failure of my method, not a finding about the corpus.</div>
+
+<h3>Part two: the test I should have run two findings ago</h3>
+<p>I've been reporting blind results as "degraded but present" — three out of four, then six out of
+ten. I never asked whether those are distinguishable from chance. For a straight choice between two
+candidates, <b>chance is fifty percent</b>.</p>
+<div class="read warn" style="border-left-color:#dc2626">
+<b>sighted &nbsp;&nbsp;10/10 &nbsp; p = 0.002 &nbsp; significant</b><br>
+blind &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6/10 &nbsp; p = 0.754 &nbsp; not significant<br>
+mechanical &nbsp;5/8 &nbsp;&nbsp; p = 0.727 &nbsp; not significant<br><br>
+<b>The only annotation mode that produces a significant result is the one where the annotator knew
+the answers.</b></div>
+<div class="read"><b>What that does and doesn't license.</b> It does <i>not</i> prove the corpus is
+inflated — ten motifs is a small sample, and a real effect could simply be too small to detect.
+Absence of significance isn't evidence of absence.<br><br>What it does mean is this: <b>the project
+has no statistically significant evidence that the measure ranks genuine analogues above decoys under
+blind annotation.</b> Every significant result it holds rests on annotation done by someone who knew
+which document was which. That's a harder statement than "the ordering survives but the magnitude
+doesn't", and it replaces it.</div>
+<div class="read warn"><b>Why I missed it.</b> Two findings earlier, on an outside benchmark, I ran
+exactly this test and used it correctly — I refused to headline a significant-looking number I didn't
+trust. Then on the project's own corpora I reported raw fractions with no test at all, because six out
+of ten <i>looks</i> like a weakened version of ten out of ten rather than like noise. That resemblance
+is precisely when the test matters most.</div>
+<div class="read ok"><b>What changes.</b> The blind figure can't be quoted as a measurement — it's a
+null result at this sample size. The sighted result stands as significant and is exactly the one the
+annotation worry says to distrust. And before running another blind test, the right move is to work
+out how many motifs would be needed to detect the effect actually being claimed, and build to that
+number — because at ten, the design can only ever confirm, never measure.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -2155,6 +2202,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The only significant result in the project is the one produced by an annotator who
+knew the answers.</b> Ten out of ten sighted is significant; six out of ten blind is not
+distinguishable from chance, and neither is a mechanical annotator's five out of eight. That does not
+prove the corpus is inflated — ten motifs is too few to detect anything but a very large effect — but
+it does mean there is currently no significant evidence for the retrieval claim under blind
+annotation. Reported as "degraded but present" for two findings because a weakened-looking fraction
+reads like a smaller real effect rather than like noise.</div>
 <div class="q"><b>A published conclusion rested on an edge that appears in no sentence.</b>
 Annotating with the roles visible gave every vacuous document its query's exact relation count and
 loop topology, four times out of four — and in one case that meant adding a relation the text never
