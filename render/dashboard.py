@@ -132,16 +132,35 @@ and fixing the seventh is what exposed a defect in the <i>real</i> measure.</p>
 <tr><td>7</td><td>supports a broader physical interpretation — <i>not currently reachable</i></td></tr>
 </tbody></table>
 
-<h3>5. Two rules learned the hard way</h3>
-<div class="read warn"><b>A controlled experiment is blind exactly where it controls.</b>
-Matching every condition on some property removes it as a confound <i>and</i> makes every defect
-that operates through it undetectable. Measured twice here. Practice: for every property a
-condition set holds fixed, keep one condition where it varies.</div>
-<div class="read warn"><b>Never state a synthetic ground truth from inspection.</b> In a world
-you built yourself it feels certain — which is the trap. Twice now a "known" answer written
-from looking at it turned out wrong when enumerated: a structure had two feedback loops rather
-than one, and a function assumed to be decomposable wasn't. Compute the ground truth with code,
-from the same object the measure sees.</div>
+<h3>5. Rules learned the hard way</h3>
+<p>Every one of these was learned by publishing something wrong first. They are listed with the
+finding that produced them, because a rule without its scar is easy to forget.</p>
+<table><thead><tr><th>rule</th><th>learned from</th></tr></thead><tbody>
+<tr><td><b>A controlled experiment is blind exactly where it controls.</b> For every property a
+condition set holds fixed, keep one condition where it varies.</td><td>size-matching hid a size
+bias in a measure <i>and</i> made an impostor undetectable</td></tr>
+<tr><td><b>Never state a ground truth from inspection.</b> Compute it, from the same object the
+measure sees.</td><td>seven instances, and counting</td></tr>
+<tr><td><b>Verify test cases are actually distinct</b> before counting them as separate evidence —
+compare the objects, not the names.</td><td>four "independent" agreements turned out to be two
+functions counted twice</td></tr>
+<tr><td><b>Build condition sets by enumerating the property under test, not by collecting
+examples.</b></td><td>measured: functions you can name are unrepresentative by 1.8×–6.1×, and the
+bias grows with size</td></tr>
+<tr><td><b>A condition set can lack not just coverage but the capacity to fail.</b> Ask what class
+of error a battery could not possibly surface.</td><td>a bug the old test set was
+<i>provably unable</i> to detect</td></tr>
+<tr><td><b>Report rankings as a curve over the nuisance parameter</b>, not at a point.</td>
+<td>four of five audited parameters change the <i>order</i>, not just the values</td></tr>
+<tr><td><b>An unexplained regularity is a debt.</b> Chase it before building on the result that
+contains it.</td><td>one sat in the data being used as evidence for two experiments before turning
+out to be a theorem</td></tr>
+<tr><td><b>Carry the vector.</b> When a quantity has parts, a summary over them is a choice that
+can reverse a ranking.</td><td>best-case and worst-case orderings came out
+<i>anti</i>-correlated</td></tr>
+<tr><td><b>Check the container, not just the measure.</b></td><td>an invariant went unasserted for
+twenty-three experiments because every world until then was hand-built</td></tr>
+</tbody></table>
 
 <h3>6. What gets reported</h3>
 <ul>
@@ -195,23 +214,48 @@ epistasis between genes, and in most of what people mean informally by "context"
 <p>This is why the project can't just be graph similarity with better vocabulary. If everything
 interesting were pairwise, existing graph methods would already do it and there would be nothing
 here to build.</p>
-<div class="read warn"><b>And it is the biggest untested gap.</b> Every experiment on the
-Findings tab so far uses <b>arity 2 only</b>. Binary relations, five participants, one motif.
-So everything demonstrated to date could in principle be done by ordinary graph methods — the
-findings are about measurement hygiene, which is real and necessary, but they are not yet
-evidence for the distinctive claim. The statistic meant to detect higher-arity structure
-(subtract everything the smaller subsets already explain; whatever remains needed the whole
-configuration) is written down and has never been run.</p>
-<p>Two ways it can fail, and they need separating. It might miss interactions that are really
-there. Or it might fire on interactions that aren't — because the residual it measures also
-appears when the model is simply wrong about something else. A statistic that cannot tell
-"genuine higher-order structure" from "my model is misspecified" is not measuring what it
-claims to.</div>
+<div class="read ok"><b>Tested, and it is real.</b> In a world where an outcome is the parity of
+three inputs, the best <i>pair</i> carries 0.0008 bits about it and the three together carry
+0.7340. Structure completely invisible to every pair inside it, measured. So the distinctive claim
+is not a hope — it is the one thing here that ordinary pairwise methods provably cannot do.</div>
+<div class="read warn"><b>The first instrument built for it was wrong.</b> The obvious statistic —
+subtract everything the smaller subsets explain, and whatever remains needed the whole
+configuration — <i>conflates two opposite things</i>. Make three variables exact copies of each
+other, so there is no joint structure whatsoever, and it returns the maximum possible value. It
+was measuring how much information is present among the participants, not how much required all of
+them at once. Demoted.<br><br>The replacement works, and was found by reading rather than
+inventing: the obvious route through the literature turned out to be <i>provably impossible</i>
+above two sources, and the construction that does work sits just outside that impossibility.</div>
 
-<h2>Predictions</h2>
-<p>Written down in advance so they can be wrong in public. A prediction that gets quietly
-revised after the result isn't a prediction. Each has a stated confidence and the thing that
-would falsify it.</p>
+<h2>Predictions — and how they scored</h2>
+<p>Written down in advance so they could be wrong in public. Here is what happened to each. The
+scoring is the point: a prediction table that never gets marked is decoration, and leaving one
+unmarked for fifteen findings is exactly the failure this project keeps catching elsewhere.</p>
+<table><thead><tr><th></th><th>prediction</th><th>outcome</th></tr></thead><tbody>
+<tr><td><b>P1</b></td><td>the measure survives testing on structures it wasn't developed against</td>
+<td><b>CONFIRMED</b> — five of five base topologies, including one with no cycles at all and one
+nobody designed</td></tr>
+<tr><td><b>P2</b></td><td>three-way structure detectable, and fragile</td>
+<td><b>CONFIRMED, and worse than predicted</b> — detectable, but the statistic built to detect it
+was invalid and had to be replaced</td></tr>
+<tr><td><b>P3</b></td><td>significance turns out to be relative to a declared outcome, not
+intrinsic</td><td><b>CONFIRMED</b> — measured three independent ways, and it dissolved a question
+this project had been treating as its hardest</td></tr>
+<tr><td><b>P4</b></td><td>relation-class typing matters more than any single formula</td>
+<td><b>NOT TESTED</b> — the ablation was never run. Recorded as unscored rather than quietly
+dropped</td></tr>
+<tr><td><b>P5</b></td><td>applications win on the weird results and merely tie on the obvious ones</td>
+<td><b>PARTLY, and sharper</b> — it wins decisively on cross-domain analogy where every baseline
+gets it backwards, but on ordinary ranking it doesn't tie, it <i>fails</i>, and for a reason
+worth knowing</td></tr>
+<tr><td><b>P6</b></td><td>this will not reach a physical claim</td><td><b>STANDING</b> — nothing
+came close, exactly as expected. Still the prediction I'd most like to lose</td></tr>
+</tbody></table>
+<p class="sub">Three confirmed, one confirmed but uglier than forecast, one partly, one never
+tested. The two I got most wrong along the way aren't in this table at all — I predicted a
+suspicious number would evaporate under scrutiny and it turned out structural, and I predicted an
+incompleteness result would be general when it is thresholded. Both times the measured answer had
+more structure than the guess.</p>
 
 <div class="pred"><b>P1 — the compression-ratio measure survives cross-generator transfer.</b>
 <span class="conf">moderate</span><br>
@@ -258,7 +302,15 @@ labelled as one. <i>Falsified by:</i> being wrong, which would be the best outco
 
 <h2>Where the formulas could plug in</h2>
 
-<h3>Relational search</h3>
+<h3>Relational search — now built and tested</h3>
+<div class="read ok"><b>Where this actually got to.</b> On a corpus commissioned from someone with
+no knowledge of the measure and frozen before it ran, a structural analogue beats a document
+sharing the query's <i>entire vocabulary</i> with different wiring, on every motif. Word overlap
+gets that backwards every single time. That is the capability described below, working on data
+nobody here wrote.<br><br><b>And it cannot yet produce a usable ranking</b>, because a deliberately
+vacuous document that happens to share the query's shape ranks near the top — and the measure is
+<i>correct</i> that it matches. Genericness is not a structural property. That failure was
+predicted in this project's first risk entry and its defence was never built.</div>
 <p>The query stops being a bag of words and becomes a <b>motif</b> — a small relational
 configuration. Ask about erosion on an alluvial fan and get back blood-vessel channel
 formation, current finding the low-resistance path, traffic consolidating onto one route.
