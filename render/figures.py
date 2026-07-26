@@ -853,6 +853,60 @@ def fig_vector(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 17 — asymmetric families: the spread the old set could not show
+# ---------------------------------------------------------------------------
+
+def fig_asym(data: dict) -> str:
+    W, H = 800, 380
+    L, R, T, B = 168, 190, 66, 60
+    pw, ph = W - L - R, H - T - B
+    fams = data["families"]
+    names = list(fams)
+
+    out = ['<text class="ttl" x="24" y="26">Asymmetric families — retention is a range, not a point</text>',
+           '<text class="sub" x="24" y="45">Each dot is one participant. The blue marker is what a '
+           'best-case summary would have reported.</text>']
+    for i in range(6):
+        v = i / 5
+        x = L + v * pw
+        out.append(f'<line class="ax" x1="{x:.1f}" y1="{T-4}" x2="{x:.1f}" y2="{T+ph}"/>')
+        out.append(f'<text class="tick" x="{x:.1f}" y="{T+ph+18}" '
+                   f'text-anchor="middle">{v:.1f}</text>')
+    out.append(f'<text class="lbl" x="{L+pw/2:.0f}" y="{H-14}" text-anchor="middle">'
+               'information retained after losing that participant</text>')
+
+    bh = ph / len(names)
+    for i, n in enumerate(names):
+        r = fams[n]
+        y = T + i * bh + bh / 2
+        vals = r["retention_per_participant"]
+        lo, hi = min(vals), max(vals)
+        sym = r["spread"] < 1e-9
+        out.append(f'<text class="lbl" x="{L-14}" y="{y+4:.1f}" text-anchor="end">{esc(n)}</text>')
+        if not sym:
+            out.append(f'<line x1="{L+lo*pw:.1f}" y1="{y:.1f}" x2="{L+hi*pw:.1f}" '
+                       f'y2="{y:.1f}" stroke="var(--fg)" stroke-width="2" opacity="0.3"/>')
+        for v in vals:
+            col = "#dc2626" if v < 1e-9 else "#64748b"
+            out.append(f'<circle cx="{L+v*pw:.1f}" cy="{y:.1f}" r="5" fill="{col}"/>')
+        out.append(f'<circle cx="{L+hi*pw:.1f}" cy="{y:.1f}" r="7" fill="none" '
+                   'stroke="#2563eb" stroke-width="2.2"/>')
+        tag = "influence-symmetric — spread 0" if sym else f"spread {r['spread']:.3f}"
+        out.append(f'<text class="tick" x="{L+pw+14}" y="{y+4:.1f}" '
+                   f'fill="{"#15803d" if sym else "var(--mut)"}">{esc(tag)}</text>')
+
+    out.append(f'<text class="sub" x="24" y="{H-38}">'
+               'Red dots are total loss. Two families VANISH if you lose one particular '
+               'participant while retaining half or three quarters</text>')
+    out.append(f'<text class="sub" x="24" y="{H-24}">'
+               'if you lose any other. `mux` is the control: not permutation-symmetric at all, '
+               'yet every participant matters equally — which is why</text>')
+    out.append(f'<text class="sub" x="24" y="{H-10}">'
+               'the property that matters is INFLUENCE-symmetry, not permutation-symmetry.</text>')
+    return svg(W, H, "".join(out), "Asymmetric families")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -927,6 +981,7 @@ def main() -> None:
     e16 = json.loads((RESULTS / "exp016.json").read_text())
     e17 = json.loads((RESULTS / "exp017.json").read_text())
     e18 = json.loads((RESULTS / "exp018.json").read_text())
+    e19 = json.loads((RESULTS / "exp019.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -950,6 +1005,7 @@ def main() -> None:
         "fig14_noise.svg": fig_noise(e16),
         "fig15_audit.svg": fig_audit(e17),
         "fig16_vector.svg": fig_vector(e18),
+        "fig17_asym.svg": fig_asym(e19),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

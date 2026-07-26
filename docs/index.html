@@ -1059,6 +1059,62 @@ would break it and check the test set contains one.</li>
 before understanding it.</li>
 </ol>
 
+<h2>Finding 16 — the asymmetric families, and the bug they found immediately</h2>
+<p>Three corrections traced to a test set where every structure treated its participants
+identically. Adding families that don't was the outstanding fix. It paid for itself on the first
+run, in a way worth describing precisely.</p>
+<div class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="800" height="380" role="img" aria-label="Asymmetric families">
+<style>
+  :root { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  }
+  :root[data-theme="dark"] { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  :root[data-theme="light"] { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  .bg { fill: var(--bg); }
+  .ax { stroke: var(--grid); stroke-width: 1; }
+  .tick { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .lbl { fill: var(--fg); font: 12px ui-sans-serif, system-ui, sans-serif; }
+  .ttl { fill: var(--fg); font: 600 14px ui-sans-serif, system-ui, sans-serif; }
+  .sub { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .node { fill: var(--bg); stroke: var(--fg); stroke-width: 1.5; }
+  .ntxt { fill: var(--fg); font: 10px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; }
+</style>
+<rect class="bg" width="800" height="380"/><text class="ttl" x="24" y="26">Asymmetric families — retention is a range, not a point</text><text class="sub" x="24" y="45">Each dot is one participant. The blue marker is what a best-case summary would have reported.</text><line class="ax" x1="168.0" y1="62" x2="168.0" y2="320"/><text class="tick" x="168.0" y="338" text-anchor="middle">0.0</text><line class="ax" x1="256.4" y1="62" x2="256.4" y2="320"/><text class="tick" x="256.4" y="338" text-anchor="middle">0.2</text><line class="ax" x1="344.8" y1="62" x2="344.8" y2="320"/><text class="tick" x="344.8" y="338" text-anchor="middle">0.4</text><line class="ax" x1="433.2" y1="62" x2="433.2" y2="320"/><text class="tick" x="433.2" y="338" text-anchor="middle">0.6</text><line class="ax" x1="521.6" y1="62" x2="521.6" y2="320"/><text class="tick" x="521.6" y="338" text-anchor="middle">0.8</text><line class="ax" x1="610.0" y1="62" x2="610.0" y2="320"/><text class="tick" x="610.0" y="338" text-anchor="middle">1.0</text><text class="lbl" x="389" y="366" text-anchor="middle">information retained after losing that participant</text><text class="lbl" x="154" y="95.4" text-anchor="end">and_or</text><line x1="262.7" y1="91.4" x2="494.2" y2="91.4" stroke="var(--fg)" stroke-width="2" opacity="0.3"/><circle cx="262.7" cy="91.4" r="5" fill="#64748b"/><circle cx="494.2" cy="91.4" r="5" fill="#64748b"/><circle cx="494.2" cy="91.4" r="5" fill="#64748b"/><circle cx="494.2" cy="91.4" r="7" fill="none" stroke="#2563eb" stroke-width="2.2"/><text class="tick" x="624" y="95.4" fill="var(--mut)">spread 0.524</text><text class="lbl" x="154" y="146.2" text-anchor="end">xor_and</text><line x1="168.0" y1="142.2" x2="389.0" y2="142.2" stroke="var(--fg)" stroke-width="2" opacity="0.3"/><circle cx="168.0" cy="142.2" r="5" fill="#dc2626"/><circle cx="389.0" cy="142.2" r="5" fill="#64748b"/><circle cx="389.0" cy="142.2" r="5" fill="#64748b"/><circle cx="389.0" cy="142.2" r="7" fill="none" stroke="#2563eb" stroke-width="2.2"/><text class="tick" x="624" y="146.2" fill="var(--mut)">spread 0.500</text><text class="lbl" x="154" y="197.0" text-anchor="end">mux</text><circle cx="389.0" cy="193.0" r="5" fill="#64748b"/><circle cx="389.0" cy="193.0" r="5" fill="#64748b"/><circle cx="389.0" cy="193.0" r="5" fill="#64748b"/><circle cx="389.0" cy="193.0" r="7" fill="none" stroke="#2563eb" stroke-width="2.2"/><text class="tick" x="624" y="197.0" fill="#15803d">influence-symmetric — spread 0</text><text class="lbl" x="154" y="247.8" text-anchor="end">graded_k4</text><line x1="301.7" y1="243.8" x2="548.3" y2="243.8" stroke="var(--fg)" stroke-width="2" opacity="0.3"/><circle cx="301.7" cy="243.8" r="5" fill="#64748b"/><circle cx="425.0" cy="243.8" r="5" fill="#64748b"/><circle cx="548.3" cy="243.8" r="5" fill="#64748b"/><circle cx="548.3" cy="243.8" r="5" fill="#64748b"/><circle cx="548.3" cy="243.8" r="7" fill="none" stroke="#2563eb" stroke-width="2.2"/><text class="tick" x="624" y="247.8" fill="var(--mut)">spread 0.558</text><text class="lbl" x="154" y="298.6" text-anchor="end">xor_cascade_k4</text><line x1="168.0" y1="294.6" x2="499.5" y2="294.6" stroke="var(--fg)" stroke-width="2" opacity="0.3"/><circle cx="168.0" cy="294.6" r="5" fill="#dc2626"/><circle cx="278.5" cy="294.6" r="5" fill="#64748b"/><circle cx="499.5" cy="294.6" r="5" fill="#64748b"/><circle cx="499.5" cy="294.6" r="5" fill="#64748b"/><circle cx="499.5" cy="294.6" r="7" fill="none" stroke="#2563eb" stroke-width="2.2"/><text class="tick" x="624" y="298.6" fill="var(--mut)">spread 0.750</text><text class="sub" x="24" y="342">Red dots are total loss. Two families VANISH if you lose one particular participant while retaining half or three quarters</text><text class="sub" x="24" y="356">if you lose any other. `mux` is the control: not permutation-symmetric at all, yet every participant matters equally — which is why</text><text class="sub" x="24" y="370">the property that matters is INFLUENCE-symmetry, not permutation-symmetry.</text></svg></div>
+<table><thead><tr><th>family</th><th>expression</th><th>per participant</th><th>best</th>
+<th>worst</th><th>spread</th></tr></thead><tbody><tr><td><code>and_or</code></td><td><code>a AND (b OR c)</code></td><td>[0.2142, 0.7381, 0.7381]</td><td>0.7381</td><td>0.2142</td><td><b>0.5239</b></td></tr><tr><td><code>xor_and</code></td><td><code>a XOR (b AND c)</code></td><td>[0.0, 0.5, 0.5]</td><td>0.5000</td><td>0.0000</td><td><b>0.5000</b></td></tr><tr><td><code>mux</code></td><td><code>b if a=0 else c</code></td><td>[0.5, 0.5, 0.5]</td><td>0.5000</td><td>0.5000</td><td><b>0.0000</b></td></tr><tr><td><code>graded_k4</code></td><td><code>a AND (b OR (c AND d))</code></td><td>[0.3025, 0.5815, 0.8605, 0.8605]</td><td>0.8605</td><td>0.3025</td><td><b>0.5580</b></td></tr><tr><td><code>xor_cascade_k4</code></td><td><code>a XOR (b AND (c OR d))</code></td><td>[0.0, 0.25, 0.75, 0.75]</td><td>0.7500</td><td>0.0000</td><td><b>0.7500</b></td></tr></tbody></table>
+<div class="read"><b>Reading.</b> Two families <b>vanish entirely</b> if you lose one specific
+participant while retaining half or three quarters if you lose any other.
+<code>a XOR (b AND (c OR d))</code> reads <b>0.75</b> under a best-case summary and
+<b>0.00</b> if the wrong participant goes missing. That single number would be true and almost
+entirely useless — which is the concrete form of the previous finding's warning.</div>
+
+<h3>The distinction the old set was hiding</h3>
+<div class="read ok"><b>The multiplexer is the control, and it corrects the diagnosis.</b>
+<code>b if a=0 else c</code> is <i>not</i> permutation-symmetric — a selector is nothing like a
+data input, and swapping them gives a different function. Yet all three of its participants have
+identical influence, so its spread is <b>exactly zero</b>, indistinguishable from majority.<br><br>
+So the property that matters is <b>influence-symmetry, not permutation-symmetry</b>. A test set
+could be full of structurally lopsided functions and still be completely blind to this. The
+earlier diagnosis said "symmetric" and meant the wrong one.</div>
+
+<h3>And then it found a real bug, on its first execution</h3>
+<div class="read warn"><b>The closed form appeared to fail — maximum error 0.75.</b> It hadn't.
+Two conventions for "participant <i>j</i>" had been sitting in the codebase disagreeing by a
+reversal: one indexes by bit position, the other builds patterns in the opposite order. Comparing
+them element-wise exposed it instantly. Corrected, the error is 1.1×10⁻¹⁶ across every
+family.<br><br><b>No published result is affected</b> — every number reported so far was a best or
+worst case, and aggregating over participants makes a reversal invisible. It would have bitten the
+moment anything was reported per-participant, which the previous finding had just made
+mandatory.</div>
+<div class="read ok"><b>But look at <i>why</i> it was invisible for so long.</b> Under the old test
+set, the comparison passes whether or not the indices are reversed — because when every
+participant has the same value, reversing the list changes nothing. <b>A symmetric test family is
+structurally incapable of detecting an index reversal.</b> The bug could not have been found with
+the previous worlds no matter how carefully anyone looked at them.<br><br>That is the strongest
+argument for the rule that this run of work has produced: a condition set does not merely fail to
+cover cases it omits — it can be <i>provably unable</i> to detect entire classes of error.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1094,6 +1150,12 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>A test set can be provably unable to detect a whole class of error.</b> The
+asymmetric families found an index-reversal bug on their first run — one the previous worlds could
+not have caught however carefully they were inspected, because reversing a list of identical
+values changes nothing. Coverage is not the only thing a condition set can lack; it can lack the
+<i>capacity</i> to fail. And the diagnosis sharpened in the process: what matters is
+influence-symmetry, not permutation-symmetry, which the multiplexer control makes plain.</div>
 <div class="q"><b>Retention is a vector and the test set was biased toward hiding that.</b> Under
 worst-case reporting the number of structures that lose everything goes from 2 to 38 at three
 participants and 942 at four — so "only parity vanishes" was an artifact of a best-case summary.

@@ -45,6 +45,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-016` | Does the law survive noise? | **The equation does; the ranking doesn't.** A general form is exact at every noise level, and balanced outcomes are exactly noise-invariant. But above ~5% noise the *order* of fragility changes |
 | `EXP-017` | Which parameters reorder results? | **Four of five, including one believed safe.** "Retention" turns out to be one number *per participant you might lose* — best- and worst-case orderings are anti-correlated |
 | `EXP-018` | Do the retention conclusions survive proper reporting? | **Mostly — one doesn't.** Quantisation and the 0.5 class hold. "Only parity vanishes" was a best-case artifact: 2 → 38 structures vanish under worst case |
+| `EXP-019` | Add asymmetric test families | **Found an index-reversal bug on the first run** — one the old worlds were *provably unable* to detect. Also sharpened the diagnosis: influence-symmetry, not permutation-symmetry |
 
 ### The findings worth your time
 
@@ -143,6 +144,18 @@ considerably more alarming. The earlier tables came out unscathed only because e
 family tested was **symmetric**, which is now the third correction traceable to symmetric test
 choices.
 
+**A test set can be provably unable to detect a class of error.** Adding function families whose
+participants genuinely differ in importance exposed an index-reversal bug on the first run — two
+conventions for "participant *j*" that disagreed. No published number was affected, because every
+result so far was a best or worst case and aggregating over participants makes a reversal
+invisible. But that is the point: under the old worlds, the check passes whether or not the
+indices are reversed, because reversing a list of identical values changes nothing. Coverage isn't
+the only thing a condition set can lack — it can lack the *capacity to fail*.
+
+The diagnosis sharpened too. A multiplexer is not permutation-symmetric at all, yet all its
+participants have equal influence and its spread is exactly zero. **What matters is
+influence-symmetry, not permutation-symmetry.**
+
 ## Honest limits
 
 - Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
@@ -171,6 +184,7 @@ python3 run_exp015.py      # k=4 census + the closed form, verified
 python3 run_exp016.py      # the law under noise, and where it stops being safe
 python3 run_exp017.py      # the reordering audit -- which parameters change the ranking
 python3 run_exp018.py      # retention re-reported per participant
+python3 run_exp019.py      # asymmetric families -- and the bug they caught
 
 cd ../render
 python3 figures.py         # regenerate the SVGs
@@ -191,6 +205,7 @@ lab/
   interaction.py     the higher-order remainder + permutation calibration
   maxent.py          connected information via maximum-entropy hierarchy (IPF)
   stressworlds.py    adversarial worlds built to break the measure
+  asymworlds.py      families whose participants differ in importance
   hyperworlds.py     synthetic worlds with a KNOWN interaction order
   worlds.py          the condition set — A/B/C/D/E/F plus a held-out case
   impostors.py       seven deliberately cheating methods

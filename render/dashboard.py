@@ -327,6 +327,12 @@ def build() -> str:
     e16 = json.loads((RESULTS / "exp016.json").read_text())
     e17 = json.loads((RESULTS / "exp017.json").read_text())
     e18 = json.loads((RESULTS / "exp018.json").read_text())
+    e19 = json.loads((RESULTS / "exp019.json").read_text())
+    asym_rows = "".join(
+        f"<tr><td><code>{n}</code></td><td><code>{r['expression']}</code></td>"
+        f"<td>{r['retention_per_participant']}</td><td>{r['best']:.4f}</td>"
+        f"<td>{r['worst']:.4f}</td><td><b>{r['spread']:.4f}</b></td></tr>"
+        for n, r in e19["families"].items())
     fam_rows = "".join(
         f"<tr><td><code>{k}</code></td><td>{v['per_participant']}</td>"
         f"<td>{v['best']:.4f}</td><td>{v['worst']:.4f}</td>"
@@ -1077,6 +1083,45 @@ would break it and check the test set contains one.</li>
 before understanding it.</li>
 </ol>
 
+<h2>Finding 16 — the asymmetric families, and the bug they found immediately</h2>
+<p>Three corrections traced to a test set where every structure treated its participants
+identically. Adding families that don't was the outstanding fix. It paid for itself on the first
+run, in a way worth describing precisely.</p>
+<div class="fig">{figs['fig17_asym.svg']}</div>
+<table><thead><tr><th>family</th><th>expression</th><th>per participant</th><th>best</th>
+<th>worst</th><th>spread</th></tr></thead><tbody>{asym_rows}</tbody></table>
+<div class="read"><b>Reading.</b> Two families <b>vanish entirely</b> if you lose one specific
+participant while retaining half or three quarters if you lose any other.
+<code>a XOR (b AND (c OR d))</code> reads <b>0.75</b> under a best-case summary and
+<b>0.00</b> if the wrong participant goes missing. That single number would be true and almost
+entirely useless — which is the concrete form of the previous finding's warning.</div>
+
+<h3>The distinction the old set was hiding</h3>
+<div class="read ok"><b>The multiplexer is the control, and it corrects the diagnosis.</b>
+<code>b if a=0 else c</code> is <i>not</i> permutation-symmetric — a selector is nothing like a
+data input, and swapping them gives a different function. Yet all three of its participants have
+identical influence, so its spread is <b>exactly zero</b>, indistinguishable from majority.<br><br>
+So the property that matters is <b>influence-symmetry, not permutation-symmetry</b>. A test set
+could be full of structurally lopsided functions and still be completely blind to this. The
+earlier diagnosis said "symmetric" and meant the wrong one.</div>
+
+<h3>And then it found a real bug, on its first execution</h3>
+<div class="read warn"><b>The closed form appeared to fail — maximum error 0.75.</b> It hadn't.
+Two conventions for "participant <i>j</i>" had been sitting in the codebase disagreeing by a
+reversal: one indexes by bit position, the other builds patterns in the opposite order. Comparing
+them element-wise exposed it instantly. Corrected, the error is 1.1×10⁻¹⁶ across every
+family.<br><br><b>No published result is affected</b> — every number reported so far was a best or
+worst case, and aggregating over participants makes a reversal invisible. It would have bitten the
+moment anything was reported per-participant, which the previous finding had just made
+mandatory.</div>
+<div class="read ok"><b>But look at <i>why</i> it was invisible for so long.</b> Under the old test
+set, the comparison passes whether or not the indices are reversed — because when every
+participant has the same value, reversing the list changes nothing. <b>A symmetric test family is
+structurally incapable of detecting an index reversal.</b> The bug could not have been found with
+the previous worlds no matter how carefully anyone looked at them.<br><br>That is the strongest
+argument for the rule that this run of work has produced: a condition set does not merely fail to
+cover cases it omits — it can be <i>provably unable</i> to detect entire classes of error.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1112,6 +1157,12 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>A test set can be provably unable to detect a whole class of error.</b> The
+asymmetric families found an index-reversal bug on their first run — one the previous worlds could
+not have caught however carefully they were inspected, because reversing a list of identical
+values changes nothing. Coverage is not the only thing a condition set can lack; it can lack the
+<i>capacity</i> to fail. And the diagnosis sharpened in the process: what matters is
+influence-symmetry, not permutation-symmetry, which the multiplexer control makes plain.</div>
 <div class="q"><b>Retention is a vector and the test set was biased toward hiding that.</b> Under
 worst-case reporting the number of structures that lose everything goes from 2 to 38 at three
 participants and 942 at four — so "only parity vanishes" was an artifact of a best-case summary.
