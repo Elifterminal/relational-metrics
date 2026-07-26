@@ -2204,6 +2204,54 @@ scalar suffices.<br><br>And its own evaluation was reducing a continuous result 
 case, and then reporting that the evidence was weak.<br><br><b>The evidence wasn't weak. The summary
 was.</b> Whatever discipline you hold the thing you're studying to, hold the ruler to it as well.</div>
 
+
+<h2>Finding 36 — the same data, summarised competently</h2>
+<p>The previous finding said this project had no significant evidence for its retrieval claim once
+the annotator couldn't see the answers. Then the power analysis showed the test was throwing away the
+margin — the amount by which each comparison is won — and keeping only the yes/no.</p>
+<p>So I re-ran the summary, not the experiment. Same numbers.</p>
+
+<h3>Be suspicious of this one first</h3>
+<div class="read warn"><b>I changed the analysis after the first analysis came back empty.</b> That's
+the classic route to a false positive, and it doesn't stop being one just because the reason was
+good. Three things bear on it, and none makes this clean:<br><br>
+• the switch was decided on power grounds and written up <i>before</i> any margin result was
+computed;<br>
+• but the effect size published there made the outcome inferable by multiplication, so I could have
+known — <b>this is not a pre-registered result and I won't call it one</b>;<br>
+• the direction was predicted in advance, which would justify a one-sided test and halve the p-value.
+Reported two-sided anyway, because a result in the wrong direction would also be a finding.</div>
+
+<h3>The result</h3>
+<div class="read ok"><b>Blind: the analogue beats the decoy by 0.18 bits on average, and the
+confidence interval excludes zero.</b> Significant on a t-test (p = 0.032) and on a
+distribution-free test (p = 0.043), which agree. The win count for the same data — the number I'd been
+reporting — is six out of ten, which is indistinguishable from a coin flip.<br><br>
+The evidence was there. The summary was throwing it away.</div>
+
+<h3>But it's fragile, and that's the honest headline</h3>
+<div class="read warn"><b>Drop any single test case and significance survives only half the
+time.</b> Worst case, the p-value climbs to 0.070. This result is one or two observations from
+vanishing.<br><br>Which is exactly where the power analysis said we'd be — it called for about twelve
+test cases and we have ten. The prediction and the fragility agree, which is mildly reassuring about
+both.<br><br>The <i>sighted</i> version isn't fragile at all — it's an order of magnitude clear of the
+threshold. That contrast is itself what you'd expect if the sighted numbers are inflated: an inflated
+effect looks robust.</div>
+
+<h3>Both things are true at once</h3>
+<div class="read"><b>The effect is real, and it was inflated.</b> Not one or the other.<br><br>
+Annotating with the answers visible more than doubles the effect size — 2.0 against 0.8, a factor of
+2.6, which is larger than the inflation measured earlier on a cruder statistic. So the earlier
+finding about annotation bias stands and got worse. And the effect underneath it survives anyway,
+just barely.</div>
+<div class="read ok"><b>Where the retrieval claim actually stands now:</b> a fragile positive, sitting
+at the boundary the power analysis predicted, on annotations made by someone with an interest in the
+outcome. That's considerably better than "no evidence" and nowhere near "demonstrated".</div>
+<div class="read"><b>And the next one gets pre-registered.</b> The post-hoc objection can never be
+removed from data already seen — but the second-annotator commission hasn't come back yet, so the
+test, the statistic, the threshold and the failure condition can all be written down before those
+annotations exist. Free now, impossible later.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -2239,6 +2287,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>Summarised properly, the blind result is significant — and fragile.</b> The same
+data that gave six out of ten, indistinguishable from a coin flip, gives a mean margin whose
+confidence interval excludes zero on two different tests. But drop any single test case and it
+survives only half the time, which is precisely the boundary the power analysis predicted. And
+annotating with the answers visible more than doubles the effect. Both things hold at once: the effect
+is real, and it was inflated. The analysis was chosen after the first one failed, which is flagged
+rather than excused — the next test gets written down before the data exists.</div>
 <div class="q"><b>The evidence was not weak — the summary was.</b> Ten test cases can only detect a
 near-perfect measure, and our six-out-of-ten spans everything from chance to a strong effect. But the
 yes/no test discards the margin by which each comparison is won, and on the same blind data those

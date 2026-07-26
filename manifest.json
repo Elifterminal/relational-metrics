@@ -427,13 +427,13 @@
     {
       "id": "EXP-036",
       "question": "Q-31 \u2014 control annotation granularity with a deterministic annotator",
-      "result": "**My control failed** \u2014 the extractor was too weak (1.52 relations/sentence vs 4.2, couldn't parse 2 of 10 queries, **0 of 60** granularity matches), so 5/8 is uninformative exactly as predeclared. **But the check it prompted is the finding**: blind 6/10 is **p = 0.754, not significant**; 3/4 is p = 0.63. The only annotation mode producing a significant result (p = 0.002) is the one where the annotator knew the answers",
+      "result": "**My control failed** \u2014 the extractor was too weak (1.52 relations/sentence vs 4.2, couldn't parse 2 of 10 queries, **0 of 60** granularity matches), so 5/8 is uninformative exactly as predeclared. **But the check it prompted is the finding**: blind 6/10 is **p = 0.754, not significant**; 3/4 is p = 0.63. The only annotation mode producing a significant result (p = 0.002) is the one where the annotator knew the answers. *(Conclusion amended by EXP-038: on the MARGIN rather than the win count the blind result is significant, though fragile. EXP-036 was true of the test it ran and false of the data)*",
       "status": "complete",
       "rung": 1,
       "entry_point": "lab/run_exp036.py",
       "result_file": "results/exp036.json",
       "supersedes": null,
-      "superseded_by": null,
+      "superseded_by": "EXP-038",
       "retracted_claim": null,
       "blurb": "a failed control, and the significance test that mattered"
     },
@@ -449,6 +449,19 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "power analysis -- and the information the binary test threw away"
+    },
+    {
+      "id": "EXP-038",
+      "question": "Q-36 \u2014 report the margin instead of the win count",
+      "result": "**Partly un-says EXP-036.** Same blind data: mean margin **+0.1808 bits**, 95% CI **[+0.019, +0.343]** excluding zero, t *p* = 0.032, Wilcoxon *p* = 0.043 \u2014 significant on both. **But fragile**: leave-one-out survives only 5/10, worst case *p* = 0.070. Sighted effect size 2.045 vs blind 0.799 \u2014 inflation of **2.6\u00d7**, larger than the 1.34\u00d7 measured on rates. So the effect is real AND it was inflated. Analysis chosen **post-hoc**; flagged, not excused",
+      "status": "complete",
+      "rung": 2,
+      "entry_point": "lab/run_exp038.py",
+      "result_file": "results/exp038.json",
+      "supersedes": "EXP-036",
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "margins, not coin flips -- and a fragile positive"
     }
   ],
   "claims": [
@@ -480,7 +493,7 @@
       "claim": "MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.",
       "status": "PROVISIONAL",
       "rung": 3,
-      "scope": "SIGNIFICANT ONLY UNDER SIGHTED ANNOTATION. 10/10 sighted (p = 0.002) \u2014 which is exactly the mode R-18 says to distrust. Blind: 6/10 across three corpora, **p = 0.754, NOT significant** (EXP-036); 3/4 on the independent corpus is p = 0.63. This is a null result at n = 10, not a degraded measurement \u2014 the design is underpowered \u2014 at n=10 nothing below 9/10 is significant and 6/10 spans 26\u201388% (EXP-037). The binary count also discards the margin, which on blind data needs ~12 motifs rather than 199 (Q-36). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal at all on an external benchmark annotated blind, because the annotation carries none (EXP-030). Two corpus defects outstanding (Q-32, Q-34)",
+      "scope": "MEASURED ON THE MARGIN (EXP-038), not the win count. Blind: mean +0.1808 bits, 95% CI [+0.019, +0.343] excluding zero, significant on t (p=0.032) and Wilcoxon (p=0.043) \u2014 but FRAGILE: leave-one-out survives 5/10, worst case p=0.070. Sighted inflates the effect size 2.6\u00d7 (2.045 vs 0.799), so the effect is real AND it was inflated. Analysis chosen post-hoc (Q-37 pre-registers the next one). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal on an external benchmark annotated blind, because the annotation carries none (EXP-030). Annotation is still by an interested party \u2014 the second-annotator commission is outstanding",
       "evidence": [
         "EXP-024",
         "EXP-025",
@@ -492,7 +505,8 @@
         "EXP-032",
         "EXP-033",
         "EXP-036",
-        "EXP-037"
+        "EXP-037",
+        "EXP-038"
       ]
     },
     {
@@ -596,12 +610,13 @@
       "claim": "The corpus results measure analogy detection rather than annotation fidelity \u2014 for the ORDERING, though the magnitudes are inflated.",
       "status": "UNTESTED",
       "rung": 2,
-      "scope": "EXP-036: no blind result is statistically significant, so there is currently no evidence either way. The second-annotator commission is the bottleneck. Do not quote 6/10 as a measurement \u2014 it is a null result at n = 10",
+      "scope": "EXP-038: on the margin the blind result IS significant but fragile, and sighted annotation inflates the effect size 2.6\u00d7. So annotation fidelity explains PART of the record, not all of it. Still needs the second annotator to settle",
       "evidence": [
         "EXP-030",
         "EXP-032",
         "EXP-033",
-        "EXP-036"
+        "EXP-036",
+        "EXP-038"
       ]
     },
     {

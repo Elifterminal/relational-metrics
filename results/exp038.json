@@ -1,0 +1,143 @@
+{
+  "experiment": "EXP-038",
+  "question": "Q-36",
+  "caveat": "analysis method switched after the binary test returned a null. Motivated by the power argument in EXP-037 and written up there before any margin p-value was computed -- but the effect size reported there made significance inferable, so this is NOT a pre-registered result and is not described as one",
+  "two_sided_by_choice": "direction was predicted, so one-sided would be defensible and would halve p. Reported two-sided because a negative margin would also be a finding",
+  "sighted": {
+    "n": 10,
+    "per_motif_margins": [
+      0.4254,
+      0.032,
+      0.3687,
+      0.333,
+      0.032,
+      0.4254,
+      0.3701,
+      0.3442,
+      0.3364,
+      0.4428
+    ],
+    "mean_margin_bits": 0.311,
+    "sd": 0.1521,
+    "effect_size_d": 2.045,
+    "ci95_on_mean": [
+      0.2022,
+      0.4198
+    ],
+    "t_test_p": 0.0001,
+    "wilcoxon_p": 0.0051,
+    "wilcoxon_n_after_dropping_ties": 10,
+    "abstentions": 0,
+    "_footnote_win_count": "10/10"
+  },
+  "blind": {
+    "n": 10,
+    "per_motif_margins": [
+      0.1501,
+      -0.0314,
+      0.4978,
+      0.0,
+      0.272,
+      0.0,
+      0.5743,
+      0.0,
+      0.3364,
+      0.0092
+    ],
+    "mean_margin_bits": 0.1808,
+    "sd": 0.2264,
+    "effect_size_d": 0.799,
+    "ci95_on_mean": [
+      0.0189,
+      0.3428
+    ],
+    "t_test_p": 0.0324,
+    "wilcoxon_p": 0.0425,
+    "wilcoxon_n_after_dropping_ties": 7,
+    "abstentions": 3,
+    "_footnote_win_count": "6/10"
+  },
+  "what_changes": {
+    "EXP-036_said": "no significant evidence under blind annotation (6/10, p = 0.754)",
+    "margin_says": "mean +0.1808 bits, 95% CI excludes zero, t p = 0.0324, Wilcoxon p = 0.0425",
+    "reconciliation": "both are correct about their own statistic. The binary count genuinely cannot detect this effect at n = 10; the margin can. EXP-036's conclusion was true of the test it ran and false of the data"
+  },
+  "leave_one_out": {
+    "rows": [
+      {
+        "dropped_index": 0,
+        "dropped_margin": 0.1501,
+        "t_p": 0.0501,
+        "wilcoxon_p": 0.0747,
+        "still_significant_t": false
+      },
+      {
+        "dropped_index": 1,
+        "dropped_margin": -0.0314,
+        "t_p": 0.0269,
+        "wilcoxon_p": 0.0277,
+        "still_significant_t": true
+      },
+      {
+        "dropped_index": 2,
+        "dropped_margin": 0.4978,
+        "t_p": 0.0701,
+        "wilcoxon_p": 0.0747,
+        "still_significant_t": false
+      },
+      {
+        "dropped_index": 3,
+        "dropped_margin": 0.0,
+        "t_p": 0.0309,
+        "wilcoxon_p": 0.0425,
+        "still_significant_t": true
+      },
+      {
+        "dropped_index": 4,
+        "dropped_margin": 0.272,
+        "t_p": 0.0633,
+        "wilcoxon_p": 0.0747,
+        "still_significant_t": false
+      },
+      {
+        "dropped_index": 5,
+        "dropped_margin": 0.0,
+        "t_p": 0.0309,
+        "wilcoxon_p": 0.0425,
+        "still_significant_t": true
+      },
+      {
+        "dropped_index": 6,
+        "dropped_margin": 0.5743,
+        "t_p": 0.0625,
+        "wilcoxon_p": 0.0747,
+        "still_significant_t": false
+      },
+      {
+        "dropped_index": 7,
+        "dropped_margin": 0.0,
+        "t_p": 0.0309,
+        "wilcoxon_p": 0.0425,
+        "still_significant_t": true
+      },
+      {
+        "dropped_index": 8,
+        "dropped_margin": 0.3364,
+        "t_p": 0.0683,
+        "wilcoxon_p": 0.0747,
+        "still_significant_t": false
+      },
+      {
+        "dropped_index": 9,
+        "dropped_margin": 0.0092,
+        "t_p": 0.0321,
+        "wilcoxon_p": 0.0464,
+        "still_significant_t": true
+      }
+    ],
+    "survives_t_test_after_dropping_any_single_motif": "5/10",
+    "worst_case_p": 0.0701,
+    "note": "if dropping one motif kills it, the result is one observation wearing a p-value"
+  },
+  "blind_significant_both_tests": true
+}
