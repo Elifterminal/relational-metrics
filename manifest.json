@@ -310,13 +310,13 @@
     {
       "id": "EXP-027",
       "question": "Does the genericness discount rescue the ranking?",
-      "result": "**No \u2014 refuted by arithmetic.** Isomorphic structures have identical genericness (gap 0.00e+00), so no structural discount can separate them. Also **retracts** EXP-026's ranking sub-claim: it was a `hash()` tie-break, and the scores tie exactly",
+      "result": "**No \u2014 refuted by arithmetic.** Isomorphic structures have identical genericness (gap 0.00e+00), so no structural discount can separate them. Also **retracts** EXP-026's ranking sub-claim: it was a `hash()` tie-break, and the scores tie exactly. *(Premise corrected by EXP-035: the generics were isomorphic in MY annotation, not by authorship \u2014 4/4 sighted but 2/4 blind)*",
       "status": "complete",
       "rung": 1,
       "entry_point": "lab/run_exp027.py",
       "result_file": "results/exp027.json",
       "supersedes": "EXP-026",
-      "superseded_by": null,
+      "superseded_by": "EXP-035",
       "retracted_claim": null,
       "blurb": "the retraction, and F-09 refuted by arithmetic"
     },
@@ -410,6 +410,19 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "the magnitude channel, and a control that can fail again"
+    },
+    {
+      "id": "EXP-035",
+      "question": "Q-29 \u2014 why did the `diversity` motif invert under blind annotation?",
+      "result": "**Its analogue was being carried by the sighted annotation \u2014 and this corrects EXP-027.** In 4/4 motifs the sighted vacuous document matches its query *exactly* on relation count and loop closure. In `diversity` my sighted annotation contains an edge **no sentence states**, and it is the one closing the loop. Vacuous \u2245 query: **4/4 sighted, 2/4 blind** \u2014 so EXP-027's premise that the *author* wrote isomorphic generics was wrong. The theorem survives; F-09 stays refuted empirically rather than by impossibility (it can act on 1/4 blind, helps on 0/4)",
+      "status": "complete",
+      "rung": 2,
+      "entry_point": "lab/run_exp032.py",
+      "result_file": "results/exp032.json",
+      "supersedes": "EXP-027",
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "why diversity inverted -- and an edge the text never stated"
     }
   ],
   "claims": [
@@ -515,9 +528,10 @@
       "claim": "F-09 bridge value: discounting a match by genericness defends against the attractive-nonsense failure.",
       "status": "REFUTED",
       "rung": 0,
-      "scope": "refuted by arithmetic, not by experiment - isomorphic structures have identical genericness, so the discount subtracts the same number from both at any strength",
+      "scope": "refuted EMPIRICALLY, not by impossibility. EXP-027 argued the discount can never act because the structures are isomorphic; EXP-035 showed that isomorphism was largely annotator-supplied (4/4 sighted, 2/4 blind). Blind, the discount CAN act on 1/4 motifs \u2014 and helps on 0/4, making one motif worse. So: still refuted, on weaker grounds than published",
       "evidence": [
-        "EXP-027"
+        "EXP-027",
+        "EXP-035"
       ]
     },
     {

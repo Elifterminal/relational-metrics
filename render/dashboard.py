@@ -1642,13 +1642,20 @@ suppressing agreement with the only external ground truth in the project.</div>
 match by how well the document matches <i>everything</i> — a vague thing that connects to all
 topics gets penalised for explaining nothing. It was finally built. It cannot work here, and the
 reason is arithmetic rather than experimental.</p>
-<div class="read warn" style="border-left-color:#dc2626"><b>The independent author — who was never
-told what a "vague" item was for — wrote vacuous documents that are isomorphic to the query.</b>
+<div class="read warn" style="border-left-color:#dc2626"><b>PREMISE CORRECTED — see Finding 33.</b>
+The paragraph below says the outside author wrote vacuous documents structurally identical to the
+query. <b>They didn't — I annotated them into that state.</b> It holds 4 of 4 with the roles visible
+and only 2 of 4 blind, and in one motif my annotation contains an edge no sentence states. The
+mathematics below is untouched; the claim that authorship forced it is wrong.</div>
+<div class="read warn"><b>The vacuous documents are isomorphic to the query in the sighted
+annotation.</b>
 Confirmed by exhaustive search over every possible relabelling. And isomorphic structures are
 indistinguishable to <i>any</i> measure of structure alone, so the genericness of the analogue and
 the genericness of the vacuous document are equal <b>exactly</b>: gap 0.00e+00 on every motif. The
 discount subtracts the same number from both. <b>No strength of it, and no cleverer structural
-statistic, can separate them.</b></div>
+statistic, can separate them</b> — where they genuinely are identical. <i>(Finding 33 narrows this:
+once annotation stops forcing the match, the discount can act on one motif in four. It still fails to
+help on any, so the conclusion holds and the reasoning was too strong.)</i></div>
 <div class="read"><b>The distinction is not present in what is being measured.</b> Whether a
 sentence is a real cross-domain analogue or a vacuous phrase of the same shape is not a fact about
 its relational structure. This is not a measurement failure that better technique would fix — it is
@@ -2060,6 +2067,59 @@ other than 1, so the channel has never been exercised on real data. It's a capab
 and shouldn't be described as more than that until there's a corpus where coupling strength actually
 carries information.</div>
 
+
+<h2>Finding 33 — the one motif that inverted, and the edge that wasn't there</h2>
+<p>The blind re-annotation left exactly one clean failure: a motif where hiding the roles flipped the
+result completely, with the vacuous and unrelated documents beating everything. Two possible
+explanations were on the table — my blind annotation of it was simply poor, or its genuine analogue
+had been carried entirely by the sighted pass. It's the second, and chasing it turned up a mistake in
+something published two findings earlier.</p>
+
+<h3>What happened</h3>
+<div class="read"><b>Annotated with the roles visible, every document in that motif has exactly five
+relations.</b> Annotated blind, the query has five and the analogue has four — so the analogue drops
+to the floor, the value meaning "this tells you nothing about that", and the vacuous document's
+partial chain wins by default.<br><br>Not mysterious. The sighted pass had given every candidate the
+query's own relation count.</div>
+
+<h3>And it's systematic</h3>
+<div class="read warn" style="border-left-color:#dc2626">Checking all four motifs on the two most
+obvious structural properties — how many relations, and whether the loop closes — <b>the vacuous
+document matches its query exactly on both, four times out of four.</b> That is not what independent
+faithful annotation produces.</div>
+<div class="read warn" style="border-left-color:#dc2626"><b>And in one case the extra structure can
+be pointed at directly.</b> The vacuous document reads: <i>"A system with more diversity may offer
+better options, improve outcomes, attract participants and receive resources."</i> That's a chain.
+<b>It never says resources increase diversity.</b><br><br>My annotation of it contains exactly that
+relation — and it's the one that closes the loop and makes the vacuous document structurally
+identical to the query. <b>I added an edge the text doesn't state.</b></div>
+
+<h3>Which corrects something published earlier</h3>
+<p>Two findings ago I reported that the outside author — never told what a vague distractor was for —
+had written vacuous documents that were structurally identical to the query, and used that to show a
+proposed fix could never work.</p>
+<div class="read warn" style="border-left-color:#dc2626"><b>The author didn't do that. I did.</b>
+Measured: the vacuous document is structurally identical to the query in <b>four of four</b> motifs
+when annotated with the roles visible, and <b>two of four</b> when annotated blind.</div>
+<div class="read ok"><b>What survives: the mathematics.</b> If two things really are structurally
+identical, no measure that reads only structure can tell them apart. That's a theorem and it's
+untouched — it's also the general principle the next finding builds on.</div>
+<div class="read warn"><b>What doesn't: the strength of the refutation.</b> I said the fix could
+<i>never</i> act, by arithmetic. The truth is narrower — once annotation stops forcing the two
+structures to match, the discount <i>can</i> act on one motif in four. It just doesn't help: it
+demotes the vacuous document below the real analogue in zero of four, and on the motif where it acts
+it makes matters worse. So the fix stays refuted, on weaker grounds than I published.</div>
+
+<h3>And the headline is halved, not deleted</h3>
+<div class="read"><i>"A vacuous statement can have perfect structure, because it describes nothing
+else."</i> That's still real — it holds in two of the four motifs when annotated blind. But it was
+published at four of four, and <b>half of it was mine</b>.<br><br>This is the annotation problem
+caught in the act, at the resolution of a single missing edge rather than a statistical average. And
+it explains the shape of everything else: if annotating with the answer visible reliably hands each
+candidate the query's own relation count and loop topology, then the measure is being given the
+answer inside its input — and the total absence of signal when a genuinely external benchmark was
+annotated blind is what that looks like once the help is withdrawn.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -2095,6 +2155,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>A published conclusion rested on an edge that appears in no sentence.</b>
+Annotating with the roles visible gave every vacuous document its query's exact relation count and
+loop topology, four times out of four — and in one case that meant adding a relation the text never
+states. So the claim that an outside author had written structurally perfect vacuous documents was
+wrong: I made them that way, and it holds on only half of them once the roles are hidden. The theorem
+survives, the refutation built on it was too strong, and the headline is halved rather than
+deleted.</div>
 <div class="q"><b>A control that had been passing since the first experiment could not have
 failed.</b> The measure never read relation strength, so "invariant to unit conversion" was
 blindness reported as a virtue. Building the channel — with the invariance defined into the quantity
