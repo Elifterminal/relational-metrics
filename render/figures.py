@@ -1711,6 +1711,62 @@ def fig_identifiability(e31: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 31 — how much did knowing the answer help?
+# ---------------------------------------------------------------------------
+
+def fig_blind_reannotation(e32: dict) -> str:
+    W, H = 800, 400
+    leak = e32["leak"]
+    pk = leak["per_kind"]
+    out = ['<text class="ttl" x="24" y="26">How much did knowing the answer help?</text>',
+           '<text class="sub" x="24" y="45">The same 24 documents, annotated twice: once knowing '
+           'each one\'s role, once with the roles hidden.</text>',
+           '<text class="sub" x="24" y="61">Nothing about the documents changed. Only what the '
+           'annotator could see.</text>']
+
+    labels = {"P": "paraphrase", "X": "analogue", "W": "false friend",
+              "V": "generic", "U": "unrelated"}
+    L, bw, T = 160, 380, 96
+    bh = 34
+    out.append(f'<text class="tick" x="{L}" y="{T-8}">0%</text>')
+    out.append(f'<text class="tick" x="{L+bw}" y="{T-8}" text-anchor="end">100%</text>')
+
+    for i, k in enumerate(("P", "X", "W", "V", "U")):
+        y = T + i * bh
+        sv, bv = pk[k]["sighted"], pk[k]["blind"]
+        out.append(f'<text class="lbl" x="{L-12}" y="{y+16}" text-anchor="end">'
+                   f'{esc(labels[k])}</text>')
+        out.append(f'<rect x="{L}" y="{y+2}" width="{bw*sv:.1f}" height="10" '
+                   f'fill="#94a3b8" rx="2"/>')
+        out.append(f'<rect x="{L}" y="{y+15}" width="{bw*bv:.1f}" height="10" '
+                   f'fill="#2563eb" rx="2"/>')
+        out.append(f'<text class="tick" x="{L+bw*sv+8:.1f}" y="{y+11}" '
+                   f'font-family="monospace" fill="var(--mut)">{sv:.0%}</text>')
+        out.append(f'<text class="tick" x="{L+bw*bv+8:.1f}" y="{y+24}" '
+                   f'font-family="monospace" fill="#2563eb">{bv:.0%}</text>')
+
+    ly = T + 5 * bh + 16
+    out.append(f'<rect x="{L}" y="{ly-9}" width="11" height="10" fill="#94a3b8" rx="2"/>')
+    out.append(f'<text class="sub" x="{L+18}" y="{ly}">annotated knowing the role</text>')
+    out.append(f'<rect x="{L+220}" y="{ly-9}" width="11" height="10" fill="#2563eb" rx="2"/>')
+    out.append(f'<text class="sub" x="{L+238}" y="{ly}">annotated blind</text>')
+
+    out.append(f'<text class="sub" x="24" y="{ly+28}" fill="#dc2626">'
+               'Knowing a document was the paraphrase or the analogue, I annotated it into a '
+               'PERFECT match with the query. Both</text>')
+    out.append(f'<text class="sub" x="24" y="{ly+43}" fill="#dc2626">'
+               f'fall to {pk["X"]["blind"]:.0%} when the roles are hidden — '
+               f'an overall inflation of {leak["inflation_factor"]:.2f}x.</text>')
+    out.append(f'<text class="sub" x="24" y="{ly+64}" fill="#15803d">'
+               f'But the gap holds: blind, the analogue ({pk["X"]["blind"]:.0%}) still clears the '
+               f'false friend ({pk["W"]["blind"]:.0%}), and the claim survives on '
+               f'{e32["blind_result"]}.</text>')
+    out.append(f'<text class="sub" x="24" y="{ly+79}">'
+               'The record was flattered, not fabricated. State corpus results at the blind rate.</text>')
+    return svg(W, H, "".join(out), "Blind re-annotation")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1799,6 +1855,7 @@ def main() -> None:
     e29 = json.loads((RESULTS / "exp029.json").read_text())
     e30 = json.loads((RESULTS / "exp030.json").read_text())
     e31 = json.loads((RESULTS / "exp031.json").read_text())
+    e32 = json.loads((RESULTS / "exp032.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1836,6 +1893,7 @@ def main() -> None:
         "fig28_canonical.svg": fig_canonical(e29),
         "fig29_arn.svg": fig_arn(e30),
         "fig30_identifiability.svg": fig_identifiability(e31),
+        "fig31_blind.svg": fig_blind_reannotation(e32),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

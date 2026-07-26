@@ -1,0 +1,737 @@
+{
+  "seed": 26260726,
+  "key": [
+    {
+      "passage_id": "6bd7a643ca99",
+      "doc_id": "i1_D",
+      "motif": "diversity",
+      "kind": "D",
+      "sighted": [
+        [
+          "exchange participation",
+          "seed contributions",
+          "INCREASES"
+        ],
+        [
+          "gardener success",
+          "exchange participation",
+          "INCREASES"
+        ],
+        [
+          "planting fit",
+          "gardener success",
+          "INCREASES"
+        ],
+        [
+          "seed contributions",
+          "variety availability",
+          "INCREASES"
+        ],
+        [
+          "variety availability",
+          "planting fit",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "df02f0de27d6",
+      "doc_id": "i1_P",
+      "motif": "diversity",
+      "kind": "P",
+      "sighted": [
+        [
+          "donated seed packets",
+          "local seed range",
+          "INCREASES"
+        ],
+        [
+          "garden suitability",
+          "harvest reliability",
+          "INCREASES"
+        ],
+        [
+          "harvest reliability",
+          "member turnout",
+          "INCREASES"
+        ],
+        [
+          "local seed range",
+          "garden suitability",
+          "INCREASES"
+        ],
+        [
+          "member turnout",
+          "donated seed packets",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "44b23f83a880",
+      "doc_id": "i1_X",
+      "motif": "diversity",
+      "kind": "X",
+      "sighted": [
+        [
+          "bug reports",
+          "maintainer activity",
+          "INCREASES"
+        ],
+        [
+          "maintainer activity",
+          "supported device models",
+          "INCREASES"
+        ],
+        [
+          "project adoption",
+          "bug reports",
+          "INCREASES"
+        ],
+        [
+          "supported device models",
+          "user compatibility",
+          "INCREASES"
+        ],
+        [
+          "user compatibility",
+          "project adoption",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "7ff4863fdcb2",
+      "doc_id": "i1_W",
+      "motif": "diversity",
+      "kind": "W",
+      "sighted": [
+        [
+          "exchange participation",
+          "seed contributions",
+          "INCREASES"
+        ],
+        [
+          "gardener success",
+          "variety availability",
+          "DECREASES"
+        ],
+        [
+          "planting fit",
+          "gardener success",
+          "INCREASES"
+        ],
+        [
+          "seed contributions",
+          "planting fit",
+          "DECREASES"
+        ],
+        [
+          "variety availability",
+          "exchange participation",
+          "DECREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "9a620c750213",
+      "doc_id": "i1_V",
+      "motif": "diversity",
+      "kind": "V",
+      "sighted": [
+        [
+          "outcome quality",
+          "participant interest",
+          "INCREASES"
+        ],
+        [
+          "participant interest",
+          "resource input",
+          "INCREASES"
+        ],
+        [
+          "process options",
+          "outcome quality",
+          "INCREASES"
+        ],
+        [
+          "resource input",
+          "system diversity",
+          "INCREASES"
+        ],
+        [
+          "system diversity",
+          "process options",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "a7296cf061b7",
+      "doc_id": "i1_U",
+      "motif": "diversity",
+      "kind": "U",
+      "sighted": [
+        [
+          "case temperature",
+          "parchment dryness",
+          "INCREASES"
+        ],
+        [
+          "fiber brittleness",
+          "page cracking",
+          "INCREASES"
+        ],
+        [
+          "lamp heat",
+          "case temperature",
+          "INCREASES"
+        ],
+        [
+          "page cracking",
+          "conservation repairs",
+          "INCREASES"
+        ],
+        [
+          "parchment dryness",
+          "fiber brittleness",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "1474ed1bb63c",
+      "doc_id": "i2_D",
+      "motif": "correction",
+      "kind": "D",
+      "sighted": [
+        [
+          "dehumidifier runtime",
+          "moisture removal",
+          "INCREASES"
+        ],
+        [
+          "gallery humidity",
+          "humidistat signal",
+          "INCREASES"
+        ],
+        [
+          "humidistat signal",
+          "dehumidifier runtime",
+          "INCREASES"
+        ],
+        [
+          "moisture removal",
+          "gallery humidity",
+          "DECREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "8415b6ab55cf",
+      "doc_id": "i2_P",
+      "motif": "correction",
+      "kind": "P",
+      "sighted": [
+        [
+          "air moisture",
+          "sensor demand",
+          "INCREASES"
+        ],
+        [
+          "drying-unit operation",
+          "water extraction",
+          "INCREASES"
+        ],
+        [
+          "sensor demand",
+          "drying-unit operation",
+          "INCREASES"
+        ],
+        [
+          "water extraction",
+          "air moisture",
+          "DECREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "a90e04254bd4",
+      "doc_id": "i2_X",
+      "motif": "correction",
+      "kind": "X",
+      "sighted": [
+        [
+          "fishing effort",
+          "harvest pressure",
+          "INCREASES"
+        ],
+        [
+          "harvest pressure",
+          "stock depletion",
+          "INCREASES"
+        ],
+        [
+          "quota restriction",
+          "fishing effort",
+          "DECREASES"
+        ],
+        [
+          "stock depletion",
+          "quota restriction",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "ae1222c0b638",
+      "doc_id": "i2_W",
+      "motif": "correction",
+      "kind": "W",
+      "sighted": [
+        [
+          "dehumidifier runtime",
+          "moisture removal",
+          "DECREASES"
+        ],
+        [
+          "gallery humidity",
+          "humidistat signal",
+          "INCREASES"
+        ],
+        [
+          "humidistat signal",
+          "dehumidifier runtime",
+          "INCREASES"
+        ],
+        [
+          "moisture removal",
+          "gallery humidity",
+          "DECREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "0dcd00e61d2f",
+      "doc_id": "i2_V",
+      "motif": "correction",
+      "kind": "V",
+      "sighted": [
+        [
+          "control signal",
+          "corrective action",
+          "INCREASES"
+        ],
+        [
+          "corrective action",
+          "counteracting effect",
+          "INCREASES"
+        ],
+        [
+          "counteracting effect",
+          "system deviation",
+          "DECREASES"
+        ],
+        [
+          "system deviation",
+          "control signal",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "c819a2dc1d16",
+      "doc_id": "i2_U",
+      "motif": "correction",
+      "kind": "U",
+      "sighted": [
+        [
+          "landing risk",
+          "airport closures",
+          "INCREASES"
+        ],
+        [
+          "runway abrasion",
+          "tire wear",
+          "INCREASES"
+        ],
+        [
+          "tire wear",
+          "landing risk",
+          "INCREASES"
+        ],
+        [
+          "volcanic ash",
+          "runway abrasion",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "5476ae8f86a4",
+      "doc_id": "i3_D",
+      "motif": "regulator",
+      "kind": "D",
+      "sighted": [
+        [
+          "bat activity",
+          "insect abundance",
+          "DECREASES"
+        ],
+        [
+          "insect abundance",
+          "leaf damage",
+          "INCREASES"
+        ],
+        [
+          "leaf damage",
+          "tree stress",
+          "INCREASES"
+        ],
+        [
+          "tree stress",
+          "fruit yield",
+          "DECREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "12f36dd84141",
+      "doc_id": "i3_P",
+      "motif": "regulator",
+      "kind": "P",
+      "sighted": [
+        [
+          "canopy feeding",
+          "orchard stress",
+          "INCREASES"
+        ],
+        [
+          "moth population",
+          "canopy feeding",
+          "INCREASES"
+        ],
+        [
+          "nighttime bat foraging",
+          "moth population",
+          "DECREASES"
+        ],
+        [
+          "orchard stress",
+          "fruit set",
+          "DECREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "36415b02a2f4",
+      "doc_id": "i3_X",
+      "motif": "regulator",
+      "kind": "X",
+      "sighted": [
+        [
+          "latent defects",
+          "production incidents",
+          "INCREASES"
+        ],
+        [
+          "lint coverage",
+          "latent defects",
+          "DECREASES"
+        ],
+        [
+          "operator fatigue",
+          "release frequency",
+          "DECREASES"
+        ],
+        [
+          "production incidents",
+          "operator fatigue",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "e691d6ac79e4",
+      "doc_id": "i3_W",
+      "motif": "regulator",
+      "kind": "W",
+      "sighted": [
+        [
+          "bat activity",
+          "leaf damage",
+          "DECREASES"
+        ],
+        [
+          "fruit yield",
+          "insect abundance",
+          "INCREASES"
+        ],
+        [
+          "insect abundance",
+          "bat activity",
+          "INCREASES"
+        ],
+        [
+          "leaf damage",
+          "tree stress",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "436a536e5623",
+      "doc_id": "i3_V",
+      "motif": "regulator",
+      "kind": "V",
+      "sighted": [
+        [
+          "early safeguard",
+          "hidden problems",
+          "DECREASES"
+        ],
+        [
+          "hidden problems",
+          "later disruption",
+          "INCREASES"
+        ],
+        [
+          "later disruption",
+          "staff strain",
+          "INCREASES"
+        ],
+        [
+          "staff strain",
+          "output pace",
+          "DECREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "c274ce9dc53d",
+      "doc_id": "i3_U",
+      "motif": "regulator",
+      "kind": "U",
+      "sighted": [
+        [
+          "cooling speed",
+          "surface crazing",
+          "INCREASES"
+        ],
+        [
+          "edge pooling",
+          "color depth",
+          "INCREASES"
+        ],
+        [
+          "glaze fluidity",
+          "edge pooling",
+          "INCREASES"
+        ],
+        [
+          "kiln temperature",
+          "glaze fluidity",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "7bc1fb03d96e",
+      "doc_id": "i4_D",
+      "motif": "rivalry",
+      "kind": "D",
+      "sighted": [
+        [
+          "dialect spelling",
+          "standard spelling",
+          "DECREASES"
+        ],
+        [
+          "institutional exposure",
+          "standard spelling",
+          "INCREASES"
+        ],
+        [
+          "standard spelling",
+          "dialect spelling",
+          "DECREASES"
+        ],
+        [
+          "standard spelling",
+          "teacher approval",
+          "INCREASES"
+        ],
+        [
+          "teacher approval",
+          "standard spelling",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "61228c752702",
+      "doc_id": "i4_P",
+      "motif": "rivalry",
+      "kind": "P",
+      "sighted": [
+        [
+          "formal orthography",
+          "instructor praise",
+          "INCREASES"
+        ],
+        [
+          "formal orthography",
+          "vernacular orthography",
+          "DECREASES"
+        ],
+        [
+          "instructor praise",
+          "formal orthography",
+          "INCREASES"
+        ],
+        [
+          "school contact",
+          "formal orthography",
+          "INCREASES"
+        ],
+        [
+          "vernacular orthography",
+          "formal orthography",
+          "DECREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "bbf892544cad",
+      "doc_id": "i4_X",
+      "motif": "rivalry",
+      "kind": "X",
+      "sighted": [
+        [
+          "native sedge",
+          "salt-tolerant grass",
+          "DECREASES"
+        ],
+        [
+          "road salt",
+          "salt-tolerant grass",
+          "INCREASES"
+        ],
+        [
+          "saline litter",
+          "salt-tolerant grass",
+          "INCREASES"
+        ],
+        [
+          "salt-tolerant grass",
+          "native sedge",
+          "DECREASES"
+        ],
+        [
+          "salt-tolerant grass",
+          "saline litter",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "70e8f4350a5a",
+      "doc_id": "i4_W",
+      "motif": "rivalry",
+      "kind": "W",
+      "sighted": [
+        [
+          "dialect spelling",
+          "standard spelling",
+          "INCREASES"
+        ],
+        [
+          "institutional exposure",
+          "standard spelling",
+          "DECREASES"
+        ],
+        [
+          "institutional exposure",
+          "teacher approval",
+          "INCREASES"
+        ],
+        [
+          "standard spelling",
+          "dialect spelling",
+          "INCREASES"
+        ],
+        [
+          "teacher approval",
+          "dialect spelling",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "ce986e067c6b",
+      "doc_id": "i4_V",
+      "motif": "rivalry",
+      "kind": "V",
+      "sighted": [
+        [
+          "external influence",
+          "option A",
+          "INCREASES"
+        ],
+        [
+          "option A",
+          "option B",
+          "DECREASES"
+        ],
+        [
+          "option A",
+          "reinforcing response",
+          "INCREASES"
+        ],
+        [
+          "option B",
+          "option A",
+          "DECREASES"
+        ],
+        [
+          "reinforcing response",
+          "option A",
+          "INCREASES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "ffbff3371575",
+      "doc_id": "i4_U",
+      "motif": "rivalry",
+      "kind": "U",
+      "sighted": [
+        [
+          "atmospheric noise",
+          "source confidence",
+          "DECREASES"
+        ],
+        [
+          "cloud water",
+          "atmospheric noise",
+          "INCREASES"
+        ],
+        [
+          "dish alignment",
+          "signal gain",
+          "INCREASES"
+        ],
+        [
+          "signal gain",
+          "spectral resolution",
+          "INCREASES"
+        ],
+        [
+          "spectral resolution",
+          "source confidence",
+          "INCREASES"
+        ]
+      ]
+    }
+  ]
+}

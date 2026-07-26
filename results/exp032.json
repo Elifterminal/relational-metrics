@@ -1,0 +1,317 @@
+{
+  "experiment": "EXP-032",
+  "question": "Q-26",
+  "corpus": "independent (EXP-026), re-annotated blind from glosses",
+  "contamination": "annotator had previously annotated this corpus sighted; divergence is the interpretive key, not the ranking",
+  "divergence": {
+    "documents": 24,
+    "identical_up_to_isomorphism": 0,
+    "mean_shape_overlap": 0.397,
+    "materially_diverged": true,
+    "per_doc": [
+      {
+        "doc_id": "i4_U",
+        "kind": "U",
+        "motif": "rivalry",
+        "blind_relations": 4,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.333
+      },
+      {
+        "doc_id": "i1_U",
+        "kind": "U",
+        "motif": "diversity",
+        "blind_relations": 4,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.833
+      },
+      {
+        "doc_id": "i3_X",
+        "kind": "X",
+        "motif": "regulator",
+        "blind_relations": 4,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.111
+      },
+      {
+        "doc_id": "i4_X",
+        "kind": "X",
+        "motif": "rivalry",
+        "blind_relations": 4,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.333
+      },
+      {
+        "doc_id": "i3_D",
+        "kind": "D",
+        "motif": "regulator",
+        "blind_relations": 4,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.111
+      },
+      {
+        "doc_id": "i4_V",
+        "kind": "V",
+        "motif": "rivalry",
+        "blind_relations": 4,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.333
+      },
+      {
+        "doc_id": "i3_U",
+        "kind": "U",
+        "motif": "regulator",
+        "blind_relations": 3,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.833
+      },
+      {
+        "doc_id": "i3_P",
+        "kind": "P",
+        "motif": "regulator",
+        "blind_relations": 4,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.111
+      },
+      {
+        "doc_id": "i2_W",
+        "kind": "W",
+        "motif": "correction",
+        "blind_relations": 2,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.0
+      },
+      {
+        "doc_id": "i1_P",
+        "kind": "P",
+        "motif": "diversity",
+        "blind_relations": 4,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.8
+      },
+      {
+        "doc_id": "i1_D",
+        "kind": "D",
+        "motif": "diversity",
+        "blind_relations": 5,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 1.0
+      },
+      {
+        "doc_id": "i2_V",
+        "kind": "V",
+        "motif": "correction",
+        "blind_relations": 4,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.333
+      },
+      {
+        "doc_id": "i1_V",
+        "kind": "V",
+        "motif": "diversity",
+        "blind_relations": 4,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.429
+      },
+      {
+        "doc_id": "i1_W",
+        "kind": "W",
+        "motif": "diversity",
+        "blind_relations": 3,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.0
+      },
+      {
+        "doc_id": "i4_P",
+        "kind": "P",
+        "motif": "rivalry",
+        "blind_relations": 3,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.143
+      },
+      {
+        "doc_id": "i4_D",
+        "kind": "D",
+        "motif": "rivalry",
+        "blind_relations": 4,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.143
+      },
+      {
+        "doc_id": "i4_W",
+        "kind": "W",
+        "motif": "rivalry",
+        "blind_relations": 4,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.333
+      },
+      {
+        "doc_id": "i3_V",
+        "kind": "V",
+        "motif": "regulator",
+        "blind_relations": 4,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.111
+      },
+      {
+        "doc_id": "i2_D",
+        "kind": "D",
+        "motif": "correction",
+        "blind_relations": 4,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.333
+      },
+      {
+        "doc_id": "i2_P",
+        "kind": "P",
+        "motif": "correction",
+        "blind_relations": 4,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.333
+      },
+      {
+        "doc_id": "i3_W",
+        "kind": "W",
+        "motif": "regulator",
+        "blind_relations": 4,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.429
+      },
+      {
+        "doc_id": "i2_X",
+        "kind": "X",
+        "motif": "correction",
+        "blind_relations": 4,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.333
+      },
+      {
+        "doc_id": "i1_X",
+        "kind": "X",
+        "motif": "diversity",
+        "blind_relations": 4,
+        "sighted_relations": 5,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 0.8
+      },
+      {
+        "doc_id": "i2_U",
+        "kind": "U",
+        "motif": "correction",
+        "blind_relations": 4,
+        "sighted_relations": 4,
+        "identical_up_to_isomorphism": false,
+        "shape_overlap": 1.0
+      }
+    ]
+  },
+  "leak": {
+    "note": "same 24 documents; only the annotation mode differs",
+    "best_match_rate_sighted": 0.867,
+    "best_match_rate_blind": 0.647,
+    "inflation_factor": 1.339,
+    "per_kind": {
+      "P": {
+        "sighted": 1.0,
+        "blind": 0.647
+      },
+      "X": {
+        "sighted": 1.0,
+        "blind": 0.647
+      },
+      "W": {
+        "sighted": 0.667,
+        "blind": 0.353
+      },
+      "V": {
+        "sighted": 1.0,
+        "blind": 0.882
+      },
+      "U": {
+        "sighted": 0.667,
+        "blind": 0.706
+      }
+    },
+    "analogue_gap_survives_blind": true
+  },
+  "predeclaration_note": "the predeclared readings were binary -- survives or collapses -- and the outcome is graded. The prediction space was mis-specified; recorded rather than rounded to the nearest label",
+  "sighted_result": "4/4 (EXP-026)",
+  "blind_result": "3/4",
+  "rows": [
+    {
+      "motif": "correction",
+      "ranking": "{P=V=X} > U > W",
+      "scores": {
+        "W": 1.0,
+        "V": 1.9898,
+        "P": 1.9898,
+        "X": 1.9898,
+        "U": 1.1461
+      },
+      "analogue_beats_false_friend": true,
+      "paraphrase_ties_analogue": true
+    },
+    {
+      "motif": "diversity",
+      "ranking": "{U=V} > {P=W=X}",
+      "scores": {
+        "U": 1.4874,
+        "P": 1.0,
+        "V": 1.4874,
+        "W": 1.0,
+        "X": 1.0
+      },
+      "analogue_beats_false_friend": false,
+      "paraphrase_ties_analogue": true
+    },
+    {
+      "motif": "regulator",
+      "ranking": "{P=V=X} > U > W",
+      "scores": {
+        "X": 1.8816,
+        "U": 1.2882,
+        "P": 1.8816,
+        "V": 1.8816,
+        "W": 1.1645
+      },
+      "analogue_beats_false_friend": true,
+      "paraphrase_ties_analogue": true
+    },
+    {
+      "motif": "rivalry",
+      "ranking": "P > {V=X} > W > U",
+      "scores": {
+        "U": 0.9559,
+        "X": 1.1963,
+        "V": 1.1963,
+        "P": 1.3602,
+        "W": 1.1796
+      },
+      "analogue_beats_false_friend": true,
+      "paraphrase_ties_analogue": false
+    }
+  ],
+  "verdict": "R-18 PARTIALLY CONFIRMED -- sighted annotation measurably inflates correspondence, but the analogue/false-friend gap survives blind re-annotation and is not an artifact of it"
+}

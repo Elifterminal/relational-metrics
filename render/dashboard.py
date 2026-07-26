@@ -1904,6 +1904,54 @@ missing channel or narrow the claim, and don't write the measure. It works in on
 finding a pair is a proof, failing to find one is not. Two experiments were spent learning this the
 expensive way; the cheap version took an afternoon and found three more.</div>
 
+
+<h2>Finding 30 — how much did knowing the answer help?</h2>
+<p>The previous finding raised a worry I couldn't dismiss: every corpus in this project was turned
+into structures by someone who <i>knew</i> which document was the paraphrase, which was the genuine
+analogue, and which was the decoy. An earlier test checked that my <i>ranking</i> wasn't biased. None
+of them checked whether the structures themselves quietly encoded the answer.</p>
+<div class="read"><b>This is the control that should have been built before the independent corpus,
+not after it.</b> It's cheaper and it tests something more fundamental. I built the expensive one
+first because it was the one I'd thought of.</div>
+
+<h3>The problem with running it myself</h3>
+<div class="read warn"><b>I've already seen these documents.</b> Hiding the labels stops me knowing
+which is which; it doesn't erase memory. So this isn't a clean blind test and I'm not reporting it as
+one.<br><br>Which makes <b>divergence</b> the thing that decides whether the result means anything,
+and it has to be measured <i>before</i> looking at the score. If the blind annotations came out
+nearly identical to the sighted ones, that would be uninformative — equally consistent with "my
+annotation is reproducible" and with "I remembered." An identical result would have been a null here,
+not a confirmation. Written down before the answers were unsealed.<br><br>
+<b>They diverged: 0 of 24 identical, mean shape overlap 0.40.</b> Memory did not reproduce the
+earlier pass, so the comparison is readable.</div>
+<div class="fig">{figs['fig31_blind.svg']}</div>
+
+<h3>The answer: the ordering survives, the magnitude doesn't</h3>
+<div class="read warn"><b>Knowing a document was the paraphrase or the analogue, I annotated it into
+a perfect match with the query.</b> Both score 100% sighted. Blind, both fall to 65%. Overall the
+labels inflate correspondence by <b>1.34×</b> — same documents, only the annotator's knowledge
+changed. That is the worry, made concrete instead of argued about.</div>
+<div class="read ok"><b>But the gap that matters holds up.</b> Blind, the analogue still sits well
+clear of the decoy — 65% against 35% — and the headline claim survives on three motifs of four
+instead of four of four.<br><br><b>So the record was flattered, not fabricated.</b> The structures
+are real and the ordering is real; the numbers attached to it were generous.</div>
+<div class="read"><b>What changes:</b> corpus results should be quoted at the blind rate from now on.
+The sighted figures are an upper bound produced by an annotator who knew the answer, and quoting them
+as though they were neutral measurements would be the same error in a new place.</div>
+
+<h3>A defect in my own prediction, worth more than the result</h3>
+<div class="read warn"><b>I predeclared two outcomes — survives, or collapses — and got neither.</b>
+Three out of four is graded, and my prediction space had no bucket for it. The automated verdict
+initially rounded it to "the worry is confirmed," which overstates: the gap survived, and that's the
+part the claim depends on.<br><br>Rounding a graded result to the nearest predeclared label is
+exactly how a mis-specified prediction turns into a false confirmation. The mis-specification is
+recorded rather than tidied away, and the verdict now has a bucket for "partly."</div>
+<div class="read"><b>One outright failure worth chasing.</b> The <i>diversity</i> motif inverts
+completely under blind annotation — the unrelated and generic documents come out on top. One motif in
+four is thin evidence, but it's the only clean failure, and it has two possible explanations that
+need separating: my blind annotation of it is poor, or that motif's analogue was being carried
+entirely by sighted annotation and never had structure of its own.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1939,6 +1987,11 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>Knowing the answer while annotating inflated the results by about a third — and
+the ordering survived anyway.</b> Re-annotating a corpus with the roles hidden, the same documents
+score 1.34× lower, and the paraphrase and analogue lose a perfect match they never deserved. But the
+analogue still clears the decoy by a wide margin and the claim holds on three motifs of four. The
+record was flattered, not fabricated. Corpus results are quoted at the blind rate from here.</div>
 <div class="q"><b>The recurring obstacle has a name, and it is now a pre-test rather than a
 discovery.</b> A distinction is recoverable only if it is constant across everything the
 representation treats as identical, so a single witness pair settles it in advance. Two failures were
