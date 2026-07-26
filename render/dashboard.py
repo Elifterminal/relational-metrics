@@ -522,6 +522,21 @@ materially different from effect size 0.788.<br><br>
 204 benchmark items remain untouched, deliberately, so that a reopening has something clean to run
 on.</div>
 
+<h2>What comes next</h2>
+<div class="read"><b>A correction to how this page has been framing things.</b> Search was <i>one
+possible application</i> of the idea, not the idea — and I had been letting Stage 2's negative bleed
+into a verdict on the whole thing. It shouldn't.<br><br>
+What Stage 2 established is that ordinary prose doesn't reduce to typed relations between pairs in a
+way that preserves analogy. That's a fact about turning stories into structures. <b>The instrument
+itself works — it just needs structured input, and plenty of domains produce structure natively
+because somebody already decided what the relations are.</b><br><br>
+Whether it earns its keep in any of them is genuinely open. A Stage 3 is being drafted around that
+question, and the methodological risk is obvious and named up front: <b>searching for a domain where
+a measure succeeds is how you find one by chance.</b> So the domain gets chosen before the result,
+the threshold for "earns its keep" gets set before the domain, and the impossibility pre-test runs
+first — because if the distinction a domain cares about isn't in the representation, no measure helps
+and that's knowable in an afternoon.</div>
+
 <h2>Methodology changes</h2>
 <div class="read sub"><b>None yet.</b> Every change to the charter gets logged here with its date and
 reason, rather than edited silently into the text above. Stage 1 had three occasions where a
