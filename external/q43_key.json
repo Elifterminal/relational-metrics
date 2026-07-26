@@ -1,0 +1,362 @@
+{
+  "7cef38e4c881": {
+    "item": "117",
+    "role": "Q"
+  },
+  "b5c61c849a4e": {
+    "item": "117",
+    "role": "A"
+  },
+  "2eedc3562c78": {
+    "item": "117",
+    "role": "B"
+  },
+  "083136cf333a": {
+    "item": "911",
+    "role": "Q"
+  },
+  "5ab18241569b": {
+    "item": "911",
+    "role": "A"
+  },
+  "950f8d26edcd": {
+    "item": "911",
+    "role": "B"
+  },
+  "2ce1adfb8c40": {
+    "item": "995",
+    "role": "Q"
+  },
+  "0bf720c510ca": {
+    "item": "995",
+    "role": "A"
+  },
+  "3e110412266c": {
+    "item": "995",
+    "role": "B"
+  },
+  "a0cc1b043064": {
+    "item": "166",
+    "role": "Q"
+  },
+  "e185cf555f9e": {
+    "item": "166",
+    "role": "A"
+  },
+  "a7d7ddbb3472": {
+    "item": "166",
+    "role": "B"
+  },
+  "6119d4256e94": {
+    "item": "393",
+    "role": "Q"
+  },
+  "57aeb5744c33": {
+    "item": "393",
+    "role": "A"
+  },
+  "d16c845e5b99": {
+    "item": "393",
+    "role": "B"
+  },
+  "17e2387fdb0e": {
+    "item": "257",
+    "role": "Q"
+  },
+  "585f124f0eb7": {
+    "item": "257",
+    "role": "A"
+  },
+  "3c118d4f7352": {
+    "item": "257",
+    "role": "B"
+  },
+  "f8c60890af0b": {
+    "item": "415",
+    "role": "Q"
+  },
+  "98810e92bf98": {
+    "item": "415",
+    "role": "A"
+  },
+  "7aa13e6f9f15": {
+    "item": "415",
+    "role": "B"
+  },
+  "81e2d41f2dcd": {
+    "item": "274",
+    "role": "Q"
+  },
+  "b7553bce69ff": {
+    "item": "274",
+    "role": "A"
+  },
+  "0c646c7d20a6": {
+    "item": "274",
+    "role": "B"
+  },
+  "ec12b3d13dec": {
+    "item": "650",
+    "role": "Q"
+  },
+  "da78aee57c7e": {
+    "item": "650",
+    "role": "A"
+  },
+  "a901d3295135": {
+    "item": "650",
+    "role": "B"
+  },
+  "c11faf4bacc2": {
+    "item": "577",
+    "role": "Q"
+  },
+  "d740c3666983": {
+    "item": "577",
+    "role": "A"
+  },
+  "be636f69b83a": {
+    "item": "577",
+    "role": "B"
+  },
+  "31859c679eae": {
+    "item": "143",
+    "role": "Q"
+  },
+  "bf98915c1504": {
+    "item": "143",
+    "role": "A"
+  },
+  "2af6351ec09c": {
+    "item": "143",
+    "role": "B"
+  },
+  "1461877c72b0": {
+    "item": "764",
+    "role": "Q"
+  },
+  "6dc6c7f79fd8": {
+    "item": "764",
+    "role": "A"
+  },
+  "fb95dae236fc": {
+    "item": "764",
+    "role": "B"
+  },
+  "bfcab6b4556f": {
+    "item": "172",
+    "role": "Q"
+  },
+  "c25e6ea2b45c": {
+    "item": "172",
+    "role": "A"
+  },
+  "16fe3619fb6f": {
+    "item": "172",
+    "role": "B"
+  },
+  "e4a08dcbe2a4": {
+    "item": "685",
+    "role": "Q"
+  },
+  "c92c009b9261": {
+    "item": "685",
+    "role": "A"
+  },
+  "e10c7f87e6fa": {
+    "item": "685",
+    "role": "B"
+  },
+  "574fd322d34c": {
+    "item": "201",
+    "role": "Q"
+  },
+  "4669ef4b6010": {
+    "item": "201",
+    "role": "A"
+  },
+  "a58e42d3569c": {
+    "item": "201",
+    "role": "B"
+  },
+  "88a8467095b1": {
+    "item": "480",
+    "role": "Q"
+  },
+  "feccf226629f": {
+    "item": "480",
+    "role": "A"
+  },
+  "d6a047edad80": {
+    "item": "480",
+    "role": "B"
+  },
+  "50636725ff66": {
+    "item": "878",
+    "role": "Q"
+  },
+  "4db7f9eeaed6": {
+    "item": "878",
+    "role": "A"
+  },
+  "22b255994d9d": {
+    "item": "878",
+    "role": "B"
+  },
+  "aae5578ae0d1": {
+    "item": "157",
+    "role": "Q"
+  },
+  "28c4a9b05dbb": {
+    "item": "157",
+    "role": "A"
+  },
+  "5d3f75cd408f": {
+    "item": "157",
+    "role": "B"
+  },
+  "233bfcceb8b6": {
+    "item": "620",
+    "role": "Q"
+  },
+  "3a7d11b662f6": {
+    "item": "620",
+    "role": "A"
+  },
+  "08e4ee9a11f8": {
+    "item": "620",
+    "role": "B"
+  },
+  "e016ed0b4877": {
+    "item": "345",
+    "role": "Q"
+  },
+  "ae0e499ac594": {
+    "item": "345",
+    "role": "A"
+  },
+  "7beb9861b5b7": {
+    "item": "345",
+    "role": "B"
+  },
+  "137a670ef25b": {
+    "item": "57",
+    "role": "Q"
+  },
+  "15796a834451": {
+    "item": "57",
+    "role": "A"
+  },
+  "ef5fc1f7d018": {
+    "item": "57",
+    "role": "B"
+  },
+  "bdffedcfbeee": {
+    "item": "585",
+    "role": "Q"
+  },
+  "aedaccad3fc9": {
+    "item": "585",
+    "role": "A"
+  },
+  "8b8d775e9f90": {
+    "item": "585",
+    "role": "B"
+  },
+  "fa65e59c0f29": {
+    "item": "676",
+    "role": "Q"
+  },
+  "5f3bf6dfeccb": {
+    "item": "676",
+    "role": "A"
+  },
+  "3fa60f64fb77": {
+    "item": "676",
+    "role": "B"
+  },
+  "ea70827af485": {
+    "item": "1025",
+    "role": "Q"
+  },
+  "91fcd1312e43": {
+    "item": "1025",
+    "role": "A"
+  },
+  "63e2d687baf0": {
+    "item": "1025",
+    "role": "B"
+  },
+  "a71fd171b13d": {
+    "item": "190",
+    "role": "Q"
+  },
+  "e1ed000fc962": {
+    "item": "190",
+    "role": "A"
+  },
+  "3370b53bdc47": {
+    "item": "190",
+    "role": "B"
+  },
+  "ed8e0416671b": {
+    "item": "556",
+    "role": "Q"
+  },
+  "3d1ef730e189": {
+    "item": "556",
+    "role": "A"
+  },
+  "87f7f18685ce": {
+    "item": "556",
+    "role": "B"
+  },
+  "46e906e230b8": {
+    "item": "360",
+    "role": "Q"
+  },
+  "c1d3ac19b1ff": {
+    "item": "360",
+    "role": "A"
+  },
+  "6f05c6d6c41c": {
+    "item": "360",
+    "role": "B"
+  },
+  "e5a3e79cb7a4": {
+    "item": "442",
+    "role": "Q"
+  },
+  "7bd3e6b0df3d": {
+    "item": "442",
+    "role": "A"
+  },
+  "e9d690f61d47": {
+    "item": "442",
+    "role": "B"
+  },
+  "85268375117e": {
+    "item": "58",
+    "role": "Q"
+  },
+  "06d310b98bce": {
+    "item": "58",
+    "role": "A"
+  },
+  "3d035ed22a58": {
+    "item": "58",
+    "role": "B"
+  },
+  "ff130c724738": {
+    "item": "275",
+    "role": "Q"
+  },
+  "b26889dee6eb": {
+    "item": "275",
+    "role": "A"
+  },
+  "1048f7f38a00": {
+    "item": "275",
+    "role": "B"
+  }
+}

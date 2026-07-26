@@ -1,0 +1,31 @@
+{
+  "experiment": "EXP-043",
+  "question": "Can an independent system given only a format specification annotate real narrative prose well enough for the comparison to work?",
+  "status_when_written": "LOCKED BEFORE THE DATA EXISTS. The commission has not been sent. This is the pre-registration EXP-039 failed to achieve, and it is only possible because the request goes out after the plan.",
+  "annotator": "independent system, format specification only, told nothing about purpose. Satisfies S2-1, S2-2 (explicit abstain option), S2-3 (real narratives).",
+  "data": {
+    "source": "the same 30 ARN items EXP-042 used",
+    "why_the_same": "so the two annotators are compared on identical text and the difference is the annotator alone. EXP-042 scored zero items, so nothing is being re-tested against a result — the comparison is 69% blank versus whatever this produces.",
+    "burned_excluded": true,
+    "passages": 90,
+    "presentation": "shuffled, roles and item membership stripped, anonymous ids"
+  },
+  "statistic": "mean margin in bits = correspondence(query, correct) - correspondence(query, distractor), per item",
+  "tests": "two-sided one-sample t-test AND two-sided Wilcoxon signed-rank against zero. Both must fall below 0.05 to count as supported.",
+  "exclusion_rule": "an item is excluded if the query, correct answer or distractor annotates to zero relations. Counted and reported. If more than half the items are excluded the test did not run and no claim is made.",
+  "robustness": "leave-one-out on surviving items; survival below half is reported as fragile regardless of headline p.",
+  "floor_check": "REQUIRED BEFORE SCORING, per the Stage 2 charter addition of 2026-07-26. Report the distribution of relations per passage. If the annotator never returns fewer than N relations for any passage, it has a floor and its output is treated as suspect exactly as mine was in EXP-040.",
+  "falsification": [
+    "margin CI includes zero -> automatic annotation of prose produces no signal. Charter falsification 1. The pipeline does not work on prose and we say so.",
+    "more than half excluded -> the test did not run. Charter falsification 3.",
+    "significant but leave-one-out under half -> fragile, not established.",
+    "annotator shows a floor -> its output is suspect and the result is reported with that attached, not as a clean measurement."
+  ],
+  "predictions": [
+    {"claim": "it will produce usable annotations for the large majority of passages -- abstention well under EXP-042's 69%", "confidence": "high", "reason": "it managed 60 one-line glosses with only 6 abstentions, and these passages are longer but not harder to read"},
+    {"claim": "the margin will be POSITIVE but the confidence interval will INCLUDE ZERO", "confidence": "medium", "reason": "EXP-030 found my own blind annotation of ARN carried no signal at all -- 3 favouring the correct answer, 13 ties, 4 wrong. Prose analogies may simply not reduce to typed binary relations even when the structures differ (EXP-041 showed they differ, not that they differ usefully)."},
+    {"claim": "effect size, if any, will be BELOW the 0.788 it achieved on glosses", "confidence": "high"},
+    {"claim": "it will NOT show a floor -- it abstained 6 times on glosses so it is capable of returning nothing", "confidence": "high"}
+  ],
+  "why_this_is_the_decisive_experiment": "EXP-041 showed the representation can hold these analogies. EXP-042 showed a rule-based reader cannot recover them. This tests the one remaining candidate reader on the one benchmark with external ground truth. If it fails, the honest conclusion is that the pipeline works on formalised descriptions and not on prose -- smaller than the goal, real, and worth stating plainly."
+}
