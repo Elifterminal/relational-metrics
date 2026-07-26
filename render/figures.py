@@ -907,6 +907,61 @@ def fig_asym(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 18 — the naming bias, quantified
+# ---------------------------------------------------------------------------
+
+def fig_naming(data: dict) -> str:
+    W, H = 780, 360
+    L, R, T, B = 150, 240, 74, 60
+    pw, ph = W - L - R, H - T - B
+    rows = []
+    for k in ("k=3", "k=4"):
+        c = data[k]
+        rows.append((f"{k}  functions you can name", c["nameable_symmetric_fraction"], "#dc2626"))
+        rows.append((f"{k}  all functions", c["influence_symmetric_fraction"], "#2563eb"))
+
+    out = ['<text class="ttl" x="24" y="26">Naming a function biases you toward the ones that hide the problem</text>',
+           '<text class="sub" x="24" y="45">Share that is influence-symmetric — every participant '
+           'matters equally, so a careless summary looks safe.</text>']
+    for i in range(6):
+        v = i / 5
+        x = L + v * pw
+        out.append(f'<line class="ax" x1="{x:.1f}" y1="{T-4}" x2="{x:.1f}" y2="{T+ph}"/>')
+        out.append(f'<text class="tick" x="{x:.1f}" y="{T+ph+18}" '
+                   f'text-anchor="middle">{int(v*100)}%</text>')
+
+    bh = ph / len(rows)
+    for i, (lbl, v, col) in enumerate(rows):
+        y = T + i * bh
+        w = max(v * pw, 1.5)
+        out.append(f'<text class="lbl" x="{L-12}" y="{y+bh/2+4:.1f}" '
+                   f'text-anchor="end">{esc(lbl)}</text>')
+        out.append(f'<rect x="{L}" y="{y+bh*0.24:.1f}" width="{w:.1f}" '
+                   f'height="{bh*0.52:.1f}" fill="{col}" rx="2"/>')
+        out.append(f'<text class="tick" x="{L+w+9:.1f}" y="{y+bh/2+4:.1f}" '
+                   f'fill="{col}">{v*100:.1f}%</text>')
+
+    ly = T + 6
+    for lbl in ["Over-representation:",
+                f"  {data['bias_factor_k3']}x at three participants",
+                f"  {data['bias_factor_k4']}x at four", "",
+                "And it GROWS with arity —",
+                "symmetric functions get",
+                "rarer while the ones that",
+                "come to mind do not.", "",
+                "At k=3 the nameable list is",
+                "parity, and, or, majority,",
+                "mux, nand — every one of",
+                "them symmetric."]:
+        out.append(f'<text class="sub" x="{L+pw+18}" y="{ly}">{esc(lbl)}</text>')
+        ly += 15
+    out.append(f'<text class="sub" x="24" y="{H-12}">'
+               'This is not carelessness. It is what naming does — and it is why the test set had '
+               'to be built by influence profile rather than by example.</text>')
+    return svg(W, H, "".join(out), "Naming bias")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -982,6 +1037,7 @@ def main() -> None:
     e17 = json.loads((RESULTS / "exp017.json").read_text())
     e18 = json.loads((RESULTS / "exp018.json").read_text())
     e19 = json.loads((RESULTS / "exp019.json").read_text())
+    e20 = json.loads((RESULTS / "exp020.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1006,6 +1062,7 @@ def main() -> None:
         "fig15_audit.svg": fig_audit(e17),
         "fig16_vector.svg": fig_vector(e18),
         "fig17_asym.svg": fig_asym(e19),
+        "fig18_naming.svg": fig_naming(e20),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

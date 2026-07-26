@@ -328,6 +328,12 @@ def build() -> str:
     e17 = json.loads((RESULTS / "exp017.json").read_text())
     e18 = json.loads((RESULTS / "exp018.json").read_text())
     e19 = json.loads((RESULTS / "exp019.json").read_text())
+    e20 = json.loads((RESULTS / "exp020.json").read_text())
+    nm_rows = "".join(
+        f"<tr><td><code>{n}</code></td><td>{v['profile']}</td>"
+        f"<td>{v['spread']:.4f}</td>"
+        f"<td>{'yes' if v['influence_symmetric'] else '—'}</td></tr>"
+        for n, v in e20["k=3"]["nameable"].items())
     asym_rows = "".join(
         f"<tr><td><code>{n}</code></td><td><code>{r['expression']}</code></td>"
         f"<td>{r['retention_per_participant']}</td><td>{r['best']:.4f}</td>"
@@ -1122,6 +1128,45 @@ the previous worlds no matter how carefully anyone looked at them.<br><br>That i
 argument for the rule that this run of work has produced: a condition set does not merely fail to
 cover cases it omits — it can be <i>provably unable</i> to detect entire classes of error.</div>
 
+<h2>Finding 17 — the census, and the bias measured rather than confessed</h2>
+<p>The asymmetric families were <i>chosen</i> to span a range, which is a sample with a taste in
+it. The systematic version indexes every Boolean function by its <b>influence profile</b> — the
+sorted list of how much each participant matters — because that, together with the outcome
+entropy, is exactly what determines fragility.</p>
+
+<h3>Asymmetry is quantised too</h3>
+<ul>
+<li><b>10 distinct influence profiles</b> at three participants, <b>59</b> at four. The space of
+"how unevenly can participants matter" is small and enumerable, like retention itself.</li>
+<li><b>The profile alone does not determine fragility.</b> One profile at k=3 and <b>22</b> at k=4
+map to several outcome entropies — so two structures can have identical participant-importance and
+still differ in how much they lose. Importance and fragility are related but not the same
+information.</li>
+<li><b>Maximum spread is exactly 1.0</b>, achieved by the <i>dictator</i> — profile [0, 0, 1],
+retention [1, 1, 0]. Lose either irrelevant participant and nothing changes; lose the one that
+matters and everything goes. The simplest structure has the most extreme spread of all.</li>
+</ul>
+
+<h3>And the bias that started this, measured</h3>
+<div class="fig">{figs['fig18_naming.svg']}</div>
+<table><thead><tr><th>function</th><th>influence profile</th><th>spread</th>
+<th>influence-symmetric</th></tr></thead><tbody>{nm_rows}</tbody></table>
+<div class="read warn"><b>Functions you can name in English are influence-symmetric far out of
+proportion.</b> 70% of the nameable ones against 38.6% of the population at three participants —
+and <b>67% against 10.9%</b> at four. An over-representation factor of <b>1.8× rising to
+6.1×</b>.<br><br>Worse, <b>the bias grows with arity</b>: symmetric functions get rarer as
+participants are added, while the ones that come to mind do not. At three participants the entire
+nameable list — parity, AND, OR, majority, multiplexer, NAND — is symmetric. The only asymmetric
+entries are a dictator and two functions invented specifically to break the pattern.</div>
+<div class="read ok"><b>So the earlier diagnosis was too generous to itself.</b> Calling it a
+biased test set implies carelessness that could have been avoided by being more careful. It could
+not. <b>Reaching for examples by name is what produces this</b>, and being more thoughtful about
+which functions to name would have made it worse, not better — the thoughtful ones are the
+canonical ones, and the canonical ones are symmetric.<br><br>The only fix is the one taken here:
+build the test set by <b>enumerating the property you care about</b> — influence profile — rather
+than by collecting examples. That is a rule with teeth, because it says <i>where</i> the examples
+must come from rather than merely asking for more of them.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1157,6 +1202,12 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The test-set bias was structural, not careless.</b> Functions nameable in
+English are influence-symmetric 1.8× more often than the population at three participants and
+6.1× more often at four — and the factor grows with arity. Being more thoughtful about which
+examples to pick would have made it worse, since the thoughtful choices are the canonical ones and
+the canonical ones are symmetric. The fix is to build condition sets by enumerating the property
+under test, not by collecting examples.</div>
 <div class="q"><b>A test set can be provably unable to detect a whole class of error.</b> The
 asymmetric families found an index-reversal bug on their first run — one the previous worlds could
 not have caught however carefully they were inspected, because reversing a list of identical

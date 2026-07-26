@@ -46,6 +46,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-017` | Which parameters reorder results? | **Four of five, including one believed safe.** "Retention" turns out to be one number *per participant you might lose* — best- and worst-case orderings are anti-correlated |
 | `EXP-018` | Do the retention conclusions survive proper reporting? | **Mostly — one doesn't.** Quantisation and the 0.5 class hold. "Only parity vanishes" was a best-case artifact: 2 → 38 structures vanish under worst case |
 | `EXP-019` | Add asymmetric test families | **Found an index-reversal bug on the first run** — one the old worlds were *provably unable* to detect. Also sharpened the diagnosis: influence-symmetry, not permutation-symmetry |
+| `EXP-020` | Census asymmetry systematically | Asymmetry is quantised (10 profiles at k=3, 59 at k=4). **Nameable functions are influence-symmetric 1.8×–6.1× more often than the population, and the bias grows with arity** |
 
 ### The findings worth your time
 
@@ -156,6 +157,14 @@ The diagnosis sharpened too. A multiplexer is not permutation-symmetric at all, 
 participants have equal influence and its spread is exactly zero. **What matters is
 influence-symmetry, not permutation-symmetry.**
 
+And a systematic census showed the bias was **structural, not careless**. Functions you can name
+in English are influence-symmetric 70% of the time against 38.6% of the population at three
+participants, and 67% against **10.9%** at four — an over-representation of 1.8× rising to 6.1×,
+growing with arity. At three participants the entire nameable list is symmetric. Being more
+thoughtful about which examples to choose would have made it *worse*, because the thoughtful
+choices are the canonical ones. The fix is to build condition sets by **enumerating the property
+under test** rather than by collecting examples.
+
 ## Honest limits
 
 - Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
@@ -185,6 +194,7 @@ python3 run_exp016.py      # the law under noise, and where it stops being safe
 python3 run_exp017.py      # the reordering audit -- which parameters change the ranking
 python3 run_exp018.py      # retention re-reported per participant
 python3 run_exp019.py      # asymmetric families -- and the bug they caught
+python3 run_exp020.py      # systematic census by influence profile
 
 cd ../render
 python3 figures.py         # regenerate the SVGs

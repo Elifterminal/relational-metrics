@@ -1115,6 +1115,62 @@ the previous worlds no matter how carefully anyone looked at them.<br><br>That i
 argument for the rule that this run of work has produced: a condition set does not merely fail to
 cover cases it omits — it can be <i>provably unable</i> to detect entire classes of error.</div>
 
+<h2>Finding 17 — the census, and the bias measured rather than confessed</h2>
+<p>The asymmetric families were <i>chosen</i> to span a range, which is a sample with a taste in
+it. The systematic version indexes every Boolean function by its <b>influence profile</b> — the
+sorted list of how much each participant matters — because that, together with the outcome
+entropy, is exactly what determines fragility.</p>
+
+<h3>Asymmetry is quantised too</h3>
+<ul>
+<li><b>10 distinct influence profiles</b> at three participants, <b>59</b> at four. The space of
+"how unevenly can participants matter" is small and enumerable, like retention itself.</li>
+<li><b>The profile alone does not determine fragility.</b> One profile at k=3 and <b>22</b> at k=4
+map to several outcome entropies — so two structures can have identical participant-importance and
+still differ in how much they lose. Importance and fragility are related but not the same
+information.</li>
+<li><b>Maximum spread is exactly 1.0</b>, achieved by the <i>dictator</i> — profile [0, 0, 1],
+retention [1, 1, 0]. Lose either irrelevant participant and nothing changes; lose the one that
+matters and everything goes. The simplest structure has the most extreme spread of all.</li>
+</ul>
+
+<h3>And the bias that started this, measured</h3>
+<div class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 360" width="780" height="360" role="img" aria-label="Naming bias">
+<style>
+  :root { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  }
+  :root[data-theme="dark"] { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  :root[data-theme="light"] { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  .bg { fill: var(--bg); }
+  .ax { stroke: var(--grid); stroke-width: 1; }
+  .tick { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .lbl { fill: var(--fg); font: 12px ui-sans-serif, system-ui, sans-serif; }
+  .ttl { fill: var(--fg); font: 600 14px ui-sans-serif, system-ui, sans-serif; }
+  .sub { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .node { fill: var(--bg); stroke: var(--fg); stroke-width: 1.5; }
+  .ntxt { fill: var(--fg); font: 10px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; }
+</style>
+<rect class="bg" width="780" height="360"/><text class="ttl" x="24" y="26">Naming a function biases you toward the ones that hide the problem</text><text class="sub" x="24" y="45">Share that is influence-symmetric — every participant matters equally, so a careless summary looks safe.</text><line class="ax" x1="150.0" y1="70" x2="150.0" y2="300"/><text class="tick" x="150.0" y="318" text-anchor="middle">0%</text><line class="ax" x1="228.0" y1="70" x2="228.0" y2="300"/><text class="tick" x="228.0" y="318" text-anchor="middle">20%</text><line class="ax" x1="306.0" y1="70" x2="306.0" y2="300"/><text class="tick" x="306.0" y="318" text-anchor="middle">40%</text><line class="ax" x1="384.0" y1="70" x2="384.0" y2="300"/><text class="tick" x="384.0" y="318" text-anchor="middle">60%</text><line class="ax" x1="462.0" y1="70" x2="462.0" y2="300"/><text class="tick" x="462.0" y="318" text-anchor="middle">80%</text><line class="ax" x1="540.0" y1="70" x2="540.0" y2="300"/><text class="tick" x="540.0" y="318" text-anchor="middle">100%</text><text class="lbl" x="138" y="106.2" text-anchor="end">k=3  functions you can name</text><rect x="150" y="87.6" width="273.0" height="29.4" fill="#dc2626" rx="2"/><text class="tick" x="432.0" y="106.2" fill="#dc2626">70.0%</text><text class="lbl" x="138" y="162.8" text-anchor="end">k=3  all functions</text><rect x="150" y="144.1" width="150.5" height="29.4" fill="#2563eb" rx="2"/><text class="tick" x="309.5" y="162.8" fill="#2563eb">38.6%</text><text class="lbl" x="138" y="219.2" text-anchor="end">k=4  functions you can name</text><rect x="150" y="200.6" width="260.0" height="29.4" fill="#dc2626" rx="2"/><text class="tick" x="419.0" y="219.2" fill="#dc2626">66.7%</text><text class="lbl" x="138" y="275.8" text-anchor="end">k=4  all functions</text><rect x="150" y="257.1" width="42.7" height="29.4" fill="#2563eb" rx="2"/><text class="tick" x="201.7" y="275.8" fill="#2563eb">10.9%</text><text class="sub" x="558" y="80">Over-representation:</text><text class="sub" x="558" y="95">  1.81x at three participants</text><text class="sub" x="558" y="110">  6.09x at four</text><text class="sub" x="558" y="125"></text><text class="sub" x="558" y="140">And it GROWS with arity —</text><text class="sub" x="558" y="155">symmetric functions get</text><text class="sub" x="558" y="170">rarer while the ones that</text><text class="sub" x="558" y="185">come to mind do not.</text><text class="sub" x="558" y="200"></text><text class="sub" x="558" y="215">At k=3 the nameable list is</text><text class="sub" x="558" y="230">parity, and, or, majority,</text><text class="sub" x="558" y="245">mux, nand — every one of</text><text class="sub" x="558" y="260">them symmetric.</text><text class="sub" x="24" y="348">This is not carelessness. It is what naming does — and it is why the test set had to be built by influence profile rather than by example.</text></svg></div>
+<table><thead><tr><th>function</th><th>influence profile</th><th>spread</th>
+<th>influence-symmetric</th></tr></thead><tbody><tr><td><code>parity</code></td><td>[1.0, 1.0, 1.0]</td><td>0.0000</td><td>yes</td></tr><tr><td><code>and</code></td><td>[0.25, 0.25, 0.25]</td><td>0.0000</td><td>yes</td></tr><tr><td><code>or</code></td><td>[0.25, 0.25, 0.25]</td><td>0.0000</td><td>yes</td></tr><tr><td><code>majority</code></td><td>[0.5, 0.5, 0.5]</td><td>0.0000</td><td>yes</td></tr><tr><td><code>mux</code></td><td>[0.5, 0.5, 0.5]</td><td>0.0000</td><td>yes</td></tr><tr><td><code>dictator</code></td><td>[0.0, 0.0, 1.0]</td><td>1.0000</td><td>—</td></tr><tr><td><code>and_or</code></td><td>[0.25, 0.25, 0.75]</td><td>0.5239</td><td>—</td></tr><tr><td><code>xor_and</code></td><td>[0.5, 0.5, 1.0]</td><td>0.5000</td><td>—</td></tr><tr><td><code>nand</code></td><td>[0.25, 0.25, 0.25]</td><td>0.0000</td><td>yes</td></tr><tr><td><code>at_least_one_pair</code></td><td>[0.5, 0.5, 0.5]</td><td>0.0000</td><td>yes</td></tr></tbody></table>
+<div class="read warn"><b>Functions you can name in English are influence-symmetric far out of
+proportion.</b> 70% of the nameable ones against 38.6% of the population at three participants —
+and <b>67% against 10.9%</b> at four. An over-representation factor of <b>1.8× rising to
+6.1×</b>.<br><br>Worse, <b>the bias grows with arity</b>: symmetric functions get rarer as
+participants are added, while the ones that come to mind do not. At three participants the entire
+nameable list — parity, AND, OR, majority, multiplexer, NAND — is symmetric. The only asymmetric
+entries are a dictator and two functions invented specifically to break the pattern.</div>
+<div class="read ok"><b>So the earlier diagnosis was too generous to itself.</b> Calling it a
+biased test set implies carelessness that could have been avoided by being more careful. It could
+not. <b>Reaching for examples by name is what produces this</b>, and being more thoughtful about
+which functions to name would have made it worse, not better — the thoughtful ones are the
+canonical ones, and the canonical ones are symmetric.<br><br>The only fix is the one taken here:
+build the test set by <b>enumerating the property you care about</b> — influence profile — rather
+than by collecting examples. That is a rule with teeth, because it says <i>where</i> the examples
+must come from rather than merely asking for more of them.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1150,6 +1206,12 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The test-set bias was structural, not careless.</b> Functions nameable in
+English are influence-symmetric 1.8× more often than the population at three participants and
+6.1× more often at four — and the factor grows with arity. Being more thoughtful about which
+examples to pick would have made it worse, since the thoughtful choices are the canonical ones and
+the canonical ones are symmetric. The fix is to build condition sets by enumerating the property
+under test, not by collecting examples.</div>
 <div class="q"><b>A test set can be provably unable to detect a whole class of error.</b> The
 asymmetric families found an index-reversal bug on their first run — one the previous worlds could
 not have caught however carefully they were inspected, because reversing a list of identical
