@@ -65,6 +65,7 @@ current. That check exists because both happened.
 | `EXP-027` | Does the genericness discount rescue the ranking? | **No — refuted by arithmetic.** Isomorphic structures have identical genericness (gap 0.00e+00), so no structural discount can separate them. Also **retracts** EXP-026's ranking sub-claim: it was a `hash()` tie-break, and the scores tie exactly |
 | `EXP-028` | Q-21 — is the measure invariant across equivalent *re-encodings* of the same process? | **No — and blind, not merely biased.** At matched size it scores a correct re-encoding and a corrupted one **identically** (0/6 discriminated; the pairs are not isomorphic). The load-bearing claim survives 6/6 under the two known invariances and **2/6** under subdivision. Re-scopes `C-03` |
 | `EXP-029` | Q-24 — does canonicalising before measuring restore representation invariance? | **Yes, exactly, within the class it declares.** Subdivision and mediation cost *nothing* after canonicalisation (6/6 exact recovery) and capability is preserved on all three corpora **including under subdivision, where EXP-028 had 2/6**. Rewrite system proven terminating, idempotent and confluent (24 orders each). `converse` and reification remain unaddressed. Also corrects two bugs of mine: EXP-028's subdivision was corrupting negative relations, and the first run blind-canonicalised relabelled structures |
+| `EXP-030` | Does it work on an external benchmark — real narratives, outside ground truth, annotated blind? | **No signal** — abstains on 9/20 items, and 4/11 where it discriminates (p = 0.55). But the predeclared diagnostic settles whose failure it is: stripping MDL pricing entirely, the *annotation* favours the correct answer 3/20, ties 13/20, favours the distractor 4/20. **This measured the annotator, not the measure.** Shared shape is 42.8% on real analogies vs 81.7% on the project's own corpora |
 
 ### What currently survives
 
@@ -79,8 +80,8 @@ current. That check exists because both happened.
   *scope*: k<=4 discrete variables; requires an outcome-permutation calibration to be an answer  
   *evidence*: `EXP-011`, `EXP-012`
 - **MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.** · rung 3  
-  *scope*: 10/10 motifs across development, frozen held-out and independently authored corpora — but only WITHIN A FIXED REPRESENTATION CONVENTION. Across equivalent re-encodings of the same processes it holds on 2–6 of 6 depending on the encoding (EXP-028) — restored to 10/10 under subdivision once canonicalised (EXP-029). Hand-annotated typed structures, not natural text  
-  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`
+  *scope*: 10/10 motifs across development, frozen held-out and independently authored corpora — but only WITHIN A FIXED REPRESENTATION CONVENTION. Across equivalent re-encodings of the same processes it holds on 2–6 of 6 depending on the encoding (EXP-028) — restored to 10/10 under subdivision once canonicalised (EXP-029). Hand-annotated typed structures, not natural text. EXP-030: on an external benchmark annotated BLIND there is no signal — but the annotation itself carries none either, so the bottleneck is text→structure, not the measure. This claim is about STRUCTURES; the step from text to structure is unsolved and is doing more of the work  
+  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`
 - **Structural correspondence cannot distinguish a genuine analogue from a vacuous statement of the same shape.** · rung 3  
   *scope*: proved for isomorphic structures: any function of structure alone scores them equally  
   *evidence*: `EXP-026`, `EXP-027`
@@ -105,6 +106,9 @@ current. That check exists because both happened.
 - **Any of this reaches a claim about physical reality.**  
   *scope*: unsupported and not currently testable. Prediction P6 says it will not, and P6 stands  
   *evidence*: —
+- **The corpus results measure analogy detection rather than annotation fidelity.**  
+  *scope*: R-18. Every corpus result rests on hand annotation performed KNOWING each document's designated role. EXP-026 cleared the ground-truth ordering of bias but never tested whether the structural annotation encodes the role. Decisive test is Q-26: re-annotate an existing corpus blind. Until it runs, only 'the measure ranks structures' is safe — not 'the measure retrieves analogies'  
+  *evidence*: `EXP-030`
 
 **DEMOTED / REPLACED**
 
@@ -149,6 +153,7 @@ python3 run_exp026.py    # the independent corpus -- nobody here wrote it
 python3 run_exp027.py    # the retraction, and F-09 refuted by arithmetic
 python3 run_exp028.py    # representation invariance -- the measure sees the encoding
 python3 run_exp029.py    # canonicalise before measuring -- subdivision invariance, exactly
+python3 run_exp030.py    # ARN benchmark, annotated blind -- and what it reveals about annotation
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs

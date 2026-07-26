@@ -1,0 +1,1205 @@
+{
+  "seed": 20260726,
+  "key": [
+    {
+      "passage_id": "c0ea8878c3a341a8",
+      "item_id": "104",
+      "role": "A"
+    },
+    {
+      "passage_id": "e00974d328c4ab98",
+      "item_id": "104",
+      "role": "B"
+    },
+    {
+      "passage_id": "4f7d00fb9c20caa7",
+      "item_id": "104",
+      "role": "Q"
+    },
+    {
+      "item_id": "104",
+      "correct_answer": "1",
+      "proverb": "A friend in need is a friend indeed"
+    },
+    {
+      "passage_id": "44ac9212033dce83",
+      "item_id": "441",
+      "role": "B"
+    },
+    {
+      "passage_id": "81c8851814b43e74",
+      "item_id": "441",
+      "role": "Q"
+    },
+    {
+      "passage_id": "04fb525467449f26",
+      "item_id": "441",
+      "role": "A"
+    },
+    {
+      "item_id": "441",
+      "correct_answer": "1",
+      "proverb": "It takes two to tango"
+    },
+    {
+      "passage_id": "8ea4e22bb1bbee53",
+      "item_id": "762",
+      "role": "A"
+    },
+    {
+      "passage_id": "6ef8fe74b25ea439",
+      "item_id": "762",
+      "role": "B"
+    },
+    {
+      "passage_id": "da7a72f196fbd3d0",
+      "item_id": "762",
+      "role": "Q"
+    },
+    {
+      "item_id": "762",
+      "correct_answer": "2",
+      "proverb": "April showers bring forth May flowers"
+    },
+    {
+      "passage_id": "158192dc3b5f1134",
+      "item_id": "375",
+      "role": "B"
+    },
+    {
+      "passage_id": "c09a094e6a5c45b7",
+      "item_id": "375",
+      "role": "A"
+    },
+    {
+      "passage_id": "90aa6289e3700fed",
+      "item_id": "375",
+      "role": "Q"
+    },
+    {
+      "item_id": "375",
+      "correct_answer": "1",
+      "proverb": "Better the Devil you know than the Devil you don't"
+    },
+    {
+      "passage_id": "2777625ae9f88e54",
+      "item_id": "686",
+      "role": "Q"
+    },
+    {
+      "passage_id": "2a9e69cfa669e8ac",
+      "item_id": "686",
+      "role": "A"
+    },
+    {
+      "passage_id": "dde958e31895f982",
+      "item_id": "686",
+      "role": "B"
+    },
+    {
+      "item_id": "686",
+      "correct_answer": "1",
+      "proverb": "Let bygones be bygones"
+    },
+    {
+      "passage_id": "047fe80d0de750c6",
+      "item_id": "243",
+      "role": "Q"
+    },
+    {
+      "passage_id": "7fe80cdd47fe4253",
+      "item_id": "243",
+      "role": "B"
+    },
+    {
+      "passage_id": "6d09f71a3c4a81f4",
+      "item_id": "243",
+      "role": "A"
+    },
+    {
+      "item_id": "243",
+      "correct_answer": "1",
+      "proverb": "Put your best foot forward"
+    },
+    {
+      "passage_id": "751c2a80cf367915",
+      "item_id": "1010",
+      "role": "Q"
+    },
+    {
+      "passage_id": "9fc7a840553a9bae",
+      "item_id": "1010",
+      "role": "A"
+    },
+    {
+      "passage_id": "eda1083d40e30ecc",
+      "item_id": "1010",
+      "role": "B"
+    },
+    {
+      "item_id": "1010",
+      "correct_answer": "1",
+      "proverb": "Two is company, but three's a crowd"
+    },
+    {
+      "passage_id": "94245c591ff29076",
+      "item_id": "681",
+      "role": "Q"
+    },
+    {
+      "passage_id": "8b4f3cdc078b0c87",
+      "item_id": "681",
+      "role": "A"
+    },
+    {
+      "passage_id": "7034ee2a210182b0",
+      "item_id": "681",
+      "role": "B"
+    },
+    {
+      "item_id": "681",
+      "correct_answer": "2",
+      "proverb": "Let not the sun go down on your wrath"
+    },
+    {
+      "passage_id": "e36d0bd1b91bfdb0",
+      "item_id": "767",
+      "role": "B"
+    },
+    {
+      "passage_id": "6b868c335906f748",
+      "item_id": "767",
+      "role": "A"
+    },
+    {
+      "passage_id": "7a15ea04cb7acca7",
+      "item_id": "767",
+      "role": "Q"
+    },
+    {
+      "item_id": "767",
+      "correct_answer": "2",
+      "proverb": "There's honour among thieves"
+    },
+    {
+      "passage_id": "0d2775b24bb7a2a1",
+      "item_id": "1027",
+      "role": "A"
+    },
+    {
+      "passage_id": "bebc55f5f7d70c27",
+      "item_id": "1027",
+      "role": "B"
+    },
+    {
+      "passage_id": "15b083a908c68279",
+      "item_id": "1027",
+      "role": "Q"
+    },
+    {
+      "item_id": "1027",
+      "correct_answer": "2",
+      "proverb": "It's the squeaky wheel that gets the grease"
+    },
+    {
+      "passage_id": "c02d1c5aa3e6ee83",
+      "item_id": "194",
+      "role": "Q"
+    },
+    {
+      "passage_id": "8c53aeab2d82d4a2",
+      "item_id": "194",
+      "role": "A"
+    },
+    {
+      "passage_id": "4a466cfc935a2400",
+      "item_id": "194",
+      "role": "B"
+    },
+    {
+      "item_id": "194",
+      "correct_answer": "1",
+      "proverb": "Good things come to those that wait"
+    },
+    {
+      "passage_id": "03ea661ccf0e7b2a",
+      "item_id": "748",
+      "role": "A"
+    },
+    {
+      "passage_id": "2ca87deab17939ea",
+      "item_id": "748",
+      "role": "Q"
+    },
+    {
+      "passage_id": "dcb4ae40420f23a9",
+      "item_id": "748",
+      "role": "B"
+    },
+    {
+      "item_id": "748",
+      "correct_answer": "2",
+      "proverb": "Seek and you shall find"
+    },
+    {
+      "passage_id": "ce907aeff03e347e",
+      "item_id": "288",
+      "role": "B"
+    },
+    {
+      "passage_id": "d6c31186bb0215ea",
+      "item_id": "288",
+      "role": "A"
+    },
+    {
+      "passage_id": "4bbed052ef44e25a",
+      "item_id": "288",
+      "role": "Q"
+    },
+    {
+      "item_id": "288",
+      "correct_answer": "1",
+      "proverb": "Virtue is its own reward"
+    },
+    {
+      "passage_id": "c0508d858652f674",
+      "item_id": "68",
+      "role": "Q"
+    },
+    {
+      "passage_id": "b0fdd26b8323b4f5",
+      "item_id": "68",
+      "role": "A"
+    },
+    {
+      "passage_id": "f944512bc74646bf",
+      "item_id": "68",
+      "role": "B"
+    },
+    {
+      "item_id": "68",
+      "correct_answer": "2",
+      "proverb": "You are never too old to learn"
+    },
+    {
+      "passage_id": "547e4dbbe203e8a1",
+      "item_id": "488",
+      "role": "B"
+    },
+    {
+      "passage_id": "379046d29cad4c3a",
+      "item_id": "488",
+      "role": "Q"
+    },
+    {
+      "passage_id": "d9b6154e2c7f3438",
+      "item_id": "488",
+      "role": "A"
+    },
+    {
+      "item_id": "488",
+      "correct_answer": "2",
+      "proverb": "It's the squeaky wheel that gets the grease"
+    },
+    {
+      "passage_id": "d5770d6085a56bf4",
+      "item_id": "372",
+      "role": "Q"
+    },
+    {
+      "passage_id": "8cd2dca85125fcb8",
+      "item_id": "372",
+      "role": "B"
+    },
+    {
+      "passage_id": "5f24d4157efcab15",
+      "item_id": "372",
+      "role": "A"
+    },
+    {
+      "item_id": "372",
+      "correct_answer": "1",
+      "proverb": "Life begins at forty"
+    },
+    {
+      "passage_id": "c1e266f3ed6835c3",
+      "item_id": "96",
+      "role": "B"
+    },
+    {
+      "passage_id": "7740060989584621",
+      "item_id": "96",
+      "role": "Q"
+    },
+    {
+      "passage_id": "953292cc8da6d757",
+      "item_id": "96",
+      "role": "A"
+    },
+    {
+      "item_id": "96",
+      "correct_answer": "2",
+      "proverb": "Haste makes waste"
+    },
+    {
+      "passage_id": "746fbfd49b92bd39",
+      "item_id": "514",
+      "role": "B"
+    },
+    {
+      "passage_id": "44311b2e2c9d6e34",
+      "item_id": "514",
+      "role": "Q"
+    },
+    {
+      "passage_id": "f809787bcf141576",
+      "item_id": "514",
+      "role": "A"
+    },
+    {
+      "item_id": "514",
+      "correct_answer": "1",
+      "proverb": "Nothing is certain but death and taxes"
+    },
+    {
+      "passage_id": "81168bcea46b6443",
+      "item_id": "1011",
+      "role": "Q"
+    },
+    {
+      "passage_id": "117752aadb491ace",
+      "item_id": "1011",
+      "role": "A"
+    },
+    {
+      "passage_id": "6e9b4ff83c57e960",
+      "item_id": "1011",
+      "role": "B"
+    },
+    {
+      "item_id": "1011",
+      "correct_answer": "1",
+      "proverb": "A miss is as good as a mile"
+    },
+    {
+      "passage_id": "60dd233603aadc45",
+      "item_id": "159",
+      "role": "A"
+    },
+    {
+      "passage_id": "1ae51dafa90a0493",
+      "item_id": "159",
+      "role": "Q"
+    },
+    {
+      "passage_id": "47aef2b71320a8ba",
+      "item_id": "159",
+      "role": "B"
+    },
+    {
+      "item_id": "159",
+      "correct_answer": "1",
+      "proverb": "It's no use crying over spilt milk"
+    },
+    {
+      "passage_id": "fe9c5c32c30f679a",
+      "item_id": "411",
+      "role": "Q"
+    },
+    {
+      "passage_id": "fa48ecd700ad6521",
+      "item_id": "411",
+      "role": "A"
+    },
+    {
+      "passage_id": "a6035e3ba7b2e7bd",
+      "item_id": "411",
+      "role": "B"
+    },
+    {
+      "item_id": "411",
+      "correct_answer": "2",
+      "proverb": "Charity begins at home"
+    },
+    {
+      "passage_id": "99ff51f3f0a4e281",
+      "item_id": "599",
+      "role": "A"
+    },
+    {
+      "passage_id": "8296921b0ea18f14",
+      "item_id": "599",
+      "role": "Q"
+    },
+    {
+      "passage_id": "c371b7a227bc9344",
+      "item_id": "599",
+      "role": "B"
+    },
+    {
+      "item_id": "599",
+      "correct_answer": "1",
+      "proverb": "Great oaks from little acorns grow"
+    },
+    {
+      "passage_id": "a8ba286de18c69a8",
+      "item_id": "63",
+      "role": "B"
+    },
+    {
+      "passage_id": "556dc663ee063b74",
+      "item_id": "63",
+      "role": "Q"
+    },
+    {
+      "passage_id": "a6a27cab6d2ae2d1",
+      "item_id": "63",
+      "role": "A"
+    },
+    {
+      "item_id": "63",
+      "correct_answer": "2",
+      "proverb": "Hindsight is always twenty-twenty"
+    },
+    {
+      "passage_id": "ab401802eaa8ab05",
+      "item_id": "551",
+      "role": "Q"
+    },
+    {
+      "passage_id": "d312d874b9b1bdef",
+      "item_id": "551",
+      "role": "A"
+    },
+    {
+      "passage_id": "61d397c69a897636",
+      "item_id": "551",
+      "role": "B"
+    },
+    {
+      "item_id": "551",
+      "correct_answer": "1",
+      "proverb": "A picture paints a thousand words"
+    },
+    {
+      "passage_id": "c4559fd86e0671c6",
+      "item_id": "75",
+      "role": "A"
+    },
+    {
+      "passage_id": "27ad8a5af49b3d4c",
+      "item_id": "75",
+      "role": "B"
+    },
+    {
+      "passage_id": "d877cd319d615969",
+      "item_id": "75",
+      "role": "Q"
+    },
+    {
+      "item_id": "75",
+      "correct_answer": "2",
+      "proverb": "A friend in need is a friend indeed"
+    },
+    {
+      "passage_id": "f7780240a79db3c5",
+      "item_id": "168",
+      "role": "B"
+    },
+    {
+      "passage_id": "3806bcda54afcf36",
+      "item_id": "168",
+      "role": "A"
+    },
+    {
+      "passage_id": "3fa3b1cb647f1965",
+      "item_id": "168",
+      "role": "Q"
+    },
+    {
+      "item_id": "168",
+      "correct_answer": "1",
+      "proverb": "Money doesn't grow on trees"
+    },
+    {
+      "passage_id": "69f3b83c15c762f4",
+      "item_id": "1036",
+      "role": "Q"
+    },
+    {
+      "passage_id": "30271a00638dc653",
+      "item_id": "1036",
+      "role": "B"
+    },
+    {
+      "passage_id": "292b25670dbcd2c4",
+      "item_id": "1036",
+      "role": "A"
+    },
+    {
+      "item_id": "1036",
+      "correct_answer": "1",
+      "proverb": "An Englishman's home is his castle"
+    },
+    {
+      "passage_id": "299367ddb748375f",
+      "item_id": "66",
+      "role": "B"
+    },
+    {
+      "passage_id": "425c0d63044aba09",
+      "item_id": "66",
+      "role": "A"
+    },
+    {
+      "passage_id": "99ae7ca49b503300",
+      "item_id": "66",
+      "role": "Q"
+    },
+    {
+      "item_id": "66",
+      "correct_answer": "1",
+      "proverb": "Jack of all trades, master of none"
+    },
+    {
+      "passage_id": "9ff1d8f15caa6b92",
+      "item_id": "176",
+      "role": "B"
+    },
+    {
+      "passage_id": "eaa2f2f29bae35f0",
+      "item_id": "176",
+      "role": "Q"
+    },
+    {
+      "passage_id": "6339c6cf046f86b4",
+      "item_id": "176",
+      "role": "A"
+    },
+    {
+      "item_id": "176",
+      "correct_answer": "1",
+      "proverb": "Beat swords into ploughshares"
+    },
+    {
+      "passage_id": "8f8d562834d7ee7b",
+      "item_id": "177",
+      "role": "Q"
+    },
+    {
+      "passage_id": "101d4432742b6f77",
+      "item_id": "177",
+      "role": "A"
+    },
+    {
+      "passage_id": "c5e630c1bf871758",
+      "item_id": "177",
+      "role": "B"
+    },
+    {
+      "item_id": "177",
+      "correct_answer": "1",
+      "proverb": "Hindsight is always twenty-twenty"
+    },
+    {
+      "passage_id": "d07376fa8341dc0a",
+      "item_id": "948",
+      "role": "A"
+    },
+    {
+      "passage_id": "748dfa89899eabe5",
+      "item_id": "948",
+      "role": "Q"
+    },
+    {
+      "passage_id": "b90b501cb932c8ba",
+      "item_id": "948",
+      "role": "B"
+    },
+    {
+      "item_id": "948",
+      "correct_answer": "1",
+      "proverb": "Do unto others as you would have them do to you"
+    },
+    {
+      "passage_id": "a60c56df5ddab69e",
+      "item_id": "208",
+      "role": "B"
+    },
+    {
+      "passage_id": "117d27cda415b33e",
+      "item_id": "208",
+      "role": "Q"
+    },
+    {
+      "passage_id": "e915c14c534ea0e3",
+      "item_id": "208",
+      "role": "A"
+    },
+    {
+      "item_id": "208",
+      "correct_answer": "2",
+      "proverb": "What's sauce for the goose is sauce for the gander"
+    },
+    {
+      "passage_id": "4d3f1fc138b37dfe",
+      "item_id": "907",
+      "role": "B"
+    },
+    {
+      "passage_id": "fc9ccac9a1f07f24",
+      "item_id": "907",
+      "role": "Q"
+    },
+    {
+      "passage_id": "746bd0b6ca5d1c17",
+      "item_id": "907",
+      "role": "A"
+    },
+    {
+      "item_id": "907",
+      "correct_answer": "1",
+      "proverb": "History repeats itself"
+    },
+    {
+      "passage_id": "8df308002bbe6a69",
+      "item_id": "782",
+      "role": "B"
+    },
+    {
+      "passage_id": "c935a4de869e78e9",
+      "item_id": "782",
+      "role": "Q"
+    },
+    {
+      "passage_id": "7c88a53b868da7d7",
+      "item_id": "782",
+      "role": "A"
+    },
+    {
+      "item_id": "782",
+      "correct_answer": "1",
+      "proverb": "Charity begins at home"
+    },
+    {
+      "passage_id": "4294e2c932709489",
+      "item_id": "1093",
+      "role": "Q"
+    },
+    {
+      "passage_id": "f4122bafc7d2e145",
+      "item_id": "1093",
+      "role": "A"
+    },
+    {
+      "passage_id": "828ea25950edde4b",
+      "item_id": "1093",
+      "role": "B"
+    },
+    {
+      "item_id": "1093",
+      "correct_answer": "1",
+      "proverb": "Worrying never did anyone any good"
+    },
+    {
+      "passage_id": "425cddc63dae4f93",
+      "item_id": "394",
+      "role": "A"
+    },
+    {
+      "passage_id": "3a1d1572416bd403",
+      "item_id": "394",
+      "role": "Q"
+    },
+    {
+      "passage_id": "60427d9e8d35825b",
+      "item_id": "394",
+      "role": "B"
+    },
+    {
+      "item_id": "394",
+      "correct_answer": "1",
+      "proverb": "Distance lends enchantment to the view"
+    },
+    {
+      "passage_id": "0dcf509771d4ef22",
+      "item_id": "658",
+      "role": "Q"
+    },
+    {
+      "passage_id": "ab9a94b984cfd313",
+      "item_id": "658",
+      "role": "A"
+    },
+    {
+      "passage_id": "0607a0f1553b9598",
+      "item_id": "658",
+      "role": "B"
+    },
+    {
+      "item_id": "658",
+      "correct_answer": "2",
+      "proverb": "Haste makes waste"
+    },
+    {
+      "passage_id": "379e6045184c6766",
+      "item_id": "1029",
+      "role": "B"
+    },
+    {
+      "passage_id": "99d321ea37e3fc39",
+      "item_id": "1029",
+      "role": "A"
+    },
+    {
+      "passage_id": "9058a146763e024d",
+      "item_id": "1029",
+      "role": "Q"
+    },
+    {
+      "item_id": "1029",
+      "correct_answer": "2",
+      "proverb": "Blessed are the peacemakers"
+    },
+    {
+      "passage_id": "9405629bff4fe297",
+      "item_id": "972",
+      "role": "A"
+    },
+    {
+      "passage_id": "3e0d98ea1315aa1d",
+      "item_id": "972",
+      "role": "B"
+    },
+    {
+      "passage_id": "1c89a63679bf7025",
+      "item_id": "972",
+      "role": "Q"
+    },
+    {
+      "item_id": "972",
+      "correct_answer": "2",
+      "proverb": "Oil and water don't mix"
+    },
+    {
+      "passage_id": "dad65130e340febe",
+      "item_id": "306",
+      "role": "Q"
+    },
+    {
+      "passage_id": "c4a59da58dd11b2c",
+      "item_id": "306",
+      "role": "B"
+    },
+    {
+      "passage_id": "6bc2680fd94cf447",
+      "item_id": "306",
+      "role": "A"
+    },
+    {
+      "item_id": "306",
+      "correct_answer": "2",
+      "proverb": "No news is good news"
+    },
+    {
+      "passage_id": "ef6b7f7129f1d4a6",
+      "item_id": "788",
+      "role": "B"
+    },
+    {
+      "passage_id": "20809c99f8498baa",
+      "item_id": "788",
+      "role": "A"
+    },
+    {
+      "passage_id": "871924786768575d",
+      "item_id": "788",
+      "role": "Q"
+    },
+    {
+      "item_id": "788",
+      "correct_answer": "2",
+      "proverb": "Life begins at forty"
+    },
+    {
+      "passage_id": "764025441746887c",
+      "item_id": "738",
+      "role": "A"
+    },
+    {
+      "passage_id": "afc4b32d1f1a7036",
+      "item_id": "738",
+      "role": "Q"
+    },
+    {
+      "passage_id": "f13a9b3639e70cd9",
+      "item_id": "738",
+      "role": "B"
+    },
+    {
+      "item_id": "738",
+      "correct_answer": "2",
+      "proverb": "Youth is wasted on the young"
+    },
+    {
+      "passage_id": "8001a7f7355cfe26",
+      "item_id": "175",
+      "role": "B"
+    },
+    {
+      "passage_id": "10ba0cc1ade86628",
+      "item_id": "175",
+      "role": "Q"
+    },
+    {
+      "passage_id": "ae55feba1854c2f8",
+      "item_id": "175",
+      "role": "A"
+    },
+    {
+      "item_id": "175",
+      "correct_answer": "1",
+      "proverb": "Christmas comes but once a year"
+    },
+    {
+      "passage_id": "20127d3ac94ea8fc",
+      "item_id": "232",
+      "role": "B"
+    },
+    {
+      "passage_id": "ee8146a3bee1431a",
+      "item_id": "232",
+      "role": "Q"
+    },
+    {
+      "passage_id": "06e42f33d6d8efdd",
+      "item_id": "232",
+      "role": "A"
+    },
+    {
+      "item_id": "232",
+      "correct_answer": "1",
+      "proverb": "Don't look a gift horse in the mouth"
+    },
+    {
+      "passage_id": "f1c50796957988da",
+      "item_id": "437",
+      "role": "A"
+    },
+    {
+      "passage_id": "cfabc13209aaddb4",
+      "item_id": "437",
+      "role": "Q"
+    },
+    {
+      "passage_id": "8c9e916a110bab41",
+      "item_id": "437",
+      "role": "B"
+    },
+    {
+      "item_id": "437",
+      "correct_answer": "2",
+      "proverb": "An apple a day keeps the doctor away"
+    },
+    {
+      "passage_id": "e6208ae0f313ad85",
+      "item_id": "1002",
+      "role": "A"
+    },
+    {
+      "passage_id": "e325c67c51f64439",
+      "item_id": "1002",
+      "role": "Q"
+    },
+    {
+      "passage_id": "3babf71a69c6f8bf",
+      "item_id": "1002",
+      "role": "B"
+    },
+    {
+      "item_id": "1002",
+      "correct_answer": "2",
+      "proverb": "Man does not live by bread alone"
+    },
+    {
+      "passage_id": "cbb951527590adf0",
+      "item_id": "17",
+      "role": "B"
+    },
+    {
+      "passage_id": "c3b48eedd04418e9",
+      "item_id": "17",
+      "role": "A"
+    },
+    {
+      "passage_id": "0b37681a9815c895",
+      "item_id": "17",
+      "role": "Q"
+    },
+    {
+      "item_id": "17",
+      "correct_answer": "2",
+      "proverb": "Live for today for tomorrow never comes"
+    },
+    {
+      "passage_id": "516526d21200a466",
+      "item_id": "821",
+      "role": "A"
+    },
+    {
+      "passage_id": "da26ac005bcecf0f",
+      "item_id": "821",
+      "role": "Q"
+    },
+    {
+      "passage_id": "786ca0b19850150d",
+      "item_id": "821",
+      "role": "B"
+    },
+    {
+      "item_id": "821",
+      "correct_answer": "1",
+      "proverb": "History repeats itself"
+    },
+    {
+      "passage_id": "571bc9e21329cbd9",
+      "item_id": "641",
+      "role": "Q"
+    },
+    {
+      "passage_id": "556e1df92ed25ad3",
+      "item_id": "641",
+      "role": "A"
+    },
+    {
+      "passage_id": "e0117bda8f254abf",
+      "item_id": "641",
+      "role": "B"
+    },
+    {
+      "item_id": "641",
+      "correct_answer": "1",
+      "proverb": "Little things please little minds"
+    },
+    {
+      "passage_id": "ddeed287004d4661",
+      "item_id": "792",
+      "role": "B"
+    },
+    {
+      "passage_id": "e98d8b30d74322d6",
+      "item_id": "792",
+      "role": "Q"
+    },
+    {
+      "passage_id": "4dca4223ecc39b54",
+      "item_id": "792",
+      "role": "A"
+    },
+    {
+      "item_id": "792",
+      "correct_answer": "1",
+      "proverb": "Laughter is the best medicine"
+    },
+    {
+      "passage_id": "570c483926760bdf",
+      "item_id": "594",
+      "role": "B"
+    },
+    {
+      "passage_id": "412b018db5f7b1e6",
+      "item_id": "594",
+      "role": "A"
+    },
+    {
+      "passage_id": "81bb67fd3417131c",
+      "item_id": "594",
+      "role": "Q"
+    },
+    {
+      "item_id": "594",
+      "correct_answer": "2",
+      "proverb": "Only fools and horses work"
+    },
+    {
+      "passage_id": "db8a8a961a5be506",
+      "item_id": "290",
+      "role": "A"
+    },
+    {
+      "passage_id": "c6408b414d6b3aaa",
+      "item_id": "290",
+      "role": "Q"
+    },
+    {
+      "passage_id": "439e6071fa3ed86a",
+      "item_id": "290",
+      "role": "B"
+    },
+    {
+      "item_id": "290",
+      "correct_answer": "2",
+      "proverb": "It takes two to tango"
+    },
+    {
+      "passage_id": "213c9e09ab33b6b7",
+      "item_id": "505",
+      "role": "Q"
+    },
+    {
+      "passage_id": "66d2befb25d55b4c",
+      "item_id": "505",
+      "role": "A"
+    },
+    {
+      "passage_id": "317c79049234da61",
+      "item_id": "505",
+      "role": "B"
+    },
+    {
+      "item_id": "505",
+      "correct_answer": "1",
+      "proverb": "Keep your friends close and your enemies closer"
+    },
+    {
+      "passage_id": "0600af7839ece68e",
+      "item_id": "361",
+      "role": "A"
+    },
+    {
+      "passage_id": "b61ee34e4f2e0467",
+      "item_id": "361",
+      "role": "Q"
+    },
+    {
+      "passage_id": "b699c47bcf731080",
+      "item_id": "361",
+      "role": "B"
+    },
+    {
+      "item_id": "361",
+      "correct_answer": "1",
+      "proverb": "It's the squeaky wheel that gets the grease"
+    },
+    {
+      "passage_id": "c31cd679b0fbc521",
+      "item_id": "866",
+      "role": "B"
+    },
+    {
+      "passage_id": "12cfe583b0c77fd0",
+      "item_id": "866",
+      "role": "A"
+    },
+    {
+      "passage_id": "9b8faac3f5809e6c",
+      "item_id": "866",
+      "role": "Q"
+    },
+    {
+      "item_id": "866",
+      "correct_answer": "1",
+      "proverb": "A picture paints a thousand words"
+    },
+    {
+      "passage_id": "57adb6527ac225f5",
+      "item_id": "894",
+      "role": "A"
+    },
+    {
+      "passage_id": "6e1860807ceaa8f4",
+      "item_id": "894",
+      "role": "Q"
+    },
+    {
+      "passage_id": "619b650b14a9611e",
+      "item_id": "894",
+      "role": "B"
+    },
+    {
+      "item_id": "894",
+      "correct_answer": "2",
+      "proverb": "Don't shoot the messenger"
+    },
+    {
+      "passage_id": "bfa7818183ad573c",
+      "item_id": "54",
+      "role": "B"
+    },
+    {
+      "passage_id": "85bc57885e3bfde4",
+      "item_id": "54",
+      "role": "Q"
+    },
+    {
+      "passage_id": "b5059cced19f7396",
+      "item_id": "54",
+      "role": "A"
+    },
+    {
+      "item_id": "54",
+      "correct_answer": "1",
+      "proverb": "It's no use crying over spilt milk"
+    },
+    {
+      "passage_id": "87eb5db10105f977",
+      "item_id": "295",
+      "role": "A"
+    },
+    {
+      "passage_id": "ea202ebbd71ac315",
+      "item_id": "295",
+      "role": "B"
+    },
+    {
+      "passage_id": "6a2dcea6caa89663",
+      "item_id": "295",
+      "role": "Q"
+    },
+    {
+      "item_id": "295",
+      "correct_answer": "2",
+      "proverb": "A golden key can open any door"
+    },
+    {
+      "passage_id": "f750312881d39fac",
+      "item_id": "931",
+      "role": "Q"
+    },
+    {
+      "passage_id": "14ce925adfdc3ca9",
+      "item_id": "931",
+      "role": "B"
+    },
+    {
+      "passage_id": "95b4d5ae212f9816",
+      "item_id": "931",
+      "role": "A"
+    },
+    {
+      "item_id": "931",
+      "correct_answer": "2",
+      "proverb": "The best things in life are free"
+    },
+    {
+      "passage_id": "23e23208608642ec",
+      "item_id": "338",
+      "role": "Q"
+    },
+    {
+      "passage_id": "4fe3b528107c0984",
+      "item_id": "338",
+      "role": "B"
+    },
+    {
+      "passage_id": "d7a80e25c5994a7c",
+      "item_id": "338",
+      "role": "A"
+    },
+    {
+      "item_id": "338",
+      "correct_answer": "1",
+      "proverb": "Worrying never did anyone any good"
+    }
+  ]
+}

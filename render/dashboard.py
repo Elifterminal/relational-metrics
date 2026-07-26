@@ -1780,6 +1780,69 @@ result: the structure does not contain the distinction, so something outside it 
 That is now twice this project has hit the same wall from different directions, and it is starting
 to look like the actual subject matter rather than a series of accidents.</div>
 
+
+<h2>Finding 28 — a benchmark nobody here touched, and it moves the problem</h2>
+<p>Every corpus so far had this project supplying the annotations, and usually the ground truth too.
+This one is published, licensed, and made by other people: 254 items in exactly this design — a
+short narrative, a genuine cross-domain analogue, and a deliberately surface-similar distractor —
+in its hardest cell. Twenty items scored. <b>Forty more left sealed and unannotated</b>, because a
+benchmark spent all at once cannot be spent twice.</p>
+<div class="read"><b>The blind is stronger than hiding the answers.</b> Hiding which one is correct
+is the obvious control and it isn't enough — the real hazard is that annotating a candidate while
+looking at the query bends it toward a match, which is not cheating, just the pull of having the
+target in view. So every passage was annotated <i>alone</i>, with its role hidden: I could not tell
+query from analogue from distractor while working. The answers were unreadable until the annotations
+were committed and hashed, and the code refuses to reveal them if the annotations change afterwards.
+Blocked by the program, not by my intention to behave.</div>
+<div class="fig">{figs['fig29_arn.svg']}</div>
+
+<h3>No signal</h3>
+<div class="read warn" style="border-left-color:#dc2626"><b>The measure abstains on 9 of the 20
+items</b> — exact ties, most of them at the floor where one structure says nothing at all about
+another. Where it does commit, it gets 4 of 11. Both honest readings sit on chance.<br><br>
+There is a third reading — count the abstentions as wrong and you get 20%, which is
+<i>significant</i>. I am not using that as the headline, because it would claim the measure is
+reliably <b>anti</b>-correlated with the truth and the data does not support that. A tie is an
+abstention, not a wrong answer.</div>
+
+<h3>But the interesting part is whose failure it is</h3>
+<p>I wrote down the worry before running it: <i>I am the annotator, and the annotation is where this
+could go wrong.</i> There's a clean way to check. Throw away the scoring entirely and just count how
+many of the query's relations can be made to land in each candidate. If my annotation captured the
+analogy at all, the human-judged right answer should win on raw overlap even if the score fails to
+reward it.</p>
+<div class="read warn" style="border-left-color:#dc2626"><b>3 favour the correct answer. 13 show no
+difference. 4 favour the distractor.</b> Chance. The distinction was never in the annotation, so the
+measure had nothing to work with. <b>This experiment measured the annotator, not the measure</b> —
+and calling it a failure of the correspondence measure would be blaming the wrong component.</div>
+<div class="read"><b>One number explains the whole thing.</b> On this project's own corpora, a
+candidate shares <b>81.7%</b> of its relational shape with the query. On real analogies annotated
+blind, <b>42.8%</b>. It isn't a size effect — the structures are the same size. The corpora that
+produced a 10-out-of-10 record contained candidates that were near structural copies of their
+queries. Real analogies, annotated without knowing which is which, are not.</div>
+
+<h3>Where this leaves the strongest claim</h3>
+<div class="read ok"><b>Not withdrawn, and not weakened as stated.</b> On structures with high shared
+shape the analogue does outrank the false friend, ten times out of ten, including on data written by
+someone else. What this adds is where that claim stops:<br><br>
+<b>The measure works on relational structures. Getting from text to a relational structure is
+unsolved, is doing more of the work than the measure is, and is where the difficulty actually
+lives.</b></div>
+
+<h3>And a retroactive worry I'd rather log than deflect</h3>
+<div class="read warn"><b>Every corpus in this project was annotated by someone who knew each
+document's role.</b> The documents were written to be a paraphrase, an analogue, a false friend — and
+then turned into structures by a person who knew which was which. An earlier finding tested whether
+my <i>ranking</i> was biased and cleared it. It never tested whether the <b>structural annotation
+itself encodes the role</b>. If it does, the measure has been reading back what annotation put in.
+That wouldn't make the earlier results fake — the structures are real and the arithmetic is right —
+but it would make them a measure of annotation fidelity rather than analogy detection.<br><br>
+I don't know which it is, and this experiment can't settle it. The decisive test is cheap: take a
+corpus already in hand, strip the labels, re-annotate it blind, and see whether ten out of ten
+survives. <b>That control costs an afternoon and tests something more fundamental than the
+independent corpus did — and I built the expensive one first, because it was the one I had thought
+of.</b> Running it next, before spending the forty sealed items.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1815,6 +1878,16 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The hard part is not the measure — it is getting from text to structure.</b>
+On the first benchmark this project did not build, with every passage annotated blind, there is no
+signal. But the annotation carries no signal either, by a test written down in advance, so what
+failed is the step before the measure. Candidates share 82% of their shape with the query in the
+corpora built here and 43% in real analogies. The measure ranks structures well; nobody has shown
+that text reliably becomes the right structure, and that step has been done by hand throughout.</div>
+<div class="q"><b>And the corpus record now has a control it never had.</b> Every corpus was
+annotated by someone who knew each document's designated role. That the ranking was unbiased has
+been tested; that the <i>annotation</i> does not encode the role has not. Until it is, the safe claim
+is that the measure ranks structures — not that it retrieves analogies.</div>
 <div class="q"><b>Declaring an invariance works where asking the search to find it did not.</b>
 Normalising representational vertices away before comparing makes subdivision cost exactly nothing,
 recovers the original structure every time, and costs the main result nothing — it even restores the

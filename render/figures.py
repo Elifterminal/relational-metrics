@@ -1597,6 +1597,66 @@ def fig_canonical(e29: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 29 — the external benchmark, and where the failure actually is
+# ---------------------------------------------------------------------------
+
+def fig_arn(e30: dict) -> str:
+    W, H = 800, 400
+    out = ['<text class="ttl" x="24" y="26">A benchmark nobody here touched — and what it '
+           'actually tested</text>',
+           '<text class="sub" x="24" y="45">20 items, ground truth from outside, every passage '
+           'annotated blind to its role and sealed before the answers were readable.</text>']
+
+    n = e30["items_scored"]
+    ties = e30["ties"]
+    disc = e30["discriminating_items"]
+    dc = e30["correct_on_discriminating"]
+
+    # left: the three readings
+    out.append('<text class="lbl" x="24" y="86">THREE HONEST READINGS</text>')
+    readings = [
+        ("ties counted wrong", e30["correct_ties_as_wrong"] / n, e30["p_ties_as_wrong"], "#94a3b8"),
+        ("ties as coin flips", e30["score_ties_as_coinflip"] / n, e30["p_ties_as_coinflip"], "#2563eb"),
+        ("where it discriminates", dc / disc, e30["p_on_discriminating"], "#2563eb"),
+    ]
+    L, bw = 200, 250
+    for i, (lbl, acc, pv, col) in enumerate(readings):
+        y = 106 + i * 30
+        out.append(f'<text class="tick" x="{L-10}" y="{y+11}" text-anchor="end">{esc(lbl)}</text>')
+        out.append(f'<rect x="{L}" y="{y}" width="{bw}" height="15" fill="var(--bd)" rx="2"/>')
+        out.append(f'<rect x="{L}" y="{y}" width="{bw*acc:.1f}" height="15" fill="{col}" rx="2"/>')
+        out.append(f'<text class="tick" x="{L+bw+10}" y="{y+11}" font-family="monospace">'
+                   f'{acc:.0%}  p={pv:.2f}</text>')
+    out.append(f'<line x1="{L+bw/2:.0f}" y1="100" x2="{L+bw/2:.0f}" y2="{106+3*30:.0f}" '
+               f'stroke="var(--mut)" stroke-dasharray="3 3"/>')
+    out.append(f'<text class="tick" x="{L+bw/2:.0f}" y="96" text-anchor="middle">chance</text>')
+    out.append(f'<text class="sub" x="24" y="212">The measure ABSTAINS on {ties} of {n} items — '
+               'exact ties. On both honest readings this is chance.</text>')
+    out.append('<text class="sub" x="24" y="228" fill="#64748b">'
+               'The 20% reading looks significant and would say anti-correlation, which the data '
+               'does not support. A tie is an abstention.</text>')
+
+    # right: whose failure
+    d = e30["annotation_diagnostic"]
+    out.append('<text class="lbl" x="24" y="266">WHOSE FAILURE? Strip the scoring entirely and '
+               'just count matching relations:</text>')
+    parts = [("annotation favours the RIGHT answer", d["favours_correct"], "#15803d"),
+             ("no difference at all", d["no_difference"], "#94a3b8"),
+             ("annotation favours the DISTRACTOR", d["favours_distractor"], "#dc2626")]
+    x = 200
+    for i, (lbl, v, col) in enumerate(parts):
+        y = 286 + i * 22
+        out.append(f'<text class="tick" x="{x-10}" y="{y+11}" text-anchor="end">{esc(lbl)}</text>')
+        out.append(f'<rect x="{x}" y="{y}" width="{bw*v/n:.1f}" height="14" fill="{col}" rx="2"/>')
+        out.append(f'<text class="tick" x="{x+bw*v/n+8:.1f}" y="{y+11}" '
+                   f'font-family="monospace">{v}/{n}</text>')
+    out.append(f'<text class="sub" x="24" y="{286+3*22+18}" fill="#dc2626">'
+               'Chance. The distinction is not in the annotation, so the measure had nothing to '
+               'work with — this tested the ANNOTATOR.</text>')
+    return svg(W, H, "".join(out), "External benchmark")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1683,6 +1743,7 @@ def main() -> None:
     e27 = json.loads((RESULTS / "exp027.json").read_text())
     e28 = json.loads((RESULTS / "exp028.json").read_text())
     e29 = json.loads((RESULTS / "exp029.json").read_text())
+    e30 = json.loads((RESULTS / "exp030.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1718,6 +1779,7 @@ def main() -> None:
         "fig26_refutation.svg": fig_refutation(e27),
         "fig27_reencoding.svg": fig_reencoding(e28),
         "fig28_canonical.svg": fig_canonical(e29),
+        "fig29_arn.svg": fig_arn(e30),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

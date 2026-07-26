@@ -345,6 +345,19 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "canonicalise before measuring -- subdivision invariance, exactly"
+    },
+    {
+      "id": "EXP-030",
+      "question": "Does it work on an external benchmark \u2014 real narratives, outside ground truth, annotated blind?",
+      "result": "**No signal** \u2014 abstains on 9/20 items, and 4/11 where it discriminates (p = 0.55). But the predeclared diagnostic settles whose failure it is: stripping MDL pricing entirely, the *annotation* favours the correct answer 3/20, ties 13/20, favours the distractor 4/20. **This measured the annotator, not the measure.** Shared shape is 42.8% on real analogies vs 81.7% on the project's own corpora",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp030.py",
+      "result_file": "results/exp030.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "ARN benchmark, annotated blind -- and what it reveals about annotation"
     }
   ],
   "claims": [
@@ -376,14 +389,15 @@
       "claim": "MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.",
       "status": "ACTIVE_WITHIN_TESTED_SCOPE",
       "rung": 3,
-      "scope": "10/10 motifs across development, frozen held-out and independently authored corpora \u2014 but only WITHIN A FIXED REPRESENTATION CONVENTION. Across equivalent re-encodings of the same processes it holds on 2\u20136 of 6 depending on the encoding (EXP-028) \u2014 restored to 10/10 under subdivision once canonicalised (EXP-029). Hand-annotated typed structures, not natural text",
+      "scope": "10/10 motifs across development, frozen held-out and independently authored corpora \u2014 but only WITHIN A FIXED REPRESENTATION CONVENTION. Across equivalent re-encodings of the same processes it holds on 2\u20136 of 6 depending on the encoding (EXP-028) \u2014 restored to 10/10 under subdivision once canonicalised (EXP-029). Hand-annotated typed structures, not natural text. EXP-030: on an external benchmark annotated BLIND there is no signal \u2014 but the annotation itself carries none either, so the bottleneck is text\u2192structure, not the measure. This claim is about STRUCTURES; the step from text to structure is unsolved and is doing more of the work",
       "evidence": [
         "EXP-024",
         "EXP-025",
         "EXP-026",
         "EXP-027",
         "EXP-028",
-        "EXP-029"
+        "EXP-029",
+        "EXP-030"
       ]
     },
     {
@@ -477,6 +491,16 @@
       "scope": "subdivision and suppression of degree-2 vertices only. Exact (cost 0, 6/6 recovery); capability 3/3, 3/3, 4/4 including under subdivision. Rewrite terminating, idempotent, confluent. NOT converse or reification (Q-25). And the equivalence must be DECLARED \u2014 blind suppression damages 5/6 structures, because whether a vertex is representational is not decidable from structure",
       "evidence": [
         "EXP-029"
+      ]
+    },
+    {
+      "id": "C-13",
+      "claim": "The corpus results measure analogy detection rather than annotation fidelity.",
+      "status": "UNTESTED",
+      "rung": 0,
+      "scope": "R-18. Every corpus result rests on hand annotation performed KNOWING each document's designated role. EXP-026 cleared the ground-truth ordering of bias but never tested whether the structural annotation encodes the role. Decisive test is Q-26: re-annotate an existing corpus blind. Until it runs, only 'the measure ranks structures' is safe \u2014 not 'the measure retrieves analogies'",
+      "evidence": [
+        "EXP-030"
       ]
     }
   ]
