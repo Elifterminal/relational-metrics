@@ -1,0 +1,90 @@
+{
+  "experiment": "EXP-023",
+  "question": "minimal sufficient invariant",
+  "k=3": {
+    "functions_scored": 254,
+    "npn_classes_total": 14,
+    "candidates": {
+      "A_influence": {
+        "distinct_values": 10,
+        "values_spanning_multiple_structures": 1,
+        "complete": false,
+        "worst_collision": 4
+      },
+      "B_level": {
+        "distinct_values": 13,
+        "values_spanning_multiple_structures": 0,
+        "complete": true,
+        "worst_collision": 1
+      },
+      "C_pair": {
+        "distinct_values": 13,
+        "values_spanning_multiple_structures": 0,
+        "complete": true,
+        "worst_collision": 1
+      },
+      "D_matrix": {
+        "distinct_values": 13,
+        "values_spanning_multiple_structures": 0,
+        "complete": true,
+        "worst_collision": 1
+      },
+      "E_multiset": {
+        "distinct_values": 3,
+        "values_spanning_multiple_structures": 3,
+        "complete": false,
+        "worst_collision": 6
+      },
+      "F_matrix_and_multiset": {
+        "distinct_values": 13,
+        "values_spanning_multiple_structures": 0,
+        "complete": true,
+        "worst_collision": 1
+      }
+    },
+    "first_complete_candidate": "B_level"
+  },
+  "k=4": {
+    "functions_scored": 65534,
+    "npn_classes_total": 222,
+    "candidates": {
+      "A_influence": {
+        "distinct_values": 59,
+        "values_spanning_multiple_structures": 30,
+        "complete": false,
+        "worst_collision": 24
+      },
+      "B_level": {
+        "distinct_values": 144,
+        "values_spanning_multiple_structures": 54,
+        "complete": false,
+        "worst_collision": 6
+      },
+      "C_pair": {
+        "distinct_values": 194,
+        "values_spanning_multiple_structures": 15,
+        "complete": false,
+        "worst_collision": 5
+      },
+      "D_matrix": {
+        "distinct_values": 217,
+        "values_spanning_multiple_structures": 2,
+        "complete": false,
+        "worst_collision": 4
+      },
+      "E_multiset": {
+        "distinct_values": 8,
+        "values_spanning_multiple_structures": 8,
+        "complete": false,
+        "worst_collision": 74
+      },
+      "F_matrix_and_multiset": {
+        "distinct_values": 217,
+        "values_spanning_multiple_structures": 2,
+        "complete": false,
+        "worst_collision": 4
+      }
+    },
+    "first_complete_candidate": null
+  }
+}

@@ -331,6 +331,19 @@ def build() -> str:
     e20 = json.loads((RESULTS / "exp020.json").read_text())
     e21 = json.loads((RESULTS / "exp021.json").read_text())
     e22 = json.loads((RESULTS / "exp022.json").read_text())
+    e23 = json.loads((RESULTS / "exp023.json").read_text())
+    mi_rows = "".join(
+        f"<tr><td>{lbl}</td><td>{sz}</td>"
+        f"<td>{e23['k=4']['candidates'][key]['distinct_values']}</td>"
+        f"<td>{e23['k=4']['candidates'][key]['values_spanning_multiple_structures']}</td>"
+        f"<td>{'yes' if e23['k=4']['candidates'][key]['complete'] else 'no'}</td></tr>"
+        for lbl, key, sz in (
+            ("influence profile", "A_influence", "k"),
+            ("interaction-order profile", "B_level", "k+1"),
+            ("the pair", "C_pair", "2k+1"),
+            ("spectrum multiset", "E_multiset", "2<sup>k</sup>"),
+            ("<b>joint matrix M</b>", "D_matrix", "k(k+1)"),
+            ("matrix + multiset", "F_matrix_and_multiset", "more")))
     ix_rows = "".join(
         f"<tr><td>{lbl}</td><td>{e21['k=3'][key]:,}</td><td>{e21['k=4'][key]:,}</td></tr>"
         for lbl, key in (
@@ -1270,6 +1283,52 @@ sufficiency below it — which is a more useful result and not one that arguing 
 Second prediction of mine to fail in this run of work; both times the measured answer was more
 structured than the guess.</div>
 
+<h2>Finding 20 — the search for a minimal summary, and why it fails</h2>
+<p>The previous finding left a gap: the pair of profiles is insufficient at four participants, and
+the full subset-indexed spectrum is sufficient but is 2<sup>k</sup> numbers. What sits between?</p>
+
+<h3>Setting it up exposed the structure</h3>
+<p>Define <code>M[j][d]</code> = how much of participant <i>j</i>'s importance lives at interaction
+order <i>d</i>. Then the row sums are the influence profile and the column sums are the
+interaction-order profile.</p>
+<div class="read ok"><b>The pair is exactly the two marginals of M.</b> So the previous finding —
+that the pair is insufficient — is precisely the statement that <i>these marginals lose the
+joint</i>. Which is this project's own founding thesis arriving one level up, about its own
+instruments. That is either a pleasing coincidence or a sign the shape is general, and either way
+it made the joint the obvious next candidate rather than a guess.</div>
+<div class="fig">{figs['fig21_minimal.svg']}</div>
+<table><thead><tr><th>summary</th><th>size</th><th>distinct values</th><th>collisions</th>
+<th>complete?</th></tr></thead><tbody>{mi_rows}</tbody></table>
+
+<h3>The answer</h3>
+<ul>
+<li><b>At three participants, the interaction-order profile alone is complete</b> — 13 values,
+no collisions. Influence alone is not. The instruments are more than sufficient down there.</li>
+<li><b>At four participants, nothing tested is complete.</b> The best is the joint matrix M:
+<b>217 distinct values against 222 structures — just 2 collisions left.</b> Close, and not
+enough.</li>
+<li>Both residual collisions are maximally symmetric under M: in the larger one, all four
+participants have <i>identical rows</i>, and four genuinely different structures share it. M fails
+exactly where its own summary is most even — the same shape that has caught this project three
+times now.</li>
+</ul>
+
+<h3>The part worth carrying away</h3>
+<div class="read warn"><b>More numbers is not more information.</b> The spectrum multiset writes
+down <b>16</b> numbers and distinguishes <b>8</b> structures. The joint matrix writes down
+<b>20</b> and distinguishes <b>217</b>. And adding the multiset to the matrix changes the answer
+by <i>nothing at all</i> — every collision it might have broken, the matrix had already broken.
+<br><br>The multiset looks like a lot of information and is almost entirely degenerate: across all
+65,536 four-participant structures there are only eight distinct multisets, because Parseval and
+integrality constrain them so tightly. Which numbers you keep matters enormously more than how
+many.</div>
+<div class="read"><b>So Q-19's answer is negative, usefully.</b> There is no compact summary among
+the natural candidates. The minimal sufficient invariant sits strictly above the joint matrix and
+at or below the labelled spectrum, and the remaining gap is two collisions wide. Relational
+structure resists compression harder than the tidy arc of the last few findings suggested — the
+law, the profiles, and the census were each real, and none of them adds up to a description of a
+configuration.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1305,6 +1364,12 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>And no compact summary replaces it.</b> Searching the natural candidates found
+nothing complete at four participants — the best, the joint matrix, leaves 2 collisions out of 222
+structures. Meanwhile the spectrum multiset writes down 16 numbers to distinguish 8 structures and
+adds literally nothing when combined with the matrix. Which numbers you keep matters far more than
+how many, and relational structure resists compression harder than the last few findings
+suggested.</div>
 <div class="q"><b>Relational structure is not a scalar, and past three participants it is not a
 pair of profiles either.</b> The two instruments together are provably sufficient at three
 participants and provably insufficient at four — the complete invariant is one number per subset

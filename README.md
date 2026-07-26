@@ -49,6 +49,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-020` | Census asymmetry systematically | Asymmetry is quantised (10 profiles at k=3, 59 at k=4). **Nameable functions are influence-symmetric 1.8×–6.1× more often than the population, and the bias grows with arity** |
 | `EXP-021` | Can anything here see *interaction* structure? | **The predictive law cannot — provably.** Two structures with identical retention predictions, one three-quarters pure pairwise, the other spread across every order |
 | `EXP-022` | Are the two instruments *together* enough? | **At three participants yes, at four no.** The complete invariant is one number per subset — so "no single score" turns out to describe the subject matter |
+| `EXP-023` | Is there a compact summary that *is* enough? | **No.** Best candidate leaves 2 collisions in 222. And a 16-number summary distinguishes 8 structures where a 20-number one distinguishes 217 |
 
 ### The findings worth your time
 
@@ -198,6 +199,17 @@ single score — **not a matter of taste**. It was written as a discipline again
 compression, and it turns out to describe a property of the subject matter, with an arity
 threshold attached.
 
+**And no compact summary replaces it.** The pair turns out to be exactly the two *marginals* of a
+joint matrix — how much of each participant's importance sits at each interaction order — so
+"the pair is insufficient" is precisely "these marginals lose the joint", which is this project's
+own thesis arriving one level up about its own instruments. The joint gets to 217 distinct values
+against 222 real structures: **2 collisions left, and still not complete.**
+
+The lesson that generalises: **more numbers is not more information.** The spectrum multiset
+writes down 16 numbers and distinguishes 8 structures; the joint matrix writes down 20 and
+distinguishes 217. Combining them changes the answer by nothing at all. Which numbers you keep
+matters enormously more than how many.
+
 ## Honest limits
 
 - Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
@@ -230,6 +242,7 @@ python3 run_exp019.py      # asymmetric families -- and the bug they caught
 python3 run_exp020.py      # systematic census by influence profile
 python3 run_exp021.py      # interaction structure census -- what the law cannot see
 python3 run_exp022.py      # are the two instruments together complete?
+python3 run_exp023.py      # is there a minimal sufficient summary? (no)
 
 cd ../render
 python3 figures.py         # regenerate the SVGs

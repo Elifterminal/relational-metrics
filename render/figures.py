@@ -1085,6 +1085,63 @@ def fig_complete(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 21 — how far each summary gets
+# ---------------------------------------------------------------------------
+
+def fig_minimal(data: dict) -> str:
+    W, H = 800, 380
+    L, R, T, B = 214, 176, 74, 58
+    pw, ph = W - L - R, H - T - B
+    r = data["k=4"]
+    total = r["npn_classes_total"]
+    order = [("influence profile", "A_influence", "k numbers"),
+             ("interaction-order profile", "B_level", "k+1 numbers"),
+             ("the pair (both marginals)", "C_pair", "2k+1 numbers"),
+             ("spectrum multiset", "E_multiset", "2^k numbers"),
+             ("the JOINT matrix M", "D_matrix", "k(k+1) numbers"),
+             ("matrix + multiset", "F_matrix_and_multiset", "more numbers")]
+
+    out = ['<text class="ttl" x="24" y="26">How much structure each summary can actually distinguish</text>',
+           f'<text class="sub" x="24" y="45">Distinct values each invariant takes, against the '
+           f'{total} genuinely different structures at four participants.</text>']
+    for i in range(5):
+        v = i / 4 * total
+        x = L + (v / total) * pw
+        out.append(f'<line class="ax" x1="{x:.1f}" y1="{T-4}" x2="{x:.1f}" y2="{T+ph}"/>')
+        out.append(f'<text class="tick" x="{x:.1f}" y="{T+ph+18}" '
+                   f'text-anchor="middle">{v:.0f}</text>')
+    xf = L + pw
+    out.append(f'<line x1="{xf:.1f}" y1="{T-8}" x2="{xf:.1f}" y2="{T+ph}" '
+               'stroke="#15803d" stroke-width="1.8" stroke-dasharray="4 3"/>')
+    out.append(f'<text class="tick" x="{xf-6:.1f}" y="{T-12}" text-anchor="end" '
+               f'fill="#15803d">complete = {total}</text>')
+
+    bh = ph / len(order)
+    for i, (lbl, key, size) in enumerate(order):
+        c = r["candidates"][key]
+        y = T + i * bh
+        v = c["distinct_values"]
+        w = max((v / total) * pw, 1.5)
+        col = "#15803d" if c["complete"] else ("#2563eb" if v > total * 0.9 else "#dc2626")
+        out.append(f'<text class="lbl" x="{L-14}" y="{y+bh/2:.1f}" '
+                   f'text-anchor="end">{esc(lbl)}</text>')
+        out.append(f'<text class="sub" x="{L-14}" y="{y+bh/2+14:.1f}" '
+                   f'text-anchor="end">{esc(size)}</text>')
+        out.append(f'<rect x="{L}" y="{y+bh*0.22:.1f}" width="{w:.1f}" '
+                   f'height="{bh*0.5:.1f}" fill="{col}" rx="2"/>')
+        out.append(f'<text class="tick" x="{L+w+9:.1f}" y="{y+bh/2+4:.1f}" '
+                   f'fill="{col}">{v}  ({c["values_spanning_multiple_structures"]} collisions)</text>')
+
+    out.append(f'<text class="sub" x="24" y="{H-30}">'
+               'The spectrum multiset writes down 16 numbers and distinguishes 8 structures. The '
+               'joint matrix writes down 20 and distinguishes 217.</text>')
+    out.append(f'<text class="sub" x="24" y="{H-14}">'
+               'Adding the multiset to the matrix changes nothing at all. More numbers is not '
+               'more information — which numbers is what matters.</text>')
+    return svg(W, H, "".join(out), "Minimal invariant search")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1163,6 +1220,7 @@ def main() -> None:
     e20 = json.loads((RESULTS / "exp020.json").read_text())
     e21 = json.loads((RESULTS / "exp021.json").read_text())
     e22 = json.loads((RESULTS / "exp022.json").read_text())
+    e23 = json.loads((RESULTS / "exp023.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1190,6 +1248,7 @@ def main() -> None:
         "fig18_naming.svg": fig_naming(e20),
         "fig19_blind.svg": fig_blind(e21),
         "fig20_complete.svg": fig_complete(e22),
+        "fig21_minimal.svg": fig_minimal(e23),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),
