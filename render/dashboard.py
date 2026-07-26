@@ -734,6 +734,51 @@ proved we had. The prerequisite is now met: her first version needs no metric, s
 have plugged in — her second needs a metric base, which ours wasn't and now is.<br><br>
 <b>None of this has been tested. It's the next experiment, not a finding.</b></div>
 
+<h3>Tested — and the sequence works, the warp doesn't</h3>
+<p>Two systems that reach the <i>same</i> final structure and differ only in <b>when</b> a corrective
+relation engages. Our static measure is provably blind to that. Three arms: static, her alignment with
+our comparison as the ground, and a rigid elementwise comparison with no alignment at all.</p>
+<table><thead><tr><th>delay</th><th>static</th><th>her warp + our ground</th><th>rigid, no warp</th></tr></thead><tbody>
+<tr><td>1 step</td><td><b>0.000</b></td><td>0.262</td><td><b>0.480</b></td></tr>
+<tr><td>3 steps</td><td><b>0.000</b></td><td>0.785</td><td><b>1.439</b></td></tr>
+<tr><td>5 steps</td><td><b>0.000</b></td><td>1.308</td><td><b>2.398</b></td></tr>
+</tbody></table>
+<div class="read ok"><b>The composition supplies the missing channel.</b> Static returns exactly zero
+at every delay — the earlier impossibility result, restated. The composed measure sees delay
+monotonically, and a shape-different control still separates cleanly, so nothing was traded away.</div>
+<div class="read warn"><b>But her alignment doesn't earn its keep here — rigid comparison separates
+delay about twice as strongly.</b><br><br>
+And that reproduces <i>her own</i> finding rather than being ours. Her summary says the transferable
+win is the ground, not the warp. Her own experiments measured the warp <i>costing</i> accuracy on
+already-aligned data, with the mechanism spelled out: no timing variation to align away means
+alignment only manufactures spurious matches.<br><br>
+My sequences are aligned by construction, so that's exactly the regime she described. <b>Her
+mechanism, reproduced in a different domain.</b> A modest confirmation of her result, and it should be
+reported that way rather than dressed up as a discovery of ours.</div>
+<div class="read"><b>I wrote down before running that this would look more impressive than it is.</b>
+Supplying a temporal channel by adding a time axis is close to true by construction. The question that
+mattered was whether her alignment does anything a naive sequence comparison wouldn't — and the
+answer is no, on this data. Four predictions, four correct.</div>
+
+<h3>Two errors of mine, both caught by controls</h3>
+<div class="read warn"><b>A cache keyed on object identity.</b> Python reuses those after garbage
+collection, so transient structures collided and the cache returned one structure's distance for
+another's — <b>264 collisions across 400 structures</b>. I noticed because the control gave three
+different answers for the same pair, which is <i>impossible</i> rather than merely surprising. That
+distinction is the entire argument for having a control.<br><br>
+<b>And a badly chosen control.</b> My first one differed only by relation <i>type</i> — which our
+measure is designed to see through, since that's what lets a term in one field correspond to a
+different term in another. I was testing a property it deliberately has. Replaced with one differing
+in shape.</div>
+<div class="read"><b>That second mistake surfaced something real, though.</b> The type-substitution
+search is unconstrained — so a reinforcing loop and a balancing loop can be matched perfectly by
+swapping the sign labels. Two structures with opposite polarity patterns score <i>exactly zero</i>
+distance.<br><br>
+That may be fine: type-blindness is deliberate and it's what makes cross-domain matching work at all.
+But a global sign flip turns a reinforcing system into a balancing one, and that's a difference worth
+keeping. Logged as an open question with a specific test attached — nobody had noticed it in fifty
+experiments.</div>
+
 <h3>And her own test points at "different problem" — recorded early, on purpose</h3>
 <p>Vanta proposed three questions to settle whether the two bodies of work overlap. They're sharp, so
 I answered them in the restatement <i>before</i> doing any evaluation, so the answers couldn't be

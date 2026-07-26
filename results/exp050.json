@@ -1,0 +1,138 @@
+{
+  "experiment": "EXP-050",
+  "plan_locked_at": "0ea789540787722018c0ce1179e72cffebab5c8a",
+  "plan_sha256": "54e2177c06bd20ab",
+  "excluded": 0,
+  "delay_rows": [
+    {
+      "kind": "delay",
+      "T": 6,
+      "delay": 1,
+      "static": 0.0,
+      "warped": 0.261586,
+      "rigid": 0.479574
+    },
+    {
+      "kind": "delay",
+      "T": 6,
+      "delay": 2,
+      "static": 0.0,
+      "warped": 0.523172,
+      "rigid": 0.959148
+    },
+    {
+      "kind": "delay",
+      "T": 6,
+      "delay": 3,
+      "static": 0.0,
+      "warped": 0.784757,
+      "rigid": 1.438722
+    },
+    {
+      "kind": "delay",
+      "T": 6,
+      "delay": 5,
+      "static": 0.0,
+      "warped": 1.307929,
+      "rigid": 2.39787
+    },
+    {
+      "kind": "delay",
+      "T": 10,
+      "delay": 1,
+      "static": 0.0,
+      "warped": 0.151444,
+      "rigid": 0.287744
+    },
+    {
+      "kind": "delay",
+      "T": 10,
+      "delay": 2,
+      "static": 0.0,
+      "warped": 0.302889,
+      "rigid": 0.575489
+    },
+    {
+      "kind": "delay",
+      "T": 10,
+      "delay": 3,
+      "static": 0.0,
+      "warped": 0.454333,
+      "rigid": 0.863233
+    },
+    {
+      "kind": "delay",
+      "T": 10,
+      "delay": 5,
+      "static": 0.0,
+      "warped": 0.757222,
+      "rigid": 1.438722
+    },
+    {
+      "kind": "delay",
+      "T": 16,
+      "delay": 1,
+      "static": 0.0,
+      "warped": 0.092821,
+      "rigid": 0.17984
+    },
+    {
+      "kind": "delay",
+      "T": 16,
+      "delay": 2,
+      "static": 0.0,
+      "warped": 0.185642,
+      "rigid": 0.35968
+    },
+    {
+      "kind": "delay",
+      "T": 16,
+      "delay": 3,
+      "static": 0.0,
+      "warped": 0.278462,
+      "rigid": 0.539521
+    },
+    {
+      "kind": "delay",
+      "T": 16,
+      "delay": 5,
+      "static": 0.0,
+      "warped": 0.464104,
+      "rigid": 0.899201
+    }
+  ],
+  "topology_control": [
+    {
+      "kind": "topology",
+      "T": 6,
+      "static": 3.584963,
+      "warped": 3.584963,
+      "rigid": 3.584963
+    },
+    {
+      "kind": "topology",
+      "T": 10,
+      "static": 3.584963,
+      "warped": 3.584963,
+      "rigid": 3.584963
+    },
+    {
+      "kind": "topology",
+      "T": 16,
+      "static": 3.584963,
+      "warped": 3.584963,
+      "rigid": 3.584963
+    }
+  ],
+  "static_is_blind_to_delay": true,
+  "warped_sees_delay": true,
+  "rigid_sees_delay": true,
+  "topology_discrimination_preserved": true,
+  "warp_beats_rigid": false,
+  "means": {
+    "static": 0.0,
+    "warped": 0.46369675,
+    "rigid": 0.8682286666666666
+  },
+  "verdict": "THE SEQUENCE DID THE WORK, NOT THE WARP -- rigid elementwise comparison sees delay just as well. This reproduces HER own finding (the ground transfers, the warp does not) rather than being a discovery of ours"
+}

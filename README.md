@@ -85,6 +85,7 @@ current. That check exists because both happened.
 | `EXP-047` | Settle C-03 at adequate n by generating structures instead of annotating them | **Design flawed — the sweep swept nothing.** Damage was specified as a fraction, and with 5 relations every level from 0.1 to 0.2 rounded to the same single rewire, so analogue and false friend ended up *equally damaged*. The apparent boundary was rounding. One interpretable point survives (exact relabelling: margin +0.399, d=3.31, 120/120 wins). Plan was locked and **not edited** — the corrected design is a separate experiment |
 | `EXP-048` | How much damage can a structural analogue take and still be preferred? | **Settled, and better than predicted.** 8 relations, analogue rewires k, false friend k+2, n=200 per level. Holds strongly to **2 rewires of 8** — a quarter of the structure altered — with **d=1.24 and 90% of individual cases agreeing**; gone by 4. **Not fragile.** My predeclared control rule fired at k=3 and was too coarse (by then the false friend is near-unrelated itself) — both readings reported, k=3 marked unreadable, rule not quietly replaced. **Fourth over-coarse verdict rule today** |
 | `EXP-049` | Which Stage 3 candidate domains have questions that are answerable in this representation? | **Five of ten questions are provably outside the representation** — ruled out by the same four channels EXP-031 already proved absent. Viability is per *question*, not per domain. **Then a second filter mattered more**: of the five survivors, two have mature incumbents, one is trivial, one is reachability (not a measurement problem). **One is a genuine target — 'are these two systems structurally analogous?' — which is exactly the capability EXP-048 already established.** So Stage 3 on this list is a *product* question, not a research one. Predicted in the locked plan. 4/4 predictions |
+| `EXP-050` | Does her time-warp composed with our structural ground supply the temporal channel we proved absent? | **The sequence did the work, not the warp.** Static is blind to delay (0.0000, reproducing EXP-031); the composition sees it monotonically and keeps topology discrimination. **But rigid elementwise comparison separates delay ~2× more strongly than her warp does** — which reproduces *her own* C15 finding (no timing variation to align away → DTW manufactures spurious matches), not a discovery of ours. **4/4 predictions**, including the one written so it couldn't soften: *this will look more impressive than it is*. Two of my errors caught by controls: an `id()`-keyed cache with 264 collisions, and a control that tested a property the measure deliberately has |
 
 ### What this project established
 
@@ -195,6 +196,7 @@ python3 run_exp046.py    # buried or absent? absent. Q-40 closed
 python3 run_exp047.py    # a sweep that swept nothing -- my design error
 python3 run_exp048.py    # the measure's real boundary -- a quarter of the structure
 python3 run_exp049.py    # impossibility screen -- and it leaves one candidate
+python3 run_exp050.py    # her warp + our ground -- the sequence works, the warp doesn't
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs

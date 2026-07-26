@@ -651,6 +651,20 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "impossibility screen -- and it leaves one candidate"
+    },
+    {
+      "id": "EXP-050",
+      "question": "Does her time-warp composed with our structural ground supply the temporal channel we proved absent?",
+      "result": "**The sequence did the work, not the warp.** Static is blind to delay (0.0000, reproducing EXP-031); the composition sees it monotonically and keeps topology discrimination. **But rigid elementwise comparison separates delay ~2\u00d7 more strongly than her warp does** \u2014 which reproduces *her own* C15 finding (no timing variation to align away \u2192 DTW manufactures spurious matches), not a discovery of ours. **4/4 predictions**, including the one written so it couldn't soften: *this will look more impressive than it is*. Two of my errors caught by controls: an `id()`-keyed cache with 264 collisions, and a control that tested a property the measure deliberately has",
+      "status": "complete",
+      "rung": 2,
+      "stage": 3,
+      "entry_point": "lab/run_exp050.py",
+      "result_file": "results/exp050.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "her warp + our ground -- the sequence works, the warp doesn't"
     }
   ],
   "claims": [
