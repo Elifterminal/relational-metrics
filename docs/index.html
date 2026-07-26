@@ -1,6 +1,18 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Relational Metrics — findings</title><style>
+.survives-card{border-left:4px solid var(--ok);margin-bottom:18px}
+.survives-card h2{margin-top:0}
+table.survives{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}
+table.survives th{text-align:left;padding:6px 8px;border-bottom:1px solid var(--bd);
+  color:var(--mut);font-weight:600}
+table.survives td{padding:8px;border-bottom:1px solid var(--bd);vertical-align:top}
+table.survives td:first-child{white-space:nowrap;width:1%}
+table.survives td:last-child{width:38%}
+.tag.mut{background:var(--bd);color:var(--mut)}
+.tag.bad{background:#fee2e2;color:#991b1b}
+@media (prefers-color-scheme:dark){.tag.bad{background:#4c1d1d;color:#fca5a5}}
+
 :root{--bg:#fbfbfc;--panel:#fff;--fg:#16181d;--mut:#636a76;--line:#e3e5ea;
       --accent:#2563eb;--warn:#dc2626;--ok:#15803d;--code:#f3f4f6;}
 @media (prefers-color-scheme:dark){
@@ -56,11 +68,10 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);
 
 <header>
 <h1>Relational Metrics</h1>
-<p class="sub">Four runs, 2026-07-25. All of them findings about <i>method</i> — how to build a
-measurement you can trust — not evidence that relational measurement works.</p>
-<p style="margin-top:14px"><span class="tag">rung 1 — mathematically coherent</span>
-<span class="tag warn">hazard confirmed</span><span class="tag ok">one fix validated</span></p>
+<p class="sub">24 runs. <b>6</b> claims active within a stated scope, <b>2</b> refuted or demoted, <b>2</b> untested — and <b>1</b> published claim retracted by a later run. Counts generated from the manifest, so this line cannot go stale.</p>
 </header>
+
+<div class="card survives-card"><h2>What currently survives</h2><p>The log below is a history and reads as one. This is the present tense: every claim the project is currently making, what scope it holds within, and what killed the ones that died. Generated from the same manifest that generates the README, so the two cannot disagree.</p><table class="survives"><thead><tr><th>status</th><th>claim</th><th>scope it holds within</th></tr></thead><tbody><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span></td><td><b>Higher-order dependence can exist that no pairwise view contains, and it is detectable.</b><br><span class="sub"><code>EXP-002</code> <code>EXP-011</code> <code>EXP-012</code></span></td><td class="sub">small discrete Boolean configurations, exhaustively enumerated</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span></td><td><b>Connected information locates the order at which dependence appears.</b><br><span class="sub"><code>EXP-011</code> <code>EXP-012</code></span></td><td class="sub">k<=4 discrete variables; requires an outcome-permutation calibration to be an answer</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 3</span></td><td><b>MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.</b><br><span class="sub"><code>EXP-024</code> <code>EXP-025</code> <code>EXP-026</code> <code>EXP-027</code></span></td><td class="sub">10/10 motifs across development, frozen held-out and independently authored corpora; hand-annotated typed structures, not natural text</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 3</span></td><td><b>Structural correspondence cannot distinguish a genuine analogue from a vacuous statement of the same shape.</b><br><span class="sub"><code>EXP-026</code> <code>EXP-027</code></span></td><td class="sub">proved for isomorphic structures: any function of structure alone scores them equally</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span></td><td><b>Retention obeys an exact closed form: 1 - influence(hidden)/H(outcome).</b><br><span class="sub"><code>EXP-015</code> <code>EXP-016</code> <code>EXP-021</code></span></td><td class="sub">verified to 1e-16 over all 65,536 functions at k=4; a robustness law, NOT a measure of how participants jointly organise</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span></td><td><b>Relational structure is not reducible to a scalar, nor to a pair of profiles.</b><br><span class="sub"><code>EXP-022</code> <code>EXP-023</code></span></td><td class="sub">at k=3 the two profiles suffice; at k=4 they do not. The complete invariant is one number per subset</td></tr><tr><td><span class="tag warn">provisional</span><span class="conf">rung 2</span></td><td><b>The correspondence measure transfers to topologies it was not developed against.</b><br><span class="sub"><code>EXP-005</code></span></td><td class="sub">5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process</td></tr><tr><td><span class="tag mut">untested</span></td><td><b>The measure is invariant to how the same process is legitimately re-encoded (mediator nodes, hyperedge vs factor node, subdivision, latent variables).</b><br><span class="sub"><i>none yet</i></span></td><td class="sub">named as the next foundational test family. Vocabulary and label invariance are shown; representation invariance is not</td></tr><tr><td><span class="tag mut">untested</span></td><td><b>Any of this reaches a claim about physical reality.</b><br><span class="sub"><i>none yet</i></span></td><td class="sub">unsupported and not currently testable. Prediction P6 says it will not, and P6 stands</td></tr><tr><td><span class="tag bad">demoted / replaced</span></td><td><b>The higher-order remainder statistic measures synergy.</b><br><span class="sub"><code>EXP-002</code> <code>EXP-011</code></span></td><td class="sub">conflated synergy with redundancy; replaced by connected information (C-02)</td></tr><tr><td><span class="tag bad">refuted / retracted</span></td><td><b>F-09 bridge value: discounting a match by genericness defends against the attractive-nonsense failure.</b><br><span class="sub"><code>EXP-027</code></span></td><td class="sub">refuted by arithmetic, not by experiment - isomorphic structures have identical genericness, so the discount subtracts the same number from both at any strength</td></tr></tbody></table></div>
 
 <nav class="tabs">
 <button class="tab active" data-panel="method">How the tests work</button>

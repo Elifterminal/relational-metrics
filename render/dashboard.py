@@ -7,13 +7,28 @@ survives being moved or emailed.
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import gen_docs  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
 DESKTOP = Path("/home/lee/Desktop/RelationalMetrics")
 
 CSS = """
+.survives-card{border-left:4px solid var(--ok);margin-bottom:18px}
+.survives-card h2{margin-top:0}
+table.survives{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}
+table.survives th{text-align:left;padding:6px 8px;border-bottom:1px solid var(--bd);
+  color:var(--mut);font-weight:600}
+table.survives td{padding:8px;border-bottom:1px solid var(--bd);vertical-align:top}
+table.survives td:first-child{white-space:nowrap;width:1%}
+table.survives td:last-child{width:38%}
+.tag.mut{background:var(--bd);color:var(--mut)}
+.tag.bad{background:#fee2e2;color:#991b1b}
+@media (prefers-color-scheme:dark){.tag.bad{background:#4c1d1d;color:#fca5a5}}
+
 :root{--bg:#fbfbfc;--panel:#fff;--fg:#16181d;--mut:#636a76;--line:#e3e5ea;
       --accent:#2563eb;--warn:#dc2626;--ok:#15803d;--code:#f3f4f6;}
 @media (prefers-color-scheme:dark){
@@ -538,11 +553,10 @@ def build() -> str:
 
 <header>
 <h1>Relational Metrics</h1>
-<p class="sub">Four runs, 2026-07-25. All of them findings about <i>method</i> — how to build a
-measurement you can trust — not evidence that relational measurement works.</p>
-<p style="margin-top:14px"><span class="tag">rung 1 — mathematically coherent</span>
-<span class="tag warn">hazard confirmed</span><span class="tag ok">one fix validated</span></p>
+{gen_docs.site_header()}
 </header>
+
+<div class="card survives-card">{gen_docs.site_survives_panel()}</div>
 
 <nav class="tabs">
 <button class="tab active" data-panel="method">How the tests work</button>

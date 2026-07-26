@@ -1,0 +1,443 @@
+{
+  "_note": "SINGLE SOURCE OF TRUTH. The README experiment table, the site header counts, the 'what currently survives' panel and the run list are all GENERATED from this file. Do not hand-edit those; edit this and regenerate. `python3 check_manifest.py` fails the build if they drift, if a runner has no entry, or if a retracted claim is presented as current.",
+  "status_classes": [
+    "ACTIVE_WITHIN_TESTED_SCOPE",
+    "PROVISIONAL",
+    "UNTESTED",
+    "DEMOTED",
+    "REFUTED"
+  ],
+  "experiments": [
+    {
+      "id": "EXP-000a",
+      "question": "Does the correspondence formula's penalty parameter matter?",
+      "result": "It decides the **ranking**, not just the magnitude. Two reversals, first at \u03b7=0.22",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp000a.py",
+      "result_file": "results/exp000a.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the penalty pathology"
+    },
+    {
+      "id": "EXP-000b",
+      "question": "Can the replacement tell which changes matter?",
+      "result": "No. Five of six single-edge changes score identically",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp000b.py",
+      "result_file": "results/exp000b.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "criticality blindness"
+    },
+    {
+      "id": "EXP-000c",
+      "question": "Can the laboratory catch a cheat?",
+      "result": "Yes \u2014 7/7. And it caught a defect in the author's own measure",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp000c.py",
+      "result_file": "results/exp000c.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "harness self-test \u2014 run this before trusting anything"
+    },
+    {
+      "id": "EXP-009",
+      "question": "Can composing relation signs recover significance?",
+      "result": "Not as asked. The question was malformed. But sign survives translation",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp009.py",
+      "result_file": "results/exp009.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "cycle sign by typed composition"
+    },
+    {
+      "id": "EXP-002",
+      "question": "**Does structure exist that no pair can see \u2014 and can we detect it?**",
+      "result": "**It exists.** Best pair 0.0008 bits vs 0.7340 for the triple. But the statistic for it is demoted",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp002.py",
+      "result_file": "results/exp002.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "higher-order recovery -- the arity claim"
+    },
+    {
+      "id": "EXP-011",
+      "question": "Can a replacement separate synergy from redundancy?",
+      "result": "**Yes.** Connected information places structure at the right order; redundancy drops from a false positive to 0.0003",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp011.py",
+      "result_file": "results/exp011.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the replacement measure, connected information"
+    },
+    {
+      "id": "EXP-012",
+      "question": "Can the replacement be broken?",
+      "result": "Partly. The raw statistic reports a full bit of structure that has nothing to do with the question. The calibration is what makes it an answer",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp012.py",
+      "result_file": "results/exp012.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "adversarial stress test of the replacement"
+    },
+    {
+      "id": "EXP-010",
+      "question": "What does the observer actually choose, and what does it cost?",
+      "result": "Everything. Six questions of one system give verdicts spanning three different orders \u2014 and hiding one participant erases a three-way dependence outright",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp010.py",
+      "result_file": "results/exp010.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the observer's three choices, measured"
+    },
+    {
+      "id": "EXP-013",
+      "question": "Is that erasure general?",
+      "result": "**No \u2014 and it corrects the previous entry.** Parity vanishes at every arity; AND, OR, majority and threshold all keep ~half. A gradient, not a wall",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp013.py",
+      "result_file": "results/exp013.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "is the partial-observation cliff general?"
+    },
+    {
+      "id": "EXP-014",
+      "question": "Is that \"~half\" real, or a coincidence?",
+      "result": "**Both.** Exhaustive census of all 256 Boolean functions: retention is quantised to 7 values and 0.5 is a real class of 56. But the four measurements offered as evidence were two functions plus a noise artifact",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp014.py",
+      "result_file": "results/exp014.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "exhaustive census, all 256 functions of 3 variables"
+    },
+    {
+      "id": "EXP-015",
+      "question": "Does it survive at four variables?",
+      "result": "**Yes, and it has a closed form.** `retention = 1 \u2212 influence(hidden) / H(outcome)`, verified to 1e-16. 21 distinct values across all 65,536 functions",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp015.py",
+      "result_file": "results/exp015.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "k=4 census + the closed form, verified"
+    },
+    {
+      "id": "EXP-016",
+      "question": "Does the law survive noise?",
+      "result": "**The equation does; the ranking doesn't.** A general form is exact at every noise level, and balanced outcomes are exactly noise-invariant. But above ~5% noise the *order* of fragility changes",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp016.py",
+      "result_file": "results/exp016.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the law under noise, and where it stops being safe"
+    },
+    {
+      "id": "EXP-017",
+      "question": "Which parameters reorder results?",
+      "result": "**Four of five, including one believed safe.** \"Retention\" turns out to be one number *per participant you might lose* \u2014 best- and worst-case orderings are anti-correlated",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp017.py",
+      "result_file": "results/exp017.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the reordering audit -- which parameters change the ranking"
+    },
+    {
+      "id": "EXP-018",
+      "question": "Do the retention conclusions survive proper reporting?",
+      "result": "**Mostly \u2014 one doesn't.** Quantisation and the 0.5 class hold. \"Only parity vanishes\" was a best-case artifact: 2 \u2192 38 structures vanish under worst case",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp018.py",
+      "result_file": "results/exp018.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "retention re-reported per participant"
+    },
+    {
+      "id": "EXP-019",
+      "question": "Add asymmetric test families",
+      "result": "**Found an index-reversal bug on the first run** \u2014 one the old worlds were *provably unable* to detect. Also sharpened the diagnosis: influence-symmetry, not permutation-symmetry",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp019.py",
+      "result_file": "results/exp019.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "asymmetric families -- and the bug they caught"
+    },
+    {
+      "id": "EXP-020",
+      "question": "Census asymmetry systematically",
+      "result": "Asymmetry is quantised (10 profiles at k=3, 59 at k=4). **Nameable functions are influence-symmetric 1.8\u00d7\u20136.1\u00d7 more often than the population, and the bias grows with arity**",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp020.py",
+      "result_file": "results/exp020.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "systematic census by influence profile"
+    },
+    {
+      "id": "EXP-021",
+      "question": "Can anything here see *interaction* structure?",
+      "result": "**The predictive law cannot \u2014 provably.** Two structures with identical retention predictions, one three-quarters pure pairwise, the other spread across every order",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp021.py",
+      "result_file": "results/exp021.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "interaction structure census -- what the law cannot see"
+    },
+    {
+      "id": "EXP-022",
+      "question": "Are the two instruments *together* enough?",
+      "result": "**At three participants yes, at four no.** The complete invariant is one number per subset \u2014 so \"no single score\" turns out to describe the subject matter",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp022.py",
+      "result_file": "results/exp022.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "are the two instruments together complete?"
+    },
+    {
+      "id": "EXP-023",
+      "question": "Is there a compact summary that *is* enough?",
+      "result": "**No.** Best candidate leaves 2 collisions in 222. And a 16-number summary distinguishes 8 structures where a 20-number one distinguishes 217",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp023.py",
+      "result_file": "results/exp023.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "is there a minimal sufficient summary? (no)"
+    },
+    {
+      "id": "EXP-005",
+      "question": "Does the correspondence measure work on shapes it wasn't built for?",
+      "result": "**Yes, 5/5** \u2014 including an acyclic topology and an undesigned one. Making the test harder first exposed an unchecked container invariant",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp005.py",
+      "result_file": "results/exp005.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "cross-generator transfer -- does it work on unseen shapes?"
+    },
+    {
+      "id": "EXP-024",
+      "question": "Search corpus + a real `d_A`. Does it retrieve?",
+      "result": "**2 of 3 \u2014 best of four methods, short of the claim.** Loses by 0.0022 because it still charges the analogue for using a different domain's relation vocabulary",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp024.py",
+      "result_file": "results/exp024.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the search corpus, d_A, and does it actually retrieve?"
+    },
+    {
+      "id": "EXP-025",
+      "question": "Fix it, and test on data frozen beforehand",
+      "result": "**6 of 6.** Paraphrase and analogue now score *identically* \u2014 which is what a vocabulary-blind measure must do, and not what a fitted patch produces",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp025.py",
+      "result_file": "results/exp025.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the fix, tested on a corpus frozen before it existed"
+    },
+    {
+      "id": "EXP-026",
+      "question": "A corpus nobody involved in the project wrote",
+      "result": "**4 of 4 \u2014 the claim survives independent annotation.** And the *generic* document ties the analogue exactly, because it is isomorphic to the query",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp026.py",
+      "result_file": "results/exp026.json",
+      "supersedes": null,
+      "superseded_by": "EXP-027",
+      "retracted_claim": "generic document outranks the analogue on 3 of 4",
+      "blurb": "the independent corpus -- nobody here wrote it"
+    },
+    {
+      "id": "EXP-027",
+      "question": "Does the genericness discount rescue the ranking?",
+      "result": "**No \u2014 refuted by arithmetic.** Isomorphic structures have identical genericness (gap 0.00e+00), so no structural discount can separate them. Also **retracts** EXP-026's ranking sub-claim: it was a `hash()` tie-break, and the scores tie exactly",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp027.py",
+      "result_file": "results/exp027.json",
+      "supersedes": "EXP-026",
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the retraction, and F-09 refuted by arithmetic"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C-01",
+      "claim": "Higher-order dependence can exist that no pairwise view contains, and it is detectable.",
+      "status": "ACTIVE_WITHIN_TESTED_SCOPE",
+      "rung": 2,
+      "scope": "small discrete Boolean configurations, exhaustively enumerated",
+      "evidence": [
+        "EXP-002",
+        "EXP-011",
+        "EXP-012"
+      ]
+    },
+    {
+      "id": "C-02",
+      "claim": "Connected information locates the order at which dependence appears.",
+      "status": "ACTIVE_WITHIN_TESTED_SCOPE",
+      "rung": 2,
+      "scope": "k<=4 discrete variables; requires an outcome-permutation calibration to be an answer",
+      "evidence": [
+        "EXP-011",
+        "EXP-012"
+      ]
+    },
+    {
+      "id": "C-03",
+      "claim": "MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.",
+      "status": "ACTIVE_WITHIN_TESTED_SCOPE",
+      "rung": 3,
+      "scope": "10/10 motifs across development, frozen held-out and independently authored corpora; hand-annotated typed structures, not natural text",
+      "evidence": [
+        "EXP-024",
+        "EXP-025",
+        "EXP-026",
+        "EXP-027"
+      ]
+    },
+    {
+      "id": "C-04",
+      "claim": "Structural correspondence cannot distinguish a genuine analogue from a vacuous statement of the same shape.",
+      "status": "ACTIVE_WITHIN_TESTED_SCOPE",
+      "rung": 3,
+      "scope": "proved for isomorphic structures: any function of structure alone scores them equally",
+      "evidence": [
+        "EXP-026",
+        "EXP-027"
+      ]
+    },
+    {
+      "id": "C-05",
+      "claim": "Retention obeys an exact closed form: 1 - influence(hidden)/H(outcome).",
+      "status": "ACTIVE_WITHIN_TESTED_SCOPE",
+      "rung": 2,
+      "scope": "verified to 1e-16 over all 65,536 functions at k=4; a robustness law, NOT a measure of how participants jointly organise",
+      "evidence": [
+        "EXP-015",
+        "EXP-016",
+        "EXP-021"
+      ]
+    },
+    {
+      "id": "C-06",
+      "claim": "Relational structure is not reducible to a scalar, nor to a pair of profiles.",
+      "status": "ACTIVE_WITHIN_TESTED_SCOPE",
+      "rung": 2,
+      "scope": "at k=3 the two profiles suffice; at k=4 they do not. The complete invariant is one number per subset",
+      "evidence": [
+        "EXP-022",
+        "EXP-023"
+      ]
+    },
+    {
+      "id": "C-07",
+      "claim": "The correspondence measure transfers to topologies it was not developed against.",
+      "status": "PROVISIONAL",
+      "rung": 2,
+      "scope": "5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process",
+      "evidence": [
+        "EXP-005"
+      ]
+    },
+    {
+      "id": "C-08",
+      "claim": "The measure is invariant to how the same process is legitimately re-encoded (mediator nodes, hyperedge vs factor node, subdivision, latent variables).",
+      "status": "UNTESTED",
+      "rung": 0,
+      "scope": "named as the next foundational test family. Vocabulary and label invariance are shown; representation invariance is not",
+      "evidence": []
+    },
+    {
+      "id": "C-09",
+      "claim": "F-09 bridge value: discounting a match by genericness defends against the attractive-nonsense failure.",
+      "status": "REFUTED",
+      "rung": 0,
+      "scope": "refuted by arithmetic, not by experiment - isomorphic structures have identical genericness, so the discount subtracts the same number from both at any strength",
+      "evidence": [
+        "EXP-027"
+      ]
+    },
+    {
+      "id": "C-10",
+      "claim": "The higher-order remainder statistic measures synergy.",
+      "status": "DEMOTED",
+      "rung": 0,
+      "scope": "conflated synergy with redundancy; replaced by connected information (C-02)",
+      "evidence": [
+        "EXP-002",
+        "EXP-011"
+      ]
+    },
+    {
+      "id": "C-11",
+      "claim": "Any of this reaches a claim about physical reality.",
+      "status": "UNTESTED",
+      "rung": 0,
+      "scope": "unsupported and not currently testable. Prediction P6 says it will not, and P6 stands",
+      "evidence": []
+    }
+  ]
+}

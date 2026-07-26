@@ -1,0 +1,43 @@
+name: check
+
+# The site once said "four runs" at experiment twenty-seven, and the README
+# carried a claim that had been retracted the day before. Both were hand-kept
+# copies of facts that live in manifest.json. This is what stops that.
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Docs match the manifest
+        run: python3 check_manifest.py
+
+      - name: Every figure is well-formed XML
+        run: |
+          python3 - <<'EOF'
+          import glob, sys, xml.etree.ElementTree as ET
+          bad = []
+          for f in sorted(glob.glob("docs/figures/*.svg")):
+              try:
+                  ET.parse(f)
+              except Exception as e:
+                  bad.append(f"{f}: {e}")
+          if bad:
+              print("malformed SVG:\n  " + "\n  ".join(bad)); sys.exit(1)
+          print(f"{len(glob.glob('docs/figures/*.svg'))} figures, all well-formed")
+          EOF
+
+      - name: Regenerating produces no diff
+        run: |
+          python3 gen_docs.py
+          git diff --exit-code -- README.md \
+            || { echo "README is out of date; run gen_docs.py and commit"; exit 1; }

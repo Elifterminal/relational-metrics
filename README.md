@@ -27,8 +27,16 @@ Not because they share words. They don't.
 
 ## What's actually here
 
-A laboratory and four experiments. **Every result so far is a finding about method, not evidence that relational measurement works.** That distinction is load-bearing and the code enforces it.
+A laboratory and twenty-four experiments. Most results are findings about *method*; a few are
+results about the subject matter, and the difference is tracked per claim rather than asserted for
+the project as a whole — see **What currently survives** below.
 
+Everything in this section is generated from [`manifest.json`](manifest.json), which is the single
+source of truth for what has been run and what is currently claimed. `check_manifest.py` fails the
+build if this file and the study page ever disagree, or if a retracted claim is presented as
+current. That check exists because both happened.
+
+<!-- BEGIN GENERATED: experiments -->
 | Run | Question | Result |
 |---|---|---|
 | `EXP-000a` | Does the correspondence formula's penalty parameter matter? | It decides the **ranking**, not just the magnitude. Two reversals, first at η=0.22 |
@@ -53,7 +61,95 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-005` | Does the correspondence measure work on shapes it wasn't built for? | **Yes, 5/5** — including an acyclic topology and an undesigned one. Making the test harder first exposed an unchecked container invariant |
 | `EXP-024` | Search corpus + a real `d_A`. Does it retrieve? | **2 of 3 — best of four methods, short of the claim.** Loses by 0.0022 because it still charges the analogue for using a different domain's relation vocabulary |
 | `EXP-025` | Fix it, and test on data frozen beforehand | **6 of 6.** Paraphrase and analogue now score *identically* — which is what a vocabulary-blind measure must do, and not what a fitted patch produces |
-| `EXP-026` | A corpus nobody involved in the project wrote | **4 of 4 — the claim survives independent annotation.** But a *generic* document outranks the analogue on 3 of 4, and is structurally right to |
+| `EXP-026` | A corpus nobody involved in the project wrote | **4 of 4 — the claim survives independent annotation.** And the *generic* document ties the analogue exactly, because it is isomorphic to the query <br>*(a sub-claim of this run — "generic document outranks the analogue on 3 of 4" — was **RETRACTED** by `EXP-027`)* |
+| `EXP-027` | Does the genericness discount rescue the ranking? | **No — refuted by arithmetic.** Isomorphic structures have identical genericness (gap 0.00e+00), so no structural discount can separate them. Also **retracts** EXP-026's ranking sub-claim: it was a `hash()` tie-break, and the scores tie exactly |
+
+### What currently survives
+
+*Present tense, generated from `manifest.json`. The table above is the history; this is the state.*
+
+**ACTIVE WITHIN TESTED SCOPE**
+
+- **Higher-order dependence can exist that no pairwise view contains, and it is detectable.** · rung 2  
+  *scope*: small discrete Boolean configurations, exhaustively enumerated  
+  *evidence*: `EXP-002`, `EXP-011`, `EXP-012`
+- **Connected information locates the order at which dependence appears.** · rung 2  
+  *scope*: k<=4 discrete variables; requires an outcome-permutation calibration to be an answer  
+  *evidence*: `EXP-011`, `EXP-012`
+- **MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.** · rung 3  
+  *scope*: 10/10 motifs across development, frozen held-out and independently authored corpora; hand-annotated typed structures, not natural text  
+  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`
+- **Structural correspondence cannot distinguish a genuine analogue from a vacuous statement of the same shape.** · rung 3  
+  *scope*: proved for isomorphic structures: any function of structure alone scores them equally  
+  *evidence*: `EXP-026`, `EXP-027`
+- **Retention obeys an exact closed form: 1 - influence(hidden)/H(outcome).** · rung 2  
+  *scope*: verified to 1e-16 over all 65,536 functions at k=4; a robustness law, NOT a measure of how participants jointly organise  
+  *evidence*: `EXP-015`, `EXP-016`, `EXP-021`
+- **Relational structure is not reducible to a scalar, nor to a pair of profiles.** · rung 2  
+  *scope*: at k=3 the two profiles suffice; at k=4 they do not. The complete invariant is one number per subset  
+  *evidence*: `EXP-022`, `EXP-023`
+
+**PROVISIONAL**
+
+- **The correspondence measure transfers to topologies it was not developed against.** · rung 2  
+  *scope*: 5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process  
+  *evidence*: `EXP-005`
+
+**UNTESTED**
+
+- **The measure is invariant to how the same process is legitimately re-encoded (mediator nodes, hyperedge vs factor node, subdivision, latent variables).**  
+  *scope*: named as the next foundational test family. Vocabulary and label invariance are shown; representation invariance is not  
+  *evidence*: —
+- **Any of this reaches a claim about physical reality.**  
+  *scope*: unsupported and not currently testable. Prediction P6 says it will not, and P6 stands  
+  *evidence*: —
+
+**DEMOTED / REPLACED**
+
+- **The higher-order remainder statistic measures synergy.**  
+  *scope*: conflated synergy with redundancy; replaced by connected information (C-02)  
+  *evidence*: `EXP-002`, `EXP-011`
+
+**REFUTED / RETRACTED**
+
+- **F-09 bridge value: discounting a match by genericness defends against the attractive-nonsense failure.**  
+  *scope*: refuted by arithmetic, not by experiment - isomorphic structures have identical genericness, so the discount subtracts the same number from both at any strength  
+  *evidence*: `EXP-027`
+
+```bash
+cd lab
+python3 run_exp000a.py   # the penalty pathology
+python3 run_exp000b.py   # criticality blindness
+python3 run_exp000c.py   # harness self-test — run this before trusting anything
+python3 run_exp009.py    # cycle sign by typed composition
+python3 run_exp002.py    # higher-order recovery -- the arity claim
+python3 run_exp011.py    # the replacement measure, connected information
+python3 run_exp012.py    # adversarial stress test of the replacement
+python3 run_exp010.py    # the observer's three choices, measured
+python3 run_exp013.py    # is the partial-observation cliff general?
+python3 run_exp014.py    # exhaustive census, all 256 functions of 3 variables
+python3 run_exp015.py    # k=4 census + the closed form, verified
+python3 run_exp016.py    # the law under noise, and where it stops being safe
+python3 run_exp017.py    # the reordering audit -- which parameters change the ranking
+python3 run_exp018.py    # retention re-reported per participant
+python3 run_exp019.py    # asymmetric families -- and the bug they caught
+python3 run_exp020.py    # systematic census by influence profile
+python3 run_exp021.py    # interaction structure census -- what the law cannot see
+python3 run_exp022.py    # are the two instruments together complete?
+python3 run_exp023.py    # is there a minimal sufficient summary? (no)
+python3 run_exp005.py    # cross-generator transfer -- does it work on unseen shapes?
+python3 run_exp024.py    # the search corpus, d_A, and does it actually retrieve?
+python3 run_exp025.py    # the fix, tested on a corpus frozen before it existed
+python3 run_exp026.py    # the independent corpus -- nobody here wrote it
+python3 run_exp027.py    # the retraction, and F-09 refuted by arithmetic
+
+cd ..
+python3 render/figures.py     # regenerate the SVGs
+python3 render/dashboard.py   # rebuild the study page
+python3 gen_docs.py           # regenerate this README from manifest.json
+python3 check_manifest.py     # FAILS if any of the above has drifted
+```
+<!-- END GENERATED: experiments -->
 
 ### The findings worth your time
 
@@ -268,7 +364,11 @@ friend is wrong but doesn't reliably know it's *more* wrong than an unrelated do
 hint of what was being tested — and frozen before it ran. **The claim holds 4 of 4**, with
 paraphrase and analogue tying again on annotations nobody here produced.
 
-**And the generic document outranks the analogue on 3 of 4 — structurally correctly.** Its
+**And the generic document ties the analogue exactly — structurally correctly.**
+*(This originally read "outranks the analogue on 3 of 4". That was **RETRACTED** by
+`EXP-027`: the ordering came from a `sorted()` tie-break on Python's per-process-salted
+`hash()`, and the scores are equal in the last bit. The reasoning below is unchanged — the
+generic is isomorphic to the query, so an exact tie is the correct answer.)* Its
 structure is a four-cycle with three increases and one decrease closing the loop, which is
 *isomorphic to the query*; the real analogue has its decrease in a different position and matches
 slightly less exactly. A vacuous statement can have perfect structure. "Systems change, factors
@@ -296,37 +396,8 @@ neither of two results dominates, saying they are incomparable beats inventing w
 ## Running it
 
 Python 3.12, standard library only. No dependencies, no network, no API calls.
+The run list is generated above, in **What currently survives**.
 
-```bash
-cd lab
-python3 run_exp000a.py     # the penalty pathology
-python3 run_exp000b.py     # criticality blindness
-python3 run_exp000c.py     # harness self-test — run this before trusting anything
-python3 run_exp009.py      # cycle sign by typed composition
-python3 run_exp002.py      # higher-order recovery -- the arity claim
-python3 run_exp011.py      # the replacement measure, connected information
-python3 run_exp012.py      # adversarial stress test of the replacement
-python3 run_exp010.py      # the observer's three choices, measured
-python3 run_exp013.py      # is the partial-observation cliff general?
-python3 run_exp014.py      # exhaustive census, all 256 functions of 3 variables
-python3 run_exp015.py      # k=4 census + the closed form, verified
-python3 run_exp016.py      # the law under noise, and where it stops being safe
-python3 run_exp017.py      # the reordering audit -- which parameters change the ranking
-python3 run_exp018.py      # retention re-reported per participant
-python3 run_exp019.py      # asymmetric families -- and the bug they caught
-python3 run_exp020.py      # systematic census by influence profile
-python3 run_exp021.py      # interaction structure census -- what the law cannot see
-python3 run_exp022.py      # are the two instruments together complete?
-python3 run_exp023.py      # is there a minimal sufficient summary? (no)
-python3 run_exp005.py      # cross-generator transfer -- does it work on unseen shapes?
-python3 run_exp024.py      # the search corpus, d_A, and does it actually retrieve?
-python3 run_exp025.py      # the fix, tested on a corpus frozen before it existed
-python3 run_exp026.py      # the independent corpus -- nobody here wrote it
-
-cd ../render
-python3 figures.py         # regenerate the SVGs
-python3 dashboard.py       # rebuild the study page
-```
 
 Any new measure enters through `run_exp000c.py`'s six controls before it gets discussed.
 
