@@ -525,6 +525,20 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "the template floor -- one mechanism behind four findings"
+    },
+    {
+      "id": "EXP-041",
+      "question": "Q-27 \u2014 can the representation express an ARN analogy at all, before building an annotator?",
+      "result": "**Yes \u2014 PROCEED.** Correct answer and distractor are typed-isomorphic on **0 of 20** items (95% CI 0\u20130.168); untyped 2/20. And the confound points the safe way: a four-relation template *flattens* structures together, so a low rate is trustworthy where a high one would not be. **EXP-030's failure was the annotator, not the representation** \u2014 agreeing with EXP-040. But distinctness is a weak bar: it clears identifiability and shows nothing about whether a good annotator exists. 3/3 predictions",
+      "status": "complete",
+      "rung": 2,
+      "stage": 2,
+      "entry_point": "lab/run_exp041.py",
+      "result_file": "results/exp041.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "Stage 2 pre-test -- is the distinction even in the representation?"
     }
   ],
   "claims": [

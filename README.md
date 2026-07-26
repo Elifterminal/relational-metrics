@@ -76,6 +76,7 @@ current. That check exists because both happened.
 | `EXP-038` | Q-36 — report the margin instead of the win count | **Partly un-says EXP-036.** Same blind data: mean margin **+0.1808 bits**, 95% CI **[+0.019, +0.343]** excluding zero, t *p* = 0.032, Wilcoxon *p* = 0.043 — significant on both. **But fragile**: leave-one-out survives only 5/10, worst case *p* = 0.070. Sighted effect size 2.045 vs blind 0.799 — inflation of **2.6×**, larger than the 1.34× measured on rates. So the effect is real AND it was inflated. Analysis chosen **post-hoc**; flagged, not excused |
 | `EXP-039` | Does an independent annotator, told nothing, reproduce the retrieval effect? | **Effect size 0.788 — within 1.5% of my blind 0.799 and 39% of my sighted 2.045.** So `R-18` is confirmed from outside at **~2.6× inflation**, and the effect underneath is **real**. Both tests significant (t 0.046, Wilcoxon 0.043), CI excludes zero — **but leave-one-out survives 3/9, so FRAGILE, NOT ESTABLISHED** per the plan locked at `6a9aa8e` before any computation. Four advance predictions, four correct. The annotator declined 8 documents outright; I never once did across the same 60 |
 | `EXP-040` | Q-38/Q-34 — which relations did I invent, measured against an independent annotator? | **I was annotating to a template.** My sighted pass **never used fewer than 4 relations on any of 60 documents** (80% exactly 4); the independent annotator ranged 0–5 with its mode at 25%. I wrote more on **49 of 60** and fewer on **zero**. My sighted counts tracked sentence length *less* (+0.57) than my own blind counts (+0.79). On all 6 documents they refused entirely, I wrote exactly 4. One measured mechanism behind EXP-035's invented edge, EXP-032's 2.6× inflation and EXP-033's 9-word glosses |
+| `EXP-041` | Q-27 — can the representation express an ARN analogy at all, before building an annotator? | **Yes — PROCEED.** Correct answer and distractor are typed-isomorphic on **0 of 20** items (95% CI 0–0.168); untyped 2/20. And the confound points the safe way: a four-relation template *flattens* structures together, so a low rate is trustworthy where a high one would not be. **EXP-030's failure was the annotator, not the representation** — agreeing with EXP-040. But distinctness is a weak bar: it clears identifiability and shows nothing about whether a good annotator exists. 3/3 predictions |
 
 ### What currently survives
 
@@ -177,6 +178,7 @@ python3 run_exp037.py    # power analysis -- and the information the binary test
 python3 run_exp038.py    # margins, not coin flips -- and a fragile positive
 python3 run_exp039.py    # the second annotator -- real, inflated, and fragile
 python3 run_exp040.py    # the template floor -- one mechanism behind four findings
+python3 run_exp041.py    # Stage 2 pre-test -- is the distinction even in the representation?
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs

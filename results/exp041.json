@@ -1,0 +1,221 @@
+{
+  "experiment": "EXP-041",
+  "question": "Q-27",
+  "plan_locked_at": "83ad980c049e07ca4455b3f13c3e4a5de58202e3",
+  "plan_sha256": "ac6d2e9cefc0d014",
+  "items_scored": 20,
+  "excluded": [],
+  "typed_isomorphic": 0,
+  "typed_isomorphism_rate": 0.0,
+  "ci95": [
+    0.0,
+    0.168
+  ],
+  "untyped_isomorphic": 2,
+  "untyped_isomorphism_rate": 0.1,
+  "confound": "annotations are mine and EXP-040 established I annotate to a floor of four relations. A LOW isomorphism rate is safe from this -- a template would flatten structures together, not push them apart. A HIGH rate would be ambiguous",
+  "what_this_does_not_show": "that a good annotator exists. Only that the representation does not rule one out.",
+  "rows": [
+    {
+      "item": "1027",
+      "relations": [
+        3,
+        3,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "104",
+      "relations": [
+        4,
+        4,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "159",
+      "relations": [
+        3,
+        4,
+        4
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": true
+    },
+    {
+      "item": "17",
+      "relations": [
+        3,
+        4,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "176",
+      "relations": [
+        4,
+        3,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "243",
+      "relations": [
+        3,
+        4,
+        4
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "295",
+      "relations": [
+        4,
+        3,
+        4
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "338",
+      "relations": [
+        4,
+        4,
+        4
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": true
+    },
+    {
+      "item": "394",
+      "relations": [
+        3,
+        3,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "411",
+      "relations": [
+        2,
+        2,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "441",
+      "relations": [
+        3,
+        4,
+        4
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "54",
+      "relations": [
+        4,
+        4,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "599",
+      "relations": [
+        4,
+        3,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "658",
+      "relations": [
+        4,
+        4,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "68",
+      "relations": [
+        4,
+        3,
+        4
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "748",
+      "relations": [
+        4,
+        2,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "75",
+      "relations": [
+        4,
+        4,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "762",
+      "relations": [
+        3,
+        3,
+        4
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "907",
+      "relations": [
+        3,
+        3,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    },
+    {
+      "item": "96",
+      "relations": [
+        3,
+        4,
+        3
+      ],
+      "typed_isomorphic": false,
+      "untyped_isomorphic": false
+    }
+  ],
+  "verdict": "PROCEED -- the representation is adequate. Correct and distractor are structurally distinct on the great majority of items, so EXP-030's failure was the ANNOTATOR, not the representation"
+}

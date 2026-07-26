@@ -297,8 +297,32 @@ real, timing, and provenance. And scale — everything stays small and exhaustiv
 prose question is answered.</div>
 
 <h2>Stage 2 findings</h2>
-<div class="read sub"><b>None yet.</b> The charter above was written first, on purpose. Findings
-appear here as they run, in the same form as Stage 1's — including the ones that go badly.</div>
+
+<h3>S2-1 — the representation isn't the blocker</h3>
+<p class="sub">Plan locked in version control before the experiment ran.</p>
+<p>Deliberately a pre-test rather than an attempt. One of Stage 1's hardest-won rules is: before
+building a measure, try to prove it impossible. Stage 2 proposes an automatic reader for real prose —
+so first, can the representation even <i>hold</i> the difference between a genuine analogy and a
+decoy? If those two come out structurally identical, no reader can separate them and Stage 2 is over
+before it starts.</p>
+<div class="read ok"><b>Structurally identical on zero of twenty items.</b> The correct answer and
+the decoy differ in every single case. Dropping the relation types merges two of them, which means
+the types were carrying the whole distinction there — worth knowing when choosing what a reader
+should output.</div>
+<div class="read"><b>And the known bias in this data works <i>against</i> the result, which is why
+it's usable.</b> These annotations are mine, and I annotate to a four-relation template. A template
+<i>flattens</i> structures together — it can't push them apart. So a low identical-rate is
+trustworthy in a way a high one wouldn't have been. It survived a bias pointed the wrong way.</div>
+<div class="read ok"><b>What that settles:</b> the earlier failure on real narrative text was the
+<b>reader</b>, not the representation. Which matches, from a completely different direction, the
+finding that I was annotating to a template rather than to the text.</div>
+<div class="read warn"><b>And the much smaller thing it actually shows.</b> Two structures differing
+is not the same as differing <i>in the direction that favours the right answer</i>. The earlier
+failure included thirteen cases where structures differed but the scores tied. This clears one
+specific obstacle — the distinction being absent from the representation — and nothing else.<br><br>
+The locked plan says it in advance: this does not show that a good reader exists, only that the
+representation doesn't rule one out.</div>
+<div class="read sub"><b>Three predictions, written before running, all three correct.</b></div>
 
 <h2>Methodology changes</h2>
 <div class="read sub"><b>None yet.</b> Every change to the charter gets logged here with its date and
