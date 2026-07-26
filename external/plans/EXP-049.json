@@ -1,0 +1,23 @@
+{
+  "experiment": "EXP-049",
+  "question": "For each candidate Stage 3 domain, which of its central questions are identifiable from typed binary relational structure, and which are provably not?",
+  "why_first": "P-21 and P-22 together. Before choosing a domain, rule out the ones where the distinction they care about is absent from the representation. A witness pair proves impossibility in an afternoon and saves committing to a domain that cannot work. Stage 2 was closed partly because this screen was never run on it.",
+  "soundness_is_one_directional": "A witness pair PROVES a question is not identifiable. Failing to construct one proves nothing — it may mean I did not think of the right pair. So this screen rules domains OUT and can never rule one IN. Every 'identifiable' verdict below means only 'not ruled out here'.",
+  "the_bias_i_control_and_cannot_remove": "I am choosing both the domains' central questions AND the witness pairs. Two degrees of freedom, both mine. A domain could be exonerated because I picked a question it happens to handle, or condemned because I picked an unrepresentative one. This is stated because it cannot be engineered away without a practitioner from each domain, which the project does not have.",
+  "method": "For each (domain, question) pair: construct two cases that a practitioner would need DIFFERENT answers for, encode both as typed directed structures under the current representation, and test isomorphism exhaustively. Isomorphic + different answers required = not identifiable.",
+  "statistic": "per (domain, question): identifiable / not identifiable, plus the channel that would be required to fix it",
+  "tests": "exhaustive bijection search over node relabellings, including normalised relation weights (the magnitude channel added in EXP-034). No statistics -- these are proofs or they are nothing.",
+  "exclusion_rule": "none. Every constructed pair is reported, including pairs that fail to be isomorphic, because a failed refutation is informative about what the representation DOES carry.",
+  "robustness": "each domain gets at least two questions -- one expected to pass and one expected to fail -- so a domain reported as wholly viable or wholly dead is visibly the result of the questions chosen rather than of the screen being unable to discriminate.",
+  "falsification": [
+    "every question in every domain comes back identifiable -> the screen has no discriminating power as built, probably because my witness pairs are too weak. Report as a failed screen, not as good news.",
+    "every question comes back not-identifiable -> the representation is narrower than EXP-048 suggests and Stage 3 has no viable domain on this list.",
+    "a mix -> the useful outcome: a map of which QUESTIONS are viable, which is finer-grained than which domains are."
+  ],
+  "predictions": [
+    {"claim": "the four channels proved absent in EXP-031 will do most of the ruling out -- temporal order, ontological role, provenance, specificity", "confidence": "high"},
+    {"claim": "no domain will be wholly dead or wholly viable; the answer will be per-question", "confidence": "high"},
+    {"claim": "the questions that survive will mostly be 'are these two structures analogous' -- i.e. the thing EXP-048 already established -- rather than anything new", "confidence": "medium", "reason": "if so, Stage 3 would be applying a known capability to new data rather than testing a new one, which is a weaker proposition and should be said plainly"},
+    {"claim": "magnitude questions will now pass, having failed before EXP-034 added the weight channel", "confidence": "medium-high"}
+  ]
+}
