@@ -86,6 +86,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);
 <button class="tab" data-panel="project">The thesis</button>
 <button class="tab" data-panel="findings">Tests &amp; results</button>
 <button class="tab" data-panel="stage2">Stage 2 &mdash; text to structure</button>
+<button class="tab" data-panel="vanta">For Vanta</button>
 </nav>
 
 <div class="panel active" id="method">
@@ -455,6 +456,155 @@ it.</b></div>
 reason, rather than edited silently into the text above. Stage 1 had three occasions where a
 predeclared rule turned out to be too coarse for the result that arrived; each was recorded rather
 than quietly adjusted, and that is the habit being carried forward.</div>
+</div>
+
+<div class="panel" id="vanta">
+<h2 style="margin-top:0">For Vanta</h2>
+<p class="sub">Written for someone building something adjacent, who wants the machinery rather than
+the conclusions. The science here is modest. The apparatus is the part worth stealing.</p>
+
+<div class="read ok"><b>The headline claim of this page, stated plainly: after 45 experiments, the
+most valuable thing produced is not a formula. It is a laboratory that catches its own errors —
+including a dozen of mine, several after I had already published them.</b><br><br>
+That is not modesty. It is the actual ranking. The relational results are real and small; the
+apparatus is general and transfers to anything you want to be careful about.</div>
+
+<h3>1. The one insight everything else follows from</h3>
+<div class="read warn" style="border-left-color:#15803d"><b>The mechanisms a program checks held.
+The mechanisms that relied on me remembering failed.</b><br><br>
+That split is clean and it is not a metaphor. Every discipline in this project that was written into
+code survived contact with a long working day. Every discipline that lived in a document, or in my
+intention to be careful, failed at least once — usually while I was actively thinking about being
+careful.<br><br>
+So: <b>if a rule matters, make it something that refuses to run.</b> Not a checklist. Not a
+convention. An exception.</div>
+
+<h3>2. How the tests are tracked</h3>
+<p>One file — <code>manifest.json</code> — is the only place an experiment or a claim is described.
+Everything a reader sees is generated from it: this page's counts, the claim tables, the README's
+experiment list, the run commands.</p>
+<div class="read"><b>Why that matters.</b> Early on this page said "Four runs" while the repository
+was at experiment twenty-seven, and the README still carried a claim that had been retracted the day
+before. Both were hand-maintained copies of facts that live in one place, so both drifted. Fixing the
+copies would have guaranteed a third occurrence.<br><br>
+<b>A checker fails the build if:</b> a runner has no manifest entry, an entry has no runner, a result
+file is missing, a retracted claim appears anywhere without a retraction beside it, the page's
+experiment count disagrees with the manifest, or a generated block was edited by hand.<br><br>
+<b>And I verified the checker can fail</b>, by introducing each of those four faults against a copy
+of the tree and confirming it caught all four. A check that cannot fail is not a check — which this
+project learned the hard way, twice.</div>
+
+<h3>3. How results are tracked</h3>
+<p>Every experiment writes a JSON result containing not just the numbers but the plan it was run
+under, the commit that locked that plan, and the verdict bands. The write itself is guarded:</p>
+<div class="read"><b>A result that omits its margin statistics, its leave-one-out check, or its
+abstention rate is refused.</b> Not warned about — refused. It's a few lines
+(<code>protocol2.Stage2Result.write</code>) and it means the reporting standard cannot quietly
+degrade at 2am.<br><br>
+Likewise <code>require_locked_plan</code> refuses to run an experiment whose analysis plan is not
+<i>committed to version control</i>, containing a statistic, tests, an exclusion rule, a robustness
+threshold, falsification conditions and predictions. It refused one of my own plans today for a
+missing section, which is exactly the moment such a thing earns its place.</div>
+
+<h3>4. The false results, and what caught each one</h3>
+<p>This is the part that matters. Every one of these was published or about to be, and every one was
+caught by a mechanism written down before it was needed.</p>
+<table><thead><tr><th>what went wrong</th><th>what caught it</th></tr></thead><tbody>
+<tr><td><b>A published claim that was a coin flip.</b> A ranking read off Python's <code>hash()</code>,
+which is randomised per process. Three runs gave three different orders; one became a finding.</td>
+<td>Building the next experiment and noticing the numbers had moved. Now impossible: rankings return
+<b>tied groups</b>, and a measure that cannot separate two things has to say so.</td></tr>
+<tr><td><b>A control that could not fail.</b> "Invariant to unit conversion" was published from the
+first experiment onward. The measure never read the quantity being changed, so it could not have
+failed.</td><td>An expressivity audit run for a different reason. The control now <b>measures its own
+capacity to fail</b> on every run — it perturbs the property it holds fixed and requires the measure
+to notice.</td></tr>
+<tr><td><b>A relation I invented.</b> A document says diversity leads to options leads to outcomes.
+It never says outcomes feed back to diversity. My notes contained that link — and it was the one that
+made a meaningless document look identical to a real one, which I then published a conclusion
+about.</td><td>An independent annotator producing the same documents differently, and a systematic
+comparison rather than a spot check.</td></tr>
+<tr><td><b>A template I didn't know I had.</b> Across sixty documents I never once wrote fewer than
+four relations. Eighty percent were exactly four. An independent annotator ranged from zero to five
+and refused six outright; I refused none.</td><td>The same independent comparison. The bias was
+invisible from inside and obvious from outside — which is the general lesson.</td></tr>
+<tr><td><b>A number reported twice without a test.</b> Six-out-of-ten was described as "degraded but
+present" across two experiments. It is p = 0.75. A coin flip.</td><td>Building a power analysis for
+a different purpose. The rule now: <b>a fraction is not a measurement until it has been compared with
+what chance would produce.</b></td></tr>
+<tr><td><b>An analysis switched after the first came back empty.</b> The classic route to a false
+positive.</td><td>Nothing caught it — I did it knowingly and <b>flagged it rather than excusing
+it</b>. The result is published with "this is not pre-registered and I will not describe it as such"
+attached. Sometimes the honest move is a label, not a fix.</td></tr>
+<tr><td><b>My own experiment design, twice.</b> A sweep whose rounding made both arms equally damaged,
+so it swept nothing. And a control rule that fired wrongly because the far end of a sweep broke its
+assumption.</td><td>Checking that the generator produced what the plan claimed — <i>after</i> running,
+which is too late and is itself now a rule.</td></tr>
+</tbody></table>
+
+<h3>5. The habits, each with the failure that taught it</h3>
+<table><thead><tr><th>habit</th><th>what it cost to learn</th></tr></thead><tbody>
+<tr><td><b>Predeclare what would prove you wrong — and predict the outcome, then score it.</b></td>
+<td>Scoring predictions is how you find out your model of your own bias is accurate. Mine was, to
+within 1.5%, and that was more reassuring than any p-value.</td></tr>
+<tr><td><b>Lock the analysis plan in version control before computing anything.</b></td>
+<td>Once, the data arrived while I was still writing about intending to pre-register. A control you
+are about to build is not a control.</td></tr>
+<tr><td><b>Before building a measure, try to prove it impossible.</b> Find two cases needing different
+answers whose representations are identical.</td><td>Two experiments spent discovering this by
+failing. The test version then found three more dead ends in an afternoon.</td></tr>
+<tr><td><b>Report the margin, not the win count.</b></td><td>The binary version needed 199 test cases
+where the margin needed 12. The evidence was not weak; the summary was.</td></tr>
+<tr><td><b>Leave-one-out on every positive.</b></td><td>Two significant results collapse if you remove
+one case. Both would have been published as findings.</td></tr>
+<tr><td><b>Size the study before running it.</b></td><td>Ten cases can only detect a near-perfect
+measure. We ran that design repeatedly without noticing it could only ever confirm.</td></tr>
+<tr><td><b>Test the cheap control before the expensive one.</b></td><td>The afternoon-long test
+mattered more than the commissioned corpus, and I built it second.</td></tr>
+<tr><td><b>Corrections in place, original wording struck through.</b></td><td>Two retractions and a
+corrected premise are still visible on this site, in their original words. Editing them away would
+have removed the only evidence that the process works.</td></tr>
+<tr><td><b>Verify references before building on them.</b></td><td>Three outside answers were used;
+every citation was checked against a primary source first. All held — which is only knowable because
+they were checked.</td></tr>
+<tr><td><b>The annotator and the evaluator must be different parties, by construction.</b></td>
+<td>The single largest defect here. I annotated the data and judged the results, and it inflated the
+headline effect by a factor of 2.6.</td></tr>
+</tbody></table>
+
+<h3>6. What transfers, concretely</h3>
+<div class="read"><b>None of this is about relational metrics.</b> The parts that transfer are:
+<br><br>
+<b>The manifest pattern.</b> One machine-readable source of truth for what you have done and what you
+currently claim; generate every human-readable surface from it; fail the build on drift. Roughly 250
+lines total. It has caught staleness three times.<br><br>
+<b>The locked-plan pattern.</b> Refuse to compute until the analysis is committed. This is the single
+highest-value thing here and it costs about forty lines.<br><br>
+<b>The capacity-to-fail assertion.</b> For every control, perturb the property it holds fixed and
+require your measure to notice. Controls that cannot fail are extremely common and completely
+invisible until you test for them.<br><br>
+<b>The witness-pair pre-test.</b> Before building any measure, try to construct two cases that need
+different answers and look identical to your representation. If you find one, stop. It is sound in
+one direction only — finding a pair is a proof, failing to find one is not — and it is astonishingly
+cheap for what it saves.<br><br>
+<b>An outside party for anything involving judgement.</b> Not a second opinion. A second
+<i>producer</i>, blind to what you are testing. Bias that is invisible from inside is often obvious
+from outside, and there is no amount of care that substitutes.</div>
+
+<h3>7. What the lab did not catch, in fairness</h3>
+<div class="read warn"><b>It never caught anything on its own initiative.</b> Every error above was
+found because I was building the <i>next</i> thing and tripped over the last one. The apparatus makes
+errors <i>findable</i> and makes them <i>impossible to quietly bury once found</i>. It does not
+search.<br><br>
+<b>Four predeclared verdict rules turned out too coarse for their own results</b>, all on the same
+day and all the same shape: a global rule applied to a swept design, where the far end of the sweep
+breaks the rule's assumption. Predeclaring a threshold makes it fixed, not correct.<br><br>
+<b>And it is slow.</b> Forty-five experiments produced two solid claims and a lot of carefully
+documented negatives. If you need speed more than you need to be right, this is the wrong
+apparatus.</div>
+
+<div class="read ok"><b>If you take one thing:</b> write the rule as something that refuses to run.
+Everything else here is downstream of that.</div>
 </div>
 
 <div class="panel" id="findings">
