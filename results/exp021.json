@@ -1,0 +1,142 @@
+{
+  "experiment": "EXP-021",
+  "question": "can anything we measure see interaction structure?",
+  "k=3": {
+    "k": 3,
+    "scored": 254,
+    "fourier_vs_combinatorial_max_error": 0.0,
+    "machinery_verified": true,
+    "distinct_interaction_profiles": 13,
+    "distinct_level_profiles": 13,
+    "distinct_influence_profiles": 10,
+    "influence_profiles_with_multiple_interaction_profiles": 1,
+    "max_interaction_profiles_per_influence_profile": 4,
+    "retention_blind_groups": 2,
+    "worst_witness": {
+      "influence_profile": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "H": 0.8113,
+      "retention_vector": [
+        0.3837,
+        0.3837,
+        0.3837
+      ],
+      "fn_a_truth_table": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fn_a_level_weights": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "fn_b_truth_table": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "fn_b_level_weights": [
+        0.25,
+        0.0,
+        0.75,
+        0.0
+      ],
+      "max_level_weight_gap": 0.5
+    }
+  },
+  "k=4": {
+    "k": 4,
+    "scored": 65534,
+    "fourier_vs_combinatorial_max_error": 0.0,
+    "machinery_verified": true,
+    "distinct_interaction_profiles": 161,
+    "distinct_level_profiles": 144,
+    "distinct_influence_profiles": 59,
+    "influence_profiles_with_multiple_interaction_profiles": 30,
+    "max_interaction_profiles_per_influence_profile": 17,
+    "retention_blind_groups": 45,
+    "worst_witness": {
+      "influence_profile": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "H": 1.0,
+      "retention_vector": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "fn_a_truth_table": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fn_a_level_weights": [
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      "fn_b_truth_table": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "fn_b_level_weights": [
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "max_level_weight_gap": 1.0
+    }
+  },
+  "axes_are_independent": true,
+  "retention_is_blind_to_interaction_structure": true
+}

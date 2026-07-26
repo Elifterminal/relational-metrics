@@ -47,6 +47,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-018` | Do the retention conclusions survive proper reporting? | **Mostly — one doesn't.** Quantisation and the 0.5 class hold. "Only parity vanishes" was a best-case artifact: 2 → 38 structures vanish under worst case |
 | `EXP-019` | Add asymmetric test families | **Found an index-reversal bug on the first run** — one the old worlds were *provably unable* to detect. Also sharpened the diagnosis: influence-symmetry, not permutation-symmetry |
 | `EXP-020` | Census asymmetry systematically | Asymmetry is quantised (10 profiles at k=3, 59 at k=4). **Nameable functions are influence-symmetric 1.8×–6.1× more often than the population, and the bias grows with arity** |
+| `EXP-021` | Can anything here see *interaction* structure? | **The predictive law cannot — provably.** Two structures with identical retention predictions, one three-quarters pure pairwise, the other spread across every order |
 
 ### The findings worth your time
 
@@ -165,6 +166,21 @@ thoughtful about which examples to choose would have made it *worse*, because th
 choices are the canonical ones. The fix is to build condition sets by **enumerating the property
 under test** rather than by collecting examples.
 
+**And the predictive law turns out to be a robustness law, not a structure law.** Influence is a
+*marginal* of the full interaction structure, so retention — which depends on influence and
+outcome entropy and nothing else — is blind to how participants interact with each other. Two
+structures can share an influence profile and an entropy, giving *identical* retention predictions
+to the last decimal, while one puts three quarters of its organisation at order 2 with nothing at
+orders 1 or 3 and the other spreads evenly across all of them. There are 2 such groups at three
+participants and 45 at four.
+
+That lands on the thesis rather than beside it: this project exists because configurations are
+supposed to carry structure their parts do not, and its one predictive equation cannot see
+interaction order at all. Both things are true — the law is exact and useful, and it is not a
+measure of relational organisation. Connected information has the mirror-image blindness (it sees
+order, not which participant carries what), which suggests the honest instrument is the pair, and
+that a single scalar for "relational structure" was never available.
+
 ## Honest limits
 
 - Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
@@ -195,6 +211,7 @@ python3 run_exp017.py      # the reordering audit -- which parameters change the
 python3 run_exp018.py      # retention re-reported per participant
 python3 run_exp019.py      # asymmetric families -- and the bug they caught
 python3 run_exp020.py      # systematic census by influence profile
+python3 run_exp021.py      # interaction structure census -- what the law cannot see
 
 cd ../render
 python3 figures.py         # regenerate the SVGs
@@ -216,6 +233,7 @@ lab/
   maxent.py          connected information via maximum-entropy hierarchy (IPF)
   stressworlds.py    adversarial worlds built to break the measure
   asymworlds.py      families whose participants differ in importance
+  fourier.py         Walsh-Fourier spectrum: interaction structure by order
   hyperworlds.py     synthetic worlds with a KNOWN interaction order
   worlds.py          the condition set — A/B/C/D/E/F plus a held-out case
   impostors.py       seven deliberately cheating methods

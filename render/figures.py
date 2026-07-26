@@ -962,6 +962,70 @@ def fig_naming(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 19 — two structures the retention law cannot tell apart
+# ---------------------------------------------------------------------------
+
+def fig_blind(data: dict) -> str:
+    W, H = 780, 380
+    L, R, T, B = 96, 250, 96, 62
+    pw, ph = W - L - R, H - T - B
+    w = data["k=3"]["worst_witness"]
+    a, b = w["fn_a_level_weights"], w["fn_b_level_weights"]
+    n = len(a)
+
+    out = ['<text class="ttl" x="24" y="26">Two structures with identical predictions and opposite organisation</text>',
+           '<text class="sub" x="24" y="45">Same influence profile, same outcome entropy — so the '
+           'retention law gives them the same answer, exactly.</text>',
+           f'<text class="sub" x="24" y="66">Identical retention vector: '
+           f'<tspan font-weight="600">{esc(str(w["retention_vector"]))}</tspan>'
+           f'   ·   influence {esc(str(w["influence_profile"]))}   ·   H={w["H"]}</text>']
+
+    gw = pw / n
+    for d in range(n):
+        x = L + d * gw
+        out.append(f'<text class="lbl" x="{x+gw/2:.1f}" y="{T+ph+20}" '
+                   f'text-anchor="middle">order {d}</text>')
+    for i in range(5):
+        v = i / 4
+        y = T + ph - v * ph
+        out.append(f'<line class="ax" x1="{L}" y1="{y:.1f}" x2="{L+pw}" y2="{y:.1f}"/>')
+        out.append(f'<text class="tick" x="{L-9}" y="{y+4:.1f}" text-anchor="end">{v:.2f}</text>')
+    out.append(f'<text class="lbl" transform="translate(26,{T+ph/2:.0f}) rotate(-90)" '
+               'text-anchor="middle">share of the structure</text>')
+
+    bw = gw * 0.34
+    for d in range(n):
+        x = L + d * gw + gw * 0.14
+        for k, (v, col) in enumerate(((a[d], "#2563eb"), (b[d], "#dc2626"))):
+            hgt = v * ph
+            out.append(f'<rect x="{x + k*bw:.1f}" y="{T+ph-hgt:.1f}" '
+                       f'width="{bw*0.86:.1f}" height="{max(hgt,1):.1f}" '
+                       f'fill="{col}" rx="2"/>')
+            if v > 0:
+                out.append(f'<text class="tick" x="{x + k*bw + bw*0.43:.1f}" '
+                           f'y="{T+ph-hgt-6:.1f}" text-anchor="middle" '
+                           f'fill="{col}">{v:.2f}</text>')
+
+    ly = T + 6
+    for lbl, col in (("structure A", "#2563eb"), ("structure B", "#dc2626")):
+        out.append(f'<rect x="{L+pw+20}" y="{ly-9}" width="13" height="12" '
+                   f'fill="{col}" rx="2"/>')
+        out.append(f'<text class="lbl" x="{L+pw+39}" y="{ly+1}">{esc(lbl)}</text>')
+        ly += 22
+    for lbl in ["", "A spreads its organisation",
+                "evenly across every order.", "",
+                "B puts THREE QUARTERS of",
+                "itself at order 2 and has",
+                "NOTHING at orders 1 or 3.", "",
+                "The law returns the same",
+                "number for both — not",
+                "approximately, exactly."]:
+        out.append(f'<text class="sub" x="{L+pw+20}" y="{ly}">{esc(lbl)}</text>')
+        ly += 15
+    return svg(W, H, "".join(out), "Retention blindness witness")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1038,6 +1102,7 @@ def main() -> None:
     e18 = json.loads((RESULTS / "exp018.json").read_text())
     e19 = json.loads((RESULTS / "exp019.json").read_text())
     e20 = json.loads((RESULTS / "exp020.json").read_text())
+    e21 = json.loads((RESULTS / "exp021.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1063,6 +1128,7 @@ def main() -> None:
         "fig16_vector.svg": fig_vector(e18),
         "fig17_asym.svg": fig_asym(e19),
         "fig18_naming.svg": fig_naming(e20),
+        "fig19_blind.svg": fig_blind(e21),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

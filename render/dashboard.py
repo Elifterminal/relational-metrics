@@ -329,6 +329,18 @@ def build() -> str:
     e18 = json.loads((RESULTS / "exp018.json").read_text())
     e19 = json.loads((RESULTS / "exp019.json").read_text())
     e20 = json.loads((RESULTS / "exp020.json").read_text())
+    e21 = json.loads((RESULTS / "exp021.json").read_text())
+    ix_rows = "".join(
+        f"<tr><td>{lbl}</td><td>{e21['k=3'][key]:,}</td><td>{e21['k=4'][key]:,}</td></tr>"
+        for lbl, key in (
+            ("distinct influence profiles", "distinct_influence_profiles"),
+            ("distinct interaction profiles", "distinct_interaction_profiles"),
+            ("influence profiles with &gt;1 interaction profile",
+             "influence_profiles_with_multiple_interaction_profiles"),
+            ("most interaction profiles sharing one influence profile",
+             "max_interaction_profiles_per_influence_profile"),
+            ("groups with identical retention, different interaction structure",
+             "retention_blind_groups")))
     nm_rows = "".join(
         f"<tr><td><code>{n}</code></td><td>{v['profile']}</td>"
         f"<td>{v['spread']:.4f}</td>"
@@ -1167,6 +1179,51 @@ build the test set by <b>enumerating the property you care about</b> — influen
 than by collecting examples. That is a rule with teeth, because it says <i>where</i> the examples
 must come from rather than merely asking for more of them.</div>
 
+<h2>Finding 18 — what the predictive equation cannot see</h2>
+<p>The census so far measured how much each participant matters <i>on its own</i>. That is a
+first-order quantity, and the Fourier expansion of a Boolean function shows exactly how
+first-order it is: influence is a <b>marginal</b> of the full interaction structure —
+<code>I<sub>j</sub> = Σ<sub>S∋j</sub> f̂(S)²</code>. Marginals lose information. The question is
+whether the lost information is real, and whether anything here can see it.</p>
+<p class="sub">Machinery verified first: Fourier-derived influence against the combinatorial
+influence used everywhere else, maximum error <b>0.00e+00</b> at both arities.</p>
+
+<h3>Interaction structure is a genuinely separate axis</h3>
+<table><thead><tr><th></th><th>k=3</th><th>k=4</th></tr></thead><tbody>{ix_rows}</tbody></table>
+<p>Quantised again — 13 interaction profiles at three participants, 161 at four. And
+<b>independent</b>: at four participants, 30 influence profiles map to more than one interaction
+profile, with as many as <b>17</b> distinct interaction structures sharing a single influence
+profile. Knowing how much each participant matters tells you substantially less than knowing how
+they interact.</p>
+
+<h3>And the law is blind to it — provably, not approximately</h3>
+<p>Retention is <code>1 − Influence / H</code>. It depends on influence and outcome entropy and on
+nothing else. So any two structures sharing both get <i>identical</i> retention vectors, whatever
+their interaction structure. Such pairs exist: <b>2 groups at three participants, 45 at four</b>.</p>
+<div class="fig">{figs['fig19_blind.svg']}</div>
+<div class="read warn"><b>The witness.</b> Two structures with the same influence profile, the same
+entropy, and therefore the same predicted retention down to the last decimal — where one spreads
+its organisation evenly across every interaction order and the other puts <b>three quarters of
+itself at order 2 with nothing at orders 1 or 3</b>. The law returns the same number for both. Not
+approximately the same. The same.</div>
+
+<h3>What that means, stated plainly</h3>
+<div class="read"><b>The retention law is a robustness law, not a structure law.</b> It is exact,
+verified to 10⁻¹⁶, and it tells you what you stand to <i>lose</i> when a participant goes missing.
+It does not tell you what you <i>had</i>. Two systems organised in completely different ways —
+one purely pairwise, one distributed across every order — are indistinguishable to it.<br><br>
+That lands directly on the thesis rather than off to the side. The project exists because
+configurations are supposed to carry structure their parts do not, and the one predictive equation
+it has produced <b>cannot see interaction order at all</b>. Both things are true: the law is real
+and useful, and it is not a measure of relational organisation. Conflating those would have been
+the natural next mistake, and it is better to have it established deliberately than to meet it
+later as a surprise.</div>
+<div class="read ok"><b>The constructive reading.</b> Connected information already measures
+interaction order, and it is blind to which participant carries what. The retention law measures
+per-participant importance and is blind to order. They are complementary blindnesses on the same
+object, which suggests the honest instrument is the pair rather than either alone — and that a
+single scalar for "relational structure" was never going to exist.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1202,6 +1259,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The predictive equation is a robustness law, not a structure law — and that is
+now proved, not suspected.</b> Two structures can share an influence profile and an entropy, and
+therefore an identical retention prediction, while one is three-quarters pure pairwise
+organisation and the other is spread evenly across every order. The law cannot distinguish them at
+all. It says what you stand to lose, never what you had. Connected information has the mirror-image
+blindness — it sees order and not which participant carries what — which suggests the instrument
+is the pair, and that a single scalar for "relational structure" was never available.</div>
 <div class="q"><b>The test-set bias was structural, not careless.</b> Functions nameable in
 English are influence-symmetric 1.8× more often than the population at three participants and
 6.1× more often at four — and the factor grows with arity. Being more thoughtful about which
