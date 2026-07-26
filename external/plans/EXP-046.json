@@ -1,0 +1,22 @@
+{
+  "experiment": "EXP-046",
+  "question": "Is the signal BURIED in the prose annotations, or ABSENT from them?",
+  "why_this_is_the_real_Q-40_test": "Q-40 proposes a hedge channel so manufactured relations can be filtered out. That only helps if the useful structure is present and obscured. If no subset of what the reader wrote carries signal, then filtering cannot help however well it is done, and Q-40 is dead regardless of how the hedge is implemented.",
+  "method": "For each item, search over subsets of the annotated relations for the subset maximising the margin. Then ask whether the best-subset margin is larger than what the same search finds on SHUFFLED data.",
+  "the_hazard_and_the_control": "Searching for a subset that produces signal will find one by chance -- that is guaranteed, not a risk. So the observed best-subset margin is meaningless on its own. It is compared against a null built by running the IDENTICAL search on data where the correct/distractor labels have been permuted. Only the excess over that null counts.",
+  "statistic": "mean best-subset margin across items, minus the mean best-subset margin from the label-permuted null. Reported with the null distribution, not as a bare number.",
+  "tests": "permutation test, 2000 label shuffles, each with the full subset search re-run. Two-sided.",
+  "search_space": "subsets of the QUERY's relations only, sizes 1..n, exhaustive. Candidate annotations are left whole -- otherwise the search space is cubic and the null becomes intractable. This is a deliberate narrowing and it means a negative result does not rule out that filtering the CANDIDATES would help.",
+  "exclusion_rule": "items whose query has more than 8 relations are excluded to keep the exhaustive search tractable; count reported.",
+  "robustness": "report how often the best subset is the FULL set. If the full set usually wins, there is nothing to filter and that is itself the answer.",
+  "falsification": [
+    "excess over the permuted null not significant -> the signal is ABSENT, not buried. Q-40 is dead: no hedge channel can recover what is not there. Report and stop.",
+    "excess significant -> the signal is buried and filtering could in principle recover it. Q-40 lives and a commission is justified.",
+    "best subset is usually the full set -> nothing to filter; same conclusion as the first band."
+  ],
+  "predictions": [
+    {"claim": "the excess over the permuted null will NOT be significant -- the signal is absent, not buried", "confidence": "medium-high", "reason": "EXP-030 found my own blind annotation of ARN carried no signal by a raw matched-relation count, which is already a subset-insensitive measure. Two independent annotators have now produced nothing on this text. The simplest explanation is that these analogies do not survive reduction to typed binary relations at all."},
+    {"claim": "the best subset will frequently be a strict subset, not the full set -- because a search over many subsets always finds one", "confidence": "high", "reason": "that is what the permutation control exists to neutralise"},
+    {"claim": "if this comes back negative I will report Q-40 as dead rather than proposing a third variant of it", "confidence": "n/a -- a commitment, not a prediction"}
+  ]
+}
