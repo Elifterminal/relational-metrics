@@ -1,0 +1,1121 @@
+{
+  "seed": 30300726,
+  "key": [
+    {
+      "passage_id": "9463b52afe86",
+      "corpus": "dev",
+      "doc_id": "m1_D",
+      "motif": "reinforcing",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "original_gloss": "Flow concentrates in a channel, deepens it, which draws more flow.",
+      "sighted": [
+        [
+          "capacity",
+          "flow",
+          "POS"
+        ],
+        [
+          "capacity",
+          "rival_channels",
+          "NEG"
+        ],
+        [
+          "flow",
+          "incision",
+          "POS"
+        ],
+        [
+          "incision",
+          "capacity",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "b7f4fab77eb6",
+      "corpus": "dev",
+      "doc_id": "m1_P",
+      "motif": "reinforcing",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "original_gloss": "Erosion widens a gully; the wider gully carries more water still.",
+      "sighted": [
+        [
+          "crosssection",
+          "adjacent_gullies",
+          "NEG"
+        ],
+        [
+          "crosssection",
+          "discharge",
+          "POS"
+        ],
+        [
+          "discharge",
+          "scour",
+          "POS"
+        ],
+        [
+          "scour",
+          "crosssection",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "4bcf788a2bbc",
+      "corpus": "dev",
+      "doc_id": "m1_X",
+      "motif": "reinforcing",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "original_gloss": "Perfusion drives remodelling; the wider vessel takes more perfusion.",
+      "sighted": [
+        [
+          "caliber",
+          "collaterals",
+          "PRUNES"
+        ],
+        [
+          "caliber",
+          "perfusion",
+          "GROWS"
+        ],
+        [
+          "perfusion",
+          "remodelling",
+          "GROWS"
+        ],
+        [
+          "remodelling",
+          "caliber",
+          "GROWS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "8a5fac8f79e9",
+      "corpus": "dev",
+      "doc_id": "m1_W",
+      "motif": "reinforcing",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "original_gloss": "Same words, opposite wiring: deposition FILLS the channel and chokes flow.",
+      "sighted": [
+        [
+          "capacity",
+          "flow",
+          "NEG"
+        ],
+        [
+          "flow",
+          "incision",
+          "POS"
+        ],
+        [
+          "incision",
+          "capacity",
+          "NEG"
+        ],
+        [
+          "rival_channels",
+          "capacity",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "3f975401e24c",
+      "corpus": "dev",
+      "doc_id": "m1_V",
+      "motif": "reinforcing",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "original_gloss": "Systems change over time as energy moves through them.",
+      "sighted": [
+        [
+          "change",
+          "state",
+          "POS"
+        ],
+        [
+          "energy",
+          "system",
+          "POS"
+        ],
+        [
+          "state",
+          "system",
+          "POS"
+        ],
+        [
+          "system",
+          "change",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "23126404330d",
+      "corpus": "dev",
+      "doc_id": "m1_U",
+      "motif": "reinforcing",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "original_gloss": "Vowel shifts in Middle English are dated by rhyme evidence.",
+      "sighted": [
+        [
+          "dating",
+          "chronology",
+          "POS"
+        ],
+        [
+          "manuscript",
+          "rhyme",
+          "POS"
+        ],
+        [
+          "rhyme",
+          "dating",
+          "POS"
+        ],
+        [
+          "scribe",
+          "manuscript",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "2395d49d2ff3",
+      "corpus": "dev",
+      "doc_id": "m2_D",
+      "motif": "regulating",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "original_gloss": "Rising temperature triggers sweating, which lowers temperature.",
+      "sighted": [
+        [
+          "sensor",
+          "sweating",
+          "POS"
+        ],
+        [
+          "setpoint",
+          "sensor",
+          "NEG"
+        ],
+        [
+          "sweating",
+          "temperature",
+          "NEG"
+        ],
+        [
+          "temperature",
+          "sensor",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "acbc56295f14",
+      "corpus": "dev",
+      "doc_id": "m2_P",
+      "motif": "regulating",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "original_gloss": "A rise in core heat drives evaporative loss until the rise is cancelled.",
+      "sighted": [
+        [
+          "core_heat",
+          "detector",
+          "POS"
+        ],
+        [
+          "detector",
+          "evaporation",
+          "POS"
+        ],
+        [
+          "evaporation",
+          "core_heat",
+          "NEG"
+        ],
+        [
+          "target",
+          "detector",
+          "NEG"
+        ]
+      ]
+    },
+    {
+      "passage_id": "b7f773cd1da2",
+      "corpus": "dev",
+      "doc_id": "m2_X",
+      "motif": "regulating",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "original_gloss": "Price rises draw supply, and the added supply pushes price back down.",
+      "sighted": [
+        [
+          "expectation",
+          "signal",
+          "LOWERS"
+        ],
+        [
+          "price",
+          "signal",
+          "RAISES"
+        ],
+        [
+          "signal",
+          "supply",
+          "RAISES"
+        ],
+        [
+          "supply",
+          "price",
+          "LOWERS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "10b8518aa5d6",
+      "corpus": "dev",
+      "doc_id": "m2_W",
+      "motif": "regulating",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "original_gloss": "Same words, runaway wiring: sweating RAISES temperature further.",
+      "sighted": [
+        [
+          "sensor",
+          "sweating",
+          "POS"
+        ],
+        [
+          "setpoint",
+          "sensor",
+          "POS"
+        ],
+        [
+          "sweating",
+          "temperature",
+          "POS"
+        ],
+        [
+          "temperature",
+          "sensor",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "c7ab432d8d7a",
+      "corpus": "dev",
+      "doc_id": "m2_V",
+      "motif": "regulating",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "original_gloss": "Feedback is important in many systems.",
+      "sighted": [
+        [
+          "behaviour",
+          "feedback",
+          "POS"
+        ],
+        [
+          "context",
+          "system",
+          "POS"
+        ],
+        [
+          "feedback",
+          "system",
+          "POS"
+        ],
+        [
+          "system",
+          "behaviour",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "9ecb1ddc0198",
+      "corpus": "dev",
+      "doc_id": "m2_U",
+      "motif": "regulating",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "original_gloss": "Cleavage planes in mica arise from sheet silicate bonding.",
+      "sighted": [
+        [
+          "bonding",
+          "sheets",
+          "POS"
+        ],
+        [
+          "cleavage",
+          "fracture",
+          "POS"
+        ],
+        [
+          "pressure",
+          "bonding",
+          "POS"
+        ],
+        [
+          "sheets",
+          "cleavage",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "faa58b874b04",
+      "corpus": "dev",
+      "doc_id": "m3_D",
+      "motif": "cascade",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "original_gloss": "One line trips, load shifts, the next line overloads and trips.",
+      "sighted": [
+        [
+          "line_a",
+          "load_shift",
+          "POS"
+        ],
+        [
+          "line_b",
+          "overload",
+          "POS"
+        ],
+        [
+          "load_shift",
+          "line_b",
+          "POS"
+        ],
+        [
+          "overload",
+          "outage",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "8e8b976d5be9",
+      "corpus": "dev",
+      "doc_id": "m3_P",
+      "motif": "cascade",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "original_gloss": "A failed conductor pushes current onto neighbours until they fail too.",
+      "sighted": [
+        [
+          "conductor",
+          "redistribution",
+          "POS"
+        ],
+        [
+          "neighbour",
+          "thermal_limit",
+          "POS"
+        ],
+        [
+          "redistribution",
+          "neighbour",
+          "POS"
+        ],
+        [
+          "thermal_limit",
+          "blackout",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "a486a7e7da29",
+      "corpus": "dev",
+      "doc_id": "m3_X",
+      "motif": "cascade",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "original_gloss": "A default forces asset sales, depressing prices, forcing further defaults.",
+      "sighted": [
+        [
+          "counterparty",
+          "margin_breach",
+          "DRIVES"
+        ],
+        [
+          "default",
+          "forced_sale",
+          "DRIVES"
+        ],
+        [
+          "forced_sale",
+          "counterparty",
+          "DRIVES"
+        ],
+        [
+          "margin_breach",
+          "insolvency",
+          "DRIVES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "b32c9b6657d5",
+      "corpus": "dev",
+      "doc_id": "m3_W",
+      "motif": "cascade",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "original_gloss": "Same words, no propagation: each line is independently protected.",
+      "sighted": [
+        [
+          "line_a",
+          "overload",
+          "POS"
+        ],
+        [
+          "line_b",
+          "overload",
+          "POS"
+        ],
+        [
+          "load_shift",
+          "outage",
+          "NEG"
+        ],
+        [
+          "overload",
+          "load_shift",
+          "NEG"
+        ]
+      ]
+    },
+    {
+      "passage_id": "8c2d23983e1a",
+      "corpus": "dev",
+      "doc_id": "m3_V",
+      "motif": "cascade",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "original_gloss": "Events can lead to other events.",
+      "sighted": [
+        [
+          "consequence",
+          "context",
+          "POS"
+        ],
+        [
+          "consequence",
+          "event",
+          "POS"
+        ],
+        [
+          "context",
+          "event",
+          "POS"
+        ],
+        [
+          "event",
+          "consequence",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "bb746ed1a023",
+      "corpus": "dev",
+      "doc_id": "m3_U",
+      "motif": "cascade",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "original_gloss": "Grafting compatibility depends on cambium alignment.",
+      "sighted": [
+        [
+          "alignment",
+          "union",
+          "POS"
+        ],
+        [
+          "cambium",
+          "alignment",
+          "POS"
+        ],
+        [
+          "rootstock",
+          "cambium",
+          "POS"
+        ],
+        [
+          "union",
+          "vigour",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "4955f316100c",
+      "corpus": "holdout",
+      "doc_id": "m4_D",
+      "motif": "inhibition",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "original_gloss": "Each population suppresses the other; whichever leads wins outright.",
+      "sighted": [
+        [
+          "drive",
+          "pop_a",
+          "POS"
+        ],
+        [
+          "drive",
+          "pop_b",
+          "POS"
+        ],
+        [
+          "pop_a",
+          "pop_b",
+          "NEG"
+        ],
+        [
+          "pop_b",
+          "pop_a",
+          "NEG"
+        ]
+      ]
+    },
+    {
+      "passage_id": "69eb7e1437be",
+      "corpus": "holdout",
+      "doc_id": "m4_P",
+      "motif": "inhibition",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "original_gloss": "Two assemblies inhibit one another under common drive; one dominates.",
+      "sighted": [
+        [
+          "assembly_x",
+          "assembly_y",
+          "NEG"
+        ],
+        [
+          "assembly_y",
+          "assembly_x",
+          "NEG"
+        ],
+        [
+          "input",
+          "assembly_x",
+          "POS"
+        ],
+        [
+          "input",
+          "assembly_y",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "6488190c8094",
+      "corpus": "holdout",
+      "doc_id": "m4_X",
+      "motif": "inhibition",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "original_gloss": "Two species suppress each other for one niche; one excludes the other.",
+      "sighted": [
+        [
+          "resource",
+          "species_1",
+          "FEEDS"
+        ],
+        [
+          "resource",
+          "species_2",
+          "FEEDS"
+        ],
+        [
+          "species_1",
+          "species_2",
+          "SUPPRESSES"
+        ],
+        [
+          "species_2",
+          "species_1",
+          "SUPPRESSES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "96f2bf386d90",
+      "corpus": "holdout",
+      "doc_id": "m4_W",
+      "motif": "inhibition",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "original_gloss": "Same words, cooperative wiring: the populations reinforce each other.",
+      "sighted": [
+        [
+          "drive",
+          "pop_a",
+          "POS"
+        ],
+        [
+          "drive",
+          "pop_b",
+          "NEG"
+        ],
+        [
+          "pop_a",
+          "pop_b",
+          "POS"
+        ],
+        [
+          "pop_b",
+          "pop_a",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "951ac5582222",
+      "corpus": "holdout",
+      "doc_id": "m4_V",
+      "motif": "inhibition",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "original_gloss": "Components in a system influence one another.",
+      "sighted": [
+        [
+          "component",
+          "influence",
+          "POS"
+        ],
+        [
+          "influence",
+          "component",
+          "POS"
+        ],
+        [
+          "influence",
+          "system",
+          "POS"
+        ],
+        [
+          "system",
+          "component",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "05a3c5526af6",
+      "corpus": "holdout",
+      "doc_id": "m4_U",
+      "motif": "inhibition",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "original_gloss": "Optical sizing adjusts stroke contrast at small point sizes.",
+      "sighted": [
+        [
+          "contrast",
+          "legibility",
+          "POS"
+        ],
+        [
+          "legibility",
+          "reading_rate",
+          "POS"
+        ],
+        [
+          "master",
+          "point_size",
+          "POS"
+        ],
+        [
+          "point_size",
+          "contrast",
+          "NEG"
+        ]
+      ]
+    },
+    {
+      "passage_id": "29eda2d201fe",
+      "corpus": "holdout",
+      "doc_id": "m5_D",
+      "motif": "threshold",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "original_gloss": "Charge accumulates until breakdown, which discharges and resets it.",
+      "sighted": [
+        [
+          "breakdown",
+          "discharge",
+          "POS"
+        ],
+        [
+          "charge",
+          "breakdown",
+          "POS"
+        ],
+        [
+          "current",
+          "charge",
+          "POS"
+        ],
+        [
+          "discharge",
+          "charge",
+          "NEG"
+        ]
+      ]
+    },
+    {
+      "passage_id": "97d7a8117a11",
+      "corpus": "holdout",
+      "doc_id": "m5_P",
+      "motif": "threshold",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "original_gloss": "Stored potential builds to a firing point, dumps, and the store empties.",
+      "sighted": [
+        [
+          "dump",
+          "store",
+          "NEG"
+        ],
+        [
+          "firing_point",
+          "dump",
+          "POS"
+        ],
+        [
+          "store",
+          "firing_point",
+          "POS"
+        ],
+        [
+          "supply",
+          "store",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "2c1a99701686",
+      "corpus": "holdout",
+      "doc_id": "m5_X",
+      "motif": "threshold",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "original_gloss": "Strain accumulates on a fault until rupture releases it and resets stress.",
+      "sighted": [
+        [
+          "plate_motion",
+          "strain",
+          "BUILDS"
+        ],
+        [
+          "rupture",
+          "slip",
+          "BUILDS"
+        ],
+        [
+          "slip",
+          "strain",
+          "RELIEVES"
+        ],
+        [
+          "strain",
+          "rupture",
+          "BUILDS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "ab7f4145c16a",
+      "corpus": "holdout",
+      "doc_id": "m5_W",
+      "motif": "threshold",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "original_gloss": "Same words, no reset: discharge feeds charge and it never empties.",
+      "sighted": [
+        [
+          "breakdown",
+          "discharge",
+          "POS"
+        ],
+        [
+          "charge",
+          "breakdown",
+          "POS"
+        ],
+        [
+          "current",
+          "charge",
+          "POS"
+        ],
+        [
+          "discharge",
+          "charge",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "c9e1ee5d931b",
+      "corpus": "holdout",
+      "doc_id": "m5_V",
+      "motif": "threshold",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "original_gloss": "Quantities can increase and decrease over time.",
+      "sighted": [
+        [
+          "level",
+          "quantity",
+          "POS"
+        ],
+        [
+          "level",
+          "time",
+          "POS"
+        ],
+        [
+          "quantity",
+          "level",
+          "POS"
+        ],
+        [
+          "time",
+          "quantity",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "385da63ccc96",
+      "corpus": "holdout",
+      "doc_id": "m5_U",
+      "motif": "threshold",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "original_gloss": "Citation slips are filed by headword before sense division.",
+      "sighted": [
+        [
+          "editor",
+          "slip",
+          "POS"
+        ],
+        [
+          "headword",
+          "sense",
+          "POS"
+        ],
+        [
+          "sense",
+          "entry",
+          "POS"
+        ],
+        [
+          "slip",
+          "headword",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "1f9755abdd9e",
+      "corpus": "holdout",
+      "doc_id": "m6_D",
+      "motif": "substitution",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "original_gloss": "The main pathway is blocked, so flux reroutes through a bypass.",
+      "sighted": [
+        [
+          "bypass",
+          "product",
+          "POS"
+        ],
+        [
+          "inhibitor",
+          "main_path",
+          "NEG"
+        ],
+        [
+          "main_path",
+          "bypass",
+          "NEG"
+        ],
+        [
+          "main_path",
+          "product",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "9ba96b7c0151",
+      "corpus": "holdout",
+      "doc_id": "m6_P",
+      "motif": "substitution",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "original_gloss": "With the primary route shut, throughput moves to the secondary route.",
+      "sighted": [
+        [
+          "blocker",
+          "primary",
+          "NEG"
+        ],
+        [
+          "primary",
+          "output",
+          "POS"
+        ],
+        [
+          "primary",
+          "secondary",
+          "NEG"
+        ],
+        [
+          "secondary",
+          "output",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "ae463a729af9",
+      "corpus": "holdout",
+      "doc_id": "m6_X",
+      "motif": "substitution",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "original_gloss": "The preferred link fails, so traffic fails over to the backup path.",
+      "sighted": [
+        [
+          "backup_link",
+          "delivery",
+          "CARRIES"
+        ],
+        [
+          "fault",
+          "preferred_link",
+          "BLOCKS"
+        ],
+        [
+          "preferred_link",
+          "backup_link",
+          "BLOCKS"
+        ],
+        [
+          "preferred_link",
+          "delivery",
+          "CARRIES"
+        ]
+      ]
+    },
+    {
+      "passage_id": "0cfafc156f09",
+      "corpus": "holdout",
+      "doc_id": "m6_W",
+      "motif": "substitution",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "original_gloss": "Same words, no substitution: blocking the main path just stops output.",
+      "sighted": [
+        [
+          "bypass",
+          "main_path",
+          "POS"
+        ],
+        [
+          "bypass",
+          "product",
+          "NEG"
+        ],
+        [
+          "inhibitor",
+          "main_path",
+          "NEG"
+        ],
+        [
+          "main_path",
+          "product",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "96510ab7198d",
+      "corpus": "holdout",
+      "doc_id": "m6_V",
+      "motif": "substitution",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "original_gloss": "When something stops working, other things may happen.",
+      "sighted": [
+        [
+          "outcome",
+          "thing",
+          "POS"
+        ],
+        [
+          "state",
+          "outcome",
+          "POS"
+        ],
+        [
+          "state",
+          "thing",
+          "POS"
+        ],
+        [
+          "thing",
+          "state",
+          "POS"
+        ]
+      ]
+    },
+    {
+      "passage_id": "c97833b7b023",
+      "corpus": "holdout",
+      "doc_id": "m6_U",
+      "motif": "substitution",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "original_gloss": "Method ringing permutes bell order by fixed transposition rules.",
+      "sighted": [
+        [
+          "band",
+          "rule",
+          "POS"
+        ],
+        [
+          "permutation",
+          "row",
+          "POS"
+        ],
+        [
+          "row",
+          "peal",
+          "POS"
+        ],
+        [
+          "rule",
+          "permutation",
+          "POS"
+        ]
+      ]
+    }
+  ]
+}

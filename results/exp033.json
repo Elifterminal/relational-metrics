@@ -1,0 +1,449 @@
+{
+  "experiment": "EXP-033",
+  "question": "Q-30",
+  "corpus_defect_found": {
+    "glosses_announcing_their_role": 6,
+    "all_of_kind": [
+      "W"
+    ],
+    "note": "the false-friend documents STATE their role in the prose. R-18 reaches back into the corpus text, not just the annotation. Prefixes stripped before annotating"
+  },
+  "divergence": {
+    "documents": 36,
+    "identical_up_to_isomorphism": 1,
+    "mean_shape_overlap": 0.298,
+    "materially_diverged": true
+  },
+  "per_corpus": {
+    "dev": {
+      "rows": [
+        {
+          "motif": "cascade",
+          "ranking": "X > {P=U=V=W}",
+          "analogue_beats_false_friend": true
+        },
+        {
+          "motif": "regulating",
+          "ranking": "W > {P=X} > {U=V}",
+          "analogue_beats_false_friend": false
+        },
+        {
+          "motif": "reinforcing",
+          "ranking": "{P=X} > {U=V} > W",
+          "analogue_beats_false_friend": true
+        }
+      ],
+      "held": 2,
+      "of": 3,
+      "best_match_sighted": 0.817,
+      "best_match_blind": 0.425,
+      "inflation": 1.922,
+      "relations_sighted": 72,
+      "relations_blind": 34,
+      "relation_ratio_blind_over_sighted": 0.472
+    },
+    "holdout": {
+      "rows": [
+        {
+          "motif": "inhibition",
+          "ranking": "{V=W=X} > P > U",
+          "analogue_beats_false_friend": false
+        },
+        {
+          "motif": "substitution",
+          "ranking": "{P=X} > {U=V} > W",
+          "analogue_beats_false_friend": true
+        },
+        {
+          "motif": "threshold",
+          "ranking": "P > {U=W=X} > V",
+          "analogue_beats_false_friend": false
+        }
+      ],
+      "held": 1,
+      "of": 3,
+      "best_match_sighted": 0.733,
+      "best_match_blind": 0.514,
+      "inflation": 1.426,
+      "relations_sighted": 72,
+      "relations_blind": 36,
+      "relation_ratio_blind_over_sighted": 0.5
+    }
+  },
+  "blind_this_run": "3/6",
+  "blind_all_three_corpora": "6/10",
+  "sighted_all_three_corpora": "10/10",
+  "any_corpus_below_half": true,
+  "confound": {
+    "note": "blind annotations of dev/holdout carry ~half the relations of the sighted ones, so inflation here mixes role-knowledge with annotation granularity and cannot be attributed cleanly",
+    "relation_ratio": {
+      "dev": 0.472,
+      "holdout": 0.5
+    },
+    "cleanest_estimate": "the independent corpus (EXP-032), where blind and sighted granularity are comparable at 0.85: 3/4 with 1.34x inflation",
+    "secondary_finding": "dev/holdout glosses average 9 words and their SIGHTED annotation gives each 4 relations. The gloss is the whole document, so those structures encode organisation the text does not contain"
+  },
+  "verdict": "R-18 CONFIRMED AND ENLARGED, but the size is not cleanly measured here. Blind rate falls to 6/10 from 10/10 sighted. The drop is real; how much of it is role-knowledge versus annotation granularity is NOT separable from this run. Cleanest number remains EXP-032's 1.34x on the corpus where granularity matched. Two corpus defects found: false-friend glosses state their role, and sighted structures over-annotate relative to their text",
+  "per_doc": [
+    {
+      "corpus": "dev",
+      "doc_id": "m2_X",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.0
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m4_P",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "blind_relations": 4,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": true,
+      "shape_overlap": 1.0
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m2_U",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "blind_relations": 1,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.4
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m5_V",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.0
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m5_W",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.5
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m3_D",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "blind_relations": 3,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.8
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m5_X",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.0
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m1_D",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "blind_relations": 3,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.4
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m3_V",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "blind_relations": 1,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.0
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m4_D",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.0
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m6_D",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.167
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m6_X",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.0
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m4_V",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.25
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m3_X",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "blind_relations": 3,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.125
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m1_W",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.167
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m6_U",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "blind_relations": 1,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.4
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m3_U",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "blind_relations": 1,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.4
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m5_P",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "blind_relations": 3,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.75
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m2_D",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.5
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m4_U",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "blind_relations": 1,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.0
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m1_U",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "blind_relations": 1,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.4
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m2_V",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "blind_relations": 1,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.2
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m3_P",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.6
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m6_W",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.167
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m1_P",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "blind_relations": 3,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.4
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m4_W",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.0
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m6_P",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.167
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m6_V",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "blind_relations": 1,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.0
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m3_W",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "blind_relations": 1,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.167
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m2_W",
+      "kind": "W",
+      "gloss_announced_role": true,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.5
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m2_P",
+      "kind": "P",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.5
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m1_X",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "blind_relations": 3,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.4
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m5_D",
+      "kind": "D",
+      "gloss_announced_role": false,
+      "blind_relations": 3,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.75
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m5_U",
+      "kind": "U",
+      "gloss_announced_role": false,
+      "blind_relations": 1,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.4
+    },
+    {
+      "corpus": "dev",
+      "doc_id": "m1_V",
+      "kind": "V",
+      "gloss_announced_role": false,
+      "blind_relations": 1,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.2
+    },
+    {
+      "corpus": "holdout",
+      "doc_id": "m4_X",
+      "kind": "X",
+      "gloss_announced_role": false,
+      "blind_relations": 2,
+      "sighted_relations": 4,
+      "identical_up_to_isomorphism": false,
+      "shape_overlap": 0.0
+    }
+  ]
+}

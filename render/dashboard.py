@@ -1952,6 +1952,57 @@ four is thin evidence, but it's the only clean failure, and it has two possible 
 need separating: my blind annotation of it is poor, or that motif's analogue was being carried
 entirely by sighted annotation and never had structure of its own.</div>
 
+
+<h2>Finding 31 — the same test on the other two corpora, and two defects in the corpora themselves</h2>
+<p>One corpus at four motifs is thin evidence for restating a claim, so the blind protocol was
+repeated on the other two — pooled and shuffled together, so I couldn't tell which corpus a
+description came from either.</p>
+
+<h3>Found while building it, and worth more than the scores</h3>
+<div class="read warn" style="border-left-color:#dc2626"><b>Six of the thirty-six documents announce
+their role in their own text.</b> "Same words, opposite wiring:". "Same words, no reset:". "Same
+words, cooperative wiring:". And all six are the <b>decoys</b> — the exact comparison being
+tested.<br><br>So the worry reaches a stage further back than I'd checked. Not just an annotator who
+knew the roles: <b>corpus text that states them</b>. Any annotation from these was never blind for
+the documents that matter most. I stripped the prefixes before annotating and I'm reporting it
+rather than quietly cleaning it up.</div>
+<div class="fig">{figs['fig32_blind_all.svg']}</div>
+
+<h3>The result, and why I can't cleanly interpret it</h3>
+<div class="read warn"><b>Blind, the claim holds 6 times out of 10 across all three corpora — against
+10 out of 10 when annotated by someone who knew the answers.</b> The annotations genuinely diverged
+(1 of 36 identical to the sighted pass), so that isn't memory reproducing the old work.</div>
+<div class="read warn" style="border-left-color:#dc2626"><b>But there's a confound I have to report,
+because it blocks the obvious conclusion.</b> On two of the corpora my blind pass wrote down roughly
+<b>half</b> as many relations as the sighted pass did, from the same text. Fewer relations means less
+to match, whether or not I knew the roles. Only the independent corpus had comparable detail in both
+passes — and that's the one with the smallest drop.<br><br>So the direction is confirmed: knowing the
+answer helps. <b>The size is not measured</b>, and the cleanest number in the project remains the
+1.34× from the corpus where the detail happened to match.</div>
+
+<h3>Except the confound points somewhere worse than it excuses</h3>
+<div class="read warn" style="border-left-color:#dc2626">Those documents average <b>nine words</b>.
+The sighted annotation gives each of them <b>four relations</b>. A nine-word sentence doesn't support
+four typed relations — and the sentence <i>is</i> the whole document; there's no longer text I was
+working from.<br><br><b>So those structures contain organisation that isn't in the documents.</b>
+Whether that came from knowing the role or from ordinary over-elaboration, it means two of the three
+corpora were never testing whether structure can be read out of text. They were testing whether the
+measure can score structures I supplied.</div>
+<div class="read"><b>What I genuinely can't separate:</b> "I annotated richly because I knew the
+role" versus "I annotate more richly when I'm not working through thirty-six terse one-liners at
+speed." Both are effects of the annotator, and this run doesn't distinguish them. My blind pass may
+simply have been less thorough. Saying so isn't hedging — it's the actual state of the evidence, and
+the next control has to fix the granularity before the size of this can be known.</div>
+
+<h3>A pattern in my own predictions</h3>
+<div class="read"><b>Three times today a predeclared rule had no bucket for the result that
+arrived</b>, and each time the automated verdict overstated: counting abstentions as wrong implied
+the measure was reliably backwards; a binary survives-or-collapses met a graded three-out-of-four;
+and a "below half means it fires" rule met a number that was confounded.<br><br>Predeclaring a
+threshold doesn't make the threshold right — it makes it <i>fixed</i>, which only helps if the space
+of possible outcomes was mapped properly first. A result that lands outside every declared bucket is
+evidence the buckets were wrong, not a result to be rounded to the nearest one.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1987,6 +2038,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>Across all three corpora the blind score is 6 of 10, against 10 of 10 sighted —
+and the size of that gap is not yet measurable.</b> On two corpora the blind pass recorded half as
+many relations as the sighted one, which lowers the score independently of role-knowledge. Direction
+confirmed, magnitude unknown, and the control that would settle it is the cheap one I still haven't
+built. Two defects in the corpora also surfaced: decoy documents that state their role in their own
+text, and sighted structures with four relations to a nine-word sentence — organisation the documents
+do not contain.</div>
 <div class="q"><b>Knowing the answer while annotating inflated the results by about a third — and
 the ordering survived anyway.</b> Re-annotating a corpus with the roles hidden, the same documents
 score 1.34× lower, and the paraphrase and analogue lose a perfect match they never deserved. But the

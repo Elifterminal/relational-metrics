@@ -1767,6 +1767,67 @@ def fig_blind_reannotation(e32: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 32 — blind across all three corpora, and the confound
+# ---------------------------------------------------------------------------
+
+def fig_blind_all(e32: dict, e33: dict) -> str:
+    W, H = 800, 400
+    pc = e33["per_corpus"]
+    rows = [
+        ("independent", 3, 4, e32["leak"]["inflation_factor"], 0.85),
+        ("dev", pc["dev"]["held"], pc["dev"]["of"], pc["dev"]["inflation"],
+         pc["dev"]["relation_ratio_blind_over_sighted"]),
+        ("held-out", pc["holdout"]["held"], pc["holdout"]["of"], pc["holdout"]["inflation"],
+         pc["holdout"]["relation_ratio_blind_over_sighted"]),
+    ]
+    out = ['<text class="ttl" x="24" y="26">The same claim, annotated blind, on all three '
+           'corpora</text>',
+           '<text class="sub" x="24" y="45">Sighted, the analogue beat the decoy 10 times out of 10. '
+           'With the roles hidden it is 6 out of 10.</text>']
+
+    L, bw, T, bh = 130, 300, 86, 46
+    out.append(f'<text class="tick" x="{L}" y="{T-8}">score, blind vs sighted</text>')
+    out.append(f'<text class="tick" x="{L+bw+60}" y="{T-8}">inflation</text>')
+    out.append(f'<text class="tick" x="{L+bw+170}" y="{T-8}">relations kept</text>')
+
+    for i, (name, held, of, infl, ratio) in enumerate(rows):
+        y = T + i * bh
+        out.append(f'<text class="lbl" x="{L-12}" y="{y+18}" text-anchor="end">{esc(name)}</text>')
+        cw = bw / of
+        for j in range(of):
+            filled = j < held
+            out.append(f'<rect x="{L + j*cw + 2:.1f}" y="{y+4}" width="{cw-5:.1f}" height="20" '
+                       f'fill="{"#2563eb" if filled else "#e2e8f0"}" '
+                       f'stroke="{"none" if filled else "#94a3b8"}" rx="3"/>')
+        out.append(f'<text class="tick" x="{L+bw+10}" y="{y+19}" font-family="monospace">'
+                   f'{held}/{of}</text>')
+        col = "#dc2626" if infl > 1.5 else "#d97706"
+        out.append(f'<text class="tick" x="{L+bw+70}" y="{y+19}" font-family="monospace" '
+                   f'fill="{col}">{infl:.2f}x</text>')
+        rcol = "#dc2626" if ratio < 0.6 else "#15803d"
+        out.append(f'<text class="tick" x="{L+bw+180}" y="{y+19}" font-family="monospace" '
+                   f'fill="{rcol}">{ratio:.2f}</text>')
+
+    y0 = T + 3 * bh + 20
+    out.append(f'<text class="sub" x="24" y="{y0}" fill="#dc2626">'
+               'But the last column blocks a clean conclusion: on two corpora my blind pass wrote '
+               'down HALF the relations of the</text>')
+    out.append(f'<text class="sub" x="24" y="{y0+15}" fill="#dc2626">'
+               'sighted pass. Fewer relations means less to match, whether or not I knew the '
+               'roles. Only the top row is granularity-matched.</text>')
+    d = e33["corpus_defect_found"]
+    out.append(f'<text class="sub" x="24" y="{y0+40}" fill="#d97706">'
+               f'And two defects in the corpora themselves: {d["glosses_announcing_their_role"]} '
+               'glosses ANNOUNCE their role in the prose — all of them decoys —</text>')
+    out.append(f'<text class="sub" x="24" y="{y0+55}" fill="#d97706">'
+               'and the sighted annotation gives 4 relations to 9-word sentences, encoding '
+               'structure the documents do not contain.</text>')
+    out.append(f'<text class="sub" x="24" y="{y0+78}">'
+               'Direction confirmed: knowing the answer helps. Size still unmeasured.</text>')
+    return svg(W, H, "".join(out), "Blind across three corpora")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1856,6 +1917,7 @@ def main() -> None:
     e30 = json.loads((RESULTS / "exp030.json").read_text())
     e31 = json.loads((RESULTS / "exp031.json").read_text())
     e32 = json.loads((RESULTS / "exp032.json").read_text())
+    e33 = json.loads((RESULTS / "exp033.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1894,6 +1956,7 @@ def main() -> None:
         "fig29_arn.svg": fig_arn(e30),
         "fig30_identifiability.svg": fig_identifiability(e31),
         "fig31_blind.svg": fig_blind_reannotation(e32),
+        "fig32_blind_all.svg": fig_blind_all(e32, e33),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

@@ -68,6 +68,7 @@ current. That check exists because both happened.
 | `EXP-030` | Does it work on an external benchmark — real narratives, outside ground truth, annotated blind? | **No signal** — abstains on 9/20 items, and 4/11 where it discriminates (p = 0.55). But the predeclared diagnostic settles whose failure it is: stripping MDL pricing entirely, the *annotation* favours the correct answer 3/20, ties 13/20, favours the distractor 4/20. **This measured the annotator, not the measure.** Shared shape is 42.8% on real analogies vs 81.7% on the project's own corpora |
 | `EXP-031` | Does the recurring wall have a name — and can it be tested before building a measure? | **Yes to both.** Representation-relative non-identifiability: a *witness pair* — isomorphic structures, different required answers — proves no measure on that representation can work. Certified EXP-027 and EXP-029 as proofs, then found **three dead ends nobody had paid for** (magnitude, temporal order, provenance) and **one vacuous control**: EXP-000a has published weight-invariance since the first experiment, and F-06a never reads weights |
 | `EXP-032` | Q-26 — does the corpus result survive BLIND re-annotation? | **The ordering survives; the magnitude does not.** Blind re-annotation (0/24 identical to sighted, so genuinely divergent) gives **3/4** against sighted 4/4. Corpus held constant, sighted annotation **inflates correspondence 1.34×** and drove paraphrase and analogue to a *perfect* 100% match vs 64.7% blind. But X (64.7%) still clears W (35.3%) — the record was flattered, not fabricated |
+| `EXP-033` | Q-30 — does the blind result hold on the dev and held-out corpora too? | **Blind rate falls to 6/10 across all three corpora, from 10/10 sighted** (dev 2/3, held-out 1/3). But blind annotations of those two carry ~half the relations of the sighted ones, so the drop **mixes role-knowledge with annotation granularity and is not cleanly attributable**. Found two corpus defects: six false-friend glosses **announce their role in the prose**, and sighted structures give 4 relations to 9-word glosses — encoding organisation the documents do not contain |
 
 ### What currently survives
 
@@ -81,9 +82,6 @@ current. That check exists because both happened.
 - **Connected information locates the order at which dependence appears.** · rung 2  
   *scope*: k<=4 discrete variables; requires an outcome-permutation calibration to be an answer  
   *evidence*: `EXP-011`, `EXP-012`
-- **MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.** · rung 3  
-  *scope*: 10/10 motifs across development, frozen held-out and independently authored corpora — but only WITHIN A FIXED REPRESENTATION CONVENTION. Across equivalent re-encodings of the same processes it holds on 2–6 of 6 depending on the encoding (EXP-028) — restored to 10/10 under subdivision once canonicalised (EXP-029). Hand-annotated typed structures, not natural text. EXP-030: on an external benchmark annotated BLIND there is no signal — but the annotation itself carries none either, so the bottleneck is text→structure, not the measure. This claim is about STRUCTURES; the step from text to structure is unsolved and is doing more of the work. EXP-032: under BLIND re-annotation the ordering survives (3/4) but sighted annotation inflates correspondence 1.34× — state corpus claims at the blind rate; sighted figures are an upper bound set by an annotator who knew the answer  
-  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`, `EXP-032`
 - **Structural correspondence cannot distinguish cases whose representations are isomorphic — a general limit, not a defect of this measure.** · rung 3  
   *scope*: representation-relative non-identifiability (EXP-031). Proved by witness pair for: analogue vs vacuous restatement, participant vs mediator, strong vs negligible coupling, delay-driven behaviour, asserted vs observed. Level 1 in the three-level hierarchy — no stronger observer or algorithm helps. Distinct from the Ugly Duckling / observer-relative shape of C-02 and P-01  
   *evidence*: `EXP-026`, `EXP-027`, `EXP-029`, `EXP-031`
@@ -99,18 +97,21 @@ current. That check exists because both happened.
 
 **PROVISIONAL**
 
+- **MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.** · rung 3  
+  *scope*: QUOTE AT THE BLIND RATE: 6/10 across dev, held-out and independent corpora (EXP-032, EXP-033), against 10/10 when annotated by someone who knew each document's role. The drop is confounded by annotation granularity and its size is unmeasured (Q-31). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). Hand-annotated typed structures, not natural text — and on an external benchmark annotated blind there is no signal at all, because the annotation carries none (EXP-030). Two corpus defects outstanding (Q-32)  
+  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`, `EXP-032`, `EXP-033`
 - **The correspondence measure transfers to topologies it was not developed against.** · rung 2  
   *scope*: 5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process  
   *evidence*: `EXP-005`
-- **The corpus results measure analogy detection rather than annotation fidelity — for the ORDERING, though the magnitudes are inflated.** · rung 2  
-  *scope*: EXP-032, one corpus, n=4. Sighted annotation inflates correspondence 1.34× and gave paraphrase and analogue a perfect 100% match they do not deserve, but the analogue/false-friend gap survives blind re-annotation (64.7% vs 35.3%) and the claim holds 3/4. Thin evidence — Q-30 repeats it on two more corpora before this goes to ACTIVE  
-  *evidence*: `EXP-030`, `EXP-032`
 
 **UNTESTED**
 
 - **Any of this reaches a claim about physical reality.**  
   *scope*: unsupported and not currently testable. Prediction P6 says it will not, and P6 stands  
   *evidence*: —
+- **The corpus results measure analogy detection rather than annotation fidelity — for the ORDERING, though the magnitudes are inflated.** · rung 2  
+  *scope*: EXP-032 suggested the ordering survives; EXP-033 weakened that — 6/10 blind across three corpora, confounded by granularity. R-18 is confirmed in direction and unmeasured in size. Needs Q-31 (granularity control) before any verdict  
+  *evidence*: `EXP-030`, `EXP-032`, `EXP-033`
 
 **DEMOTED / REPLACED**
 
@@ -161,6 +162,7 @@ python3 run_exp029.py    # canonicalise before measuring -- subdivision invarian
 python3 run_exp030.py    # ARN benchmark, annotated blind -- and what it reveals about annotation
 python3 run_exp031.py    # the expressivity boundary audit -- test before you build
 python3 run_exp032.py    # blind re-annotation -- how much did knowing the answer help?
+python3 run_exp033.py    # blind protocol on dev + held-out, and two corpus defects
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs

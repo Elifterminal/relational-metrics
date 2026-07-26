@@ -1,0 +1,61 @@
+"""Blind re-annotation of the dev and held-out corpora (Q-30).
+
+Both corpora pooled and shuffled together, roles and motif and corpus stripped,
+and the six false-friend glosses had their role-announcing prefix removed first
+(see q30_pool.py -- they said "Same words, opposite wiring:" and similar).
+
+Same contamination caveat as EXP-032: I annotated these sighted. Divergence is
+measured before the ranking and decides how the ranking may be read.
+"""
+
+Q30 = {
+ "b7f773cd1da2": [("price", "supply", "POS"), ("supply", "price", "NEG")],
+ "69eb7e1437be": [("drive", "assembly_a", "POS"), ("drive", "assembly_b", "POS"),
+                  ("assembly_a", "assembly_b", "NEG"), ("assembly_b", "assembly_a", "NEG")],
+ "9ecb1ddc0198": [("bonding", "cleavage_planes", "POS")],
+ "c9e1ee5d931b": [("quantity_a", "quantity_b", "POS"), ("quantity_b", "quantity_c", "NEG")],
+ "ab7f4145c16a": [("discharge", "charge", "POS"), ("charge", "discharge", "POS")],
+ "faa58b874b04": [("trip", "load_shift", "POS"), ("load_shift", "overload", "POS"),
+                  ("overload", "next_trip", "POS")],
+ "2c1a99701686": [("strain", "rupture", "POS"), ("rupture", "strain", "NEG")],
+ "9463b52afe86": [("flow", "incision", "POS"), ("incision", "capacity", "POS"),
+                  ("capacity", "flow", "POS")],
+ "8c2d23983e1a": [("event_a", "event_b", "POS")],
+ "4955f316100c": [("pop_a", "pop_b", "NEG"), ("pop_b", "pop_a", "NEG")],
+ "1f9755abdd9e": [("block", "main_pathway", "NEG"), ("main_pathway", "bypass", "NEG")],
+ "ae463a729af9": [("failure", "preferred_link", "NEG"),
+                  ("preferred_link", "backup_traffic", "NEG")],
+ "951ac5582222": [("component_a", "component_b", "POS"),
+                  ("component_b", "component_a", "POS")],
+ "a486a7e7da29": [("default", "asset_sales", "POS"), ("asset_sales", "prices", "NEG"),
+                  ("prices", "defaults", "NEG")],
+ "8a5fac8f79e9": [("deposition", "channel_capacity", "NEG"),
+                  ("channel_capacity", "flow", "POS")],
+ "c97833b7b023": [("rules", "permutation", "POS")],
+ "bb746ed1a023": [("cambium_alignment", "compatibility", "POS")],
+ "97d7a8117a11": [("input", "store", "POS"), ("store", "firing", "POS"),
+                  ("firing", "store", "NEG")],
+ "2395d49d2ff3": [("temperature", "sweating", "POS"), ("sweating", "temperature", "NEG")],
+ "05a3c5526af6": [("point_size", "stroke_contrast", "NEG")],
+ "23126404330d": [("rhyme_evidence", "dating", "POS")],
+ "c7ab432d8d7a": [("feedback", "system_behaviour", "POS")],
+ "8e8b976d5be9": [("failure", "neighbour_current", "POS"),
+                  ("neighbour_current", "neighbour_failure", "POS")],
+ "0cfafc156f09": [("block", "main_path", "NEG"), ("main_path", "output", "POS")],
+ "b7f4fab77eb6": [("erosion", "width", "POS"), ("width", "discharge", "POS"),
+                  ("discharge", "erosion", "POS")],
+ "96f2bf386d90": [("pop_a", "pop_b", "POS"), ("pop_b", "pop_a", "POS")],
+ "9ba96b7c0151": [("shutdown", "primary", "NEG"), ("primary", "secondary", "NEG")],
+ "96510ab7198d": [("failure", "consequence", "POS")],
+ "b32c9b6657d5": [("protection", "propagation", "NEG")],
+ "10b8518aa5d6": [("temperature", "sweating", "POS"), ("sweating", "temperature", "POS")],
+ "acbc56295f14": [("core_heat", "evaporative_loss", "POS"),
+                  ("evaporative_loss", "core_heat", "NEG")],
+ "4bcf788a2bbc": [("perfusion", "remodelling", "POS"), ("remodelling", "calibre", "POS"),
+                  ("calibre", "perfusion", "POS")],
+ "29eda2d201fe": [("accumulation", "charge", "POS"), ("charge", "breakdown", "POS"),
+                  ("breakdown", "charge", "NEG")],
+ "385da63ccc96": [("headword", "filing_order", "POS")],
+ "3f975401e24c": [("energy_flow", "system_change", "POS")],
+ "6488190c8094": [("species_a", "species_b", "NEG"), ("species_b", "species_a", "NEG")],
+}
