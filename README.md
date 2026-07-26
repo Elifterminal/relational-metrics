@@ -43,6 +43,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-014` | Is that "~half" real, or a coincidence? | **Both.** Exhaustive census of all 256 Boolean functions: retention is quantised to 7 values and 0.5 is a real class of 56. But the four measurements offered as evidence were two functions plus a noise artifact |
 | `EXP-015` | Does it survive at four variables? | **Yes, and it has a closed form.** `retention = 1 − influence(hidden) / H(outcome)`, verified to 1e-16. 21 distinct values across all 65,536 functions |
 | `EXP-016` | Does the law survive noise? | **The equation does; the ranking doesn't.** A general form is exact at every noise level, and balanced outcomes are exactly noise-invariant. But above ~5% noise the *order* of fragility changes |
+| `EXP-017` | Which parameters reorder results? | **Four of five, including one believed safe.** "Retention" turns out to be one number *per participant you might lose* — best- and worst-case orderings are anti-correlated |
 
 ### The findings worth your time
 
@@ -124,6 +125,15 @@ has maximal influence), why one half is a real class, and the anomalous 0.5401. 
 mathematical result — which is the point. It is a bridge from this project's question to work
 that already exists, and both terms are computable from the structure *before* any measurement.
 
+**Reordering is the default here, not the exception.** Auditing every nuisance parameter for
+whether it changes the *ranking* rather than the values: four of five do. The sharpest is that
+best-case and worst-case retention rank structures slightly **anti**-correlated (−0.117), so
+"retention" is one number per participant you might lose, not one number — and any claim that one
+structure is more fragile than another is incomplete without saying which participant is missing.
+The audit also broke its own positive control, showing an earlier code-stability claim had been
+tested on a condition set that lacked the case which breaks it. Rankings are now reported as
+curves over the nuisance parameter by default.
+
 ## Honest limits
 
 - Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
@@ -150,6 +160,7 @@ python3 run_exp013.py      # is the partial-observation cliff general?
 python3 run_exp014.py      # exhaustive census, all 256 functions of 3 variables
 python3 run_exp015.py      # k=4 census + the closed form, verified
 python3 run_exp016.py      # the law under noise, and where it stops being safe
+python3 run_exp017.py      # the reordering audit -- which parameters change the ranking
 
 cd ../render
 python3 figures.py         # regenerate the SVGs

@@ -1,0 +1,133 @@
+{
+  "experiment": "EXP-017",
+  "question": "which parameters reorder results?",
+  "audits": {
+    "A_retention_vs_arity": {
+      "items": [
+        "and",
+        "first_var",
+        "or",
+        "parity",
+        "threshold2",
+        "threshold_half",
+        "xor_first_two"
+      ],
+      "reference": "k=3",
+      "varied": "k=4",
+      "concordant": 18,
+      "discordant": 0,
+      "ties": 3,
+      "agreement": 1.0,
+      "order_preserved": true
+    },
+    "B_retention_vs_which_hidden": {
+      "items": "254 Boolean functions of 3 variables",
+      "reference": "best case (least influential hidden)",
+      "varied": "worst case (most influential hidden)",
+      "concordant": 9712,
+      "discordant": 12288,
+      "ties": 10131,
+      "agreement": -0.1171,
+      "order_preserved": false
+    },
+    "C_connected_info_vs_sample_size": {
+      "items": [
+        "null",
+        "order1",
+        "order2",
+        "order3",
+        "order3_and",
+        "majority",
+        "redundant"
+      ],
+      "reference": "n=8000",
+      "comparisons": {
+        "n=500": {
+          "concordant": 19,
+          "discordant": 2,
+          "ties": 0,
+          "agreement": 0.8095,
+          "order_preserved": false
+        },
+        "n=2000": {
+          "concordant": 19,
+          "discordant": 2,
+          "ties": 0,
+          "agreement": 0.8095,
+          "order_preserved": false
+        }
+      }
+    },
+    "D_connected_info_vs_noise": {
+      "items": [
+        "null",
+        "order1",
+        "order2",
+        "order3",
+        "order3_and",
+        "majority",
+        "redundant"
+      ],
+      "reference": "noise=0.0",
+      "comparisons": {
+        "noise=0.05": {
+          "concordant": 10,
+          "discordant": 5,
+          "ties": 6,
+          "agreement": 0.3333,
+          "order_preserved": false
+        },
+        "noise=0.15": {
+          "concordant": 9,
+          "discordant": 6,
+          "ties": 6,
+          "agreement": 0.2,
+          "order_preserved": false
+        },
+        "noise=0.3": {
+          "concordant": 9,
+          "discordant": 6,
+          "ties": 6,
+          "agreement": 0.2,
+          "order_preserved": false
+        }
+      }
+    },
+    "E_mdl_vs_code_CONTROL": {
+      "items": [
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "B2"
+      ],
+      "reference": "gamma",
+      "comparisons": {
+        "delta": {
+          "concordant": 14,
+          "discordant": 0,
+          "ties": 1,
+          "agreement": 1.0,
+          "order_preserved": true
+        },
+        "flat32": {
+          "concordant": 11,
+          "discordant": 3,
+          "ties": 1,
+          "agreement": 0.5714,
+          "order_preserved": false
+        }
+      }
+    }
+  },
+  "verdicts": {
+    "A_retention_vs_arity": "order-preserving",
+    "B_retention_vs_which_hidden": "REORDERS",
+    "C_connected_info_vs_sample_size": "REORDERS",
+    "D_connected_info_vs_noise": "REORDERS",
+    "E_mdl_vs_code_CONTROL": "REORDERS"
+  },
+  "n_reordering": 4,
+  "control_behaved": false
+}

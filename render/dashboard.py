@@ -325,6 +325,7 @@ def build() -> str:
     e14 = json.loads((RESULTS / "exp014.json").read_text())
     e15 = json.loads((RESULTS / "exp015.json").read_text())
     e16 = json.loads((RESULTS / "exp016.json").read_text())
+    e17 = json.loads((RESULTS / "exp017.json").read_text())
     n16_rows = "".join(
         f"<tr><td><code>{k}</code></td><td>{v['max_error_general_form']:.1e}</td>"
         f"<td>{v['max_error_deterministic_form']:.4f}</td></tr>"
@@ -966,6 +967,55 @@ are indicative. The existence of discordance is what matters and that is not sam
 <div class="read"><b>Quantisation is untouched.</b> Exactly seven distinct retention values at
 every noise level tested. The values move; the count does not.</div>
 
+<h2>Finding 14 — the reordering audit: it is the norm, not the exception</h2>
+<p>Twice a parameter had changed the <i>order</i> of results rather than their size. Rather than
+meet it a third time by surprise, every nuisance parameter in the project was audited against one
+question: holding everything else fixed, does varying this change the ranking?</p>
+<div class="fig">{figs['fig15_audit.svg']}</div>
+<p><b>Four of five reorder.</b> Magnitude errors are visible and forgivable. Order errors are
+invisible and change decisions, because you act on a ranking, not on an absolute value.</p>
+
+<h3>The one that matters most</h3>
+<div class="read warn"><b>Which participant you lose reorders almost everything.</b> Ranking all
+254 functions by best-case retention and by worst-case retention gives agreement of
+<b>−0.117</b> — slightly <i>anti</i>-correlated, with 12,288 pairs swapping. The structures that
+are most robust when you lose your least important participant are close to the structures that
+are most fragile when you lose your most important one.<br><br><b>So "retention" is not a
+number.</b> It is one number per participant you might lose. The law itself
+(<code>1 − Influence<sub>j</sub> / H</code>) is exact and per-participant, so it was always right;
+what was wrong was summarising it with a best case, which every previous finding here did. Any
+claim of the form "structure X is more fragile than structure Y" is incomplete without saying
+<i>which participant is missing</i>.</div>
+
+<h3>And the positive control failed, which is the useful part</h3>
+<p>The audit included a parameter believed to be order-preserving — the description code — as a
+check that the audit could distinguish stability from noise. It did not come back clean.</p>
+<table><thead><tr><th>code</th><th>ranking under the current measure</th></tr></thead><tbody>
+<tr><td><code>gamma</code></td><td>B &gt; B2 &gt; E &gt; F &gt; C &gt; D</td></tr>
+<tr><td><code>delta</code></td><td>B &gt; B2 &gt; E &gt; F &gt; C &gt; D</td></tr>
+<tr><td><code>flat32</code></td><td><b>F</b> &gt; B &gt; B2 &gt; E &gt; C &gt; D</td></tr>
+</tbody></table>
+<div class="read warn"><b>Under the crude code, the superset distractor ranks first</b> — ahead of
+the true analogue. The earlier claim that the ranking was stable across all three codes was tested
+on a condition set that <i>did not yet contain the superset</i>, and using the gain form rather
+than the ratio. On that narrower set the claim is true. On the full one it is false for the crude
+code.<br><br>Same shape as the over-generalisation two findings ago: a claim true within its test
+set, extended past it. That is now three occurrences, and it appears to be this project's
+characteristic error rather than a series of accidents.</div>
+<div class="read ok"><b>The reassuring half.</b> Among the two <i>reasonable</i> codes the order
+is identical. And the way <code>flat32</code> breaks — ranking a superset above a true analogue —
+is precisely the failure the harness's superset control was built to detect, so a measure built on
+it would be rejected before it was ever used. The safeguard caught it; only the write-up had
+over-reached.</div>
+
+<h3>What this changes</h3>
+<div class="read"><b>New standing rule.</b> Report rankings as a curve over the nuisance
+parameter, not at a point — for noise, sample size, code choice, and which participant is
+missing. Where a single ordering is needed, state the parameter value it holds at. This stops
+being a lesson to rediscover and becomes part of the protocol.<br><br>Arity was the only
+parameter that preserved order cleanly. That is worth knowing too: results can be carried between
+three and four participants without re-ranking.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1001,6 +1051,12 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>Reordering is this project's default, not its exception.</b> Four of five
+audited parameters change the ranking rather than just the values — including one believed safe.
+The most consequential is that "retention" turns out to be one number per participant you might
+lose, not one number: best-case and worst-case orderings are slightly anti-correlated. Reporting
+rankings as curves over the nuisance parameter is now a protocol rule rather than a lesson to be
+relearned.</div>
 <div class="q"><b>The predictive equation survives noise, with a caveat that bites.</b> The
 general form is exact at every noise level, and balanced outcomes turn out to be exactly
 noise-invariant — which retroactively explains an asymmetry the log had used as evidence without

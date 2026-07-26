@@ -750,6 +750,62 @@ def fig_noise(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 15 — the reordering audit
+# ---------------------------------------------------------------------------
+
+def fig_audit(data: dict) -> str:
+    W, H = 800, 360
+    L, R, T, B = 290, 170, 66, 56
+    pw, ph = W - L - R, H - T - B
+    a = data["audits"]
+    rows = [
+        ("arity  (k=3 vs k=4)", a["A_retention_vs_arity"]["agreement"], a["A_retention_vs_arity"]["discordant"]),
+        ("which participant is hidden", a["B_retention_vs_which_hidden"]["agreement"], a["B_retention_vs_which_hidden"]["discordant"]),
+        ("sample size", min(v["agreement"] for v in a["C_connected_info_vs_sample_size"]["comparisons"].values()),
+         max(v["discordant"] for v in a["C_connected_info_vs_sample_size"]["comparisons"].values())),
+        ("noise level", min(v["agreement"] for v in a["D_connected_info_vs_noise"]["comparisons"].values()),
+         max(v["discordant"] for v in a["D_connected_info_vs_noise"]["comparisons"].values())),
+        ("description code  (control)", min(v["agreement"] for v in a["E_mdl_vs_code_CONTROL"]["comparisons"].values()),
+         max(v["discordant"] for v in a["E_mdl_vs_code_CONTROL"]["comparisons"].values())),
+    ]
+
+    out = ['<text class="ttl" x="24" y="26">Does varying this change the ORDER of the answer?</text>',
+           '<text class="sub" x="24" y="44">Rank agreement with the reference setting. 1.0 means '
+           'nothing swapped; below 1.0 means decisions change.</text>']
+
+    def px(v): return L + ((v + 0.25) / 1.25) * pw
+    for tick in (-0.25, 0.0, 0.25, 0.5, 0.75, 1.0):
+        x = px(tick)
+        out.append(f'<line class="ax" x1="{x:.1f}" y1="{T-6}" x2="{x:.1f}" y2="{T+ph}"/>')
+        out.append(f'<text class="tick" x="{x:.1f}" y="{T+ph+18}" '
+                   f'text-anchor="middle">{tick:.2f}</text>')
+    x1 = px(1.0)
+    out.append(f'<line x1="{x1:.1f}" y1="{T-6}" x2="{x1:.1f}" y2="{T+ph}" '
+               'stroke="#15803d" stroke-width="1.6" stroke-dasharray="4 3"/>')
+
+    bh = ph / len(rows)
+    for i, (lbl, agr, disc) in enumerate(rows):
+        y = T + i * bh
+        col = "#15803d" if disc == 0 else ("#dc2626" if agr < 0.5 else "#d97706")
+        out.append(f'<text class="lbl" x="{L-14}" y="{y+bh/2+4:.1f}" '
+                   f'text-anchor="end">{esc(lbl)}</text>')
+        x0, xe = px(-0.25), px(agr)
+        out.append(f'<rect x="{min(x0,xe):.1f}" y="{y+bh*0.24:.1f}" '
+                   f'width="{abs(xe-x0):.1f}" height="{bh*0.52:.1f}" fill="{col}" rx="2"/>')
+        tag = "order preserved" if disc == 0 else f"{disc:,} pairs swap"
+        out.append(f'<text class="tick" x="{xe+9:.1f}" y="{y+bh/2+4:.1f}" '
+                   f'fill="{col}">{agr:.3f} — {tag}</text>')
+
+    out.append(f'<text class="sub" x="24" y="{H-30}">'
+               '"Which participant is hidden" comes out slightly ANTI-correlated: best-case and '
+               'worst-case retention rank structures</text>')
+    out.append(f'<text class="sub" x="24" y="{H-14}">'
+               'almost oppositely. Retention is not one number — it is one number per '
+               'participant you might lose.</text>')
+    return svg(W, H, "".join(out), "Reordering audit")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -822,6 +878,7 @@ def main() -> None:
     e14 = json.loads((RESULTS / "exp014.json").read_text())
     e15 = json.loads((RESULTS / "exp015.json").read_text())
     e16 = json.loads((RESULTS / "exp016.json").read_text())
+    e17 = json.loads((RESULTS / "exp017.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -843,6 +900,7 @@ def main() -> None:
         "fig12_census.svg": fig_census(e14),
         "fig13_k4.svg": fig_k4(e15),
         "fig14_noise.svg": fig_noise(e16),
+        "fig15_audit.svg": fig_audit(e17),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),
