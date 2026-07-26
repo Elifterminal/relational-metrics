@@ -462,6 +462,19 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "margins, not coin flips -- and a fragile positive"
+    },
+    {
+      "id": "EXP-039",
+      "question": "Does an independent annotator, told nothing, reproduce the retrieval effect?",
+      "result": "**Effect size 0.788 \u2014 within 1.5% of my blind 0.799 and 39% of my sighted 2.045.** So `R-18` is confirmed from outside at **~2.6\u00d7 inflation**, and the effect underneath is **real**. Both tests significant (t 0.046, Wilcoxon 0.043), CI excludes zero \u2014 **but leave-one-out survives 3/9, so FRAGILE, NOT ESTABLISHED** per the plan locked at `6a9aa8e` before any computation. Four advance predictions, four correct. The annotator declined 8 documents outright; I never once did across the same 60",
+      "status": "complete",
+      "rung": 3,
+      "entry_point": "lab/run_exp039.py",
+      "result_file": "results/exp039.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the second annotator -- real, inflated, and fragile"
     }
   ],
   "claims": [
@@ -493,7 +506,7 @@
       "claim": "MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.",
       "status": "PROVISIONAL",
       "rung": 3,
-      "scope": "MEASURED ON THE MARGIN (EXP-038), not the win count. Blind: mean +0.1808 bits, 95% CI [+0.019, +0.343] excluding zero, significant on t (p=0.032) and Wilcoxon (p=0.043) \u2014 but FRAGILE: leave-one-out survives 5/10, worst case p=0.070. Sighted inflates the effect size 2.6\u00d7 (2.045 vs 0.799), so the effect is real AND it was inflated. Analysis chosen post-hoc (Q-37 pre-registers the next one). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal on an external benchmark annotated blind, because the annotation carries none (EXP-030). Annotation is still by an interested party \u2014 the second-annotator commission is outstanding",
+      "scope": "INDEPENDENTLY ANNOTATED (EXP-039): effect size 0.788, mean margin +0.165 bits, 95% CI excluding zero, both tests p<0.05 \u2014 but leave-one-act survives 3/9, so **fragile, not established** by the pre-locked rule. Sighted annotation inflates 2.6\u00d7 (2.045 vs 0.788), confirmed from outside. Remaining exposure is SAMPLE SIZE not bias: 9 motifs where EXP-037 called for ~30 (Q-32). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal on an external benchmark annotated blind, because that annotation carries none (EXP-030)",
       "evidence": [
         "EXP-024",
         "EXP-025",
@@ -506,7 +519,8 @@
         "EXP-033",
         "EXP-036",
         "EXP-037",
-        "EXP-038"
+        "EXP-038",
+        "EXP-039"
       ]
     },
     {
@@ -607,16 +621,15 @@
     },
     {
       "id": "C-13",
-      "claim": "The corpus results measure analogy detection rather than annotation fidelity \u2014 for the ORDERING, though the magnitudes are inflated.",
-      "status": "UNTESTED",
-      "rung": 2,
-      "scope": "EXP-038: on the margin the blind result IS significant but fragile, and sighted annotation inflates the effect size 2.6\u00d7. So annotation fidelity explains PART of the record, not all of it. Still needs the second annotator to settle",
+      "claim": "The corpus results measure a real analogy-detection effect AND were inflated by annotation \u2014 both, now separably.",
+      "status": "ACTIVE_WITHIN_TESTED_SCOPE",
+      "rung": 3,
+      "scope": "SETTLED by EXP-039. An independent annotator with no stake recovers effect size 0.788 against my sighted 2.045, so there is a real effect and my sighted annotation inflated it ~2.6\u00d7. The answer was never one or the other. What remains unsettled is whether the effect is large enough to be useful \u2014 9 motifs is fragile under leave-one-out",
       "evidence": [
         "EXP-030",
         "EXP-032",
         "EXP-033",
-        "EXP-036",
-        "EXP-038"
+        "EXP-039"
       ]
     },
     {

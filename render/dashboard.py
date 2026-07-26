@@ -2252,6 +2252,58 @@ removed from data already seen — but the second-annotator commission hasn't co
 test, the statistic, the threshold and the failure condition can all be written down before those
 annotations exist. Free now, impossible later.</div>
 
+
+<h2>Finding 37 — someone else annotated it</h2>
+<p>Every retrieval result in this project has rested on structures I wrote down myself, and the last
+several findings have been about how much that helped. This is the first result that doesn't.</p>
+<p>A second system was given a format specification, told nothing about what the annotations were
+for, and handed sixty sentences shuffled across all three corpora with the roles, the groupings and
+the corpus origin stripped out — including the six whose wording announced their own role.</p>
+
+<h3>The plan was written down and committed first</h3>
+<div class="read"><b>The statistic, the tests, the exclusion rule, the robustness requirement and
+four predictions were all locked into version control before a single number was computed.</b> The
+plan also says plainly what it isn't: I had already read the raw annotations by then, so this is not
+a test planned in advance of seeing the data. It's a test planned in advance of <i>analysing</i> it,
+which is weaker.<br><br>The data arrived while I was writing about intending to pre-register. That's
+its own small lesson — a control you're about to build is not a control.</div>
+
+<h3>The number that matters</h3>
+<div class="read ok" style="font-size:15px">
+me, knowing which document was which &nbsp;&nbsp;<b>2.045</b><br>
+me, with the roles hidden &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>0.799</b><br>
+<b>someone else, told nothing &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.788</b>
+</div>
+<div class="read ok"><b>An independent party lands within one and a half percent of my
+roles-hidden figure, and at 39% of my roles-visible one.</b><br><br>So both halves are now settled
+from outside my own judgement: <b>annotating with the answers visible was inflating the effect by
+about two and a half times — and there is a real effect underneath that a stranger can find.</b> The
+answer was never going to be one or the other.</div>
+
+<h3>But the plan says this is not established, and the plan wins</h3>
+<div class="read warn"><b>Both statistical tests come in under the threshold and the confidence
+interval excludes zero. And removing any single test case collapses the result two times in
+three.</b><br><br>The locked plan says: survival below half is reported as fragile, whatever the
+headline number. So that's the verdict — <b>fragile, not established</b>.<br><br>This is exactly what
+the plan was for. "Independent annotator confirms the measure" is a sentence these numbers would
+support, and it would be the wrong sentence. Nine test cases, at precisely the sample size the power
+analysis already said was too small.</div>
+
+<h3>Four predictions, made in advance, all correct</h3>
+<div class="read">I predicted the effect would be positive but well below my roles-visible figure,
+comparable to my roles-hidden one, marginal or absent in significance, and produced from fewer
+relations per document than I write. All four came out right.<br><br>That's worth more to me than the
+p-values. It means my model of what was wrong with my own evidence was accurate — which is the thing
+that's actually been under test for the last dozen findings.</div>
+
+<h3>One thing it did that I never did</h3>
+<div class="read warn"><b>It refused to annotate eight documents at all</b> — returned "no influence
+stated" — including one decoy, which cost a whole test case under the exclusion rule.<br><br>
+<b>Across the same sixty documents, I never once returned an empty annotation.</b> Given a sentence
+with no clear causal claim in it, I found relations every single time. That's not a judgement call,
+it's a measurable disposition — and it's the mechanism behind the invented edge two findings
+ago.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -2287,6 +2339,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>An independent annotator settles both halves of the annotation question at
+once.</b> Told nothing about what the work was for, a second party lands within 1.5% of my
+roles-hidden effect size and at 39% of my roles-visible one. So annotating with the answers visible
+was inflating the effect about 2.6×, and there is a real effect underneath that someone with no stake
+can find. Both tests clear the threshold and the interval excludes zero — but removing any one test
+case collapses it two times in three, so the pre-locked rule reports it as fragile rather than
+established. Nine cases, at exactly the sample size already known to be too small.</div>
 <div class="q"><b>Summarised properly, the blind result is significant — and fragile.</b> The same
 data that gave six out of ten, indistinguishable from a coin flip, gives a mean margin whose
 confidence interval excludes zero on two different tests. But drop any single test case and it

@@ -1,0 +1,69 @@
+{
+  "experiment": "EXP-039",
+  "questions": [
+    "Q-31",
+    "Q-37"
+  ],
+  "plan_committed_at": "6a9aa8e",
+  "plan_sha256_prefix": "efcab218bd95139600b2bb9801df76d5",
+  "annotator": "second system, format spec only, roles/motifs/corpus stripped",
+  "motifs_total": 10,
+  "motifs_kept": 9,
+  "excluded": [
+    {
+      "motif": "dev/cascade",
+      "empty_or_absent": [
+        "W"
+      ]
+    }
+  ],
+  "relations_per_document": {
+    "second_annotator": 2.35,
+    "my_sighted": 4.2,
+    "my_blind": 2.7
+  },
+  "margins": [
+    0.302,
+    0.0487,
+    0.4416,
+    0.0,
+    0.4607,
+    0.23,
+    0.1506,
+    0.0,
+    -0.1457
+  ],
+  "result": {
+    "n": 9,
+    "per_motif_margins": [
+      0.302,
+      0.0487,
+      0.4416,
+      0.0,
+      0.4607,
+      0.23,
+      0.1506,
+      0.0,
+      -0.1457
+    ],
+    "mean_margin_bits": 0.1653,
+    "sd": 0.2097,
+    "effect_size_d": 0.788,
+    "ci95_on_mean": [
+      0.0255,
+      0.3051
+    ],
+    "t_test_p": 0.0456,
+    "wilcoxon_p": 0.0425,
+    "wilcoxon_n_after_dropping_ties": 7,
+    "abstentions": 2,
+    "_footnote_win_count": "6/9"
+  },
+  "comparison_effect_size": {
+    "second_annotator": 0.788,
+    "my_sighted": 2.045,
+    "my_blind": 0.799
+  },
+  "verdict": "FRAGILE, NOT ESTABLISHED -- significant but leave-one-out survives under half",
+  "leave_one_out_survives": "3/9"
+}

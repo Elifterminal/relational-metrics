@@ -74,6 +74,7 @@ current. That check exists because both happened.
 | `EXP-036` | Q-31 — control annotation granularity with a deterministic annotator | **My control failed** — the extractor was too weak (1.52 relations/sentence vs 4.2, couldn't parse 2 of 10 queries, **0 of 60** granularity matches), so 5/8 is uninformative exactly as predeclared. **But the check it prompted is the finding**: blind 6/10 is **p = 0.754, not significant**; 3/4 is p = 0.63. The only annotation mode producing a significant result (p = 0.002) is the one where the annotator knew the answers. *(Conclusion amended by EXP-038: on the MARGIN rather than the win count the blind result is significant, though fragile. EXP-036 was true of the test it ran and false of the data)* |
 | `EXP-037` | Q-35 — how many test cases would actually settle the retrieval claim? | **At n=10 nothing below 9/10 is significant**, and a genuinely 75%-accurate measure would be missed 3 times in 4. Our 6/10 spans **26–88%** — it contains chance and a strong effect alike. A yes/no test at the observed rate needs **199 motifs**. **But the binary count discards the margin the corpus already holds**: on blind data those margins give d = 0.842 and need about **12 motifs**. The evidence was not weak — the summary was |
 | `EXP-038` | Q-36 — report the margin instead of the win count | **Partly un-says EXP-036.** Same blind data: mean margin **+0.1808 bits**, 95% CI **[+0.019, +0.343]** excluding zero, t *p* = 0.032, Wilcoxon *p* = 0.043 — significant on both. **But fragile**: leave-one-out survives only 5/10, worst case *p* = 0.070. Sighted effect size 2.045 vs blind 0.799 — inflation of **2.6×**, larger than the 1.34× measured on rates. So the effect is real AND it was inflated. Analysis chosen **post-hoc**; flagged, not excused |
+| `EXP-039` | Does an independent annotator, told nothing, reproduce the retrieval effect? | **Effect size 0.788 — within 1.5% of my blind 0.799 and 39% of my sighted 2.045.** So `R-18` is confirmed from outside at **~2.6× inflation**, and the effect underneath is **real**. Both tests significant (t 0.046, Wilcoxon 0.043), CI excludes zero — **but leave-one-out survives 3/9, so FRAGILE, NOT ESTABLISHED** per the plan locked at `6a9aa8e` before any computation. Four advance predictions, four correct. The annotator declined 8 documents outright; I never once did across the same 60 |
 
 ### What currently survives
 
@@ -99,6 +100,9 @@ current. That check exists because both happened.
 - **Canonicalising before measuring restores exact invariance under a DECLARED typed graph-homeomorphism relation, at no cost to capability.** · rung 2  
   *scope*: subdivision and suppression of degree-2 vertices only. Exact (cost 0, 6/6 recovery); capability 3/3, 3/3, 4/4 including under subdivision. Rewrite terminating, idempotent, confluent. NOT converse or reification (Q-25). And the equivalence must be DECLARED — blind suppression damages 5/6 structures, because whether a vertex is representational is not decidable from structure  
   *evidence*: `EXP-029`
+- **The corpus results measure a real analogy-detection effect AND were inflated by annotation — both, now separably.** · rung 3  
+  *scope*: SETTLED by EXP-039. An independent annotator with no stake recovers effect size 0.788 against my sighted 2.045, so there is a real effect and my sighted annotation inflated it ~2.6×. The answer was never one or the other. What remains unsettled is whether the effect is large enough to be useful — 9 motifs is fragile under leave-one-out  
+  *evidence*: `EXP-030`, `EXP-032`, `EXP-033`, `EXP-039`
 - **The measure is invariant to unit conversion of relation weights.** · rung 2  
   *scope*: REPAIRED by EXP-034. Was vacuous — the measure did not read weights, so it could not fail the test. Weights now enter normalised by geometric mean, making rescaling invariant by construction while relative coupling is visible. The control now measures its own capacity to fail each run. Untested on data where weights actually vary (Q-33) — a capability, not yet a result  
   *evidence*: `EXP-031`, `EXP-034`
@@ -106,8 +110,8 @@ current. That check exists because both happened.
 **PROVISIONAL**
 
 - **MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.** · rung 3  
-  *scope*: MEASURED ON THE MARGIN (EXP-038), not the win count. Blind: mean +0.1808 bits, 95% CI [+0.019, +0.343] excluding zero, significant on t (p=0.032) and Wilcoxon (p=0.043) — but FRAGILE: leave-one-out survives 5/10, worst case p=0.070. Sighted inflates the effect size 2.6× (2.045 vs 0.799), so the effect is real AND it was inflated. Analysis chosen post-hoc (Q-37 pre-registers the next one). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal on an external benchmark annotated blind, because the annotation carries none (EXP-030). Annotation is still by an interested party — the second-annotator commission is outstanding  
-  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`, `EXP-032`, `EXP-033`, `EXP-036`, `EXP-037`, `EXP-038`
+  *scope*: INDEPENDENTLY ANNOTATED (EXP-039): effect size 0.788, mean margin +0.165 bits, 95% CI excluding zero, both tests p<0.05 — but leave-one-act survives 3/9, so **fragile, not established** by the pre-locked rule. Sighted annotation inflates 2.6× (2.045 vs 0.788), confirmed from outside. Remaining exposure is SAMPLE SIZE not bias: 9 motifs where EXP-037 called for ~30 (Q-32). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal on an external benchmark annotated blind, because that annotation carries none (EXP-030)  
+  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`, `EXP-032`, `EXP-033`, `EXP-036`, `EXP-037`, `EXP-038`, `EXP-039`
 - **The correspondence measure transfers to topologies it was not developed against.** · rung 2  
   *scope*: 5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process  
   *evidence*: `EXP-005`
@@ -117,9 +121,6 @@ current. That check exists because both happened.
 - **Any of this reaches a claim about physical reality.**  
   *scope*: unsupported and not currently testable. Prediction P6 says it will not, and P6 stands  
   *evidence*: —
-- **The corpus results measure analogy detection rather than annotation fidelity — for the ORDERING, though the magnitudes are inflated.** · rung 2  
-  *scope*: EXP-038: on the margin the blind result IS significant but fragile, and sighted annotation inflates the effect size 2.6×. So annotation fidelity explains PART of the record, not all of it. Still needs the second annotator to settle  
-  *evidence*: `EXP-030`, `EXP-032`, `EXP-033`, `EXP-036`, `EXP-038`
 
 **DEMOTED / REPLACED**
 
@@ -173,6 +174,7 @@ python3 run_exp032.py    # why diversity inverted -- and an edge the text never 
 python3 run_exp036.py    # a failed control, and the significance test that mattered
 python3 run_exp037.py    # power analysis -- and the information the binary test threw away
 python3 run_exp038.py    # margins, not coin flips -- and a fragile positive
+python3 run_exp039.py    # the second annotator -- real, inflated, and fragile
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs
