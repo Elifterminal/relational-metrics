@@ -436,6 +436,19 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "a failed control, and the significance test that mattered"
+    },
+    {
+      "id": "EXP-037",
+      "question": "Q-35 \u2014 how many test cases would actually settle the retrieval claim?",
+      "result": "**At n=10 nothing below 9/10 is significant**, and a genuinely 75%-accurate measure would be missed 3 times in 4. Our 6/10 spans **26\u201388%** \u2014 it contains chance and a strong effect alike. A yes/no test at the observed rate needs **199 motifs**. **But the binary count discards the margin the corpus already holds**: on blind data those margins give d = 0.842 and need about **12 motifs**. The evidence was not weak \u2014 the summary was",
+      "status": "complete",
+      "rung": 2,
+      "entry_point": "lab/run_exp037.py",
+      "result_file": "results/exp037.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "power analysis -- and the information the binary test threw away"
     }
   ],
   "claims": [
@@ -467,7 +480,7 @@
       "claim": "MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.",
       "status": "PROVISIONAL",
       "rung": 3,
-      "scope": "SIGNIFICANT ONLY UNDER SIGHTED ANNOTATION. 10/10 sighted (p = 0.002) \u2014 which is exactly the mode R-18 says to distrust. Blind: 6/10 across three corpora, **p = 0.754, NOT significant** (EXP-036); 3/4 on the independent corpus is p = 0.63. This is a null result at n = 10, not a degraded measurement \u2014 the design is underpowered (Q-35). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal at all on an external benchmark annotated blind, because the annotation carries none (EXP-030). Two corpus defects outstanding (Q-32, Q-34)",
+      "scope": "SIGNIFICANT ONLY UNDER SIGHTED ANNOTATION. 10/10 sighted (p = 0.002) \u2014 which is exactly the mode R-18 says to distrust. Blind: 6/10 across three corpora, **p = 0.754, NOT significant** (EXP-036); 3/4 on the independent corpus is p = 0.63. This is a null result at n = 10, not a degraded measurement \u2014 the design is underpowered \u2014 at n=10 nothing below 9/10 is significant and 6/10 spans 26\u201388% (EXP-037). The binary count also discards the margin, which on blind data needs ~12 motifs rather than 199 (Q-36). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal at all on an external benchmark annotated blind, because the annotation carries none (EXP-030). Two corpus defects outstanding (Q-32, Q-34)",
       "evidence": [
         "EXP-024",
         "EXP-025",
@@ -478,7 +491,8 @@
         "EXP-030",
         "EXP-032",
         "EXP-033",
-        "EXP-036"
+        "EXP-036",
+        "EXP-037"
       ]
     },
     {

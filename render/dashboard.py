@@ -2167,6 +2167,43 @@ annotation worry says to distrust. And before running another blind test, the ri
 out how many motifs would be needed to detect the effect actually being claimed, and build to that
 number — because at ten, the design can only ever confirm, never measure.</div>
 
+
+<h2>Finding 35 — the evidence wasn't weak, the summary was</h2>
+<p>The previous finding established that our blind results can't be told apart from chance. Before
+building a bigger corpus, the obvious question: how big would it have to be?</p>
+
+<h3>Ten test cases can see almost nothing</h3>
+<div class="read warn"><b>Nothing below nine out of ten reaches statistical significance.</b> The
+design can confirm a near-perfect measure and measure nothing else.<br><br>
+A measure that genuinely got three out of four right would be <b>missed three times in four</b>. We
+have been running a test that mostly cannot find what it's looking for.</div>
+<div class="read"><b>And our own result is even less informative than "not significant" suggests.</b>
+Six out of ten puts the true ability somewhere between <b>26% and 88%</b>. That range contains pure
+chance and it contains a strong effect. The experiment simply didn't discriminate between them.</div>
+<div class="read warn">To settle it with a yes/no test at the rate we actually observed would take
+<b>199 test cases</b>. We have ten.</div>
+
+<h3>Then the useful part</h3>
+<p>The test throws away nearly all of its own information. "Did the right answer win?" is a single
+bit per test case — squeezed out of a continuous number, the <i>margin</i> by which it won or lost,
+which the corpus already contains and which gets discarded at the moment of reporting.</p>
+<div class="read ok"><b>Testing the margins instead needs about twelve test cases, against 199 for
+the yes/no version — on exactly the same data.</b> We have ten. A question that looked like it needed
+a corpus twenty times bigger may need one or two more cases, tested properly.</div>
+<div class="read"><b>Caveats, because that number is tempting.</b> The effect size comes from the same
+ten observations you'd plan the study around, and pilot estimates are biased upward — so twelve is a
+floor, not a forecast. Three of the ten margins are exactly zero. And the equivalent figure on the
+<i>sighted</i> annotations is far more flattering, which is precisely why it isn't quoted anywhere:
+that's the data already shown to be inflated.</div>
+
+<h3>The uncomfortable bit</h3>
+<div class="read warn"><b>This project has a standing principle that collapsing something to a single
+number hides structure and can reverse a ranking.</b> It has enforced that rigorously on the measure
+for thirty-seven experiments — refusing to produce one score, insisting on profiles, proving that no
+scalar suffices.<br><br>And its own evaluation was reducing a continuous result to one bit per test
+case, and then reporting that the evidence was weak.<br><br><b>The evidence wasn't weak. The summary
+was.</b> Whatever discipline you hold the thing you're studying to, hold the ruler to it as well.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -2202,6 +2239,12 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The evidence was not weak — the summary was.</b> Ten test cases can only detect a
+near-perfect measure, and our six-out-of-ten spans everything from chance to a strong effect. But the
+yes/no test discards the margin by which each comparison is won, and on the same blind data those
+margins need about twelve cases where the yes/no version needs one hundred and ninety-nine. The
+project spent thirty-seven experiments insisting that a single number hides structure, while its own
+evaluation reduced a continuous result to one bit.</div>
 <div class="q"><b>The only significant result in the project is the one produced by an annotator who
 knew the answers.</b> Ten out of ten sighted is significant; six out of ten blind is not
 distinguishable from chance, and neither is a mechanical annotator's five out of eight. That does not

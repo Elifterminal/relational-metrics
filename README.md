@@ -72,6 +72,7 @@ current. That check exists because both happened.
 | `EXP-034` | Q-28 — put relation weights into the comparison, and make the rescale control real | **Built.** Weights enter as log-weights normalised by geometric mean, so unit conversion is invariant *by construction* while relative coupling is visible (2.1168 vs 1.7160). **No claim-bearing result moved** — the predeclared requirement, since all corpus weights are 1.0. EXP-000a's rescale control can fail again and now **measures its own vacuity** each run. Also corrected EXP-031's witness pair (it differed only by a global factor) and the audit's own weight-blind equivalence test |
 | `EXP-035` | Q-29 — why did the `diversity` motif invert under blind annotation? | **Its analogue was being carried by the sighted annotation — and this corrects EXP-027.** In 4/4 motifs the sighted vacuous document matches its query *exactly* on relation count and loop closure. In `diversity` my sighted annotation contains an edge **no sentence states**, and it is the one closing the loop. Vacuous ≅ query: **4/4 sighted, 2/4 blind** — so EXP-027's premise that the *author* wrote isomorphic generics was wrong. The theorem survives; F-09 stays refuted empirically rather than by impossibility (it can act on 1/4 blind, helps on 0/4) |
 | `EXP-036` | Q-31 — control annotation granularity with a deterministic annotator | **My control failed** — the extractor was too weak (1.52 relations/sentence vs 4.2, couldn't parse 2 of 10 queries, **0 of 60** granularity matches), so 5/8 is uninformative exactly as predeclared. **But the check it prompted is the finding**: blind 6/10 is **p = 0.754, not significant**; 3/4 is p = 0.63. The only annotation mode producing a significant result (p = 0.002) is the one where the annotator knew the answers |
+| `EXP-037` | Q-35 — how many test cases would actually settle the retrieval claim? | **At n=10 nothing below 9/10 is significant**, and a genuinely 75%-accurate measure would be missed 3 times in 4. Our 6/10 spans **26–88%** — it contains chance and a strong effect alike. A yes/no test at the observed rate needs **199 motifs**. **But the binary count discards the margin the corpus already holds**: on blind data those margins give d = 0.842 and need about **12 motifs**. The evidence was not weak — the summary was |
 
 ### What currently survives
 
@@ -104,8 +105,8 @@ current. That check exists because both happened.
 **PROVISIONAL**
 
 - **MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.** · rung 3  
-  *scope*: SIGNIFICANT ONLY UNDER SIGHTED ANNOTATION. 10/10 sighted (p = 0.002) — which is exactly the mode R-18 says to distrust. Blind: 6/10 across three corpora, **p = 0.754, NOT significant** (EXP-036); 3/4 on the independent corpus is p = 0.63. This is a null result at n = 10, not a degraded measurement — the design is underpowered (Q-35). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal at all on an external benchmark annotated blind, because the annotation carries none (EXP-030). Two corpus defects outstanding (Q-32, Q-34)  
-  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`, `EXP-032`, `EXP-033`, `EXP-036`
+  *scope*: SIGNIFICANT ONLY UNDER SIGHTED ANNOTATION. 10/10 sighted (p = 0.002) — which is exactly the mode R-18 says to distrust. Blind: 6/10 across three corpora, **p = 0.754, NOT significant** (EXP-036); 3/4 on the independent corpus is p = 0.63. This is a null result at n = 10, not a degraded measurement — the design is underpowered — at n=10 nothing below 9/10 is significant and 6/10 spans 26–88% (EXP-037). The binary count also discards the margin, which on blind data needs ~12 motifs rather than 199 (Q-36). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal at all on an external benchmark annotated blind, because the annotation carries none (EXP-030). Two corpus defects outstanding (Q-32, Q-34)  
+  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`, `EXP-032`, `EXP-033`, `EXP-036`, `EXP-037`
 - **The correspondence measure transfers to topologies it was not developed against.** · rung 2  
   *scope*: 5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process  
   *evidence*: `EXP-005`
@@ -169,6 +170,7 @@ python3 run_exp033.py    # blind protocol on dev + held-out, and two corpus defe
 python3 run_exp031.py    # the magnitude channel, and a control that can fail again
 python3 run_exp032.py    # why diversity inverted -- and an edge the text never stated
 python3 run_exp036.py    # a failed control, and the significance test that mattered
+python3 run_exp037.py    # power analysis -- and the information the binary test threw away
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs

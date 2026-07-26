@@ -1,0 +1,52 @@
+{
+  "experiment": "EXP-037",
+  "question": "Q-35",
+  "current_design": {
+    "motifs": 10,
+    "smallest_significant_score": "9/10",
+    "note": "at 10 motifs nothing below 9/10 reaches p<0.05, so the design can confirm a near-perfect measure and measure nothing else",
+    "power_to_detect": {
+      "0.6": 0.046,
+      "0.65": 0.086,
+      "0.7": 0.149,
+      "0.75": 0.244,
+      "0.8": 0.376,
+      "0.9": 0.736
+    }
+  },
+  "what_the_data_says": {
+    "observed": "6/10",
+    "confidence_interval_95": [
+      0.262,
+      0.878
+    ],
+    "reading": "true ability anywhere from 26% to 88% is consistent with what we saw -- which includes chance and includes a strong effect. The experiment did not discriminate"
+  },
+  "motifs_required": {
+    "power_0.80": {
+      "0.6": 199,
+      "0.65": 90,
+      "0.7": 49,
+      "0.75": 30,
+      "0.8": 20,
+      "0.9": 12
+    },
+    "power_0.90": {
+      "0.6": 263,
+      "0.65": 114,
+      "0.7": 65,
+      "0.75": 42,
+      "0.8": 28,
+      "0.9": 15
+    }
+  },
+  "margin_test": {
+    "note": "the binary test discards the margin by which the analogue wins or loses -- one bit per motif from a continuous number the corpus already contains",
+    "mean_margin_bits": 0.1808,
+    "sd_margin_bits": 0.2148,
+    "effect_size_d": 0.842,
+    "motifs_for_80pct_power_on_margins": 12,
+    "computed_on": "BLIND annotations",
+    "caveat": "the effect size comes from the same 10 observations the test would be planned around. Pilot-derived effect sizes are biased upward, so treat this n as a FLOOR, not an estimate. Three of the ten margins are exactly zero -- abstentions counted as no-difference"
+  }
+}
