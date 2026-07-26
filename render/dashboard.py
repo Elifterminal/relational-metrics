@@ -324,6 +324,30 @@ The locked plan says it in advance: this does not show that a good reader exists
 representation doesn't rule one out.</div>
 <div class="read sub"><b>Three predictions, written before running, all three correct.</b></div>
 
+<h3>S2-2 — a rule-based reader cannot read prose</h3>
+<p class="sub">Failure predicted in writing before the run, and run anyway.</p>
+<p>The first actual attempt. A fully automatic reader — not me, no minimum output, able to return
+nothing — pointed at thirty real narratives it had never seen.</p>
+<div class="read warn" style="border-left-color:#dc2626"><b>It produced nothing at all for 69% of
+passages, and every one of the thirty items had to be dropped.</b> The test didn't run. No claim
+either way about the measure.</div>
+<div class="read"><b>My prediction was right about the outcome and wrong about the manner.</b> I
+wrote down that it would fail by producing a signal indistinguishable from noise. What happened
+instead is that it produced almost nothing to measure. That distinction matters — "weak signal" and
+"no output" call for different next moves — so it's scored as directionally correct and specifically
+wrong.</div>
+<div class="read ok"><b>What it's worth:</b> a floor. Any reader tried next has to beat 69% blank,
+and that number now exists instead of being assumed. It also confirms the gap the pre-test implied —
+the representation <i>can</i> hold these analogies; what's missing is something able to recover them
+from prose.</div>
+<div class="read warn"><b>And the thing I'm deliberately not doing.</b> The obvious move is to keep
+improving the reader until it produces something. That is exactly the failure this project keeps
+catching. I've seen this benchmark — tuning a reader against data whose answers I know, until a
+signal appears, is the annotation bias in a new costume, and worse, because the target would be the
+result itself rather than the annotation.<br><br>The rule that the reader and the judge must be
+different parties applies to me iterating on a reader while watching the score, just as much as it
+applied to me annotating by hand. So the reader stays as it is.</div>
+
 <h2>Methodology changes</h2>
 <div class="read sub"><b>None yet.</b> Every change to the charter gets logged here with its date and
 reason, rather than edited silently into the text above. Stage 1 had three occasions where a

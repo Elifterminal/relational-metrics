@@ -1,0 +1,228 @@
+{
+  "experiment": "EXP-042",
+  "plan_locked_at": "e50590d6003087c50e4e5c5abcb8df8460d0d946",
+  "plan_sha256": "55844e12f2ddc204",
+  "margin_stats": null,
+  "leave_one_out": null,
+  "abstention_rate": 0.689,
+  "verdict": "TEST DID NOT RUN -- 30 of 30 items excluded because the annotator produced nothing for at least one of the three passages. Charter falsification 3. No claim either way about the measure",
+  "sampled": 30,
+  "scored": 0,
+  "excluded": [
+    {
+      "item": "117",
+      "empty": [
+        "Q"
+      ]
+    },
+    {
+      "item": "911",
+      "empty": [
+        "Q",
+        "B"
+      ]
+    },
+    {
+      "item": "995",
+      "empty": [
+        "Q",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "166",
+      "empty": [
+        "B"
+      ]
+    },
+    {
+      "item": "393",
+      "empty": [
+        "Q",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "257",
+      "empty": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "415",
+      "empty": [
+        "B"
+      ]
+    },
+    {
+      "item": "274",
+      "empty": [
+        "Q",
+        "A"
+      ]
+    },
+    {
+      "item": "650",
+      "empty": [
+        "Q",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "577",
+      "empty": [
+        "Q",
+        "B"
+      ]
+    },
+    {
+      "item": "143",
+      "empty": [
+        "Q",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "764",
+      "empty": [
+        "Q",
+        "B"
+      ]
+    },
+    {
+      "item": "172",
+      "empty": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "685",
+      "empty": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "201",
+      "empty": [
+        "Q",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "480",
+      "empty": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "878",
+      "empty": [
+        "Q",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "157",
+      "empty": [
+        "Q"
+      ]
+    },
+    {
+      "item": "620",
+      "empty": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "345",
+      "empty": [
+        "Q",
+        "A"
+      ]
+    },
+    {
+      "item": "57",
+      "empty": [
+        "Q",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "585",
+      "empty": [
+        "Q",
+        "A"
+      ]
+    },
+    {
+      "item": "676",
+      "empty": [
+        "B"
+      ]
+    },
+    {
+      "item": "1025",
+      "empty": [
+        "Q",
+        "A"
+      ]
+    },
+    {
+      "item": "190",
+      "empty": [
+        "Q"
+      ]
+    },
+    {
+      "item": "556",
+      "empty": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "360",
+      "empty": [
+        "Q",
+        "A",
+        "B"
+      ]
+    },
+    {
+      "item": "442",
+      "empty": [
+        "B"
+      ]
+    },
+    {
+      "item": "58",
+      "empty": [
+        "Q",
+        "A"
+      ]
+    },
+    {
+      "item": "275",
+      "empty": [
+        "Q",
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "relations_per_passage": 0.0,
+  "rows": [],
+  "predicted": "FAILURE. The margin confidence interval will include zero."
+}

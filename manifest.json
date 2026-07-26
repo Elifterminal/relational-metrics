@@ -539,6 +539,20 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "Stage 2 pre-test -- is the distinction even in the representation?"
+    },
+    {
+      "id": "EXP-042",
+      "question": "Can a fully automatic rule-based annotator read real narrative prose?",
+      "result": "**No \u2014 and the test did not even run.** 69% of passages produced nothing; **30 of 30 items excluded**. Charter falsification 3, no claim either way about the measure. I predicted failure in writing beforehand but predicted the *wrong mode* \u2014 expected a signal-free result, got one with no result at all. Establishes the floor any Stage 2 annotator must beat. Deliberately NOT hand-tuning the extractor against a benchmark whose answers I know \u2014 that would be the same bias in a new costume",
+      "status": "complete",
+      "rung": 0,
+      "stage": 2,
+      "entry_point": "lab/run_exp042.py",
+      "result_file": "results/exp042.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "rule-based reader on real prose -- predicted failure, run anyway"
     }
   ],
   "claims": [
