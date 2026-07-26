@@ -334,6 +334,7 @@ def build() -> str:
     e23 = json.loads((RESULTS / "exp023.json").read_text())
     e05 = json.loads((RESULTS / "exp005.json").read_text())
     e24 = json.loads((RESULTS / "exp024.json").read_text())
+    e25 = json.loads((RESULTS / "exp025.json").read_text())
     ret_rows = "".join(
         f"<tr><td>{n}{' <i>(impostor)</i>' if r['is_impostor'] else ''}</td>"
         f"<td><b>{r['analogue_beats_false_friend']}</b></td></tr>"
@@ -1435,6 +1436,57 @@ until this corpus passes is a fix fitted to three motifs. It needs a held-out co
 before the change lands. Publishing the failure and the diagnosis is the honest state; publishing
 a same-day fix that makes the number go green would not be.</div>
 
+<h2>Finding 23 — the fix, and the discipline that makes it mean something</h2>
+<p>The previous finding diagnosed the shortfall precisely and stopped there, because the corpus
+that produced the diagnosis could not also test the cure. The order this was done in is the whole
+result:</p>
+<ol>
+<li>A <b>held-out corpus</b> written — three new motifs, structurally distinct from the
+development set and from each other: mutual inhibition, threshold accumulation, substitution
+under blockage.</li>
+<li><b>Committed and frozen before the fix existed.</b></li>
+<li>The fix implemented: charge for <i>specifying</i> the relation-type map, never for whether the
+names happen to coincide — exactly as participant labels are already handled.</li>
+<li>Regressions re-run: harness self-test, cross-generator transfer.</li>
+<li>Both corpora scored, <b>once</b>.</li>
+</ol>
+<div class="fig">{figs['fig24_fix.svg']}</div>
+<div class="read ok"><b>Six of six.</b> The analogue beats the false friend on every motif in both
+corpora — including three the measure had never been exposed to, written before the change
+existed. Regressions hold: the harness still catches 7/7 impostors, transfer is still 5/5 across
+unseen topologies.</div>
+
+<h3>The number that says the fix is real rather than tuned</h3>
+<div class="read ok"><b>Paraphrase and analogue now score identically — 0.0000 apart, in all six
+motifs across both corpora.</b> That is not a coincidence and it is not something a fitted patch
+would produce. A paraphrase and a cross-domain analogue are <i>structurally the same thing wearing
+different words</i>, so a measure that genuinely ignores vocabulary must return the same number for
+both. It does, to four decimal places, every time.</div>
+
+<h3>Which exposed a seventh wrong ground truth — mine</h3>
+<div class="read warn">The corpus declared an ideal ordering of <code>P &gt; X &gt; W &gt; V &gt;
+U</code> — asserting that a same-domain paraphrase should outrank a cross-domain analogue.
+<b>That contradicts this project's entire thesis.</b> If structure is what counts and vocabulary
+is not, two structurally identical documents must tie, and ranking one above the other is not
+something a correct measure should do.<br><br>So the ground truth was wrong, not the measure. The
+ideal is now stated as <b>tiers</b> — {{paraphrase, analogue}} tied, then false friend, then
+generic, then unrelated — and d_A treats within-tier order as free.<br><br><b>Said plainly: I
+noticed this from the data, which makes it post-hoc.</b> It is derivable from the thesis without
+looking at any result, and it does not touch the headline claim — the analogue beat the false
+friend before and after the correction. But the honest label is post-hoc, and this is the seventh
+time in this log that a property was asserted where it should have been derived.</div>
+
+<h3>What is still not right</h3>
+<p>Only 1 of 3 motifs is <i>perfectly</i> ordered on each corpus. The unrelated control outranks
+the generic connector and the false friend in some cases — the measure knows a false friend is
+wrong but does not reliably know it is <i>more</i> wrong than an unrelated document. The critical
+comparison is fixed; the full ranking is not.</p>
+<div class="read"><b>Where this leaves A-01.</b> The measure now does the thing the project was
+built to do, on data it had not seen, with the failure mode that has haunted it since the first
+experiment finally removed from both places it lived. That is a real result and a narrow one:
+eighteen hand-annotated documents, six motifs total, no automatic extraction, no natural text.
+The next honest step is a corpus nobody involved in this wrote.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1470,8 +1522,14 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
-<div class="q"><b>On something resembling an application, the measure falls short — and the
-culprit is a term nobody re-examined.</b> It beats every baseline on the search corpus but gets
+<div class="q"><b>The fix holds on data frozen before it existed.</b> Six of six, regressions
+intact, and paraphrase and analogue now score identically to four decimals in every case — which
+is what a genuinely vocabulary-blind measure must do and is not what a fitted patch produces. The
+pathology that demoted the original formula is now removed from both places it lived. It also
+exposed a seventh wrong ground truth of mine: the corpus had asserted that a same-domain
+paraphrase should outrank a cross-domain analogue, which contradicts the project's own thesis.</div>
+<div class="q"><b>On something resembling an application, the measure fell short — and the
+culprit was a term nobody re-examined.</b> It beats every baseline on the search corpus but gets
 2 of 3 on the comparison that matters, losing by 0.0022 because it charges the cross-domain
 analogue for using a different domain's relation vocabulary. That is the same failure that
 demoted the original formula, fixed for participant labels and never for relation-type labels,

@@ -74,7 +74,8 @@ class DA:
 
 def evaluate(returned: list[str], ideal: list[str],
              returned_class: dict[str, str] | None = None,
-             ideal_class: dict[str, str] | None = None) -> DA:
+             ideal_class: dict[str, str] | None = None,
+             tiers: list[set] | None = None) -> DA:
     """Compare a returned ordering against the ideal one for a query.
 
     `returned`/`ideal` are ordered lists of document kinds or ids.
@@ -93,7 +94,14 @@ def evaluate(returned: list[str], ideal: list[str],
                 misclassified += 1
 
     pos_ret = {k: i for i, k in enumerate(returned)}
-    pos_ide = {k: i for i, k in enumerate(ideal)}
+    if tiers:
+        # Items in the same tier are genuinely interchangeable, so neither
+        # order between them is an error. Forcing a strict ideal on tied items
+        # counts correct behaviour as a mistake -- which is what the original
+        # P > X ordering did (EXP-025).
+        pos_ide = {k: i for i, grp in enumerate(tiers) for k in grp}
+    else:
+        pos_ide = {k: i for i, k in enumerate(ideal)}
     shared = [k for k in ideal if k in pos_ret]
 
     misordered = 0
@@ -105,6 +113,21 @@ def evaluate(returned: list[str], ideal: list[str],
 
     disp = 0.0
     if shared:
-        disp = sum(abs(pos_ret[k] - pos_ide[k]) for k in shared) / len(shared)
+        if tiers:
+            # displacement measured against the tier's own span, so an item
+            # sitting anywhere inside its correct tier costs nothing
+            spans, start = {}, 0
+            for grp in tiers:
+                for k in grp:
+                    spans[k] = (start, start + len(grp) - 1)
+                start += len(grp)
+            tot = 0.0
+            for k in shared:
+                lo, hi = spans[k]
+                r = pos_ret[k]
+                tot += 0 if lo <= r <= hi else min(abs(r - lo), abs(r - hi))
+            disp = tot / len(shared)
+        else:
+            disp = sum(abs(pos_ret[k] - pos_ide[k]) for k in shared) / len(shared)
 
     return DA(missing, spurious, misclassified, misordered, disp, len(ideal))

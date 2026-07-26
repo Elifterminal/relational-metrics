@@ -1,0 +1,198 @@
+{
+  "experiment": "EXP-025",
+  "ideal_tiers": [
+    [
+      "P",
+      "X"
+    ],
+    [
+      "W"
+    ],
+    [
+      "V"
+    ],
+    [
+      "U"
+    ]
+  ],
+  "fix": "relation-type map cost is now name-independent",
+  "holdout_frozen_at_commit": "63c6231",
+  "holdout_malformed": [],
+  "development": {
+    "corpus": "development (already seen)",
+    "by_motif": {
+      "reinforcing": {
+        "ranking": [
+          "P",
+          "X",
+          "V",
+          "U",
+          "W"
+        ],
+        "scores": {
+          "P": 1.9898,
+          "U": 1.1461,
+          "W": 0.9949,
+          "X": 1.9898,
+          "V": 1.1796
+        },
+        "analogue_beats_false_friend": true,
+        "margin_X_over_W": 0.9949,
+        "d_A": {
+          "missing": 0,
+          "spurious": 0,
+          "misclassified": 0,
+          "misordered": 2,
+          "rank_displacement": 0.8
+        },
+        "perfect": false
+      },
+      "regulating": {
+        "ranking": [
+          "P",
+          "X",
+          "W",
+          "V",
+          "U"
+        ],
+        "scores": {
+          "P": 1.9898,
+          "U": 1.1461,
+          "W": 1.9883,
+          "X": 1.9898,
+          "V": 1.9883
+        },
+        "analogue_beats_false_friend": true,
+        "margin_X_over_W": 0.0014,
+        "d_A": {
+          "missing": 0,
+          "spurious": 0,
+          "misclassified": 0,
+          "misordered": 0,
+          "rank_displacement": 0.0
+        },
+        "perfect": true
+      },
+      "cascade": {
+        "ranking": [
+          "P",
+          "X",
+          "U",
+          "V",
+          "W"
+        ],
+        "scores": {
+          "P": 1.8676,
+          "U": 1.8676,
+          "W": 0.9943,
+          "X": 1.8676,
+          "V": 1.0
+        },
+        "analogue_beats_false_friend": true,
+        "margin_X_over_W": 0.8733,
+        "d_A": {
+          "missing": 0,
+          "spurious": 0,
+          "misclassified": 0,
+          "misordered": 3,
+          "rank_displacement": 0.8
+        },
+        "perfect": false
+      }
+    },
+    "analogue_beats_false_friend": "3/3",
+    "wins": 3,
+    "n": 3,
+    "perfect_motifs": 1
+  },
+  "holdout": {
+    "corpus": "HELD-OUT (frozen before the fix)",
+    "by_motif": {
+      "inhibition": {
+        "ranking": [
+          "P",
+          "X",
+          "W",
+          "V",
+          "U"
+        ],
+        "scores": {
+          "P": 2.035,
+          "U": 0.9943,
+          "W": 1.1989,
+          "X": 2.035,
+          "V": 1.1804
+        },
+        "analogue_beats_false_friend": true,
+        "margin_X_over_W": 0.836,
+        "d_A": {
+          "missing": 0,
+          "spurious": 0,
+          "misclassified": 0,
+          "misordered": 0,
+          "rank_displacement": 0.0
+        },
+        "perfect": true
+      },
+      "threshold": {
+        "ranking": [
+          "P",
+          "X",
+          "W",
+          "U",
+          "V"
+        ],
+        "scores": {
+          "P": 1.9898,
+          "U": 1.1461,
+          "W": 1.9883,
+          "X": 1.9898,
+          "V": 1.0
+        },
+        "analogue_beats_false_friend": true,
+        "margin_X_over_W": 0.0014,
+        "d_A": {
+          "missing": 0,
+          "spurious": 0,
+          "misclassified": 0,
+          "misordered": 1,
+          "rank_displacement": 0.4
+        },
+        "perfect": false
+      },
+      "substitution": {
+        "ranking": [
+          "P",
+          "X",
+          "U",
+          "V",
+          "W"
+        ],
+        "scores": {
+          "P": 1.9898,
+          "U": 1.1461,
+          "W": 0.9949,
+          "X": 1.9898,
+          "V": 1.0
+        },
+        "analogue_beats_false_friend": true,
+        "margin_X_over_W": 0.9949,
+        "d_A": {
+          "missing": 0,
+          "spurious": 0,
+          "misclassified": 0,
+          "misordered": 3,
+          "rank_displacement": 0.8
+        },
+        "perfect": false
+      }
+    },
+    "analogue_beats_false_friend": "3/3",
+    "wins": 3,
+    "n": 3,
+    "perfect_motifs": 1
+  },
+  "holdout_passes": true,
+  "development_passes": true,
+  "verdict": "SUCCESS"
+}

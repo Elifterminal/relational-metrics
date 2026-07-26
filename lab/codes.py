@@ -86,16 +86,38 @@ class Code:
     # -- L(phi): describe the mapping ------------------------------------
 
     def mapping(self, n1: int, n2: int, k: int,
-                n_types1: int, n_types2: int, n_subs: int) -> float:
-        """Bits to specify a partial injective node map plus a relation-type
-        substitution map.
+                n_types1: int, n_types2: int, n_subs: int = 0) -> float:
+        """Bits to specify a partial injective node map plus a relation-type map.
 
-        This is the derived complexity penalty. It is the reason an elaborate
+        This is the derived complexity penalty -- the reason an elaborate
         mapping loses to a simple one (P-15) without anyone choosing how much
         elaboration should cost.
+
+        RELATION-TYPE ENCODING, corrected 2026-07-26 after EXP-024.
+
+        The earlier version charged `n_subs * log2(T2+1)`, where n_subs counted
+        the type pairs whose NAMES differ. That made the cost depend on whether
+        two domains happened to use the same word for a relation -- so a genuine
+        cross-domain analogue, which by definition does not, paid more than a
+        same-vocabulary structure with different wiring. EXP-024 measured it:
+        the analogue lost to the false friend by 0.0022 bits, entirely from this
+        term.
+
+        THAT IS THE PATHOLOGY THAT DEMOTED F-06. It was removed for participant
+        labels -- which are never encoded at all, only a canonical index -- and
+        was never removed here. It survived twenty-four experiments because it
+        only bites when two candidates are close enough for a couple of bits to
+        decide between them.
+
+        The correction is to charge for SPECIFYING the map, exactly as the node
+        map does, and never for what the names happen to be: assigning each of
+        T1 source types to one of T2 target types costs T1*log2(T2) bits,
+        whether or not any of them coincide. `n_subs` is retained in the
+        signature and ignored, so that any caller still passing it is a visible
+        no-op rather than a silent behaviour change.
         """
         node_map = self.integer(k) + log2_choose(n1, k) + log2_perm(n2, k)
-        type_map = self.integer(n_subs) + n_subs * log2(max(n_types2, 1) + 1)
+        type_map = self.integer(n_types1) + n_types1 * log2(max(n_types2, 1))
         return node_map + type_map
 
     # -- L(R2 | R1, phi): describe the target as corrections -------------

@@ -151,7 +151,23 @@ QUERIES = {"reinforcing": "m1_D", "regulating": "m2_D", "cascade": "m3_D"}
 # Ground truth by construction. The ONLY judgement call is that an analogue
 # should outrank a false friend, which is the project's whole claim -- if that
 # ordering is wrong, the thesis is wrong, not the corpus.
-IDEAL_ORDER = ["P", "X", "W", "V", "U"]
+# CORRECTED 2026-07-26 (EXP-025). This originally read ["P","X","W","V","U"],
+# asserting that a same-domain paraphrase should outrank a cross-domain
+# analogue. That assumption CONTRADICTS THE PROJECT'S OWN THESIS: both are
+# structurally identical to the query, and the entire claim is that structure
+# is what counts and vocabulary is not. A structure-only measure MUST tie them.
+#
+# It does -- exactly. Once relation-type encoding was made name-independent,
+# P and X score identically to 0.0000 in all six motifs across both corpora.
+# So the ground truth was wrong, not the measure.
+#
+# Noticed from the data, which makes it post-hoc, and said plainly for that
+# reason. It is nevertheless derivable from the thesis without looking at any
+# result, and it does NOT affect the headline claim (analogue beats false
+# friend), only the secondary ordering counts. Seventh instance of asserting a
+# property instead of deriving it (R-12).
+IDEAL_TIERS = [{"P", "X"}, {"W"}, {"V"}, {"U"}]
+IDEAL_ORDER = ["P", "X", "W", "V", "U"]      # a linearisation, for display
 
 RELATION_CLASS = {
     "P": "paraphrase",      # same structure, same domain

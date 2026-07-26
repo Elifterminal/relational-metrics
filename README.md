@@ -52,6 +52,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-023` | Is there a compact summary that *is* enough? | **No.** Best candidate leaves 2 collisions in 222. And a 16-number summary distinguishes 8 structures where a 20-number one distinguishes 217 |
 | `EXP-005` | Does the correspondence measure work on shapes it wasn't built for? | **Yes, 5/5** — including an acyclic topology and an undesigned one. Making the test harder first exposed an unchecked container invariant |
 | `EXP-024` | Search corpus + a real `d_A`. Does it retrieve? | **2 of 3 — best of four methods, short of the claim.** Loses by 0.0022 because it still charges the analogue for using a different domain's relation vocabulary |
+| `EXP-025` | Fix it, and test on data frozen beforehand | **6 of 6.** Paraphrase and analogue now score *identically* — which is what a vocabulary-blind measure must do, and not what a fitted patch produces |
 
 ### The findings worth your time
 
@@ -242,9 +243,25 @@ participant labels (never encoded at all) and never fixed for relation-type labe
 twenty-four experiments and only surfaced when two structures came close enough for two bits to
 decide the answer.
 
-The fix is clear — encode relation types canonically, as participant labels already are — and is
-deliberately *not applied yet*: the corpus is now the development set, and a fix tuned until this
-corpus passes is a fix fitted to three motifs.
+**The fix now holds on held-out data.** A second corpus — three new motifs, structurally distinct
+from the first — was written and **committed before the fix existed**, then the change landed
+(charge for *specifying* the relation-type map, never for whether the names coincide), regressions
+were re-run, and both corpora were scored once. **Six of six.** Harness still catches 7/7
+impostors; transfer still 5/5.
+
+The number that says it's real rather than tuned: **paraphrase and analogue now score identically
+— 0.0000 apart, in all six motifs.** They are structurally the same thing wearing different words,
+so a measure that genuinely ignores vocabulary *must* return the same number for both. A fitted
+patch would not produce that.
+
+It also exposed a seventh wrong ground truth: the corpus had declared that a same-domain
+paraphrase should outrank a cross-domain analogue, which **contradicts this project's own thesis**.
+The ideal is now stated as tiers with those two tied. Noticed from the data, so labelled post-hoc,
+though derivable from the thesis without looking at any result — and it doesn't touch the headline,
+which held before and after.
+
+Still imperfect: only 1 of 3 motifs is *fully* ordered on each corpus. The measure knows a false
+friend is wrong but doesn't reliably know it's *more* wrong than an unrelated document.
 
 `d_A` itself is a **vector over named failure modes**, each traceable to a principle that predates
 it — a real relation missing, a relation asserted too strongly, an analogy sold as a mechanism, a
@@ -286,6 +303,7 @@ python3 run_exp022.py      # are the two instruments together complete?
 python3 run_exp023.py      # is there a minimal sufficient summary? (no)
 python3 run_exp005.py      # cross-generator transfer -- does it work on unseen shapes?
 python3 run_exp024.py      # the search corpus, d_A, and does it actually retrieve?
+python3 run_exp025.py      # the fix, tested on a corpus frozen before it existed
 
 cd ../render
 python3 figures.py         # regenerate the SVGs
@@ -311,6 +329,7 @@ lab/
   generators.py      five structurally distinct base topologies
   corpus.py          the annotated search corpus -- 3 motifs, 18 documents
   d_a.py             d_A: a vector over named failure modes
+  corpus_holdout.py  held-out corpus, frozen before the fix landed
   hyperworlds.py     synthetic worlds with a KNOWN interaction order
   worlds.py          the condition set — A/B/C/D/E/F plus a held-out case
   impostors.py       seven deliberately cheating methods

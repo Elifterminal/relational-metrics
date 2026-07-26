@@ -1259,6 +1259,63 @@ def fig_corpus(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 24 — the fix, on data frozen before it existed
+# ---------------------------------------------------------------------------
+
+def fig_fix(data: dict) -> str:
+    W, H = 800, 400
+    L, R, T, B = 176, 150, 92, 58
+    pw, ph = W - L - R, H - T - B
+    kinds = [("P", "#2563eb"), ("X", "#15803d"), ("W", "#dc2626"),
+             ("V", "#d97706"), ("U", "#94a3b8")]
+    kc = dict(kinds)
+    rows = []
+    for tag, key in (("dev", "development"), ("HELD-OUT", "holdout")):
+        for motif, v in data[key]["by_motif"].items():
+            rows.append((tag, motif, v))
+
+    out = ['<text class="ttl" x="24" y="26">The fix, on data frozen before the fix existed</text>',
+           '<text class="sub" x="24" y="45">Relation-type cost is now name-independent. '
+           'Green = cross-domain analogue, red = false friend sharing the query\'s vocabulary.</text>',
+           '<text class="sub" x="24" y="64">The held-out corpus was written and committed '
+           'BEFORE the change landed. Its three rows are the result; the dev rows are a sanity '
+           'check only.</text>']
+    ly = 82
+    for k, c in kinds:
+        lbl = {"P": "paraphrase", "X": "analogue", "W": "false friend",
+               "V": "generic", "U": "unrelated"}[k]
+        i = [x for x, _ in kinds].index(k)
+        out.append(f'<rect x="{24 + i*150}" y="{ly-9}" width="11" height="10" fill="{c}" rx="2"/>')
+        out.append(f'<text class="sub" x="{40 + i*150}" y="{ly}">{esc(k)} {esc(lbl)}</text>')
+
+    bh = ph / len(rows)
+    cw = pw / 5
+    for i, (tag, motif, v) in enumerate(rows):
+        y = T + i * bh
+        held = tag == "HELD-OUT"
+        out.append(f'<text class="lbl" x="{L-12}" y="{y+bh/2+4:.1f}" text-anchor="end" '
+                   f'fill="{"var(--fg)" if held else "var(--mut)"}">'
+                   f'{esc(tag)} · {esc(motif)}</text>')
+        for j, k in enumerate(v["ranking"]):
+            x = L + j * cw
+            out.append(f'<rect x="{x+2:.1f}" y="{y+bh*0.2:.1f}" width="{cw-6:.1f}" '
+                       f'height="{bh*0.6:.1f}" fill="{kc[k]}" rx="2" '
+                       f'opacity="{0.95 if k in ("X","W") else 0.35}"/>')
+            out.append(f'<text x="{x+cw/2:.1f}" y="{y+bh/2+4:.1f}" text-anchor="middle" '
+                       f'fill="#fff" font-size="11" font-family="sans-serif">{esc(k)}</text>')
+        out.append(f'<text class="tick" x="{L+pw+10}" y="{y+bh/2+4:.1f}" fill="#15803d">'
+                   f'X &gt; W</text>')
+
+    out.append(f'<text class="sub" x="24" y="{H-26}">'
+               'Six of six. And paraphrase and analogue now score IDENTICALLY to four decimal '
+               'places in every case — which is what a</text>')
+    out.append(f'<text class="sub" x="24" y="{H-12}">'
+               'structure-only measure must do, since they are structurally the same thing '
+               'wearing different words.</text>')
+    return svg(W, H, "".join(out), "The fix on held-out data")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1340,6 +1397,7 @@ def main() -> None:
     e23 = json.loads((RESULTS / "exp023.json").read_text())
     e05 = json.loads((RESULTS / "exp005.json").read_text())
     e24 = json.loads((RESULTS / "exp024.json").read_text())
+    e25 = json.loads((RESULTS / "exp025.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1370,6 +1428,7 @@ def main() -> None:
         "fig21_minimal.svg": fig_minimal(e23),
         "fig22_transfer.svg": fig_transfer(e05),
         "fig23_corpus.svg": fig_corpus(e24),
+        "fig24_fix.svg": fig_fix(e25),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

@@ -4,10 +4,10 @@
   "results": {
     "motif (development family)": {
       "scores": {
-        "B": 2.3342,
-        "C": 1.3742,
-        "D": 0.95,
-        "E": 1.727
+        "B": 2.4786,
+        "C": 1.23,
+        "D": 0.9731,
+        "E": 1.5051
       },
       "ranking": [
         "B",
@@ -19,7 +19,7 @@
       "B_beats_C": true,
       "B_beats_D": true,
       "graded_order_holds": true,
-      "margin_over_next": 0.6072,
+      "margin_over_next": 0.9735,
       "ranking_by_code": {
         "gamma": [
           "B",
@@ -44,10 +44,10 @@
     },
     "chain (acyclic)": {
       "scores": {
-        "B": 2.3342,
-        "C": 1.3742,
-        "D": 1.1933,
-        "E": 1.727
+        "B": 2.4786,
+        "C": 1.23,
+        "D": 1.23,
+        "E": 1.5051
       },
       "ranking": [
         "B",
@@ -59,7 +59,7 @@
       "B_beats_C": true,
       "B_beats_D": true,
       "graded_order_holds": true,
-      "margin_over_next": 0.6072,
+      "margin_over_next": 0.9735,
       "ranking_by_code": {
         "gamma": [
           "B",
@@ -84,10 +84,10 @@
     },
     "hub (concentrated degree)": {
       "scores": {
-        "B": 2.4219,
-        "C": 1.4102,
-        "D": 0.9539,
-        "E": 1.7791
+        "B": 2.5927,
+        "C": 1.2467,
+        "D": 0.9793,
+        "E": 1.5265
       },
       "ranking": [
         "B",
@@ -99,7 +99,7 @@
       "B_beats_C": true,
       "B_beats_D": true,
       "graded_order_holds": true,
-      "margin_over_next": 0.6428,
+      "margin_over_next": 1.0663,
       "ranking_by_code": {
         "gamma": [
           "B",
@@ -124,10 +124,10 @@
     },
     "lattice (parallel paths)": {
       "scores": {
-        "B": 2.4219,
-        "C": 1.0775,
-        "D": 1.2058,
-        "E": 1.7791
+        "B": 2.5927,
+        "C": 0.9793,
+        "D": 1.2467,
+        "E": 1.5265
       },
       "ranking": [
         "B",
@@ -139,7 +139,7 @@
       "B_beats_C": true,
       "B_beats_D": true,
       "graded_order_holds": true,
-      "margin_over_next": 0.6428,
+      "margin_over_next": 1.0663,
       "ranking_by_code": {
         "gamma": [
           "B",
@@ -164,10 +164,10 @@
     },
     "random_dag (unshaped)": {
       "scores": {
-        "B": 2.3342,
-        "C": 1.0612,
-        "D": 1.1933,
-        "E": 1.727
+        "B": 2.4786,
+        "C": 0.9731,
+        "D": 1.23,
+        "E": 1.5051
       },
       "ranking": [
         "B",
@@ -179,7 +179,7 @@
       "B_beats_C": true,
       "B_beats_D": true,
       "graded_order_holds": true,
-      "margin_over_next": 0.6072,
+      "margin_over_next": 0.9735,
       "ranking_by_code": {
         "gamma": [
           "B",
