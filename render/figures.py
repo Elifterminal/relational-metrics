@@ -1142,6 +1142,65 @@ def fig_minimal(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 22 — cross-generator transfer
+# ---------------------------------------------------------------------------
+
+def fig_transfer(data: dict) -> str:
+    W, H = 800, 380
+    L, R, T, B = 236, 176, 76, 58
+    pw, ph = W - L - R, H - T - B
+    res = data["results"]
+    names = list(res)
+    cols = [("B  perfect analogue", "B", "#2563eb"),
+            ("E  near-miss", "E", "#d97706"),
+            ("C  same words, rewired", "C", "#94a3b8"),
+            ("D  matched random", "D", "#64748b")]
+    vmax = max(r["scores"]["B"] for r in res.values()) * 1.12
+
+    out = ['<text class="ttl" x="24" y="26">Does the correspondence measure work on shapes it was never built for?</text>',
+           '<text class="sub" x="24" y="45">Five base topologies. The conditions are derived '
+           'identically from each, so the only thing varying is the shape.</text>']
+    for i in range(5):
+        v = i / 4 * vmax
+        x = L + (v / vmax) * pw
+        out.append(f'<line class="ax" x1="{x:.1f}" y1="{T-4}" x2="{x:.1f}" y2="{T+ph}"/>')
+        out.append(f'<text class="tick" x="{x:.1f}" y="{T+ph+18}" '
+                   f'text-anchor="middle">{v:.1f}</text>')
+    out.append(f'<text class="lbl" x="{L+pw/2:.0f}" y="{H-14}" text-anchor="middle">'
+               'compression ratio</text>')
+
+    bh = ph / len(names)
+    for i, n in enumerate(names):
+        r = res[n]
+        y = T + i * bh
+        dev = n.startswith("motif")
+        out.append(f'<text class="lbl" x="{L-14}" y="{y+bh/2+4:.1f}" text-anchor="end" '
+                   f'{"font-style=italic" if dev else ""}>{esc(n)}</text>')
+        for j, (_, key, col) in enumerate(cols):
+            v = r["scores"][key]
+            yy = y + bh * 0.12 + j * (bh * 0.2)
+            w = max((v / vmax) * pw, 1.5)
+            out.append(f'<rect x="{L}" y="{yy:.1f}" width="{w:.1f}" '
+                       f'height="{bh*0.16:.1f}" fill="{col}" rx="1.5"/>')
+        ok = r["graded_order_holds"]
+        out.append(f'<text class="tick" x="{L+pw+10}" y="{y+bh/2+4:.1f}" '
+                   f'fill="{"#15803d" if ok else "#dc2626"}">'
+                   f'{esc(" > ".join(r["ranking"]))}</text>')
+
+    ly = T + 4
+    for lbl, key, col in cols:
+        out.append(f'<rect x="{24}" y="{ly-9}" width="11" height="10" fill="{col}" rx="2"/>')
+        out.append(f'<text class="sub" x="{40}" y="{ly}">{esc(lbl)}</text>')
+        ly += 14
+    out.append(f'<text class="sub" x="24" y="{H-30}">'
+               'The italic row is the family the measure was developed on. The graded ordering '
+               'B > E > {C, D} holds on all five,</text>')
+    out.append(f'<text class="sub" x="24" y="{H-16}">'
+               'including a topology with no cycles at all and one that nobody designed.</text>')
+    return svg(W, H, "".join(out), "Cross-generator transfer")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1221,6 +1280,7 @@ def main() -> None:
     e21 = json.loads((RESULTS / "exp021.json").read_text())
     e22 = json.loads((RESULTS / "exp022.json").read_text())
     e23 = json.loads((RESULTS / "exp023.json").read_text())
+    e05 = json.loads((RESULTS / "exp005.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1249,6 +1309,7 @@ def main() -> None:
         "fig19_blind.svg": fig_blind(e21),
         "fig20_complete.svg": fig_complete(e22),
         "fig21_minimal.svg": fig_minimal(e23),
+        "fig22_transfer.svg": fig_transfer(e05),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

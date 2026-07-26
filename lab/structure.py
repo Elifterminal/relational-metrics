@@ -57,6 +57,24 @@ class Structure:
     def edge_set(self) -> frozenset[tuple[str, str, str]]:
         return frozenset((r.src, r.dst, r.rtype) for r in self.relations)
 
+    @property
+    def is_well_formed(self) -> bool:
+        """`m` must equal the number of DISTINCT relations.
+
+        edge_set() is a frozenset, so two identical (src, dst, type) triples
+        collapse into one and the structure silently has fewer relations than
+        it reports. EXP-005 hit exactly this: a generator emitted parallel
+        edges differing only in type, a near-miss flipped one of them into a
+        duplicate, and the collapsed structure scored ABOVE a perfect isomorph
+        because it had become cheaper to describe.
+
+        Nothing checked this for twenty-three experiments. It never fired
+        because every earlier world was hand-built without parallel edges --
+        which is the condition-set blindness R-11 describes, arriving in the
+        container rather than in a measure.
+        """
+        return len(self.edge_set()) == self.m
+
     def index(self) -> dict[str, int]:
         """Canonical node indexing. Used by the codes so that node *labels*
         never enter a description length — that is what makes the measure

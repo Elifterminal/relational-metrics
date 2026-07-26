@@ -332,6 +332,12 @@ def build() -> str:
     e21 = json.loads((RESULTS / "exp021.json").read_text())
     e22 = json.loads((RESULTS / "exp022.json").read_text())
     e23 = json.loads((RESULTS / "exp023.json").read_text())
+    e05 = json.loads((RESULTS / "exp005.json").read_text())
+    tr_rows = "".join(
+        f"<tr><td>{n}</td><td>{r['scores']['B']:.4f}</td><td>{r['scores']['E']:.4f}</td>"
+        f"<td>{r['scores']['C']:.4f}</td><td>{r['scores']['D']:.4f}</td>"
+        f"<td>{'yes' if r['graded_order_holds'] else 'no'}</td></tr>"
+        for n, r in e05["results"].items())
     mi_rows = "".join(
         f"<tr><td>{lbl}</td><td>{sz}</td>"
         f"<td>{e23['k=4']['candidates'][key]['distinct_values']}</td>"
@@ -1329,6 +1335,43 @@ structure resists compression harder than the tidy arc of the last few findings 
 law, the profiles, and the census were each real, and none of them adds up to a description of a
 configuration.</div>
 
+<h2>Finding 21 — does it work on shapes it was never built for?</h2>
+<p>Every result about the correspondence measure so far rested on one structure family: the
+reinforcing-channel motif it was developed against. A measure tested only on the worlds it was
+built for may have learned those worlds, and every application downstream inherits that doubt.
+This is the gate between "works on my worlds" and "works".</p>
+<p class="sub">Five base topologies, chosen against a property list rather than by recall — cycles,
+branching, degree concentration, path multiplicity, and one nobody designed. The conditions are
+derived <i>identically</i> from each base, so the only variable is the shape.</p>
+<div class="fig">{figs['fig22_transfer.svg']}</div>
+<table><thead><tr><th>topology</th><th>perfect analogue</th><th>near-miss</th>
+<th>same words, rewired</th><th>matched random</th><th>graded order?</th></tr></thead>
+<tbody>{tr_rows}</tbody></table>
+<div class="read ok"><b>It transfers.</b> The graded ordering — perfect analogue above near-miss
+above both wrong answers — holds on all five, including a topology with no cycles at all (the one
+property the measure was developed around) and one that nobody designed. The ordering is also
+stable across all three description codes. <b>The standing doubt that this was an n=1 result is
+discharged.</b></div>
+
+<h3>The first version of this test was too easy, and the fix found a real bug</h3>
+<div class="read warn"><b>Run one used only the perfect analogue and the two wrong answers, and
+passed 4 of 4 — which should have been suspicious.</b> A perfect isomorph of matched size
+compresses to essentially the same score on every topology, so the question had degenerated to
+"can it spot an exact copy". Adding the near-miss turned it into a question about <i>degrees</i>
+of correspondence, and one topology promptly failed: the near-miss outranked the perfect
+copy.<br><br><b>The cause was not the measure.</b> The random generator had emitted two relations
+between the same pair of participants differing only in type. Flipping one made them identical —
+and because relations are held in a set, the duplicate <b>silently collapsed</b>. The structure
+reported six relations and had five, which made it cheaper to describe and inflated its
+score.</div>
+<div class="read"><b>Nothing had checked that invariant in twenty-three experiments.</b> It never
+fired because every earlier world was hand-built, and hand-built worlds do not have parallel
+edges. That is the same condition-set blindness this log has now hit repeatedly — arriving this
+time in the <i>container</i> rather than in a measure, where nobody was looking.<br><br>The
+container now asserts that a structure's declared size equals its distinct-relation count, and
+every experiment checks it before running. The generator was fixed to match. Re-run:
+<b>5 of 5, graded ordering everywhere.</b></div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1364,6 +1407,11 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The correspondence measure transfers — the n=1 doubt is discharged.</b> Graded
+ordering holds on five base topologies including an acyclic one and an undesigned one, stable
+across all three codes. Getting there required making the test harder, and the harder test
+immediately exposed an unchecked invariant in the structure container that had survived
+twenty-three experiments because every previous world was hand-built.</div>
 <div class="q"><b>And no compact summary replaces it.</b> Searching the natural candidates found
 nothing complete at four participants — the best, the joint matrix, leaves 2 collisions out of 222
 structures. Meanwhile the spectrum multiset writes down 16 numbers to distinguish 8 structures and

@@ -1,0 +1,222 @@
+{
+  "experiment": "EXP-005",
+  "claim": "F-06a transfers to base topologies it was not developed against",
+  "results": {
+    "motif (development family)": {
+      "scores": {
+        "B": 2.3342,
+        "C": 1.3742,
+        "D": 0.95,
+        "E": 1.727
+      },
+      "ranking": [
+        "B",
+        "E",
+        "C",
+        "D"
+      ],
+      "B_ranks_first": true,
+      "B_beats_C": true,
+      "B_beats_D": true,
+      "graded_order_holds": true,
+      "margin_over_next": 0.6072,
+      "ranking_by_code": {
+        "gamma": [
+          "B",
+          "E",
+          "C",
+          "D"
+        ],
+        "delta": [
+          "B",
+          "E",
+          "C",
+          "D"
+        ],
+        "flat32": [
+          "B",
+          "E",
+          "C",
+          "D"
+        ]
+      },
+      "ranking_stable_across_codes": true
+    },
+    "chain (acyclic)": {
+      "scores": {
+        "B": 2.3342,
+        "C": 1.3742,
+        "D": 1.1933,
+        "E": 1.727
+      },
+      "ranking": [
+        "B",
+        "E",
+        "C",
+        "D"
+      ],
+      "B_ranks_first": true,
+      "B_beats_C": true,
+      "B_beats_D": true,
+      "graded_order_holds": true,
+      "margin_over_next": 0.6072,
+      "ranking_by_code": {
+        "gamma": [
+          "B",
+          "E",
+          "C",
+          "D"
+        ],
+        "delta": [
+          "B",
+          "E",
+          "C",
+          "D"
+        ],
+        "flat32": [
+          "B",
+          "E",
+          "C",
+          "D"
+        ]
+      },
+      "ranking_stable_across_codes": true
+    },
+    "hub (concentrated degree)": {
+      "scores": {
+        "B": 2.4219,
+        "C": 1.4102,
+        "D": 0.9539,
+        "E": 1.7791
+      },
+      "ranking": [
+        "B",
+        "E",
+        "C",
+        "D"
+      ],
+      "B_ranks_first": true,
+      "B_beats_C": true,
+      "B_beats_D": true,
+      "graded_order_holds": true,
+      "margin_over_next": 0.6428,
+      "ranking_by_code": {
+        "gamma": [
+          "B",
+          "E",
+          "C",
+          "D"
+        ],
+        "delta": [
+          "B",
+          "E",
+          "C",
+          "D"
+        ],
+        "flat32": [
+          "B",
+          "E",
+          "C",
+          "D"
+        ]
+      },
+      "ranking_stable_across_codes": true
+    },
+    "lattice (parallel paths)": {
+      "scores": {
+        "B": 2.4219,
+        "C": 1.0775,
+        "D": 1.2058,
+        "E": 1.7791
+      },
+      "ranking": [
+        "B",
+        "E",
+        "D",
+        "C"
+      ],
+      "B_ranks_first": true,
+      "B_beats_C": true,
+      "B_beats_D": true,
+      "graded_order_holds": true,
+      "margin_over_next": 0.6428,
+      "ranking_by_code": {
+        "gamma": [
+          "B",
+          "E",
+          "D",
+          "C"
+        ],
+        "delta": [
+          "B",
+          "E",
+          "D",
+          "C"
+        ],
+        "flat32": [
+          "B",
+          "E",
+          "D",
+          "C"
+        ]
+      },
+      "ranking_stable_across_codes": true
+    },
+    "random_dag (unshaped)": {
+      "scores": {
+        "B": 2.3342,
+        "C": 1.0612,
+        "D": 1.1933,
+        "E": 1.727
+      },
+      "ranking": [
+        "B",
+        "E",
+        "D",
+        "C"
+      ],
+      "B_ranks_first": true,
+      "B_beats_C": true,
+      "B_beats_D": true,
+      "graded_order_holds": true,
+      "margin_over_next": 0.6072,
+      "ranking_by_code": {
+        "gamma": [
+          "B",
+          "E",
+          "D",
+          "C"
+        ],
+        "delta": [
+          "B",
+          "E",
+          "D",
+          "C"
+        ],
+        "flat32": [
+          "B",
+          "E",
+          "D",
+          "C"
+        ]
+      },
+      "ranking_stable_across_codes": true
+    }
+  },
+  "development_family_passes": true,
+  "novel_families_total": 4,
+  "novel_families_passed": 4,
+  "novel_families_failed": [],
+  "malformed_conditions": [],
+  "all_conditions_well_formed": true,
+  "transfers": true,
+  "graded_order_holds_everywhere": true,
+  "generators_with_graded_order": [
+    "motif (development family)",
+    "chain (acyclic)",
+    "hub (concentrated degree)",
+    "lattice (parallel paths)",
+    "random_dag (unshaped)"
+  ],
+  "order_stable_across_codes_everywhere": true
+}

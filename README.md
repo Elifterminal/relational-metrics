@@ -50,6 +50,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-021` | Can anything here see *interaction* structure? | **The predictive law cannot — provably.** Two structures with identical retention predictions, one three-quarters pure pairwise, the other spread across every order |
 | `EXP-022` | Are the two instruments *together* enough? | **At three participants yes, at four no.** The complete invariant is one number per subset — so "no single score" turns out to describe the subject matter |
 | `EXP-023` | Is there a compact summary that *is* enough? | **No.** Best candidate leaves 2 collisions in 222. And a 16-number summary distinguishes 8 structures where a 20-number one distinguishes 217 |
+| `EXP-005` | Does the correspondence measure work on shapes it wasn't built for? | **Yes, 5/5** — including an acyclic topology and an undesigned one. Making the test harder first exposed an unchecked container invariant |
 
 ### The findings worth your time
 
@@ -210,6 +211,23 @@ writes down 16 numbers and distinguishes 8 structures; the joint matrix writes d
 distinguishes 217. Combining them changes the answer by nothing at all. Which numbers you keep
 matters enormously more than how many.
 
+**The correspondence measure transfers.** Every earlier result about it rested on the one
+structure family it was developed against — an n=1 doubt that every downstream application would
+have inherited. Tested on five base topologies chosen against a property list (cycles, branching,
+degree concentration, path multiplicity, and one nobody designed), with conditions derived
+identically from each so the only variable is the shape: **the graded ordering holds on all five**,
+stable across all three description codes.
+
+Getting there took making the test harder. The first version used only a perfect analogue and two
+wrong answers and passed 4/4 — which should have been suspicious, since a perfect isomorph of
+matched size compresses the same way on any topology. Adding a near-miss turned it into a question
+about *degrees* of correspondence, and one topology promptly failed. The cause wasn't the measure:
+a generator had emitted two relations between the same pair differing only in type, flipping one
+made them identical, and because relations live in a set the duplicate **silently collapsed** —
+the structure reported six relations and had five. **Nothing had checked that invariant in
+twenty-three experiments**, because every earlier world was hand-built and hand-built worlds don't
+have parallel edges. The container now asserts it.
+
 ## Honest limits
 
 - Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
@@ -243,6 +261,7 @@ python3 run_exp020.py      # systematic census by influence profile
 python3 run_exp021.py      # interaction structure census -- what the law cannot see
 python3 run_exp022.py      # are the two instruments together complete?
 python3 run_exp023.py      # is there a minimal sufficient summary? (no)
+python3 run_exp005.py      # cross-generator transfer -- does it work on unseen shapes?
 
 cd ../render
 python3 figures.py         # regenerate the SVGs
@@ -265,6 +284,7 @@ lab/
   stressworlds.py    adversarial worlds built to break the measure
   asymworlds.py      families whose participants differ in importance
   fourier.py         Walsh-Fourier spectrum: interaction structure by order
+  generators.py      five structurally distinct base topologies
   hyperworlds.py     synthetic worlds with a KNOWN interaction order
   worlds.py          the condition set — A/B/C/D/E/F plus a held-out case
   impostors.py       seven deliberately cheating methods
