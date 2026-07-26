@@ -1,0 +1,34 @@
+{
+  "experiment": "EXP-044",
+  "question": "What specifically makes narrative prose hard to annotate, compared with the one-line glosses that worked?",
+  "why_this_is_safe_to_run_now": "It measures properties of the TEXT, not performance against the answers. No correct-answer label is read at any point. So it is not the forbidden move — tuning a reader against a benchmark whose answers I know — and its conclusions cannot be steered by a score.",
+  "why_it_is_worth_running": "EXP-042 established that a rule-based reader fails on prose, but not WHY. 'Prose is harder' is not actionable. If the gap is one or two specific properties, that tells us what any Stage 2 reader must handle and gives a way to predict failure before spending a commission on it.",
+  "data": {
+    "easy_set": "the 60 corpus glosses (mechanical reader: 1.52 relations each, 7 empty)",
+    "hard_set": "the 90 ARN passages (mechanical reader: near-total failure, 69% empty)",
+    "labels_read": "none"
+  },
+  "measures": [
+    "length in words and sentences",
+    "explicit causal verbs per passage, using the reader's own declared lexicon",
+    "proportion of sentences containing NO lexicon verb",
+    "pronoun density, as a proxy for how much reference must be resolved across sentences",
+    "named entities and proper nouns, as a proxy for surface specificity that must be abstracted away",
+    "clause count per sentence"
+  ],
+  "statistic": "per-measure comparison between the two sets, reported as means with the ratio between them. Descriptive.",
+  "tests": "two-sided Welch t-test per measure, with Holm correction across the six measures because six comparisons on the same data is six chances to find something.",
+  "exclusion_rule": "none; every passage in both sets is measured.",
+  "robustness": "report the measure that separates the sets MOST and check it is not simply length in disguise, by re-running the comparison on a length-matched subset.",
+  "falsification": [
+    "no measure separates the sets after correction -> the difficulty is not captured by any of these surface properties and this diagnostic has failed",
+    "only length separates them -> the answer is trivial and unhelpful: prose is longer",
+    "the separating measures survive length-matching -> genuinely informative about what a reader must do"
+  ],
+  "predictions": [
+    {"claim": "explicit causal verbs per WORD will be far lower in the ARN passages", "confidence": "high", "reason": "the glosses were written to describe causal structure; the narratives were written to tell a story, and stories imply causation through sequence rather than stating it"},
+    {"claim": "pronoun density will be much higher in ARN", "confidence": "high", "reason": "narratives track characters across sentences"},
+    {"claim": "the proportion of sentences with no causal verb at all will be the single biggest separator", "confidence": "medium"},
+    {"claim": "length alone will NOT explain it -- the separation will survive length-matching", "confidence": "medium"}
+  ]
+}
