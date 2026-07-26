@@ -1,0 +1,197 @@
+{
+  "experiment": "EXP-043",
+  "plan_locked_at": "9707f5f02575af9457aa8bd9e73cda6a0318b3f8",
+  "plan_sha256": "68f80d579c5a4bdb",
+  "margin_stats": {
+    "n": 30,
+    "per_motif_margins": [
+      -0.1111,
+      -0.1739,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.2573,
+      -0.0243,
+      0.0,
+      -0.0262,
+      -0.0596,
+      0.0184,
+      0.0,
+      0.0,
+      0.0559,
+      0.0,
+      0.032,
+      -0.1517,
+      -0.0998,
+      -0.0179,
+      -0.0039,
+      0.1567,
+      0.1823,
+      0.0328,
+      -0.1395,
+      0.0,
+      0.3188,
+      -0.101,
+      0.0,
+      0.0
+    ],
+    "mean_margin_bits": 0.0048,
+    "sd": 0.1084,
+    "effect_size_d": 0.045,
+    "ci95_on_mean": [
+      -0.0347,
+      0.0444
+    ],
+    "t_test_p": 0.8084,
+    "wilcoxon_p": 0.9359,
+    "wilcoxon_n_after_dropping_ties": 19,
+    "abstentions": 11,
+    "_footnote_win_count": "8/30"
+  },
+  "leave_one_out": "0/30",
+  "abstention_rate": 0.0,
+  "verdict": "FAILED -- margin interval includes zero. Charter falsification 1: automatic annotation of prose produces no signal | FLOOR WARNING: the annotator never returned fewer than 1 relations, so its output is suspect exactly as mine was in EXP-040",
+  "passages": 90,
+  "items": 30,
+  "scored": 30,
+  "excluded": [],
+  "floor_check": {
+    "distribution": {
+      "1": 8,
+      "2": 15,
+      "3": 32,
+      "4": 24,
+      "5": 10,
+      "6": 1
+    },
+    "minimum": 1,
+    "can_abstain": false
+  },
+  "comparison": {
+    "mechanical_on_same_text": "69% blank, 0/30 scored (EXP-042)",
+    "this_annotator_on_glosses": "effect size 0.788 (EXP-039)"
+  },
+  "rows": [
+    {
+      "item": "1025",
+      "margin": -0.1111
+    },
+    {
+      "item": "117",
+      "margin": -0.1739
+    },
+    {
+      "item": "143",
+      "margin": 0.0
+    },
+    {
+      "item": "157",
+      "margin": 0.0
+    },
+    {
+      "item": "166",
+      "margin": 0.0
+    },
+    {
+      "item": "172",
+      "margin": 0.0
+    },
+    {
+      "item": "190",
+      "margin": 0.2573
+    },
+    {
+      "item": "201",
+      "margin": -0.0243
+    },
+    {
+      "item": "257",
+      "margin": 0.0
+    },
+    {
+      "item": "274",
+      "margin": -0.0262
+    },
+    {
+      "item": "275",
+      "margin": -0.0596
+    },
+    {
+      "item": "345",
+      "margin": 0.0184
+    },
+    {
+      "item": "360",
+      "margin": 0.0
+    },
+    {
+      "item": "393",
+      "margin": 0.0
+    },
+    {
+      "item": "415",
+      "margin": 0.0559
+    },
+    {
+      "item": "442",
+      "margin": 0.0
+    },
+    {
+      "item": "480",
+      "margin": 0.032
+    },
+    {
+      "item": "556",
+      "margin": -0.1517
+    },
+    {
+      "item": "57",
+      "margin": -0.0998
+    },
+    {
+      "item": "577",
+      "margin": -0.0179
+    },
+    {
+      "item": "58",
+      "margin": -0.0039
+    },
+    {
+      "item": "585",
+      "margin": 0.1567
+    },
+    {
+      "item": "620",
+      "margin": 0.1823
+    },
+    {
+      "item": "650",
+      "margin": 0.0328
+    },
+    {
+      "item": "676",
+      "margin": -0.1395
+    },
+    {
+      "item": "685",
+      "margin": 0.0
+    },
+    {
+      "item": "764",
+      "margin": 0.3188
+    },
+    {
+      "item": "878",
+      "margin": -0.101
+    },
+    {
+      "item": "911",
+      "margin": 0.0
+    },
+    {
+      "item": "995",
+      "margin": 0.0
+    }
+  ]
+}

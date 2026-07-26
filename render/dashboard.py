@@ -378,6 +378,49 @@ window against thirty-three passages, so there wasn't enough to test. Four of th
 already rates — per 100 words, per sentence — so length is divided out by construction, but that's an
 argument rather than the check I promised, and it's reported as untested rather than assumed.</div>
 
+<h3>S2-4 — the decisive test, and it fails</h3>
+<p class="sub">The first fully pre-registered experiment in the project: the analysis plan AND the
+code implementing it were both committed before a single annotation existed.</p>
+<p>The one remaining candidate reader, on the one benchmark with answers set by other people. This is
+the question Stage 2 exists to answer.</p>
+<table><thead><tr><th></th><th>tidy glosses</th><th>real narratives</th></tr></thead><tbody>
+<tr><td>effect size</td><td><b>0.788</b></td><td><b>0.045</b></td></tr>
+<tr><td>mean margin</td><td>+0.165 bits</td><td><b>+0.005 bits</b></td></tr>
+<tr><td>confidence interval</td><td>excludes zero</td><td><b>spans zero</b></td></tr>
+<tr><td>leave-one-out</td><td>3 of 9</td><td><b>0 of 30</b></td></tr>
+</tbody></table>
+<div class="read warn" style="border-left-color:#dc2626"><b>It fails, and not narrowly.</b> Seventeen
+times smaller, with an interval straddling zero almost symmetrically. Every one of the thirty items
+scored — nothing thrown away, nothing gone wrong. The reader annotated all ninety passages competently
+and the result contains no signal.</div>
+
+<h4>Three predictions right, one wrong, and the wrong one is the finding</h4>
+<div class="read warn"><b>I predicted the reader would keep its ability to decline.</b> On the tidy
+glosses it refused six times out of sixty — sensibly, on documents that genuinely said nothing.
+<br><br><b>On ninety narratives it refused zero times.</b> Same instructions, same explicit
+permission.<br><br><b>A story never looks empty.</b> There is always a sequence of events you can read
+as causation, so the safeguard never engages — precisely where it is needed most. The rule required
+the reader be <i>able</i> to refuse. It was able. The text never gave it a reason it could recognise.
+<br><br>The floor check added to the charter two findings ago is what caught this, on its first
+run.</div>
+<div class="read"><b>Does that invalidate the negative? No — it points the same way.</b> Manufactured
+structure is noise, not signal, so a floor makes an empty result <i>more</i> likely rather than less.
+The failure is real for this reader on this text.<br><br>But it doesn't separate two explanations:
+prose analogies may not reduce to these structures at all, or this reader may have manufactured
+plausible-looking structure on all ninety and buried the signal in it.</div>
+
+<h3>Stage 2's answer</h3>
+<div class="read warn" style="border-left-color:#dc2626;font-size:15px"><b>This pipeline works on
+formalised descriptions and does not work on prose.</b></div>
+<div class="read"><b>Smaller than the goal. Real.</b> Arrived at by a test that could not be adjusted
+after the fact, on data from outside the project, against answers nobody here set, and predicted in
+writing before the request went out. The charter named this as the most likely single outcome and
+said what to do with it. This is doing it.<br><br>Three readers have now been tried on the same
+narratives — a rule-based extractor that produced nothing, and a language model that produced
+everything and told us nothing. <b>The gap between "can produce structure" and "produces the right
+structure" is the whole problem, and making the reader better at producing structure does not close
+it.</b></div>
+
 <h2>Methodology changes</h2>
 <div class="read sub"><b>None yet.</b> Every change to the charter gets logged here with its date and
 reason, rather than edited silently into the text above. Stage 1 had three occasions where a

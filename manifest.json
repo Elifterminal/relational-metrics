@@ -567,6 +567,20 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "why prose is hard -- the causation is never stated"
+    },
+    {
+      "id": "EXP-043",
+      "question": "Can an independent reader given a format spec annotate real prose well enough for the comparison to work?",
+      "result": "**No. Fully pre-registered \u2014 plan AND code locked before the data existed \u2014 and it fails.** Mean margin **+0.0048 bits**, 95% CI [\u22120.0347, +0.0444] spanning zero, effect size **0.045** against 0.788 on glosses, leave-one-out 0/30. Charter falsification 1. **And S2-2 failed in a way it didn't anticipate**: the same annotator abstained 6 times on 60 glosses and **0 times on 90 narratives** \u2014 a story never looks empty, because a sequence of events can always be read as causation. 3 of 4 predictions correct; the wrong one is the finding",
+      "status": "complete",
+      "rung": 3,
+      "stage": 2,
+      "entry_point": "lab/run_exp043.py",
+      "result_file": "results/exp043.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the decisive Stage 2 test -- pre-registered, and negative"
     }
   ],
   "claims": [
@@ -738,6 +752,6 @@
   ],
   "stages": {
     "1": "Given structures, can we tell a real analogy from a fake? Qualified yes, fragile.",
-    "2": "Can text become structure automatically, on natural prose? Chartered, not started."
+    "2": "Can text become structure automatically, on natural prose? ANSWERED: NO. EXP-043, fully pre-registered \u2014 effect size 0.045 against 0.788 on formalised descriptions. The pipeline works on formalised descriptions and not on prose."
   }
 }
