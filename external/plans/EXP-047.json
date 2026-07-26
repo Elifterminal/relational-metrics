@@ -23,9 +23,24 @@
     "margin positive at ALL perturbation levels including 0.6 -> suspicious. Check the false friend is genuinely being made different, because a measure that always prefers the renamed structure is detecting renaming, not structure"
   ],
   "predictions": [
-    {"claim": "margin strongly positive at low perturbation and declining as perturbation rises", "confidence": "high"},
-    {"claim": "it will cross into non-significance somewhere in the sweep -- there will be a boundary", "confidence": "medium-high", "reason": "at some point the analogue is more damaged than the false friend and there is nothing left to prefer"},
-    {"claim": "the control arm (unrelated structure) will score BELOW the false friend, not above", "confidence": "high", "reason": "if an unrelated structure beats a same-vocabulary rewiring, the measure is rewarding renaming and the whole result is an artifact"},
-    {"claim": "at n=120 this will NOT be fragile -- unlike every corpus result in this project", "confidence": "high"}
-  ]
+    {
+      "claim": "margin strongly positive at low perturbation and declining as perturbation rises",
+      "confidence": "high"
+    },
+    {
+      "claim": "it will cross into non-significance somewhere in the sweep -- there will be a boundary",
+      "confidence": "medium-high",
+      "reason": "at some point the analogue is more damaged than the false friend and there is nothing left to prefer"
+    },
+    {
+      "claim": "the control arm (unrelated structure) will score BELOW the false friend, not above",
+      "confidence": "high",
+      "reason": "if an unrelated structure beats a same-vocabulary rewiring, the measure is rewarding renaming and the whole result is an artifact"
+    },
+    {
+      "claim": "at n=120 this will NOT be fragile -- unlike every corpus result in this project",
+      "confidence": "high"
+    }
+  ],
+  "exclusion_rule": "a generated motif is excluded if the query, analogue or false friend ends with zero relations after perturbation, or if perturbation leaves the false friend identical to the query. Counted and reported per level. Exclusions are a property of the generator, not the measure, and a level with more than 10% excluded is flagged because it means the generator is not producing what the design says it produces."
 }
