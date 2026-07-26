@@ -203,6 +203,111 @@ and what else could still explain this?</i></li>
 """
 
 
+
+STAGE2_PANEL = """
+<h2 style="margin-top:0">Stage 2 — can text become structure?</h2>
+<p class="sub">Chartered 2026-07-26, after 39 experiments. Written before any Stage 2 work began.
+Nothing in the charter gets edited after the first result — changes go in the log at the bottom,
+with the reason and the date.</p>
+
+<div class="read"><b>Stage 1 asked:</b> given two situations already written down as structures, can
+we tell a real cross-domain analogy from a convincing fake?<br><br>
+<b>The answer is a qualified yes.</b> Someone else, told nothing about the purpose, recovered the
+effect. My own annotation had been inflating it about two and a half times. The result is fragile at
+nine test cases where about thirty are needed.</div>
+
+<h3>What forced the shift</h3>
+<div class="read warn"><b>We tested the whole pipeline on real narrative text once, and got
+nothing.</b> Not a weak signal — nothing.<br><br>And the diagnostic showed the comparison engine
+wasn't what failed. <b>The annotation carried no signal at all</b>: three cases favoured the right
+answer, thirteen showed no difference, four favoured the wrong one. Chance.<br><br>
+The sentences Stage 1 succeeded on look like this: <i>"flow concentrates in a channel, deepens it,
+which draws more flow."</i> That is most of the way to being a structure before anyone annotates it.
+Real documents are not like that.</div>
+<div class="read"><b>So Stage 1 validated the second half of a two-stage pipeline, on inputs that
+were already nearly structured.</b> The first half — turning text into a structure — has never been
+shown to work on anything else, and it's where the difficulty lives.<br><br>
+<b>Stage 2 question: can text become structure automatically, well enough that the comparison still
+works?</b></div>
+
+<h3>What carries forward — and why this section exists</h3>
+<p>Stage 1's real output wasn't a formula. It was a set of habits that caught nine of my own errors,
+several of them after I'd published. Those are conditions of Stage 2, not aspirations, so they're
+written down rather than assumed:</p>
+<table><thead><tr><th>mechanism</th><th>what taught it</th></tr></thead><tbody>
+<tr><td>Predeclare what would prove us wrong, <b>and</b> predict the outcome, then score both</td>
+<td>four predictions, four correct, in the last finding</td></tr>
+<tr><td><b>Lock the analysis plan in version control before computing anything</b></td>
+<td>changing the analysis after the first one failed — flagged, never excused</td></tr>
+<tr><td>A control that cannot fail is not a control — <b>test its capacity to fail</b></td>
+<td>a test that passed for thirty experiments because the measure wasn't reading the input</td></tr>
+<tr><td>Before building a measure, try to prove it impossible</td>
+<td>three dead ends found in an afternoon, before anything was built for them</td></tr>
+<tr><td><b>Report the margin with its test</b>, never a bare fraction</td>
+<td>reporting six-out-of-ten as "degraded but present" when it was a coin flip</td></tr>
+<tr><td>Leave-one-out on every positive result</td>
+<td>two significant results that collapse if you remove one case</td></tr>
+<tr><td>Size the study to the effect before running it</td>
+<td>discovering the design could only ever confirm, never measure</td></tr>
+<tr><td>The cheap control before the expensive one</td>
+<td>the afternoon-long test mattered more than the commissioned corpus, and I built it second</td></tr>
+<tr><td>Corrections published <b>in place</b>, original wording struck through</td>
+<td>two retractions and a corrected premise, all still visible on this page</td></tr>
+<tr><td>Verify references against primary sources before building on them</td>
+<td>three outside answers, every citation checked</td></tr>
+</tbody></table>
+
+<h3>Three rules Stage 2 adds, because Stage 1 earned them</h3>
+<div class="read"><b>1 — The annotator and the evaluator must be different parties, by
+construction.</b> Stage 1's central defect was that I annotated the documents and judged the results.
+Every control after the benchmark failure was an attempt to unpick that. In Stage 2 annotation is
+automatic and I never touch it — my role is specifying the format and scoring the output.</div>
+<div class="read"><b>2 — The annotator must be able to refuse, and its refusal rate is a reported
+number.</b> The independent annotator declined eight of sixty documents. <b>I never once returned an
+empty annotation across the same sixty</b> — given a sentence with no causal claim in it, I invented
+one every time. That's the mechanism behind an edge I fabricated and then published a conclusion on.
+An annotator without an abstain option will manufacture structure.</div>
+<div class="read"><b>3 — Natural text only. No tidy one-liners.</b> Stage 1's documents were written
+by people who knew they were describing a causal structure. That's what made annotation easy and
+what makes the result unrepresentative.</div>
+
+<h3>The test bed, chosen before any result</h3>
+<div class="read ok">A published benchmark of 254 items: real narratives, a genuine cross-domain
+analogy against a surface-similar decoy, answers set by other people.<br><br>
+<b>234 remain untouched.</b> Twenty were spent earlier and are <b>burned</b> — I've read them and
+can't un-read them, so they're excluded. Since about thirty are needed for a settled result, sample
+size is for once the least of the problems.</div>
+
+<h3>What would prove Stage 2 wrong</h3>
+<div class="read warn">Written now, so it can't be softened later:
+<ol>
+<li><b>Automatic annotation of real text produces no signal</b> → the pipeline doesn't work on prose.
+Report it plainly. <b>This is the most likely single outcome</b>, and saying so in advance is the
+point.</li>
+<li><b>Signal exists but is weaker than hand annotation on the same documents</b> → the automatic
+step is lossy; quantify how much and stop claiming more.</li>
+<li><b>The annotator abstains on more than half</b> → the test didn't run. No claim either way.</li>
+<li><b>Signal appears only on documents I've previously seen</b> → contamination, discard.</li>
+</ol></div>
+
+<h3>What Stage 2 does not attempt</h3>
+<div class="read sub">A general theory of relational measurement — Stage 1 closed that off. Anything
+needing the four channels proved to be outside the representation: specificity, whether a node is
+real, timing, and provenance. And scale — everything stays small and exhaustively checkable until the
+prose question is answered.</div>
+
+<h2>Stage 2 findings</h2>
+<div class="read sub"><b>None yet.</b> The charter above was written first, on purpose. Findings
+appear here as they run, in the same form as Stage 1's — including the ones that go badly.</div>
+
+<h2>Methodology changes</h2>
+<div class="read sub"><b>None yet.</b> Every change to the charter gets logged here with its date and
+reason, rather than edited silently into the text above. Stage 1 had three occasions where a
+predeclared rule turned out to be too coarse for the result that arrived; each was recorded rather
+than quietly adjusted, and that is the habit being carried forward.</div>
+"""
+
+
 PROJECT_PANEL = """
 <h2 style="margin-top:26px">What this is trying to be</h2>
 <p class="sub">The standing explanation: goals, architecture, predictions, applications.
@@ -570,9 +675,12 @@ def build() -> str:
 <button class="tab active" data-panel="method">How the tests work</button>
 <button class="tab" data-panel="project">The thesis</button>
 <button class="tab" data-panel="findings">Tests &amp; results</button>
+<button class="tab" data-panel="stage2">Stage 2 &mdash; text to structure</button>
 </nav>
 
 <div class="panel active" id="method">{METHOD_PANEL}</div>
+
+<div class="panel" id="stage2">{STAGE2_PANEL}</div>
 
 <div class="panel" id="findings">
 

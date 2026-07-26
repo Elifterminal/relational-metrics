@@ -86,7 +86,16 @@ def main() -> int:
             errs.append(f"    - manifest has {n} experiments; docs/index.html states neither "
                         f'"{n} runs" nor "{n} experiments"')
 
-    # 5. README generated block is current
+    # 5. Stage 2 experiments must have a committed analysis plan.
+    #    Stage 1's mechanisms worked when a program checked them and failed when
+    #    they relied on memory. This is that lesson, enforced.
+    plans = ROOT / "external" / "plans"
+    fail(errs, "Stage 2 experiment with no committed analysis plan",
+         [f'{e["id"]} -> external/plans/{e["id"]}.json missing'
+          for e in EXPS if e.get("stage") == 2
+          and not (plans / f'{e["id"]}.json').exists()])
+
+    # 6. README generated block is current
     sys.path.insert(0, str(ROOT))
     from gen_docs import readme_table                                  # noqa: E402
     rd = (ROOT / "README.md").read_text()

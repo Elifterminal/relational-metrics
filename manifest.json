@@ -1,5 +1,5 @@
 {
-  "_note": "SINGLE SOURCE OF TRUTH. The README experiment table, the site header counts, the 'what currently survives' panel and the run list are all GENERATED from this file. Do not hand-edit those; edit this and regenerate. `python3 check_manifest.py` fails the build if they drift, if a runner has no entry, or if a retracted claim is presented as current.",
+  "_note": "SINGLE SOURCE OF TRUTH. The README experiment table, the site header counts, the 'what currently survives' panel and the run list are all GENERATED from this file. Do not hand-edit those; edit this and regenerate. `python3 check_manifest.py` fails the build if they drift, if a Stage 2 experiment has no committed analysis plan, if a runner has no entry, or if a retracted claim is presented as current.",
   "status_classes": [
     "ACTIVE_WITHIN_TESTED_SCOPE",
     "PROVISIONAL",
@@ -19,7 +19,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "the penalty pathology"
+      "blurb": "the penalty pathology",
+      "stage": 1
     },
     {
       "id": "EXP-000b",
@@ -32,7 +33,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "criticality blindness"
+      "blurb": "criticality blindness",
+      "stage": 1
     },
     {
       "id": "EXP-000c",
@@ -45,7 +47,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "harness self-test \u2014 run this before trusting anything"
+      "blurb": "harness self-test \u2014 run this before trusting anything",
+      "stage": 1
     },
     {
       "id": "EXP-009",
@@ -58,7 +61,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "cycle sign by typed composition"
+      "blurb": "cycle sign by typed composition",
+      "stage": 1
     },
     {
       "id": "EXP-002",
@@ -71,7 +75,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "higher-order recovery -- the arity claim"
+      "blurb": "higher-order recovery -- the arity claim",
+      "stage": 1
     },
     {
       "id": "EXP-011",
@@ -84,7 +89,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "the replacement measure, connected information"
+      "blurb": "the replacement measure, connected information",
+      "stage": 1
     },
     {
       "id": "EXP-012",
@@ -97,7 +103,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "adversarial stress test of the replacement"
+      "blurb": "adversarial stress test of the replacement",
+      "stage": 1
     },
     {
       "id": "EXP-010",
@@ -110,7 +117,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "the observer's three choices, measured"
+      "blurb": "the observer's three choices, measured",
+      "stage": 1
     },
     {
       "id": "EXP-013",
@@ -123,7 +131,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "is the partial-observation cliff general?"
+      "blurb": "is the partial-observation cliff general?",
+      "stage": 1
     },
     {
       "id": "EXP-014",
@@ -136,7 +145,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "exhaustive census, all 256 functions of 3 variables"
+      "blurb": "exhaustive census, all 256 functions of 3 variables",
+      "stage": 1
     },
     {
       "id": "EXP-015",
@@ -149,7 +159,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "k=4 census + the closed form, verified"
+      "blurb": "k=4 census + the closed form, verified",
+      "stage": 1
     },
     {
       "id": "EXP-016",
@@ -162,7 +173,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "the law under noise, and where it stops being safe"
+      "blurb": "the law under noise, and where it stops being safe",
+      "stage": 1
     },
     {
       "id": "EXP-017",
@@ -175,7 +187,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "the reordering audit -- which parameters change the ranking"
+      "blurb": "the reordering audit -- which parameters change the ranking",
+      "stage": 1
     },
     {
       "id": "EXP-018",
@@ -188,7 +201,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "retention re-reported per participant"
+      "blurb": "retention re-reported per participant",
+      "stage": 1
     },
     {
       "id": "EXP-019",
@@ -201,7 +215,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "asymmetric families -- and the bug they caught"
+      "blurb": "asymmetric families -- and the bug they caught",
+      "stage": 1
     },
     {
       "id": "EXP-020",
@@ -214,7 +229,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "systematic census by influence profile"
+      "blurb": "systematic census by influence profile",
+      "stage": 1
     },
     {
       "id": "EXP-021",
@@ -227,7 +243,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "interaction structure census -- what the law cannot see"
+      "blurb": "interaction structure census -- what the law cannot see",
+      "stage": 1
     },
     {
       "id": "EXP-022",
@@ -240,7 +257,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "are the two instruments together complete?"
+      "blurb": "are the two instruments together complete?",
+      "stage": 1
     },
     {
       "id": "EXP-023",
@@ -253,7 +271,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "is there a minimal sufficient summary? (no)"
+      "blurb": "is there a minimal sufficient summary? (no)",
+      "stage": 1
     },
     {
       "id": "EXP-005",
@@ -266,7 +285,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "cross-generator transfer -- does it work on unseen shapes?"
+      "blurb": "cross-generator transfer -- does it work on unseen shapes?",
+      "stage": 1
     },
     {
       "id": "EXP-024",
@@ -279,7 +299,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "the search corpus, d_A, and does it actually retrieve?"
+      "blurb": "the search corpus, d_A, and does it actually retrieve?",
+      "stage": 1
     },
     {
       "id": "EXP-025",
@@ -292,7 +313,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "the fix, tested on a corpus frozen before it existed"
+      "blurb": "the fix, tested on a corpus frozen before it existed",
+      "stage": 1
     },
     {
       "id": "EXP-026",
@@ -305,7 +327,8 @@
       "supersedes": null,
       "superseded_by": "EXP-027",
       "retracted_claim": "generic document outranks the analogue on 3 of 4",
-      "blurb": "the independent corpus -- nobody here wrote it"
+      "blurb": "the independent corpus -- nobody here wrote it",
+      "stage": 1
     },
     {
       "id": "EXP-027",
@@ -318,7 +341,8 @@
       "supersedes": "EXP-026",
       "superseded_by": "EXP-035",
       "retracted_claim": null,
-      "blurb": "the retraction, and F-09 refuted by arithmetic"
+      "blurb": "the retraction, and F-09 refuted by arithmetic",
+      "stage": 1
     },
     {
       "id": "EXP-028",
@@ -331,7 +355,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "representation invariance -- the measure sees the encoding"
+      "blurb": "representation invariance -- the measure sees the encoding",
+      "stage": 1
     },
     {
       "id": "EXP-029",
@@ -344,7 +369,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "canonicalise before measuring -- subdivision invariance, exactly"
+      "blurb": "canonicalise before measuring -- subdivision invariance, exactly",
+      "stage": 1
     },
     {
       "id": "EXP-030",
@@ -357,7 +383,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "ARN benchmark, annotated blind -- and what it reveals about annotation"
+      "blurb": "ARN benchmark, annotated blind -- and what it reveals about annotation",
+      "stage": 1
     },
     {
       "id": "EXP-031",
@@ -370,7 +397,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "the expressivity boundary audit -- test before you build"
+      "blurb": "the expressivity boundary audit -- test before you build",
+      "stage": 1
     },
     {
       "id": "EXP-032",
@@ -383,7 +411,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "blind re-annotation -- how much did knowing the answer help?"
+      "blurb": "blind re-annotation -- how much did knowing the answer help?",
+      "stage": 1
     },
     {
       "id": "EXP-033",
@@ -396,7 +425,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "blind protocol on dev + held-out, and two corpus defects"
+      "blurb": "blind protocol on dev + held-out, and two corpus defects",
+      "stage": 1
     },
     {
       "id": "EXP-034",
@@ -409,7 +439,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "the magnitude channel, and a control that can fail again"
+      "blurb": "the magnitude channel, and a control that can fail again",
+      "stage": 1
     },
     {
       "id": "EXP-035",
@@ -422,7 +453,8 @@
       "supersedes": "EXP-027",
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "why diversity inverted -- and an edge the text never stated"
+      "blurb": "why diversity inverted -- and an edge the text never stated",
+      "stage": 1
     },
     {
       "id": "EXP-036",
@@ -435,7 +467,8 @@
       "supersedes": null,
       "superseded_by": "EXP-038",
       "retracted_claim": null,
-      "blurb": "a failed control, and the significance test that mattered"
+      "blurb": "a failed control, and the significance test that mattered",
+      "stage": 1
     },
     {
       "id": "EXP-037",
@@ -448,7 +481,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "power analysis -- and the information the binary test threw away"
+      "blurb": "power analysis -- and the information the binary test threw away",
+      "stage": 1
     },
     {
       "id": "EXP-038",
@@ -461,7 +495,8 @@
       "supersedes": "EXP-036",
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "margins, not coin flips -- and a fragile positive"
+      "blurb": "margins, not coin flips -- and a fragile positive",
+      "stage": 1
     },
     {
       "id": "EXP-039",
@@ -474,7 +509,8 @@
       "supersedes": null,
       "superseded_by": null,
       "retracted_claim": null,
-      "blurb": "the second annotator -- real, inflated, and fragile"
+      "blurb": "the second annotator -- real, inflated, and fragile",
+      "stage": 1
     }
   ],
   "claims": [
@@ -643,5 +679,9 @@
         "EXP-034"
       ]
     }
-  ]
+  ],
+  "stages": {
+    "1": "Given structures, can we tell a real analogy from a fake? Qualified yes, fragile.",
+    "2": "Can text become structure automatically, on natural prose? Chartered, not started."
+  }
 }
