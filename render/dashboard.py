@@ -456,6 +456,72 @@ everything and told us nothing. <b>The gap between "can produce structure" and "
 structure" is the whole problem, and making the reader better at producing structure does not close
 it.</b></div>
 
+<h2>Stage 2 — closed</h2>
+<div class="read warn" style="border-left-color:#0f172a;font-size:15px"><b>Closed 2026-07-26, with
+its central question answered.</b> Not abandoned, not paused — answered, negatively, by a test that
+could not be adjusted after the fact.</div>
+
+<h3>What it asked, and what came back</h3>
+<p>Stage 2 asked one thing: <b>can text become structure automatically, well enough that the
+comparison still works?</b> Four independent ways of asking, one answer:</p>
+<ul>
+<li>the representation <b>can</b> hold these analogies — right answer and decoy come out structurally
+distinct in every case checked</li>
+<li>a rule-based reader <b>cannot</b> produce structure from prose — 69% of passages produced
+nothing</li>
+<li>a capable reader produces structure fine, and it carries <b>no signal</b> — effect size 0.045
+against 0.788 on prepared input</li>
+<li>and that missing signal is <b>not buried</b> under invented noise — cherry-picking subsets on the
+real answers did worse than on shuffled ones</li>
+</ul>
+
+<h3>Why close rather than keep going</h3>
+<div class="read"><b>Because the remaining moves are all worse than stopping.</b><br><br>
+The one live route — letting a reader mark relations as <i>inferred</i> rather than <i>stated</i>, so
+invented material could be filtered — was pursued and closed. The signal isn't hidden; it isn't
+there.<br><br>
+The obvious next move would be a third reader. That would be the same experiment with a different
+engine, and I said in advance I'd report the route dead rather than propose a variant of it.
+<br><br>
+And the tempting move — improving my own reader until it produces something on a benchmark whose
+answers I've seen — is the exact failure this project spent a day catching, in a new costume.
+<b>Continuing would be activity rather than progress</b>, and the honest thing is to say so instead
+of poking at it to look busy.</div>
+
+<h3>What this does NOT close</h3>
+<div class="read ok"><b>Search was one application of the idea, not the idea.</b><br><br>
+What Stage 2 established is narrow and should be stated narrowly: <b>ordinary prose does not reduce
+to typed relations between pairs of things</b>, at least not in a way that preserves analogy. That is
+a fact about turning stories into structures. It is not a fact about relational measurement.<br><br>
+The measure itself works. On structures, it prefers a genuine analogue over a same-vocabulary rival
+until a quarter of the structure has been altered, with nine cases in ten agreeing, at two hundred
+cases. That result stands and is not fragile.<br><br>
+<b>And plenty of domains produce structure natively</b> — they don't need a reader at all, because
+nobody has to guess what the relations are. Whether the measure earns its keep in any of them is
+untested, and it is a different question from the one Stage 2 answered.</div>
+
+<h3>Any stage can be reopened, and here is what would do it</h3>
+<div class="read"><b>Closing a stage is a statement about evidence, not a decision to stop
+listening.</b> Naming the triggers in advance is what stops "closed" from quietly becoming
+"defended".<br><br>
+<b>Stage 2 reopens if any of these happen:</b>
+<ul>
+<li>someone demonstrates a reader that recovers analogy from prose at an effect size that clears the
+floor established here — 69% blank for a rule-based reader, 0.045 for a capable one</li>
+<li>a different output format — not typed relations between pairs — carries signal on the same
+benchmark. The representation audit already names four channels this one lacks</li>
+<li>the one declared gap is closed against us: the subset search covered the query's relations only,
+because searching all three made the control intractable. Filtering the <i>candidates</i> is not
+formally ruled out</li>
+<li>the benchmark itself turns out to be unrepresentative of the analogies people actually care
+about, in which case the negative is about that benchmark and not about prose</li>
+</ul>
+<b>Stage 1 reopens</b> if the corpus result is retested with documents <i>and</i> annotations
+commissioned from outside — the one control this project could never run on itself — and comes back
+materially different from effect size 0.788.<br><br>
+204 benchmark items remain untouched, deliberately, so that a reopening has something clean to run
+on.</div>
+
 <h2>Methodology changes</h2>
 <div class="read sub"><b>None yet.</b> Every change to the charter gets logged here with its date and
 reason, rather than edited silently into the text above. Stage 1 had three occasions where a
