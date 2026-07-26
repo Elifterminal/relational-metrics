@@ -75,6 +75,7 @@ current. That check exists because both happened.
 | `EXP-037` | Q-35 — how many test cases would actually settle the retrieval claim? | **At n=10 nothing below 9/10 is significant**, and a genuinely 75%-accurate measure would be missed 3 times in 4. Our 6/10 spans **26–88%** — it contains chance and a strong effect alike. A yes/no test at the observed rate needs **199 motifs**. **But the binary count discards the margin the corpus already holds**: on blind data those margins give d = 0.842 and need about **12 motifs**. The evidence was not weak — the summary was |
 | `EXP-038` | Q-36 — report the margin instead of the win count | **Partly un-says EXP-036.** Same blind data: mean margin **+0.1808 bits**, 95% CI **[+0.019, +0.343]** excluding zero, t *p* = 0.032, Wilcoxon *p* = 0.043 — significant on both. **But fragile**: leave-one-out survives only 5/10, worst case *p* = 0.070. Sighted effect size 2.045 vs blind 0.799 — inflation of **2.6×**, larger than the 1.34× measured on rates. So the effect is real AND it was inflated. Analysis chosen **post-hoc**; flagged, not excused |
 | `EXP-039` | Does an independent annotator, told nothing, reproduce the retrieval effect? | **Effect size 0.788 — within 1.5% of my blind 0.799 and 39% of my sighted 2.045.** So `R-18` is confirmed from outside at **~2.6× inflation**, and the effect underneath is **real**. Both tests significant (t 0.046, Wilcoxon 0.043), CI excludes zero — **but leave-one-out survives 3/9, so FRAGILE, NOT ESTABLISHED** per the plan locked at `6a9aa8e` before any computation. Four advance predictions, four correct. The annotator declined 8 documents outright; I never once did across the same 60 |
+| `EXP-040` | Q-38/Q-34 — which relations did I invent, measured against an independent annotator? | **I was annotating to a template.** My sighted pass **never used fewer than 4 relations on any of 60 documents** (80% exactly 4); the independent annotator ranged 0–5 with its mode at 25%. I wrote more on **49 of 60** and fewer on **zero**. My sighted counts tracked sentence length *less* (+0.57) than my own blind counts (+0.79). On all 6 documents they refused entirely, I wrote exactly 4. One measured mechanism behind EXP-035's invented edge, EXP-032's 2.6× inflation and EXP-033's 9-word glosses |
 
 ### What currently survives
 
@@ -175,6 +176,7 @@ python3 run_exp036.py    # a failed control, and the significance test that matt
 python3 run_exp037.py    # power analysis -- and the information the binary test threw away
 python3 run_exp038.py    # margins, not coin flips -- and a fragile positive
 python3 run_exp039.py    # the second annotator -- real, inflated, and fragile
+python3 run_exp040.py    # the template floor -- one mechanism behind four findings
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs

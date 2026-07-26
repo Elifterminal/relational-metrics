@@ -1,0 +1,763 @@
+{
+  "experiment": "EXP-040",
+  "questions": [
+    "Q-38",
+    "Q-34"
+  ],
+  "nature": "post-hoc audit of an existing disagreement; descriptive, no p-values",
+  "documents": 60,
+  "abstentions": {
+    "independent_annotator": 6,
+    "me_blind": 0,
+    "me_sighted": 0,
+    "note": "S2-2 exists because of this asymmetry. An annotator without an abstain option manufactures structure"
+  },
+  "relation_counts": {
+    "theirs_total": 141,
+    "mine_blind_total": 162,
+    "mine_sighted_total": 252
+  },
+  "asymmetry_sighted_vs_theirs": {
+    "documents_where_i_wrote_more": 49,
+    "documents_where_i_wrote_fewer": 0,
+    "documents_equal": 11,
+    "mean_excess_relations": 1.85,
+    "reading": "a symmetric disagreement is two readers differing; a lopsided one is a disposition"
+  },
+  "asymmetry_blind_vs_theirs": {
+    "documents_where_i_wrote_more": 23,
+    "documents_where_i_wrote_fewer": 3,
+    "mean_excess_relations": 0.35
+  },
+  "what_i_wrote_where_they_declined": [
+    {
+      "passage": "S010",
+      "kind": "V",
+      "my_sighted_relations": 4,
+      "my_blind_relations": 1
+    },
+    {
+      "passage": "S028",
+      "kind": "V",
+      "my_sighted_relations": 4,
+      "my_blind_relations": 2
+    },
+    {
+      "passage": "S035",
+      "kind": "U",
+      "my_sighted_relations": 4,
+      "my_blind_relations": 1
+    },
+    {
+      "passage": "S037",
+      "kind": "U",
+      "my_sighted_relations": 4,
+      "my_blind_relations": 1
+    },
+    {
+      "passage": "S043",
+      "kind": "V",
+      "my_sighted_relations": 4,
+      "my_blind_relations": 1
+    },
+    {
+      "passage": "S049",
+      "kind": "W",
+      "my_sighted_relations": 4,
+      "my_blind_relations": 1
+    }
+  ],
+  "rows": [
+    {
+      "passage": "S001",
+      "kind": "P",
+      "motif": "correction",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S002",
+      "kind": "P",
+      "motif": "threshold",
+      "corpus": "holdout",
+      "n_theirs": 2,
+      "n_mine_blind": 3,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S003",
+      "kind": "D",
+      "motif": "threshold",
+      "corpus": "holdout",
+      "n_theirs": 2,
+      "n_mine_blind": 3,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S004",
+      "kind": "U",
+      "motif": "regulating",
+      "corpus": "dev",
+      "n_theirs": 1,
+      "n_mine_blind": 1,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S005",
+      "kind": "P",
+      "motif": "diversity",
+      "corpus": "independent",
+      "n_theirs": 3,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S006",
+      "kind": "D",
+      "motif": "regulating",
+      "corpus": "dev",
+      "n_theirs": 2,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S007",
+      "kind": "D",
+      "motif": "inhibition",
+      "corpus": "holdout",
+      "n_theirs": 3,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S008",
+      "kind": "W",
+      "motif": "regulator",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S009",
+      "kind": "X",
+      "motif": "cascade",
+      "corpus": "dev",
+      "n_theirs": 3,
+      "n_mine_blind": 3,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S010",
+      "kind": "V",
+      "motif": "regulating",
+      "corpus": "dev",
+      "n_theirs": 0,
+      "n_mine_blind": 1,
+      "n_mine_sighted": 4,
+      "they_abstained": true,
+      "i_abstained": false
+    },
+    {
+      "passage": "S011",
+      "kind": "W",
+      "motif": "reinforcing",
+      "corpus": "dev",
+      "n_theirs": 2,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S012",
+      "kind": "X",
+      "motif": "regulating",
+      "corpus": "dev",
+      "n_theirs": 2,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S013",
+      "kind": "W",
+      "motif": "substitution",
+      "corpus": "holdout",
+      "n_theirs": 1,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S014",
+      "kind": "W",
+      "motif": "rivalry",
+      "corpus": "independent",
+      "n_theirs": 3,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S015",
+      "kind": "U",
+      "motif": "reinforcing",
+      "corpus": "dev",
+      "n_theirs": 1,
+      "n_mine_blind": 1,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S016",
+      "kind": "X",
+      "motif": "diversity",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S017",
+      "kind": "P",
+      "motif": "substitution",
+      "corpus": "holdout",
+      "n_theirs": 1,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S018",
+      "kind": "W",
+      "motif": "regulating",
+      "corpus": "dev",
+      "n_theirs": 1,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S019",
+      "kind": "W",
+      "motif": "diversity",
+      "corpus": "independent",
+      "n_theirs": 2,
+      "n_mine_blind": 3,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S020",
+      "kind": "V",
+      "motif": "regulator",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S021",
+      "kind": "X",
+      "motif": "rivalry",
+      "corpus": "independent",
+      "n_theirs": 3,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S022",
+      "kind": "P",
+      "motif": "regulating",
+      "corpus": "dev",
+      "n_theirs": 2,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S023",
+      "kind": "D",
+      "motif": "regulator",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S024",
+      "kind": "X",
+      "motif": "substitution",
+      "corpus": "holdout",
+      "n_theirs": 1,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S025",
+      "kind": "V",
+      "motif": "cascade",
+      "corpus": "dev",
+      "n_theirs": 1,
+      "n_mine_blind": 1,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S026",
+      "kind": "X",
+      "motif": "threshold",
+      "corpus": "holdout",
+      "n_theirs": 3,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S027",
+      "kind": "W",
+      "motif": "threshold",
+      "corpus": "holdout",
+      "n_theirs": 1,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S028",
+      "kind": "V",
+      "motif": "threshold",
+      "corpus": "holdout",
+      "n_theirs": 0,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": true,
+      "i_abstained": false
+    },
+    {
+      "passage": "S029",
+      "kind": "P",
+      "motif": "inhibition",
+      "corpus": "holdout",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S030",
+      "kind": "P",
+      "motif": "cascade",
+      "corpus": "dev",
+      "n_theirs": 2,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S031",
+      "kind": "U",
+      "motif": "correction",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S032",
+      "kind": "W",
+      "motif": "correction",
+      "corpus": "independent",
+      "n_theirs": 2,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S033",
+      "kind": "V",
+      "motif": "substitution",
+      "corpus": "holdout",
+      "n_theirs": 1,
+      "n_mine_blind": 1,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S034",
+      "kind": "P",
+      "motif": "regulator",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S035",
+      "kind": "U",
+      "motif": "substitution",
+      "corpus": "holdout",
+      "n_theirs": 0,
+      "n_mine_blind": 1,
+      "n_mine_sighted": 4,
+      "they_abstained": true,
+      "i_abstained": false
+    },
+    {
+      "passage": "S036",
+      "kind": "P",
+      "motif": "reinforcing",
+      "corpus": "dev",
+      "n_theirs": 2,
+      "n_mine_blind": 3,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S037",
+      "kind": "U",
+      "motif": "threshold",
+      "corpus": "holdout",
+      "n_theirs": 0,
+      "n_mine_blind": 1,
+      "n_mine_sighted": 4,
+      "they_abstained": true,
+      "i_abstained": false
+    },
+    {
+      "passage": "S038",
+      "kind": "D",
+      "motif": "diversity",
+      "corpus": "independent",
+      "n_theirs": 5,
+      "n_mine_blind": 5,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S039",
+      "kind": "P",
+      "motif": "rivalry",
+      "corpus": "independent",
+      "n_theirs": 3,
+      "n_mine_blind": 3,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S040",
+      "kind": "V",
+      "motif": "diversity",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S041",
+      "kind": "X",
+      "motif": "inhibition",
+      "corpus": "holdout",
+      "n_theirs": 3,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S042",
+      "kind": "U",
+      "motif": "cascade",
+      "corpus": "dev",
+      "n_theirs": 1,
+      "n_mine_blind": 1,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S043",
+      "kind": "V",
+      "motif": "reinforcing",
+      "corpus": "dev",
+      "n_theirs": 0,
+      "n_mine_blind": 1,
+      "n_mine_sighted": 4,
+      "they_abstained": true,
+      "i_abstained": false
+    },
+    {
+      "passage": "S044",
+      "kind": "X",
+      "motif": "regulator",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S045",
+      "kind": "V",
+      "motif": "correction",
+      "corpus": "independent",
+      "n_theirs": 3,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S046",
+      "kind": "U",
+      "motif": "regulator",
+      "corpus": "independent",
+      "n_theirs": 3,
+      "n_mine_blind": 3,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S047",
+      "kind": "W",
+      "motif": "inhibition",
+      "corpus": "holdout",
+      "n_theirs": 2,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S048",
+      "kind": "V",
+      "motif": "rivalry",
+      "corpus": "independent",
+      "n_theirs": 3,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S049",
+      "kind": "W",
+      "motif": "cascade",
+      "corpus": "dev",
+      "n_theirs": 0,
+      "n_mine_blind": 1,
+      "n_mine_sighted": 4,
+      "they_abstained": true,
+      "i_abstained": false
+    },
+    {
+      "passage": "S050",
+      "kind": "U",
+      "motif": "diversity",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S051",
+      "kind": "D",
+      "motif": "substitution",
+      "corpus": "holdout",
+      "n_theirs": 1,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S052",
+      "kind": "X",
+      "motif": "correction",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S053",
+      "kind": "V",
+      "motif": "inhibition",
+      "corpus": "holdout",
+      "n_theirs": 2,
+      "n_mine_blind": 2,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S054",
+      "kind": "U",
+      "motif": "inhibition",
+      "corpus": "holdout",
+      "n_theirs": 1,
+      "n_mine_blind": 1,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S055",
+      "kind": "D",
+      "motif": "rivalry",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S056",
+      "kind": "X",
+      "motif": "reinforcing",
+      "corpus": "dev",
+      "n_theirs": 2,
+      "n_mine_blind": 3,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S057",
+      "kind": "D",
+      "motif": "reinforcing",
+      "corpus": "dev",
+      "n_theirs": 2,
+      "n_mine_blind": 3,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S058",
+      "kind": "D",
+      "motif": "correction",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S059",
+      "kind": "U",
+      "motif": "rivalry",
+      "corpus": "independent",
+      "n_theirs": 4,
+      "n_mine_blind": 4,
+      "n_mine_sighted": 5,
+      "they_abstained": false,
+      "i_abstained": false
+    },
+    {
+      "passage": "S060",
+      "kind": "D",
+      "motif": "cascade",
+      "corpus": "dev",
+      "n_theirs": 3,
+      "n_mine_blind": 3,
+      "n_mine_sighted": 4,
+      "they_abstained": false,
+      "i_abstained": false
+    }
+  ],
+  "mechanism": {
+    "distribution": {
+      "me_sighted": {
+        "4": 48,
+        "5": 12
+      },
+      "me_blind": {
+        "1": 11,
+        "2": 18,
+        "3": 10,
+        "4": 20,
+        "5": 1
+      },
+      "independent": {
+        "0": 6,
+        "1": 12,
+        "2": 14,
+        "3": 12,
+        "4": 15,
+        "5": 1
+      }
+    },
+    "my_sighted_minimum": 4,
+    "my_sighted_modal_share": 0.8,
+    "tracks_sentence_length": {
+      "me_sighted": 0.565,
+      "me_blind": 0.792,
+      "independent": 0.753
+    },
+    "finding": "my sighted annotation never used fewer than 4 relations on any of 60 documents, and tracked what the sentence actually said LESS closely than my own blind annotation did. That is a template applied regardless of content, not a subtle bias"
+  }
+}

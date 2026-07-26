@@ -2420,6 +2420,54 @@ with no clear causal claim in it, I found relations every single time. That's no
 it's a measurable disposition — and it's the mechanism behind the invented edge two findings
 ago.</div>
 
+
+<h2>Finding 38 — I was annotating to a template, and here's the number</h2>
+<p>Two findings ago I found a single relation in my notes that its document simply doesn't state —
+and it was the one that made a meaningless document look identical to a real one, which I'd then
+published a conclusion about. I found it by reading one document. Now there's an independent
+annotation of all sixty, so the audit can be done properly.</p>
+
+<h3>The disposition</h3>
+<div class="read warn">Across sixty documents, compared with the independent annotator:
+<b>I wrote more relations on forty-nine of them, and fewer on zero.</b><br><br>
+A disagreement that goes both ways is two people reading differently. This doesn't go both ways.</div>
+
+<h3>The mechanism, and it isn't subtle</h3>
+<div class="read warn" style="border-left-color:#dc2626"><b>My annotation never once used fewer than
+four relations. Not on any of the sixty. Eighty percent were exactly four.</b><br><br>
+The independent annotator ranges from zero to five, with its most common count reaching only a
+quarter of documents. My own blind annotation ranges from one to five. <b>Only the with-the-answers
+version has a floor.</b></div>
+<div class="read warn"><b>And it tracked what the sentence actually said <i>less</i> closely than my
+blind pass did</b> — correlation with sentence length 0.57 against 0.79. Annotating while knowing the
+answer made me <i>less</i> responsive to the text, which is the opposite of what I'd have guessed if
+asked.</div>
+<div class="read warn" style="border-left-color:#dc2626"><b>And on the six documents the independent
+annotator refused outright</b> — judging there was no causal claim in them at all — <b>I wrote
+exactly four relations. On every single one.</b> Five of the six are the deliberately vacuous or
+irrelevant documents. The ones with nothing to say.</div>
+
+<h3>What it explains</h3>
+<div class="read">One mechanism sits underneath four things reported separately:<br><br>
+• every vacuous document matching its query's relation count and loop shape, four times out of four —
+of course it did, everything got four<br>
+• <b>the invented edge</b> — a four-node chain gives you three relations; reaching four means closing
+the loop. That fabricated relation was the template's fourth slot being filled<br>
+• the two-and-a-half-times inflation — 252 relations against 141<br>
+• nine-word sentences receiving four relations each</div>
+
+<h3>What it costs</h3>
+<div class="read warn"><b>More than I'd allowed for.</b> Those corpora weren't documents turned into
+structures. They were a four-relation template with each document's vocabulary poured into it.<br><br>
+Which makes it <i>more</i> surprising, not less, that the effect survived independent annotation at
+all.</div>
+<div class="read ok"><b>And it sharpens the Stage 2 rule.</b> "The annotator must be able to refuse"
+was written on the strength of a single observation. It's now measured, and the thing to watch for is
+a <b>floor</b>: an annotator with a minimum output will manufacture structure to reach it, and will do
+so most on the documents that contain the least — which is exactly where a false analogy gets
+created. Checking for that is now a precondition of using any annotator's output, logged in the Stage
+2 methodology record rather than edited into the charter.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -2455,6 +2503,11 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The annotation bias turned out to be a hard floor, not a tendency.</b> Across
+sixty documents I never once wrote fewer than four relations, while an independent annotator ranged
+from zero to five and refused six outright. On those same six — documents judged to state no causal
+claim at all — I wrote exactly four each. It is one measured mechanism underneath four findings
+reported separately, including the relation I invented and then published a conclusion on.</div>
 <div class="q"><b>An independent annotator settles both halves of the annotation question at
 once.</b> Told nothing about what the work was for, a second party lands within 1.5% of my
 roles-hidden effect size and at 39% of my roles-visible one. So annotating with the answers visible

@@ -511,6 +511,20 @@
       "retracted_claim": null,
       "blurb": "the second annotator -- real, inflated, and fragile",
       "stage": 1
+    },
+    {
+      "id": "EXP-040",
+      "question": "Q-38/Q-34 \u2014 which relations did I invent, measured against an independent annotator?",
+      "result": "**I was annotating to a template.** My sighted pass **never used fewer than 4 relations on any of 60 documents** (80% exactly 4); the independent annotator ranged 0\u20135 with its mode at 25%. I wrote more on **49 of 60** and fewer on **zero**. My sighted counts tracked sentence length *less* (+0.57) than my own blind counts (+0.79). On all 6 documents they refused entirely, I wrote exactly 4. One measured mechanism behind EXP-035's invented edge, EXP-032's 2.6\u00d7 inflation and EXP-033's 9-word glosses",
+      "status": "complete",
+      "rung": 2,
+      "stage": 1,
+      "entry_point": "lab/run_exp040.py",
+      "result_file": "results/exp040.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the template floor -- one mechanism behind four findings"
     }
   ],
   "claims": [
