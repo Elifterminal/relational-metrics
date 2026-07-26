@@ -1,0 +1,28 @@
+{
+  "experiment": "EXP-050",
+  "question": "Does composing her time-warp with our structural correspondence as the ground supply the temporal channel we proved absent?",
+  "the_gap_being_targeted": "EXP-031 constructed two systems with identical typed structure whose behaviour differs purely by delay, and our measure returns IDENTICAL values. Temporal order is one of four distinctions we proved our representation cannot carry. Hodos is built entirely on that axis.",
+  "the_composition": "A system becomes a SEQUENCE of structures, one per timestep. Compare two sequences by her A1: minimise total aligned ground cost over monotone alignments in a band, then divide by the optimising path's length. The ground is our correspondence in the metric form her B9+B4 corrections produced. Her warp, our ground -- exactly the pluggable shape her A2 is built around.",
+  "why_A1_and_not_the_retired_form": "Her A1b (min-MEAN) is retired because the path length in the denominator makes it gameable by padding; I verified that independently before using anything. A1 divides AFTER minimising, which is not gameable.",
+  "statistic": "the composed distance between two structure-sequences",
+  "arms": {
+    "static": "our measure on the final structure alone -- the EXP-031 baseline that provably cannot see delay",
+    "composed_warped": "her DTW warp + our metric ground",
+    "composed_rigid": "elementwise comparison, no warp -- the control that tests whether the WARP earns its keep, as opposed to merely having a sequence"
+  },
+  "why_the_rigid_arm_matters": "Her own honest summary says 'the info-geometry GROUND is the transferable win, not the warp', and her C15 found the warp COSTS accuracy on already-aligned discrete data. So the rigid arm is not a formality -- her own evidence predicts it may match or beat the warped arm here.",
+  "tests": "paired comparison across generated system pairs; report the separation each arm achieves between delay-differing systems, and between topology-differing systems.",
+  "exclusion_rule": "a pair is excluded if either sequence is empty or if the two sequences are identical at every timestep. Counted and reported.",
+  "robustness": "vary sequence length and delay magnitude; report the whole curve rather than a point, per protocol section 9.",
+  "falsification": [
+    "the composition returns identical values for delay-differing systems -> it does NOT supply the temporal channel and the integration fails at its most promising point",
+    "the composition separates delay but LOSES the static discrimination we already have -> it trades one capability for another rather than adding one",
+    "the rigid arm matches the warped arm -> the SEQUENCE supplies the channel and her warp adds nothing here. That would be consistent with her own C15 finding and should be reported as her result reproducing, not as our discovery"
+  ],
+  "predictions": [
+    {"claim": "the composition WILL separate delay-differing systems that the static measure cannot", "confidence": "high", "reason": "the sequences genuinely differ in order, and any order-sensitive comparison should see it. This is close to a sanity check rather than a discovery"},
+    {"claim": "static discrimination is preserved", "confidence": "high"},
+    {"claim": "the RIGID arm will match or beat the warped arm on these synthetic sequences", "confidence": "medium-high", "reason": "her own C15 found the warp costs accuracy on already-aligned data, and my generated sequences are aligned by construction. If so, the honest report is that the sequence did the work and the warp did not -- reproducing HER finding, not making ours"},
+    {"claim": "this will look more impressive than it is", "confidence": "high", "reason": "supplying a temporal channel by adding a time axis is close to true by construction. The question that matters is whether it does anything a naive sequence comparison would not, which is what the rigid arm is for"}
+  ]
+}
