@@ -1233,6 +1233,68 @@ per-participant importance and is blind to order. They are complementary blindne
 object, which suggests the honest instrument is the pair rather than either alone — and that a
 single scalar for "relational structure" was never going to exist.</div>
 
+<h2>Finding 19 — the two instruments are enough, until they aren't</h2>
+<p>The previous finding left the two measures with complementary blind spots and asked whether
+together they are sufficient. As originally posed the question is empty — you can always staple
+two things together. The version that can be answered is: <b>if two structures agree on both
+profiles, must they be the same structure?</b> If not, even both instruments miss something and
+there is a third axis.</p>
+<p class="sub">The comparison has to be against NPN equivalence — permuting participants, negating
+inputs, negating the output — because both profiles are invariant under all of those. Testing
+against relabelling alone would manufacture false incompleteness by counting a structure and its
+negation as different. Getting the symmetry group wrong is the same error a previous finding
+caught in a different guise.</p>
+
+<h3>The answer depends on how many participants there are</h3>
+<table><thead><tr><th></th><th>3 participants</th><th>4 participants</th></tr></thead><tbody>
+<tr><td>distinct profile pairs</td><td>13</td><td>194</td></tr>
+<tr><td>pairs containing more than one structure</td><td><b>0</b></td><td><b>8</b></td></tr>
+<tr><td><b>is the pair complete?</b></td><td><b>yes</b></td><td><b>no</b></td></tr>
+</tbody></table>
+<p>At three participants the two instruments together are <b>sufficient</b> — verified two
+independent ways, by full NPN canonicalisation and by a finer NPN-invariant. At four they are
+not.</p>
+
+<h3>The witness</h3>
+<div class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-label="Completeness witness">
+<style>
+  :root { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  }
+  :root[data-theme="dark"] { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  :root[data-theme="light"] { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  .bg { fill: var(--bg); }
+  .ax { stroke: var(--grid); stroke-width: 1; }
+  .tick { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .lbl { fill: var(--fg); font: 12px ui-sans-serif, system-ui, sans-serif; }
+  .ttl { fill: var(--fg); font: 600 14px ui-sans-serif, system-ui, sans-serif; }
+  .sub { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .node { fill: var(--bg); stroke: var(--fg); stroke-width: 1.5; }
+  .ntxt { fill: var(--fg); font: 10px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; }
+</style>
+<rect class="bg" width="800" height="400"/><text class="ttl" x="24" y="26">Two structures both instruments agree on, that are not the same structure</text><text class="sub" x="24" y="45">Same importance for every participant. Same distribution across interaction orders. Different organisation.</text><text class="sub" x="24" y="66">influence <tspan font-weight="600">[0.5, 0.5, 0.5, 0.5]</tspan>   ·   order profile <tspan font-weight="600">[0.25, 0.25, 0.0, 0.25, 0.25]</tspan></text><line class="ax" x1="120" y1="338.0" x2="556" y2="338.0"/><text class="tick" x="111" y="342.0" text-anchor="end">0.00</text><line class="ax" x1="120" y1="257.3" x2="556" y2="257.3"/><text class="tick" x="111" y="261.3" text-anchor="end">0.10</text><line class="ax" x1="120" y1="176.7" x2="556" y2="176.7"/><text class="tick" x="111" y="180.7" text-anchor="end">0.20</text><line class="ax" x1="120" y1="96.0" x2="556" y2="96.0"/><text class="tick" x="111" y="100.0" text-anchor="end">0.30</text><text class="lbl" x="338" y="386" text-anchor="middle">the 16 possible participant subsets, sorted by weight</text><text class="lbl" transform="translate(26,217) rotate(-90)" text-anchor="middle">weight carried</text><rect x="122.7" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="133.1" y="338.0" width="8.8" height="1.0" fill="#dc2626" rx="1.5"/><rect x="150.0" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="160.3" y="338.0" width="8.8" height="1.0" fill="#dc2626" rx="1.5"/><rect x="177.2" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="187.6" y="338.0" width="8.8" height="1.0" fill="#dc2626" rx="1.5"/><rect x="204.5" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="214.8" y="338.0" width="8.8" height="1.0" fill="#dc2626" rx="1.5"/><rect x="231.7" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="242.1" y="338.0" width="8.8" height="1.0" fill="#dc2626" rx="1.5"/><rect x="259.0" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="269.3" y="338.0" width="8.8" height="1.0" fill="#dc2626" rx="1.5"/><rect x="286.2" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="296.6" y="287.6" width="8.8" height="50.4" fill="#dc2626" rx="1.5"/><rect x="313.5" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="323.8" y="287.6" width="8.8" height="50.4" fill="#dc2626" rx="1.5"/><rect x="340.7" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="351.1" y="287.6" width="8.8" height="50.4" fill="#dc2626" rx="1.5"/><rect x="368.0" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="378.3" y="287.6" width="8.8" height="50.4" fill="#dc2626" rx="1.5"/><rect x="395.2" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="405.6" y="287.6" width="8.8" height="50.4" fill="#dc2626" rx="1.5"/><rect x="422.5" y="338.0" width="8.8" height="1.0" fill="#2563eb" rx="1.5"/><rect x="432.8" y="287.6" width="8.8" height="50.4" fill="#dc2626" rx="1.5"/><rect x="449.7" y="136.3" width="8.8" height="201.7" fill="#2563eb" rx="1.5"/><rect x="460.1" y="287.6" width="8.8" height="50.4" fill="#dc2626" rx="1.5"/><rect x="477.0" y="136.3" width="8.8" height="201.7" fill="#2563eb" rx="1.5"/><rect x="487.3" y="287.6" width="8.8" height="50.4" fill="#dc2626" rx="1.5"/><rect x="504.2" y="136.3" width="8.8" height="201.7" fill="#2563eb" rx="1.5"/><rect x="514.6" y="136.3" width="8.8" height="201.7" fill="#dc2626" rx="1.5"/><rect x="531.5" y="136.3" width="8.8" height="201.7" fill="#2563eb" rx="1.5"/><rect x="541.8" y="136.3" width="8.8" height="201.7" fill="#dc2626" rx="1.5"/><rect x="574" y="93" width="13" height="12" fill="#2563eb" rx="2"/><text class="lbl" x="593" y="103">structure A</text><rect x="574" y="115" width="13" height="12" fill="#dc2626" rx="2"/><text class="lbl" x="593" y="125">structure B</text><text class="sub" x="574" y="146"></text><text class="sub" x="574" y="161">A concentrates everything</text><text class="sub" x="574" y="176">into FOUR subsets and</text><text class="sub" x="574" y="191">leaves twelve empty.</text><text class="sub" x="574" y="206"></text><text class="sub" x="574" y="221">B spreads the same total</text><text class="sub" x="574" y="236">across TEN.</text><text class="sub" x="574" y="251"></text><text class="sub" x="574" y="266">Every summary either</text><text class="sub" x="574" y="281">instrument computes is</text><text class="sub" x="574" y="296">identical for both.</text></svg></div>
+<div class="read warn"><b>Two structures where every participant is equally important and the
+distribution across interaction orders is identical</b> — and one concentrates its entire
+organisation into <b>four</b> subsets while the other spreads the same total across <b>ten</b>.
+Both instruments return identical answers for both. The thing that differs is <i>which specific
+groups of participants</i> carry the structure, and neither measure looks at that.</div>
+
+<h3>What it settles</h3>
+<div class="read ok"><b>"Relational structure = participant importance + interaction order" is a
+valid decomposition only for small configurations.</b> Past three participants it is provably
+lossy. The complete invariant is the full subset-indexed spectrum — one number per subset of
+participants, 2<sup>k</sup> of them — not a scalar, not a pair of profiles.<br><br>Which means
+this project's founding rule that a measurement must never be collapsed into a single score is not
+a matter of taste. Below a certain size two numbers-per-thing genuinely suffice; above it, no
+summary of that shape can. The rule was written as a discipline against premature compression and
+turns out to describe a property of the subject matter.</div>
+<div class="read"><b>And I predicted this wrong.</b> I expected incompleteness generally and would
+have written that up as the finding. It is incompleteness <i>past a threshold</i>, with genuine
+sufficiency below it — which is a more useful result and not one that arguing would have reached.
+Second prediction of mine to fail in this run of work; both times the measured answer was more
+structured than the guess.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1268,6 +1330,12 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>Relational structure is not a scalar, and past three participants it is not a
+pair of profiles either.</b> The two instruments together are provably sufficient at three
+participants and provably insufficient at four — the complete invariant is one number per subset
+of participants. This project's founding rule against collapsing a measurement into a single score
+was written as a discipline. It turns out to be a description of the subject matter, with an arity
+threshold attached.</div>
 <div class="q"><b>The predictive equation is a robustness law, not a structure law — and that is
 now proved, not suspected.</b> Two structures can share an influence profile and an entropy, and
 therefore an identical retention prediction, while one is three-quarters pure pairwise

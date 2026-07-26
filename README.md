@@ -48,6 +48,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-019` | Add asymmetric test families | **Found an index-reversal bug on the first run** — one the old worlds were *provably unable* to detect. Also sharpened the diagnosis: influence-symmetry, not permutation-symmetry |
 | `EXP-020` | Census asymmetry systematically | Asymmetry is quantised (10 profiles at k=3, 59 at k=4). **Nameable functions are influence-symmetric 1.8×–6.1× more often than the population, and the bias grows with arity** |
 | `EXP-021` | Can anything here see *interaction* structure? | **The predictive law cannot — provably.** Two structures with identical retention predictions, one three-quarters pure pairwise, the other spread across every order |
+| `EXP-022` | Are the two instruments *together* enough? | **At three participants yes, at four no.** The complete invariant is one number per subset — so "no single score" turns out to describe the subject matter |
 
 ### The findings worth your time
 
@@ -181,6 +182,22 @@ measure of relational organisation. Connected information has the mirror-image b
 order, not which participant carries what), which suggests the honest instrument is the pair, and
 that a single scalar for "relational structure" was never available.
 
+**And together they are sufficient only below a threshold.** If two structures agree on both the
+influence profile and the interaction-order profile, must they be the same structure? At three
+participants: **yes**, verified two independent ways. At four: **no** — 8 of 194 profile pairs
+contain more than one genuinely distinct structure. The witness has every participant equally
+important and an identical order distribution, while one concentrates its whole organisation into
+four participant-subsets and the other spreads the same total across ten.
+
+So *"relational structure = participant importance + interaction order"* is a valid decomposition
+only for small configurations. Past that it is provably lossy, and the complete invariant is the
+full subset-indexed spectrum — one number per subset of participants, 2^k of them.
+
+Which makes this project's founding rule — that a measurement must never be collapsed into a
+single score — **not a matter of taste**. It was written as a discipline against premature
+compression, and it turns out to describe a property of the subject matter, with an arity
+threshold attached.
+
 ## Honest limits
 
 - Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
@@ -212,6 +229,7 @@ python3 run_exp018.py      # retention re-reported per participant
 python3 run_exp019.py      # asymmetric families -- and the bug they caught
 python3 run_exp020.py      # systematic census by influence profile
 python3 run_exp021.py      # interaction structure census -- what the law cannot see
+python3 run_exp022.py      # are the two instruments together complete?
 
 cd ../render
 python3 figures.py         # regenerate the SVGs

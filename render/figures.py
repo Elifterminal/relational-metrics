@@ -1026,6 +1026,65 @@ def fig_blind(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 20 — where the pair of instruments stops being enough
+# ---------------------------------------------------------------------------
+
+def fig_complete(data: dict) -> str:
+    W, H = 800, 400
+    L, R, T, B = 120, 244, 96, 62
+    pw, ph = W - L - R, H - T - B
+    w = data["k=4"]["witness"]
+    a, b = w["spectrum_multiset_a"], w["spectrum_multiset_b"]
+    n = len(a)
+
+    out = ['<text class="ttl" x="24" y="26">Two structures both instruments agree on, that are not the same structure</text>',
+           '<text class="sub" x="24" y="45">Same importance for every participant. Same '
+           'distribution across interaction orders. Different organisation.</text>',
+           f'<text class="sub" x="24" y="66">influence '
+           f'<tspan font-weight="600">{esc(str(w["influence_profile"]))}</tspan>'
+           f'   ·   order profile '
+           f'<tspan font-weight="600">{esc(str(w["level_profile"]))}</tspan></text>']
+
+    vmax = max(max(a), max(b)) * 1.2
+    gw = pw / n
+    for i in range(4):
+        v = i / 3 * vmax
+        y = T + ph - (v / vmax) * ph
+        out.append(f'<line class="ax" x1="{L}" y1="{y:.1f}" x2="{L+pw}" y2="{y:.1f}"/>')
+        out.append(f'<text class="tick" x="{L-9}" y="{y+4:.1f}" text-anchor="end">{v:.2f}</text>')
+    out.append(f'<text class="lbl" x="{L+pw/2:.0f}" y="{H-14}" text-anchor="middle">'
+               'the 16 possible participant subsets, sorted by weight</text>')
+    out.append(f'<text class="lbl" transform="translate(26,{T+ph/2:.0f}) rotate(-90)" '
+               'text-anchor="middle">weight carried</text>')
+
+    bw = gw * 0.38
+    for i in range(n):
+        x = L + i * gw + gw * 0.1
+        for kk, (v, col) in enumerate(((a[i], "#2563eb"), (b[i], "#dc2626"))):
+            hgt = (v / vmax) * ph
+            out.append(f'<rect x="{x + kk*bw:.1f}" y="{T+ph-hgt:.1f}" '
+                       f'width="{bw*0.85:.1f}" height="{max(hgt,1):.1f}" '
+                       f'fill="{col}" rx="1.5"/>')
+
+    ly = T + 6
+    for lbl, col in (("structure A", "#2563eb"), ("structure B", "#dc2626")):
+        out.append(f'<rect x="{L+pw+18}" y="{ly-9}" width="13" height="12" '
+                   f'fill="{col}" rx="2"/>')
+        out.append(f'<text class="lbl" x="{L+pw+37}" y="{ly+1}">{esc(lbl)}</text>')
+        ly += 22
+    for lbl in ["", "A concentrates everything",
+                "into FOUR subsets and", "leaves twelve empty.", "",
+                "B spreads the same total",
+                "across TEN.", "",
+                "Every summary either",
+                "instrument computes is",
+                "identical for both."]:
+        out.append(f'<text class="sub" x="{L+pw+18}" y="{ly}">{esc(lbl)}</text>')
+        ly += 15
+    return svg(W, H, "".join(out), "Completeness witness")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1103,6 +1162,7 @@ def main() -> None:
     e19 = json.loads((RESULTS / "exp019.json").read_text())
     e20 = json.loads((RESULTS / "exp020.json").read_text())
     e21 = json.loads((RESULTS / "exp021.json").read_text())
+    e22 = json.loads((RESULTS / "exp022.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1129,6 +1189,7 @@ def main() -> None:
         "fig17_asym.svg": fig_asym(e19),
         "fig18_naming.svg": fig_naming(e20),
         "fig19_blind.svg": fig_blind(e21),
+        "fig20_complete.svg": fig_complete(e22),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

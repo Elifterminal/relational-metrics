@@ -1,0 +1,128 @@
+{
+  "experiment": "EXP-022",
+  "question": "is the pair of instruments complete?",
+  "k=3": {
+    "k": 3,
+    "distinct_profile_pairs": 13,
+    "groups_checked": 13,
+    "groups_containing_multiple_structures": 0,
+    "pair_is_complete": true,
+    "witness": null
+  },
+  "k=4": {
+    "k": 4,
+    "distinct_profile_pairs": 194,
+    "profile_pairs_containing_multiple_npn_classes": 8,
+    "pair_is_complete": false,
+    "witness": {
+      "influence_profile": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "level_profile": [
+        0.25,
+        0.25,
+        0.0,
+        0.25,
+        0.25
+      ],
+      "n_distinct_npn_classes_at_least": 2,
+      "structure_a": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "structure_b": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "spectrum_multiset_a": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "spectrum_multiset_b": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.0625,
+        0.25,
+        0.25
+      ]
+    }
+  },
+  "k=3_by_multiset": {
+    "k": 3,
+    "distinct_profile_pairs": 13,
+    "profile_pairs_containing_multiple_npn_classes": 0,
+    "pair_is_complete": true,
+    "witness": null
+  },
+  "scalar_counting": {
+    "distinct_profile_pairs_k3": 13,
+    "distinct_profile_pairs_k4": 194,
+    "measure_value_counts": {
+      "retention (distinct values, k=3)": 7,
+      "retention (distinct values, k=4)": 21,
+      "connected information order profile (k=3)": 13,
+      "influence profiles (k=3)": 10,
+      "influence profiles (k=4)": 59,
+      "interaction profiles (k=3)": 13,
+      "interaction profiles (k=4)": 161
+    },
+    "no_existing_scalar_suffices_k3": false,
+    "no_existing_scalar_suffices_k4": true
+  }
+}

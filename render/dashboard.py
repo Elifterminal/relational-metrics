@@ -330,6 +330,7 @@ def build() -> str:
     e19 = json.loads((RESULTS / "exp019.json").read_text())
     e20 = json.loads((RESULTS / "exp020.json").read_text())
     e21 = json.loads((RESULTS / "exp021.json").read_text())
+    e22 = json.loads((RESULTS / "exp022.json").read_text())
     ix_rows = "".join(
         f"<tr><td>{lbl}</td><td>{e21['k=3'][key]:,}</td><td>{e21['k=4'][key]:,}</td></tr>"
         for lbl, key in (
@@ -1224,6 +1225,51 @@ per-participant importance and is blind to order. They are complementary blindne
 object, which suggests the honest instrument is the pair rather than either alone — and that a
 single scalar for "relational structure" was never going to exist.</div>
 
+<h2>Finding 19 — the two instruments are enough, until they aren't</h2>
+<p>The previous finding left the two measures with complementary blind spots and asked whether
+together they are sufficient. As originally posed the question is empty — you can always staple
+two things together. The version that can be answered is: <b>if two structures agree on both
+profiles, must they be the same structure?</b> If not, even both instruments miss something and
+there is a third axis.</p>
+<p class="sub">The comparison has to be against NPN equivalence — permuting participants, negating
+inputs, negating the output — because both profiles are invariant under all of those. Testing
+against relabelling alone would manufacture false incompleteness by counting a structure and its
+negation as different. Getting the symmetry group wrong is the same error a previous finding
+caught in a different guise.</p>
+
+<h3>The answer depends on how many participants there are</h3>
+<table><thead><tr><th></th><th>3 participants</th><th>4 participants</th></tr></thead><tbody>
+<tr><td>distinct profile pairs</td><td>13</td><td>194</td></tr>
+<tr><td>pairs containing more than one structure</td><td><b>0</b></td><td><b>8</b></td></tr>
+<tr><td><b>is the pair complete?</b></td><td><b>yes</b></td><td><b>no</b></td></tr>
+</tbody></table>
+<p>At three participants the two instruments together are <b>sufficient</b> — verified two
+independent ways, by full NPN canonicalisation and by a finer NPN-invariant. At four they are
+not.</p>
+
+<h3>The witness</h3>
+<div class="fig">{figs['fig20_complete.svg']}</div>
+<div class="read warn"><b>Two structures where every participant is equally important and the
+distribution across interaction orders is identical</b> — and one concentrates its entire
+organisation into <b>four</b> subsets while the other spreads the same total across <b>ten</b>.
+Both instruments return identical answers for both. The thing that differs is <i>which specific
+groups of participants</i> carry the structure, and neither measure looks at that.</div>
+
+<h3>What it settles</h3>
+<div class="read ok"><b>"Relational structure = participant importance + interaction order" is a
+valid decomposition only for small configurations.</b> Past three participants it is provably
+lossy. The complete invariant is the full subset-indexed spectrum — one number per subset of
+participants, 2<sup>k</sup> of them — not a scalar, not a pair of profiles.<br><br>Which means
+this project's founding rule that a measurement must never be collapsed into a single score is not
+a matter of taste. Below a certain size two numbers-per-thing genuinely suffice; above it, no
+summary of that shape can. The rule was written as a discipline against premature compression and
+turns out to describe a property of the subject matter.</div>
+<div class="read"><b>And I predicted this wrong.</b> I expected incompleteness generally and would
+have written that up as the finding. It is incompleteness <i>past a threshold</i>, with genuine
+sufficiency below it — which is a more useful result and not one that arguing would have reached.
+Second prediction of mine to fail in this run of work; both times the measured answer was more
+structured than the guess.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1259,6 +1305,12 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>Relational structure is not a scalar, and past three participants it is not a
+pair of profiles either.</b> The two instruments together are provably sufficient at three
+participants and provably insufficient at four — the complete invariant is one number per subset
+of participants. This project's founding rule against collapsing a measurement into a single score
+was written as a discipline. It turns out to be a description of the subject matter, with an arity
+threshold attached.</div>
 <div class="q"><b>The predictive equation is a robustness law, not a structure law — and that is
 now proved, not suspected.</b> Two structures can share an influence profile and an entropy, and
 therefore an identical retention prediction, while one is three-quarters pure pairwise
