@@ -1,0 +1,24 @@
+{
+  "experiment": "EXP-045",
+  "question": "Does the hedge-channel hypothesis survive a cheap test on data already collected, before a commission is spent on it?",
+  "the_hypothesis": "EXP-043 failed because the reader never declined on prose -- a story always contains something readable as causation, so it manufactured structure everywhere. Q-40 proposes letting it mark relations as INFERRED rather than STATED, so noise becomes separable. That is a format change, not a reader change.",
+  "why_this_test_first": "P-21: test the cheap control before the expensive one. I built the expensive control before the cheap one earlier today and it cost a day. If manufactured relations are noise, that noise is already in the EXP-043 data and should leave a trace -- no commission required to look for it.",
+  "the_prediction_being_tested": "If surplus relations are noise, then items where the reader wrote FEWER relations should carry MORE signal. Fewer relations means less manufactured material and a cleaner structure.",
+  "derivation_note": "This prediction comes from EXP-043's floor finding -- the reader abstained 6/60 on glosses and 0/90 on prose -- NOT from inspecting margins. The direction was fixed before any correlation was computed.",
+  "statistic": "Spearman rank correlation between an item's total relation count (query + correct + distractor) and its margin. Rank rather than Pearson because relation counts are small integers and one large margin should not drive the answer.",
+  "tests": "two-sided permutation test on the rank correlation, 20000 shuffles. Non-parametric because n=30 and no distributional claim is defensible.",
+  "secondary": "median split on total relation count; compare mean margin in the low-count half against the high-count half, with the same permutation approach. Reported alongside, not instead -- two views of one question, not two chances at an answer.",
+  "exclusion_rule": "none; all 30 EXP-043 items are used exactly as scored.",
+  "robustness": "leave-one-out on the correlation. If dropping any single item flips the sign, the result is one observation and is reported as such.",
+  "falsification": [
+    "correlation not significantly different from zero -> the hedge hypothesis loses its main quantitative support. Report that Q-40 is weaker than it looked and do NOT spend a commission on it without a different reason.",
+    "correlation POSITIVE (more relations, more signal) -> the hypothesis is backwards and manufactured structure is not what is hurting us.",
+    "correlation NEGATIVE and robust -> supports the hypothesis; a hedge channel is worth commissioning."
+  ],
+  "predictions": [
+    {"claim": "NEGATIVE correlation -- fewer relations, larger margin", "confidence": "medium", "reason": "it is the direct implication of the floor finding, but the effect could easily be swamped: relation count also tracks how much a passage genuinely contains, which cuts the other way"},
+    {"claim": "it will NOT be robust to leave-one-out at n=30", "confidence": "medium-high", "reason": "everything in this project at this sample size has been fragile, and I have no reason to expect otherwise here"},
+    {"claim": "the honest outcome is most likely 'suggestive but not established', which under this plan means I should say so rather than commission on the strength of it", "confidence": "medium"}
+  ],
+  "what_a_positive_result_would_and_would_not_license": "It would license spending a commission on a hedge-channel format. It would NOT be evidence that the hedge channel works -- only that the noise it targets is real and measurable."
+}
