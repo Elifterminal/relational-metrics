@@ -1,0 +1,25 @@
+{
+  "experiment": "EXP-041",
+  "question": "Q-27 — can the representation express an ARN analogy at all, before we build an annotator for it?",
+  "why_first": "P-22: before building a measure, construct a witness pair. If the correct answer and the distractor are routinely ISOMORPHIC under annotation, no improvement to the annotator can help, and Stage 2 is closed before it starts. If they are routinely distinct, the representation is adequate and the annotator is the problem — which is a solvable one.",
+  "data": {
+    "source": "the 20 ARN items annotated in EXP-030",
+    "burned_status": "these are burned for PERFORMANCE testing because I have seen their answers. They are used here for a REPRESENTATIONAL question — whether the structures differ at all — which does not depend on knowing which is correct. Stated so the reuse is visible rather than quiet.",
+    "known_limitation": "the annotations are mine, and EXP-040 established I annotate to a floor. If structures come out isomorphic, that may be my template flattening them rather than the representation being inadequate. This is the main confound and the result must be read with it."
+  },
+  "statistic": "proportion of items where the correct answer and the distractor are isomorphic as typed directed structures, under exhaustive bijection search",
+  "tests": "descriptive proportion with an exact binomial confidence interval. No null-hypothesis test: there is no meaningful null, the quantity is the answer.",
+  "exclusion_rule": "an item is excluded if the query, correct answer or distractor has zero relations. Exclusions counted and reported.",
+  "robustness": "report the isomorphism rate separately under (a) full typed comparison, (b) topology only, ignoring relation types. If they diverge, relation types are carrying the distinction and that is worth knowing before choosing an annotator format.",
+  "falsification": [
+    "isomorphic on MORE than half the items -> the representation cannot express these analogies; Stage 2 is closed on this benchmark and we say so",
+    "isomorphic on FEWER than a quarter -> the representation is adequate and the annotator is the bottleneck; Stage 2 proceeds",
+    "between a quarter and a half -> ambiguous; report as such and do not proceed on the strength of it"
+  ],
+  "predictions": [
+    {"claim": "isomorphism rate will be LOW, under 25%", "confidence": "medium", "reason": "ARN narratives are long and messy; two of them producing identical typed graphs seems unlikely even under a template"},
+    {"claim": "topology-only isomorphism will be HIGHER than typed isomorphism", "confidence": "high", "reason": "dropping the types can only merge classes, never split them"},
+    {"claim": "if the rate is low, this contradicts the tempting reading of EXP-030 — that the representation is too poor for prose. EXP-030's failure would then be the annotator, consistent with EXP-040", "confidence": "medium"}
+  ],
+  "what_this_does_not_show": "that a good annotator exists. Only that the representation does not rule one out."
+}
