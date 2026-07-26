@@ -1,0 +1,198 @@
+{
+  "experiment": "EXP-046",
+  "question": "Q-40, the real test",
+  "plan_locked_at": "645eb67abffb086ce2293e7b0568d7c11c54215a",
+  "plan_sha256": "b020df5471a285f0",
+  "items": 30,
+  "excluded_for_search_size": [],
+  "observed_mean_best_subset_margin": 0.0787,
+  "permuted_null_mean": 0.0932,
+  "excess_over_null": -0.0145,
+  "permutation_p": 0.7708,
+  "n_permutations": 20000,
+  "best_subset_was_full_set": "9/30",
+  "search_note": "subsets of the QUERY only; candidates left whole. A negative does not rule out that filtering the CANDIDATES would help",
+  "rows": [
+    {
+      "item": "1025",
+      "query_relations": 3,
+      "best_subset_size": 3,
+      "best_margin": -0.1111
+    },
+    {
+      "item": "117",
+      "query_relations": 3,
+      "best_subset_size": 1,
+      "best_margin": 0.036
+    },
+    {
+      "item": "143",
+      "query_relations": 6,
+      "best_subset_size": 3,
+      "best_margin": 0.3177
+    },
+    {
+      "item": "157",
+      "query_relations": 4,
+      "best_subset_size": 3,
+      "best_margin": 0.0243
+    },
+    {
+      "item": "166",
+      "query_relations": 3,
+      "best_subset_size": 1,
+      "best_margin": 0.0378
+    },
+    {
+      "item": "172",
+      "query_relations": 3,
+      "best_subset_size": 1,
+      "best_margin": 0.0
+    },
+    {
+      "item": "190",
+      "query_relations": 3,
+      "best_subset_size": 3,
+      "best_margin": 0.2573
+    },
+    {
+      "item": "201",
+      "query_relations": 5,
+      "best_subset_size": 3,
+      "best_margin": 0.0854
+    },
+    {
+      "item": "257",
+      "query_relations": 3,
+      "best_subset_size": 1,
+      "best_margin": 0.0
+    },
+    {
+      "item": "274",
+      "query_relations": 3,
+      "best_subset_size": 1,
+      "best_margin": 0.0287
+    },
+    {
+      "item": "275",
+      "query_relations": 2,
+      "best_subset_size": 1,
+      "best_margin": 0.0478
+    },
+    {
+      "item": "345",
+      "query_relations": 1,
+      "best_subset_size": 1,
+      "best_margin": 0.0184
+    },
+    {
+      "item": "360",
+      "query_relations": 4,
+      "best_subset_size": 3,
+      "best_margin": 0.3165
+    },
+    {
+      "item": "393",
+      "query_relations": 4,
+      "best_subset_size": 4,
+      "best_margin": 0.0
+    },
+    {
+      "item": "415",
+      "query_relations": 4,
+      "best_subset_size": 2,
+      "best_margin": 0.0839
+    },
+    {
+      "item": "442",
+      "query_relations": 4,
+      "best_subset_size": 2,
+      "best_margin": 0.0736
+    },
+    {
+      "item": "480",
+      "query_relations": 2,
+      "best_subset_size": 2,
+      "best_margin": 0.032
+    },
+    {
+      "item": "556",
+      "query_relations": 4,
+      "best_subset_size": 3,
+      "best_margin": 0.1141
+    },
+    {
+      "item": "57",
+      "query_relations": 3,
+      "best_subset_size": 1,
+      "best_margin": 0.0315
+    },
+    {
+      "item": "577",
+      "query_relations": 2,
+      "best_subset_size": 1,
+      "best_margin": 0.005
+    },
+    {
+      "item": "58",
+      "query_relations": 1,
+      "best_subset_size": 1,
+      "best_margin": -0.0039
+    },
+    {
+      "item": "585",
+      "query_relations": 4,
+      "best_subset_size": 3,
+      "best_margin": 0.2922
+    },
+    {
+      "item": "620",
+      "query_relations": 2,
+      "best_subset_size": 2,
+      "best_margin": 0.1823
+    },
+    {
+      "item": "650",
+      "query_relations": 2,
+      "best_subset_size": 1,
+      "best_margin": 0.0459
+    },
+    {
+      "item": "676",
+      "query_relations": 4,
+      "best_subset_size": 1,
+      "best_margin": 0.0001
+    },
+    {
+      "item": "685",
+      "query_relations": 5,
+      "best_subset_size": 3,
+      "best_margin": 0.2226
+    },
+    {
+      "item": "764",
+      "query_relations": 3,
+      "best_subset_size": 2,
+      "best_margin": 0.325
+    },
+    {
+      "item": "878",
+      "query_relations": 1,
+      "best_subset_size": 1,
+      "best_margin": -0.101
+    },
+    {
+      "item": "911",
+      "query_relations": 5,
+      "best_subset_size": 4,
+      "best_margin": 0.0
+    },
+    {
+      "item": "995",
+      "query_relations": 5,
+      "best_subset_size": 5,
+      "best_margin": 0.0
+    }
+  ],
+  "verdict": "SIGNAL IS ABSENT, NOT BURIED -- the best subset does no better than the same search on permuted labels. No hedge channel can recover what is not there. Q-40 is dead"
+}

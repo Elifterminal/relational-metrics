@@ -1,0 +1,176 @@
+{
+  "experiment": "EXP-045",
+  "question": "Q-40 pre-test",
+  "plan_locked_at": "ec59b8e2973352ed4c140a433e6f723b2350a09d",
+  "plan_sha256": "51d01a3ae676f23c",
+  "n_items": 30,
+  "spearman_rho": -0.1073,
+  "permutation_p": 0.56532,
+  "leave_one_out_sign_flips": "0/30",
+  "median_split": {
+    "median_relations": 10.0,
+    "mean_margin_low_count": 0.0213,
+    "mean_margin_high_count": -0.0337,
+    "difference": 0.055,
+    "permutation_p": 0.21224
+  },
+  "relation_counts": {
+    "min": 5,
+    "max": 13,
+    "mean": 9.5
+  },
+  "what_a_positive_would_license": "It would license spending a commission on a hedge-channel format. It would NOT be evidence that the hedge channel works -- only that the noise it targets is real and measurable.",
+  "rows": [
+    {
+      "item": "1025",
+      "total_relations": 8,
+      "margin": -0.1111
+    },
+    {
+      "item": "117",
+      "total_relations": 11,
+      "margin": -0.1739
+    },
+    {
+      "item": "143",
+      "total_relations": 12,
+      "margin": 0.0
+    },
+    {
+      "item": "157",
+      "total_relations": 10,
+      "margin": 0.0
+    },
+    {
+      "item": "166",
+      "total_relations": 10,
+      "margin": 0.0
+    },
+    {
+      "item": "172",
+      "total_relations": 5,
+      "margin": 0.0
+    },
+    {
+      "item": "190",
+      "total_relations": 9,
+      "margin": 0.2573
+    },
+    {
+      "item": "201",
+      "total_relations": 13,
+      "margin": -0.0243
+    },
+    {
+      "item": "257",
+      "total_relations": 7,
+      "margin": 0.0
+    },
+    {
+      "item": "274",
+      "total_relations": 12,
+      "margin": -0.0262
+    },
+    {
+      "item": "275",
+      "total_relations": 5,
+      "margin": -0.0596
+    },
+    {
+      "item": "345",
+      "total_relations": 7,
+      "margin": 0.0184
+    },
+    {
+      "item": "360",
+      "total_relations": 10,
+      "margin": 0.0
+    },
+    {
+      "item": "393",
+      "total_relations": 9,
+      "margin": 0.0
+    },
+    {
+      "item": "415",
+      "total_relations": 11,
+      "margin": 0.0559
+    },
+    {
+      "item": "442",
+      "total_relations": 8,
+      "margin": 0.0
+    },
+    {
+      "item": "480",
+      "total_relations": 9,
+      "margin": 0.032
+    },
+    {
+      "item": "556",
+      "total_relations": 11,
+      "margin": -0.1517
+    },
+    {
+      "item": "57",
+      "total_relations": 10,
+      "margin": -0.0998
+    },
+    {
+      "item": "577",
+      "total_relations": 10,
+      "margin": -0.0179
+    },
+    {
+      "item": "58",
+      "total_relations": 10,
+      "margin": -0.0039
+    },
+    {
+      "item": "585",
+      "total_relations": 12,
+      "margin": 0.1567
+    },
+    {
+      "item": "620",
+      "total_relations": 10,
+      "margin": 0.1823
+    },
+    {
+      "item": "650",
+      "total_relations": 8,
+      "margin": 0.0328
+    },
+    {
+      "item": "676",
+      "total_relations": 11,
+      "margin": -0.1395
+    },
+    {
+      "item": "685",
+      "total_relations": 12,
+      "margin": 0.0
+    },
+    {
+      "item": "764",
+      "total_relations": 10,
+      "margin": 0.3188
+    },
+    {
+      "item": "878",
+      "total_relations": 6,
+      "margin": -0.101
+    },
+    {
+      "item": "911",
+      "total_relations": 10,
+      "margin": 0.0
+    },
+    {
+      "item": "995",
+      "total_relations": 10,
+      "margin": 0.0
+    }
+  ],
+  "verdict": "HYPOTHESIS UNSUPPORTED -- no relationship between how much the reader wrote and how much signal survived. Q-40 loses its main quantitative support. Per the plan: do NOT spend a commission on it without a different reason"
+}

@@ -581,6 +581,34 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "the decisive Stage 2 test -- pre-registered, and negative"
+    },
+    {
+      "id": "EXP-045",
+      "question": "Does the hedge-channel hypothesis leave a trace in data already collected?",
+      "result": "**Doesn't support Q-40.** If manufactured relations were noise, items with fewer relations should carry more signal: \u03c1 = **\u22120.107, p = 0.565**; median split p = 0.212. Direction right, magnitude undetectable. Locked plan says **no commission on this basis**. Relation count is a crude proxy \u2014 stated as a limitation, not used as a rescue",
+      "status": "complete",
+      "rung": 2,
+      "stage": 2,
+      "entry_point": "lab/run_exp045.py",
+      "result_file": "results/exp045.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "cheap test before commissioning -- and it says don't"
+    },
+    {
+      "id": "EXP-046",
+      "question": "Is the signal BURIED in the prose annotations, or ABSENT from them?",
+      "result": "**The signal is ABSENT, not buried. Q-40 is dead.** Exhaustive subset search over query relations: observed **+0.0787** against a label-permuted null of **+0.0932** \u2014 the observed value is *below* chance, p = 0.771. Subset selection genuinely works (strict subset chosen on 21/30) and cannot help. The locked plan carried a **commitment** to report this dead rather than propose a variant; honoured",
+      "status": "complete",
+      "rung": 3,
+      "stage": 2,
+      "entry_point": "lab/run_exp046.py",
+      "result_file": "results/exp046.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "buried or absent? absent. Q-40 closed"
     }
   ],
   "claims": [
@@ -752,6 +780,6 @@
   ],
   "stages": {
     "1": "Given structures, can we tell a real analogy from a fake? Qualified yes, fragile.",
-    "2": "Can text become structure automatically, on natural prose? ANSWERED: NO. EXP-043, fully pre-registered \u2014 effect size 0.045 against 0.788 on formalised descriptions. The pipeline works on formalised descriptions and not on prose."
+    "2": "Can text become structure automatically, on natural prose? ANSWERED: NO, four independent ways. The representation CAN hold these analogies (EXP-041); a rule-based reader cannot produce structure (EXP-042); a competent reader produces structure carrying no signal (EXP-043, effect 0.045 vs 0.788); and that missing signal is not buried under manufactured noise (EXP-045, EXP-046). These analogies do not survive reduction to typed binary relations."
   }
 }

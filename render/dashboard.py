@@ -409,9 +409,44 @@ The failure is real for this reader on this text.<br><br>But it doesn't separate
 prose analogies may not reduce to these structures at all, or this reader may have manufactured
 plausible-looking structure on all ninety and buried the signal in it.</div>
 
+<h3>S2-5 — pursuing the one route left, and closing it</h3>
+<p>The failure had an identifiable cause: the reader never declined, so it manufactured structure
+everywhere. The obvious fix is to let it mark a relation as <i>inferred</i> rather than <i>stated</i>,
+so the invented material can be filtered out. That needs another commission — so first, cheaply,
+does the idea leave any trace in data already collected?</p>
+<div class="read"><b>It doesn't.</b> If invented relations were noise, items where the reader wrote
+fewer of them should carry more signal. The correlation is −0.11 with a p-value of 0.57 — the
+direction is right and the size is undetectable. The plan I'd locked said: on that basis, don't spend
+a commission.<br><br><b>Relation count is a crude stand-in for "how much was invented"</b>, and
+noticing that afterwards doesn't rescue the result. I chose it and named it as the test.</div>
+
+<h4>So I asked the sharper question instead</h4>
+<p>Not "how much did it write" but: <b>does any subset of what it wrote carry signal?</b> If some
+subset does, the material is there and filtering could find it. If none does, filtering cannot help
+however well it's built.</p>
+<div class="read"><b>The trap is obvious and is the whole design.</b> Search enough subsets and you
+will find one that looks good — that's guaranteed, not a risk. So the same search is run on data with
+the answers randomly flipped, and only the excess over that counts.</div>
+<div class="read warn" style="border-left-color:#dc2626">
+best subset, real answers &nbsp;&nbsp;<b>+0.079</b><br>
+best subset, answers shuffled &nbsp;<b>+0.093</b><br><br>
+<b>Cherry-picking on real data does worse than cherry-picking on randomised data.</b> And the search
+isn't idle — it chose a strict subset on 21 of 30 items. There was plenty to select. Selecting just
+cannot help.<br><br><b>The signal is absent, not buried.</b></div>
+<div class="read"><b>So that route is closed, and I said in advance I'd close it.</b> The locked plan
+carried a commitment rather than a prediction: <i>if this comes back negative I'll report the idea as
+dead rather than proposing a third variant of it.</i> It came back negative. There's no fourth idea
+here, and reaching for one is exactly what that commitment existed to stop.</div>
+
 <h3>Stage 2's answer</h3>
 <div class="read warn" style="border-left-color:#dc2626;font-size:15px"><b>This pipeline works on
 formalised descriptions and does not work on prose.</b></div>
+<div class="read"><b>Four independent ways of asking, one answer.</b> The representation <i>can</i>
+hold these analogies. A rule-based reader can't produce structure from prose. A competent reader
+produces structure that carries no signal. And that missing signal isn't hidden under invented
+noise.<br><br><b>These analogies don't survive being turned into typed relations between pairs of
+things.</b> That's stronger and more specific than what Stage 2 started with — and it's negative.
+Two readers, plus exhaustive filtering of one of them, all give nothing.</div>
 <div class="read"><b>Smaller than the goal. Real.</b> Arrived at by a test that could not be adjusted
 after the fact, on data from outside the project, against answers nobody here set, and predicted in
 writing before the request went out. The charter named this as the most likely single outcome and

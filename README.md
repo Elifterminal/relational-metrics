@@ -80,6 +80,8 @@ current. That check exists because both happened.
 | `EXP-042` | Can a fully automatic rule-based annotator read real narrative prose? | **No — and the test did not even run.** 69% of passages produced nothing; **30 of 30 items excluded**. Charter falsification 3, no claim either way about the measure. I predicted failure in writing beforehand but predicted the *wrong mode* — expected a signal-free result, got one with no result at all. Establishes the floor any Stage 2 annotator must beat. Deliberately NOT hand-tuning the extractor against a benchmark whose answers I know — that would be the same bias in a new costume |
 | `EXP-044` | What specifically makes narrative prose hard to annotate, versus the glosses that worked? | **The causation isn't written down.** In these narratives **88% of sentences contain no causal verb at all**, and explicit causal vocabulary is **22× rarer per word** than in the glosses. Pronouns 10× denser, names 5× denser. **Clauses per sentence does NOT separate them** — the difficulty is not syntactic. A reader must infer unmarked causation, resolve reference across sentences, and abstract named individuals into roles. Explains EXP-042 completely. The planned length-matched arm **could not run** (2 glosses in the overlap window) and is reported as untested |
 | `EXP-043` | Can an independent reader given a format spec annotate real prose well enough for the comparison to work? | **No. Fully pre-registered — plan AND code locked before the data existed — and it fails.** Mean margin **+0.0048 bits**, 95% CI [−0.0347, +0.0444] spanning zero, effect size **0.045** against 0.788 on glosses, leave-one-out 0/30. Charter falsification 1. **And S2-2 failed in a way it didn't anticipate**: the same annotator abstained 6 times on 60 glosses and **0 times on 90 narratives** — a story never looks empty, because a sequence of events can always be read as causation. 3 of 4 predictions correct; the wrong one is the finding |
+| `EXP-045` | Does the hedge-channel hypothesis leave a trace in data already collected? | **Doesn't support Q-40.** If manufactured relations were noise, items with fewer relations should carry more signal: ρ = **−0.107, p = 0.565**; median split p = 0.212. Direction right, magnitude undetectable. Locked plan says **no commission on this basis**. Relation count is a crude proxy — stated as a limitation, not used as a rescue |
+| `EXP-046` | Is the signal BURIED in the prose annotations, or ABSENT from them? | **The signal is ABSENT, not buried. Q-40 is dead.** Exhaustive subset search over query relations: observed **+0.0787** against a label-permuted null of **+0.0932** — the observed value is *below* chance, p = 0.771. Subset selection genuinely works (strict subset chosen on 21/30) and cannot help. The locked plan carried a **commitment** to report this dead rather than propose a variant; honoured |
 
 ### What currently survives
 
@@ -185,6 +187,8 @@ python3 run_exp041.py    # Stage 2 pre-test -- is the distinction even in the re
 python3 run_exp042.py    # rule-based reader on real prose -- predicted failure, run anyway
 python3 run_exp044.py    # why prose is hard -- the causation is never stated
 python3 run_exp043.py    # the decisive Stage 2 test -- pre-registered, and negative
+python3 run_exp045.py    # cheap test before commissioning -- and it says don't
+python3 run_exp046.py    # buried or absent? absent. Q-40 closed
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs
