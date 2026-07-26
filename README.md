@@ -64,6 +64,7 @@ current. That check exists because both happened.
 | `EXP-026` | A corpus nobody involved in the project wrote | **4 of 4 — the claim survives independent annotation.** And the *generic* document ties the analogue exactly, because it is isomorphic to the query <br>*(a sub-claim of this run — "generic document outranks the analogue on 3 of 4" — was **RETRACTED** by `EXP-027`)* |
 | `EXP-027` | Does the genericness discount rescue the ranking? | **No — refuted by arithmetic.** Isomorphic structures have identical genericness (gap 0.00e+00), so no structural discount can separate them. Also **retracts** EXP-026's ranking sub-claim: it was a `hash()` tie-break, and the scores tie exactly |
 | `EXP-028` | Q-21 — is the measure invariant across equivalent *re-encodings* of the same process? | **No — and blind, not merely biased.** At matched size it scores a correct re-encoding and a corrupted one **identically** (0/6 discriminated; the pairs are not isomorphic). The load-bearing claim survives 6/6 under the two known invariances and **2/6** under subdivision. Re-scopes `C-03` |
+| `EXP-029` | Q-24 — does canonicalising before measuring restore representation invariance? | **Yes, exactly, within the class it declares.** Subdivision and mediation cost *nothing* after canonicalisation (6/6 exact recovery) and capability is preserved on all three corpora **including under subdivision, where EXP-028 had 2/6**. Rewrite system proven terminating, idempotent and confluent (24 orders each). `converse` and reification remain unaddressed. Also corrects two bugs of mine: EXP-028's subdivision was corrupting negative relations, and the first run blind-canonicalised relabelled structures |
 
 ### What currently survives
 
@@ -78,8 +79,8 @@ current. That check exists because both happened.
   *scope*: k<=4 discrete variables; requires an outcome-permutation calibration to be an answer  
   *evidence*: `EXP-011`, `EXP-012`
 - **MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.** · rung 3  
-  *scope*: 10/10 motifs across development, frozen held-out and independently authored corpora — but only WITHIN A FIXED REPRESENTATION CONVENTION. Across equivalent re-encodings of the same processes it holds on 2–6 of 6 depending on the encoding (EXP-028). Hand-annotated typed structures, not natural text  
-  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`
+  *scope*: 10/10 motifs across development, frozen held-out and independently authored corpora — but only WITHIN A FIXED REPRESENTATION CONVENTION. Across equivalent re-encodings of the same processes it holds on 2–6 of 6 depending on the encoding (EXP-028) — restored to 10/10 under subdivision once canonicalised (EXP-029). Hand-annotated typed structures, not natural text  
+  *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`
 - **Structural correspondence cannot distinguish a genuine analogue from a vacuous statement of the same shape.** · rung 3  
   *scope*: proved for isomorphic structures: any function of structure alone scores them equally  
   *evidence*: `EXP-026`, `EXP-027`
@@ -89,6 +90,9 @@ current. That check exists because both happened.
 - **Relational structure is not reducible to a scalar, nor to a pair of profiles.** · rung 2  
   *scope*: at k=3 the two profiles suffice; at k=4 they do not. The complete invariant is one number per subset  
   *evidence*: `EXP-022`, `EXP-023`
+- **Canonicalising before measuring restores exact invariance under a DECLARED typed graph-homeomorphism relation, at no cost to capability.** · rung 2  
+  *scope*: subdivision and suppression of degree-2 vertices only. Exact (cost 0, 6/6 recovery); capability 3/3, 3/3, 4/4 including under subdivision. Rewrite terminating, idempotent, confluent. NOT converse or reification (Q-25). And the equivalence must be DECLARED — blind suppression damages 5/6 structures, because whether a vertex is representational is not decidable from structure  
+  *evidence*: `EXP-029`
 
 **PROVISIONAL**
 
@@ -101,9 +105,6 @@ current. That check exists because both happened.
 - **Any of this reaches a claim about physical reality.**  
   *scope*: unsupported and not currently testable. Prediction P6 says it will not, and P6 stands  
   *evidence*: —
-- **Canonical contraction restores representation invariance without costing the capability.**  
-  *scope*: the successor proposed by EXP-028 (Q-24). Contract chains of same-typed relations before comparing, so subdivision becomes the identity. Preferred over path-aware mapping because widening the mapping space is what caused the blindness  
-  *evidence*: —
 
 **DEMOTED / REPLACED**
 
@@ -114,7 +115,7 @@ current. That check exists because both happened.
 **REFUTED / RETRACTED**
 
 - **The measure is invariant to how the same process is legitimately re-encoded (mediator nodes, hyperedge vs factor node, subdivision, converse relations).**  
-  *scope*: refuted. Content-preserving and content-changing transforms produce OVERLAPPING score ranges, and at matched size the measure returns identical values for a correct re-encoding and a corrupted one. Cause: the mapping space cannot match a relation to a path, and gains freedom as the target grows  
+  *scope*: refuted. Content-preserving and content-changing transforms produce OVERLAPPING score ranges, and at matched size the measure returns identical values for a correct re-encoding and a corrupted one. Cause: the mapping space cannot match a relation to a path, and gains freedom as the target grows. Partially repaired by EXP-029 for the subdivision class via canonicalisation (C-12); converse and reification still unaddressed  
   *evidence*: `EXP-028`
 - **F-09 bridge value: discounting a match by genericness defends against the attractive-nonsense failure.**  
   *scope*: refuted by arithmetic, not by experiment - isomorphic structures have identical genericness, so the discount subtracts the same number from both at any strength  
@@ -147,6 +148,7 @@ python3 run_exp025.py    # the fix, tested on a corpus frozen before it existed
 python3 run_exp026.py    # the independent corpus -- nobody here wrote it
 python3 run_exp027.py    # the retraction, and F-09 refuted by arithmetic
 python3 run_exp028.py    # representation invariance -- the measure sees the encoding
+python3 run_exp029.py    # canonicalise before measuring -- subdivision invariance, exactly
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs

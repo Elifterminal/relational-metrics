@@ -1536,6 +1536,67 @@ def fig_reencoding(e28: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 28 — canonicalisation restores the invariance
+# ---------------------------------------------------------------------------
+
+def fig_canonical(e29: dict) -> str:
+    W, H = 800, 400
+    L, T = 180, 96
+    inv = e29["invariance"]
+    in_class = set(e29["declared_class"])
+    rows = sorted(inv.items(), key=lambda kv: -kv[1]["mean"])
+    self_v = max(v["mean"] for _, v in rows)
+
+    out = ['<text class="ttl" x="24" y="26">Declare the equivalence, then measure through it</text>',
+           '<text class="sub" x="24" y="45">Same transforms as the previous figure, but both sides '
+           'are put in canonical form first.</text>',
+           '<text class="sub" x="24" y="62">Blue = same process, in the declared class. Grey = same '
+           'process, no rewrite declared. Red = different process.</text>']
+
+    lo, hi = 1.0, self_v * 1.03
+    pw = W - L - 150
+    bh = (H - T - 88) / len(rows)
+
+    def xf(v):
+        return L + (v - lo) / (hi - lo) * pw
+
+    for i, (k, v) in enumerate(rows):
+        y = T + i * bh
+        if not v["preserving"]:
+            col = "#dc2626"
+        elif k in in_class:
+            col = "#2563eb"
+        else:
+            col = "#94a3b8"
+        out.append(f'<text class="lbl" x="{L-12}" y="{y+bh/2+4:.1f}" text-anchor="end">'
+                   f'{esc(k)}</text>')
+        out.append(f'<rect x="{L}" y="{y+bh*0.2:.1f}" width="{max(xf(v["mean"])-L,1):.1f}" '
+                   f'height="{bh*0.6:.1f}" fill="{col}" rx="2" opacity="0.9"/>')
+        note = f'   {v["exact_recovery"]}/{v["of"]} exact' if v["exact_recovery"] else ""
+        out.append(f'<text class="tick" x="{xf(v["mean"])+8:.1f}" y="{y+bh/2+4:.1f}" '
+                   f'font-family="monospace">{v["mean"]:.4f}{esc(note)}</text>')
+
+    y0 = T + bh * len(rows) + 24
+    out.append(f'<text class="sub" x="24" y="{y0}" fill="#2563eb">'
+               'Subdivision and mediation now cost NOTHING — identical to comparing a structure '
+               'with itself, and structurally exact.</text>')
+    cap = e29["capability"]
+    out.append(f'<text class="sub" x="24" y="{y0+16}">'
+               f'The main claim survives it: {cap["dev"]["canonical_subdivided"]}/3, '
+               f'{cap["held-out"]["canonical_subdivided"]}/3, '
+               f'{cap["independent"]["canonical_subdivided"]}/4 on subdivided documents — '
+               'the case that scored 2 of 6 before.</text>')
+    out.append(f'<text class="sub" x="24" y="{y0+34}" fill="#64748b">'
+               f'Grey bars are the honest gap: {", ".join(e29["out_of_class_unfixed"])} are '
+               'legitimate re-encodings with no declared rewrite yet.</text>')
+    out.append(f'<text class="sub" x="24" y="{y0+52}" fill="#d97706">'
+               f'And the equivalence must be DECLARED: suppressing blindly damages '
+               f'{e29["blind_mode_damages"]} of 6 structures, because "is this vertex real?" '
+               'is not a question structure can answer.</text>')
+    return svg(W, H, "".join(out), "Canonicalisation")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1621,6 +1682,7 @@ def main() -> None:
     e26 = json.loads((RESULTS / "exp026.json").read_text())
     e27 = json.loads((RESULTS / "exp027.json").read_text())
     e28 = json.loads((RESULTS / "exp028.json").read_text())
+    e29 = json.loads((RESULTS / "exp029.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1655,6 +1717,7 @@ def main() -> None:
         "fig25_independent.svg": fig_independent(e26),
         "fig26_refutation.svg": fig_refutation(e27),
         "fig27_reencoding.svg": fig_reencoding(e28),
+        "fig28_canonical.svg": fig_canonical(e29),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

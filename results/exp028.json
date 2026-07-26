@@ -96,7 +96,7 @@
     "relabel": 1.9769,
     "retype": 1.9769,
     "converse": 1.2429,
-    "mediate_one": 1.3343,
+    "mediate_one": 1.2654,
     "subdivide_all": 1.124,
     "reify_one": 1.2051
   },
@@ -132,11 +132,11 @@
       "of": 6
     },
     "mediate_one": {
-      "held": 5,
+      "held": 4,
       "of": 6
     },
     "subdivide_all": {
-      "held": 2,
+      "held": 3,
       "of": 6
     },
     "reify_one": {
@@ -236,7 +236,7 @@
         "relabel": 1.9897542727977275,
         "retype": 1.9897542727977275,
         "converse": 0.9948771363988638,
-        "mediate_one": 1.5524716228157363,
+        "mediate_one": 1.138823956078875,
         "subdivide_all": 1.1108702447230447,
         "reify_one": 1.199645658365509
       },
@@ -376,7 +376,7 @@
       ]
     },
     "mediate_one": {
-      "held": 5,
+      "held": 4,
       "of": 6,
       "rows": [
         {
@@ -411,14 +411,14 @@
         },
         {
           "before": "{P=X} > U > V > W",
-          "after": "V > {P=X} > W > U",
+          "after": "V > {P=W=X} > U",
           "claim_before": true,
-          "claim_after": true
+          "claim_after": false
         }
       ]
     },
     "subdivide_all": {
-      "held": 2,
+      "held": 3,
       "of": 6,
       "rows": [
         {
@@ -435,9 +435,9 @@
         },
         {
           "before": "{P=U=X} > V > W",
-          "after": "W > V > {P=U=X}",
+          "after": "V > {P=U=X} > W",
           "claim_before": true,
-          "claim_after": false
+          "claim_after": true
         },
         {
           "before": "{P=X} > W > V > U",

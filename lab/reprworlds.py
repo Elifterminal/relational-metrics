@@ -49,6 +49,14 @@ from dataclasses import replace
 
 from structure import Relation, Structure
 
+# A subdivision must COMPOSE back to the relation it replaced. Splitting
+# "A decreases B" into "A decreases M, M decreases B" says A *increases* B --
+# two sign flips cancel. EXP-028 shipped with that error and called the result
+# content-preserving; caught by the canonicaliser in EXP-029, ninth instance of
+# R-12 and mine again. DECOMPOSE gives a pair whose composition is the original.
+from relalgebra import decompose as halves
+
+
 CONVERSE = {
     "POS": "POS_conv", "POS_conv": "POS", "NEG": "NEG_conv", "NEG_conv": "NEG",
     "increases": "is_increased_by", "is_increased_by": "increases",
@@ -96,19 +104,21 @@ def mediate_one(s: Structure, idx: int = 0) -> Structure:
     """A -t-> B becomes A -t-> M -t-> B. The mediator carries the same type."""
     r = s.relations[idx]
     med = f"{r.src}_{r.dst}_via"
+    t1, t2 = halves(r.rtype)
     rest = [x for i, x in enumerate(s.relations) if i != idx]
     return _mk(s, s.name + "+mediate", list(s.nodes) + [med],
-               rest + [Relation(r.src, med, r.rtype, r.weight),
-                       Relation(med, r.dst, r.rtype, r.weight)])
+               rest + [Relation(r.src, med, t1, r.weight),
+                       Relation(med, r.dst, t2, r.weight)])
 
 
 def subdivide_all(s: Structure) -> Structure:
     nodes, rels = list(s.nodes), []
     for i, r in enumerate(s.relations):
         med = f"m{i}"
+        t1, t2 = halves(r.rtype)
         nodes.append(med)
-        rels += [Relation(r.src, med, r.rtype, r.weight),
-                 Relation(med, r.dst, r.rtype, r.weight)]
+        rels += [Relation(r.src, med, t1, r.weight),
+                 Relation(med, r.dst, t2, r.weight)]
     return _mk(s, s.name + "+subdivide", nodes, rels)
 
 
@@ -161,6 +171,26 @@ def rewire_one(s: Structure, idx: int = 0) -> Structure:
 def delete_one(s: Structure, idx: int = 0) -> Structure:
     return _mk(s, s.name + "+delete", s.nodes,
                [x for i, x in enumerate(s.relations) if i != idx])
+
+
+# Which transforms introduce REPRESENTATIONAL vertices. Declared per transform
+# rather than inferred as "nodes that are new", because `relabel` renames every
+# node and would look like it introduced all of them -- which is how EXP-029's
+# first run blind-canonicalised the relabelled structures and reported the known
+# invariance as broken. The declaration is the honest form anyway: whether a
+# vertex is an artifact is a statement about the encoding, not a computation.
+INTRODUCES_ARTIFACTS = frozenset({"mediate_one", "subdivide_all", "reify_one"})
+
+
+def artifacts(name: str, before, after) -> frozenset[str]:
+    if name not in INTRODUCES_ARTIFACTS:
+        return frozenset()
+    return frozenset(after.nodes) - frozenset(before.nodes)
+
+
+def protected_for(name: str, before, after) -> frozenset[str]:
+    """Everything that is a real participant of the transformed structure."""
+    return frozenset(after.nodes) - artifacts(name, before, after)
 
 
 PRESERVING = {

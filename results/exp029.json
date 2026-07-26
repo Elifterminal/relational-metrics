@@ -1,0 +1,210 @@
+{
+  "experiment": "EXP-029",
+  "route": "canonicalise before measuring (declared typed graph homeomorphism)",
+  "rewrite_properties": [
+    {
+      "base": "m1_D",
+      "terminates": true,
+      "idempotent": true,
+      "confluent": true,
+      "n_distinct_normal_forms": 1,
+      "recovers_original": true
+    },
+    {
+      "base": "m2_D",
+      "terminates": true,
+      "idempotent": true,
+      "confluent": true,
+      "n_distinct_normal_forms": 1,
+      "recovers_original": true
+    },
+    {
+      "base": "m3_D",
+      "terminates": true,
+      "idempotent": true,
+      "confluent": true,
+      "n_distinct_normal_forms": 1,
+      "recovers_original": true
+    },
+    {
+      "base": "m4_D",
+      "terminates": true,
+      "idempotent": true,
+      "confluent": true,
+      "n_distinct_normal_forms": 1,
+      "recovers_original": true
+    },
+    {
+      "base": "m5_D",
+      "terminates": true,
+      "idempotent": true,
+      "confluent": true,
+      "n_distinct_normal_forms": 1,
+      "recovers_original": true
+    },
+    {
+      "base": "m6_D",
+      "terminates": true,
+      "idempotent": true,
+      "confluent": true,
+      "n_distinct_normal_forms": 1,
+      "recovers_original": true
+    }
+  ],
+  "all_terminate": true,
+  "all_idempotent": true,
+  "all_confluent": true,
+  "all_recover_original": true,
+  "invariance": {
+    "relabel": {
+      "preserving": true,
+      "mean": 1.9769293401682901,
+      "exact_recovery": 0,
+      "of": 6
+    },
+    "retype": {
+      "preserving": true,
+      "mean": 1.9769293401682901,
+      "exact_recovery": 0,
+      "of": 6
+    },
+    "converse": {
+      "preserving": true,
+      "mean": 1.242859024259201,
+      "exact_recovery": 0,
+      "of": 6
+    },
+    "mediate_one": {
+      "preserving": true,
+      "mean": 1.9769293401682901,
+      "exact_recovery": 6,
+      "of": 6
+    },
+    "subdivide_all": {
+      "preserving": true,
+      "mean": 1.9769293401682901,
+      "exact_recovery": 6,
+      "of": 6
+    },
+    "reify_one": {
+      "preserving": true,
+      "mean": 1.205055655095469,
+      "exact_recovery": 0,
+      "of": 6
+    },
+    "flip_type_one": {
+      "preserving": false,
+      "mean": 1.1980057590114992,
+      "exact_recovery": 0,
+      "of": 6
+    },
+    "reverse_one": {
+      "preserving": false,
+      "mean": 1.2547120184744847,
+      "exact_recovery": 0,
+      "of": 6
+    },
+    "rewire_one": {
+      "preserving": false,
+      "mean": 1.1883735416922034,
+      "exact_recovery": 0,
+      "of": 6
+    },
+    "delete_one": {
+      "preserving": false,
+      "mean": 1.3502724975273532,
+      "exact_recovery": 0,
+      "of": 6
+    }
+  },
+  "worst_preserving": "reify_one",
+  "best_changing": "delete_one",
+  "separation_holds": false,
+  "capability": {
+    "dev": {
+      "plain": 3,
+      "canonical": 3,
+      "canonical_subdivided": 3,
+      "of": 3
+    },
+    "held-out": {
+      "plain": 3,
+      "canonical": 3,
+      "canonical_subdivided": 3,
+      "of": 3
+    },
+    "independent": {
+      "plain": 4,
+      "canonical": 4,
+      "canonical_subdivided": 4,
+      "of": 4
+    }
+  },
+  "capability_preserved": true,
+  "capability_under_subdivision": true,
+  "blind_mode": [
+    {
+      "base": "m1_D",
+      "nodes_before": 4,
+      "nodes_after": 3,
+      "relations_before": 4,
+      "relations_after": 3,
+      "unchanged": false
+    },
+    {
+      "base": "m2_D",
+      "nodes_before": 4,
+      "nodes_after": 3,
+      "relations_before": 4,
+      "relations_after": 3,
+      "unchanged": false
+    },
+    {
+      "base": "m3_D",
+      "nodes_before": 5,
+      "nodes_after": 2,
+      "relations_before": 4,
+      "relations_after": 1,
+      "unchanged": false
+    },
+    {
+      "base": "m4_D",
+      "nodes_before": 3,
+      "nodes_after": 3,
+      "relations_before": 4,
+      "relations_after": 4,
+      "unchanged": true
+    },
+    {
+      "base": "m5_D",
+      "nodes_before": 4,
+      "nodes_after": 3,
+      "relations_before": 4,
+      "relations_after": 3,
+      "unchanged": false
+    },
+    {
+      "base": "m6_D",
+      "nodes_before": 4,
+      "nodes_after": 3,
+      "relations_before": 4,
+      "relations_after": 3,
+      "unchanged": false
+    }
+  ],
+  "blind_mode_damages": 5,
+  "declared_class": [
+    "relabel",
+    "retype",
+    "mediate_one",
+    "subdivide_all"
+  ],
+  "separation_within_declared_class": true,
+  "worst_in_class": "relabel",
+  "out_of_class_unfixed": [
+    "converse",
+    "reify_one"
+  ],
+  "predeclared_falsification_met": false,
+  "verdict": "SUPPORTED WITHIN DECLARED CLASS"
+}

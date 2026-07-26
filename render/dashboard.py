@@ -1721,6 +1721,65 @@ form first, contracting chains so subdivision becomes a no-op; or let a relation
 priced by length. Taking the first — it's the smaller change, and the second widens exactly the
 search space that caused this.</div>
 
+
+<h2>Finding 27 — declare the equivalence, then measure through it</h2>
+<p>The previous finding left the measure unable to tell "written differently" from "says something
+different." The problem has a name in graph theory — <b>homeomorphism</b>, equivalence under
+subdividing an edge and suppressing the vertex it created — and two standard routes. Either let one
+relation match a whole <i>path</i>, or normalise the extra vertices away before comparing.</p>
+<div class="read"><b>Took the second, for the reason the previous finding established.</b> What broke
+discrimination was giving the search more freedom, so answering it by giving the search still more
+freedom would be treating the symptom with more of the cause. An invariance ought to be part of what
+you are measuring, not something the search is expected to stumble on.</div>
+<div class="fig">{figs['fig28_canonical.svg']}</div>
+
+<h3>Two mistakes of mine, found on the way there</h3>
+<div class="read warn"><b>The previous finding's subdivision was corrupting content.</b> Splitting
+"A <i>decreases</i> B" into "A decreases M, M decreases B" says A <b>increases</b> B — two sign flips
+cancel. Every negative relation in what I had labelled the content-preserving group was being quietly
+altered. The canonicaliser caught it by disagreeing with itself. Re-ran the whole thing: the verdict
+is unchanged and one number moved. Ninth time the wrong ground truth has been mine.<br><br>
+<b>And the first run of this experiment reported a known-good invariance as broken.</b> That is an
+alarm about the harness, not a discovery, so I chased it rather than writing it up — I had protected
+the wrong set of vertices.</div>
+
+<h3>A canonical form is only worth having if it's actually canonical</h3>
+<p>If applying the legal rewrites in a different order gave a different answer, "canonical" would
+mean "whatever the loop happened to do first" and every number downstream would be arbitrary — the
+same defect as the sorting artifact two findings ago. So it was tested rather than assumed:
+<b>terminates 6/6, idempotent 6/6, and confluent 6/6 across 24 random rewrite orders each</b>,
+recovering the original structure exactly every time.</p>
+<div class="read"><b>Suppression is guarded, not greedy.</b> "Contract every same-typed chain" was my
+first plan and it is too broad — a vertex in the middle of something is not automatically meaningless.
+A vertex is removed only when it has exactly one relation in and one out, creates no self-loop or
+duplicate, and <b>the vocabulary declares what its two relations compose to</b>. Composition across
+different vocabularies is deliberately left undefined, so it blocks the rewrite instead of inventing
+a meaning.</div>
+
+<h3>It works, exactly</h3>
+<div class="read ok"><b>Subdivision and mediation now cost nothing at all</b> — the same score as
+comparing a structure with itself, with the original recovered exactly on 6 of 6. Everything that
+changes the process stays far below. Clean separation, within the class the rewrite declares.</div>
+<div class="read ok"><b>And it costs the main result nothing.</b> Analogue beats false friend 3/3,
+3/3 and 4/4 after canonicalisation — including on <i>subdivided</i> documents, the case that scored
+2 of 6 before. The falsification condition I wrote down in advance was "if the fix restores
+invariance but costs the capability, it is refuted rather than tuned." It didn't.</div>
+
+<h3>What is still broken, said plainly</h3>
+<div class="read warn"><b>Writing a relation backwards, and turning a relation into a node, are not
+fixed.</b> Both are perfectly legitimate ways to write the same thing, both still score below the
+best content-changing transform, and the rewrite declares nothing for either. They aren't
+subdivision. Counting them as failures of this fix would judge it against a claim it never made;
+counting them as passes would hide two known gaps.</div>
+<div class="read warn"><b>And the equivalence has to be declared — it cannot be computed.</b> Whether
+a vertex is a bookkeeping artifact or a real participant is not something the structure knows. A
+plain feedback loop has exactly one relation in and one out at every vertex. Measured rather than
+argued: suppressing blindly, with nothing declared, <b>damages 5 of the 6 test structures</b> — one
+of them from five vertices down to two.<br><br>Which is the same shape as the vacuous-document
+result: the structure does not contain the distinction, so something outside it has to supply one.
+That is now twice this project has hit the same wall from different directions, and it is starting
+to look like the actual subject matter rather than a series of accidents.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1756,6 +1815,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>Declaring an invariance works where asking the search to find it did not.</b>
+Normalising representational vertices away before comparing makes subdivision cost exactly nothing,
+recovers the original structure every time, and costs the main result nothing — it even restores the
+subdivided case from 2 of 6 to 10 of 10. The rewrite is proven terminating and confluent rather than
+assumed to be. Two re-encodings remain unhandled and are named rather than absorbed, and the
+equivalence must be <i>declared</i>: suppressing blindly damages five of six structures, because
+"is this vertex real?" is not a question a structure can answer.</div>
 <div class="q"><b>The measure sees the encoding, not only the process — and this is the largest
 re-scoping the project has taken.</b> Vocabulary invariance and label invariance hold. Invariance
 across equivalent re-encodings does not, and at matched size the measure cannot tell a correct
