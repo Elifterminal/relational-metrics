@@ -1175,7 +1175,7 @@ def fig_transfer(data: dict) -> str:
         y = T + i * bh
         dev = n.startswith("motif")
         out.append(f'<text class="lbl" x="{L-14}" y="{y+bh/2+4:.1f}" text-anchor="end" '
-                   f'{"font-style=italic" if dev else ""}>{esc(n)}</text>')
+                   f"{'font-style=' + chr(34) + 'italic' + chr(34) if dev else ''}>{esc(n)}</text>")
         for j, (_, key, col) in enumerate(cols):
             v = r["scores"][key]
             yy = y + bh * 0.12 + j * (bh * 0.2)
@@ -1237,13 +1237,24 @@ def fig_corpus(data: dict) -> str:
         out.append(f'<text class="lbl" x="{L-12}" y="{y+bh/2+4:.1f}" text-anchor="end" '
                    f'fill="{"var(--mut)" if imp else "var(--fg)"}">'
                    f'{esc(n.split(" (")[0])} · {esc(mo)}</text>')
-        for j, k in enumerate(v["ranking"]):
+        # Tied documents share a bracket. Drawing them in a row would restate the
+        # artifact EXP-027 retracted -- a tie is not an order (P-18).
+        j = 0
+        for grp in v["groups"]:
+            span = cw * len(grp)
             x = L + j * cw
-            out.append(f'<rect x="{x+2:.1f}" y="{y+bh*0.2:.1f}" width="{cw-6:.1f}" '
-                       f'height="{bh*0.6:.1f}" fill="{kc[k]}" rx="2" '
-                       f'opacity="{0.95 if k in ("X","W") else 0.4}"/>')
-            out.append(f'<text x="{x+cw/2:.1f}" y="{y+bh/2+4:.1f}" text-anchor="middle" '
-                       f'fill="#fff" font-size="11" font-family="sans-serif">{esc(k)}</text>')
+            if len(grp) > 1:
+                out.append(f'<rect x="{x+2:.1f}" y="{y+bh*0.14:.1f}" width="{span-6:.1f}" '
+                           f'height="{bh*0.72:.1f}" fill="none" stroke="var(--fg)" '
+                           f'stroke-width="1.3" stroke-dasharray="3 2" rx="4" opacity="0.5"/>')
+            for t, k in enumerate(grp):
+                bx = x + t * cw
+                out.append(f'<rect x="{bx+4:.1f}" y="{y+bh*0.22:.1f}" width="{cw-9:.1f}" '
+                           f'height="{bh*0.56:.1f}" fill="{kc[k]}" rx="2" '
+                           f'opacity="{0.95 if k in ("X","W") else 0.4}"/>')
+                out.append(f'<text x="{bx+cw/2:.1f}" y="{y+bh/2+4:.1f}" text-anchor="middle" '
+                           f'fill="#fff" font-size="11" font-family="sans-serif">{esc(k)}</text>')
+            j += len(grp)
         ok = v["analogue_beats_false_friend"]
         out.append(f'<text class="tick" x="{L+pw+10}" y="{y+bh/2+4:.1f}" '
                    f'fill="{"#15803d" if ok else "#dc2626"}">'
@@ -1296,19 +1307,30 @@ def fig_fix(data: dict) -> str:
         out.append(f'<text class="lbl" x="{L-12}" y="{y+bh/2+4:.1f}" text-anchor="end" '
                    f'fill="{"var(--fg)" if held else "var(--mut)"}">'
                    f'{esc(tag)} · {esc(motif)}</text>')
-        for j, k in enumerate(v["ranking"]):
+        # Tied documents share a bracket. Drawing them in a row would restate the
+        # artifact EXP-027 retracted -- a tie is not an order (P-18).
+        j = 0
+        for grp in v["groups"]:
+            span = cw * len(grp)
             x = L + j * cw
-            out.append(f'<rect x="{x+2:.1f}" y="{y+bh*0.2:.1f}" width="{cw-6:.1f}" '
-                       f'height="{bh*0.6:.1f}" fill="{kc[k]}" rx="2" '
-                       f'opacity="{0.95 if k in ("X","W") else 0.35}"/>')
-            out.append(f'<text x="{x+cw/2:.1f}" y="{y+bh/2+4:.1f}" text-anchor="middle" '
-                       f'fill="#fff" font-size="11" font-family="sans-serif">{esc(k)}</text>')
+            if len(grp) > 1:
+                out.append(f'<rect x="{x+2:.1f}" y="{y+bh*0.14:.1f}" width="{span-6:.1f}" '
+                           f'height="{bh*0.72:.1f}" fill="none" stroke="var(--fg)" '
+                           f'stroke-width="1.3" stroke-dasharray="3 2" rx="4" opacity="0.5"/>')
+            for t, k in enumerate(grp):
+                bx = x + t * cw
+                out.append(f'<rect x="{bx+4:.1f}" y="{y+bh*0.22:.1f}" width="{cw-9:.1f}" '
+                           f'height="{bh*0.56:.1f}" fill="{kc[k]}" rx="2" '
+                           f'opacity="{0.95 if k in ("X","W") else 0.35}"/>')
+                out.append(f'<text x="{bx+cw/2:.1f}" y="{y+bh/2+4:.1f}" text-anchor="middle" '
+                           f'fill="#fff" font-size="11" font-family="sans-serif">{esc(k)}</text>')
+            j += len(grp)
         out.append(f'<text class="tick" x="{L+pw+10}" y="{y+bh/2+4:.1f}" fill="#15803d">'
                    f'X &gt; W</text>')
 
     out.append(f'<text class="sub" x="24" y="{H-26}">'
-               'Six of six. And paraphrase and analogue now score IDENTICALLY to four decimal '
-               'places in every case — which is what a</text>')
+               'Six of six. Paraphrase and analogue score IDENTICALLY — bracketed as an exact tie, '
+               'not ranked against each other, which is what a</text>')
     out.append(f'<text class="sub" x="24" y="{H-12}">'
                'structure-only measure must do, since they are structurally the same thing '
                'wearing different words.</text>')
@@ -1345,14 +1367,28 @@ def fig_independent(data: dict) -> str:
         y = T + i * bh
         out.append(f'<text class="lbl" x="{L-12}" y="{y+bh/2+4:.1f}" '
                    f'text-anchor="end">{esc(motif)}</text>')
-        for j, k in enumerate(v["ranking"]):
+        # Tied documents share one slot. Drawing them in a row would restate
+        # the EXP-027 artifact -- a tie is not an order (P-18).
+        j = 0
+        for grp in v["groups"]:
+            span = cw * len(grp)
             x = L + j * cw
-            strong = k in ("X", "W", "V")
-            out.append(f'<rect x="{x+2:.1f}" y="{y+bh*0.2:.1f}" width="{cw-6:.1f}" '
-                       f'height="{bh*0.6:.1f}" fill="{kc[k]}" rx="2" '
-                       f'opacity="{0.95 if strong else 0.35}"/>')
-            out.append(f'<text x="{x+cw/2:.1f}" y="{y+bh/2+4:.1f}" text-anchor="middle" '
-                       f'fill="#fff" font-size="11" font-family="sans-serif">{esc(k)}</text>')
+            strong = any(k in ("X", "W", "V") for k in grp)
+            if len(grp) > 1:
+                out.append(f'<rect x="{x+2:.1f}" y="{y+bh*0.14:.1f}" width="{span-6:.1f}" '
+                           f'height="{bh*0.72:.1f}" fill="none" stroke="#0f172a" '
+                           f'stroke-width="1.4" stroke-dasharray="3 2" rx="4" opacity="0.55"/>')
+            for t, k in enumerate(grp):
+                bx = x + t * cw
+                out.append(f'<rect x="{bx+4:.1f}" y="{y+bh*0.22:.1f}" width="{cw-9:.1f}" '
+                           f'height="{bh*0.56:.1f}" fill="{kc[k]}" rx="2" '
+                           f'opacity="{0.95 if strong else 0.35}"/>')
+                out.append(f'<text x="{bx+cw/2:.1f}" y="{y+bh/2+4:.1f}" text-anchor="middle" '
+                           f'fill="#fff" font-size="11" font-family="sans-serif">{esc(k)}</text>')
+            if len(grp) > 1:
+                out.append(f'<text class="tick" x="{x+span/2:.1f}" y="{y+bh*0.16:.1f}" '
+                           f'text-anchor="middle" fill="#0f172a">exact tie</text>')
+            j += len(grp)
         out.append(f'<text class="tick" x="{L+pw+10}" y="{y+bh/2+4:.1f}" fill="#15803d">'
                    f'X &gt; W</text>')
 
@@ -1363,9 +1399,75 @@ def fig_independent(data: dict) -> str:
                'score IDENTICALLY on all four again, which is the vocabulary-blindness signature '
                'confirmed independently.</text>')
     out.append(f'<text class="sub" x="24" y="{H-10}" fill="#d97706">'
-               'But the GENERIC document outranks the analogue on three of four — and it is '
-               'structurally right to. See below.</text>')
+               'The vacuous document ties them EXACTLY — it is isomorphic to the query. An earlier '
+               'version of this page said it "won"; that was a sorting artifact. See below.</text>')
     return svg(W, H, "".join(out), "Independent corpus")
+
+
+# ---------------------------------------------------------------------------
+# Figure 26 — the retraction and the refutation
+# ---------------------------------------------------------------------------
+
+def fig_refutation(e27: dict) -> str:
+    W, H = 800, 400
+    out = ['<text class="ttl" x="24" y="26">A retraction, and why the planned fix cannot work</text>',
+           '<text class="sub" x="24" y="45">Left: what was published vs what is true. '
+           'Right: the discount that was supposed to fix it.</text>']
+
+    # --- left panel: the retraction ---
+    out.append('<text class="lbl" x="24" y="80">PUBLISHED</text>')
+    out.append('<text class="sub" x="24" y="100" fill="#dc2626">'
+               '"the vacuous document beats the genuine analogue on 3 of 4"</text>')
+    out.append('<text class="lbl" x="24" y="130">TRUE</text>')
+    out.append('<text class="sub" x="24" y="150" fill="#15803d">'
+               'they score identically on 4 of 4 — equal in the last bit</text>')
+
+    ind = next(c for c in e27["corpora"] if c["corpus"].startswith("independent"))
+    y = 178
+    out.append('<text class="tick" x="24" y="{}">motif</text>'.format(y))
+    out.append('<text class="tick" x="150" y="{}">paraphrase</text>'.format(y))
+    out.append('<text class="tick" x="252" y="{}">analogue</text>'.format(y))
+    out.append('<text class="tick" x="340" y="{}">generic</text>'.format(y))
+    for i, (m, v) in enumerate(ind["by_motif"].items()):
+        yy = y + 20 + i * 18
+        out.append(f'<text class="tick" x="24" y="{yy}">{esc(m)}</text>')
+        for j, k in enumerate(("P", "X", "V")):
+            out.append(f'<text class="tick" x="{150 + j*95}" y="{yy}" '
+                       f'font-family="monospace">{v["scores"][k]:.6f}</text>')
+    out.append(f'<text class="sub" x="24" y="{y + 20 + 4*18 + 16}">'
+               'The ordering came from a tie-break on a hash that is randomised every run.</text>')
+
+    # --- right panel: the refutation ---
+    RX = 470
+    out.append(f'<line x1="{RX-24}" y1="66" x2="{RX-24}" y2="{H-30}" '
+               f'stroke="#94a3b8" stroke-width="1" opacity="0.5"/>')
+    out.append(f'<text class="lbl" x="{RX}" y="80">THE PLANNED FIX</text>')
+    out.append(f'<text class="sub" x="{RX}" y="100" font-family="monospace">'
+               'bridge = match − genericness</text>')
+    out.append(f'<text class="sub" x="{RX}" y="124">discount things that match everything</text>')
+    sep = e27["part2_f09"]["separation_test"]
+    out.append(f'<text class="lbl" x="{RX}" y="156">IT CANNOT SEPARATE THEM</text>')
+    yy = 178
+    out.append(f'<text class="tick" x="{RX}" y="{yy}">motif</text>')
+    out.append(f'<text class="tick" x="{RX+96}" y="{yy}">gen(analogue)</text>')
+    out.append(f'<text class="tick" x="{RX+192}" y="{yy}">gen(generic)</text>')
+    for i, (m, d) in enumerate(sep["by_motif"].items()):
+        yr = yy + 20 + i * 18
+        out.append(f'<text class="tick" x="{RX}" y="{yr}">{esc(m)}</text>')
+        out.append(f'<text class="tick" x="{RX+96}" y="{yr}" font-family="monospace">'
+                   f'{d["genericness_X"]:.4f}</text>')
+        out.append(f'<text class="tick" x="{RX+192}" y="{yr}" font-family="monospace">'
+                   f'{d["genericness_V"]:.4f}</text>')
+    ry = yy + 20 + 4 * 18 + 16
+    out.append(f'<text class="sub" x="{RX}" y="{ry}" fill="#dc2626">'
+               'Gap = 0.00e+00 on every motif.</text>')
+    out.append(f'<text class="sub" x="{RX}" y="{ry+16}">'
+               'The generic is ISOMORPHIC to the query, so any</text>')
+    out.append(f'<text class="sub" x="{RX}" y="{ry+30}">'
+               'measure of structure alone must score them equal.</text>')
+    out.append(f'<text class="sub" x="{RX}" y="{ry+46}" fill="#dc2626">'
+               'No strength of discount can work. Arithmetic, not tuning.</text>')
+    return svg(W, H, "".join(out), "Retraction and refutation")
 
 
 # ---------------------------------------------------------------------------
@@ -1452,6 +1554,7 @@ def main() -> None:
     e24 = json.loads((RESULTS / "exp024.json").read_text())
     e25 = json.loads((RESULTS / "exp025.json").read_text())
     e26 = json.loads((RESULTS / "exp026.json").read_text())
+    e27 = json.loads((RESULTS / "exp027.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1484,6 +1587,7 @@ def main() -> None:
         "fig23_corpus.svg": fig_corpus(e24),
         "fig24_fix.svg": fig_fix(e25),
         "fig25_independent.svg": fig_independent(e26),
+        "fig26_refutation.svg": fig_refutation(e27),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

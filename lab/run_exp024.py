@@ -44,6 +44,8 @@ from corpus import (DOCS, IDEAL_ORDER, QUERIES, RELATION_CLASS,  # noqa: E402
                     all_well_formed, docs_for, query_doc)
 from d_a import evaluate                                         # noqa: E402
 from measures import mdl_correspondence                          # noqa: E402
+from ranking import (format_ranking, rank_with_ties,              # noqa: E402
+                     strictly_above, tied)
 
 
 # Candidate order must never leak into a ranking. The corpus lists documents
@@ -56,15 +58,32 @@ from measures import mdl_correspondence                          # noqa: E402
 _SHUFFLE_SEED = 7717
 
 
+def _tiebreak(doc_id: str, seed: int = 7717) -> str:
+    """Deterministic tie-break.
+
+    Python's built-in hash() is salted per process, so ties broke differently
+    on every run and a ranking among equal-scoring items was not reproducible.
+    EXP-026 reported "the generic document outranks the analogue on 3 of 4
+    motifs" on the strength of one such ordering; the items were in fact
+    exactly tied. Corrected in EXP-027.
+    """
+    import hashlib
+    return hashlib.md5(f"{doc_id}:{seed}".encode()).hexdigest()
+
+
+
 def rank_by(scorer, motif):
     import random
     q = query_doc(motif)
     cands = list(docs_for(motif))
     random.Random(_SHUFFLE_SEED).shuffle(cands)
     scored = {d.kind: scorer(q, d) for d in cands}
-    tiebreak = {d.kind: hash((d.doc_id, _SHUFFLE_SEED)) for d in cands}
-    order = sorted(scored, key=lambda k: (-scored[k], tiebreak[k]))
-    return order, scored
+    groups = rank_with_ties(scored)
+    # Linear form kept ONLY for d_A, which needs a sequence. Ties are broken by
+    # a stable key so d_A is reproducible, but no CLAIM is read off the
+    # within-group order -- that is what EXP-027 had to retract. See P-18.
+    order = [k for g in groups for k in sorted(g, key=_tiebreak)]
+    return order, scored, groups
 
 
 # -- the real method and three impostors ------------------------------------
@@ -105,14 +124,16 @@ def main() -> None:
     for mname, fn in METHODS.items():
         per_motif = {}
         for motif in QUERIES:
-            order, scores = rank_by(fn, motif)
+            order, scores, groups = rank_by(fn, motif)
             da = evaluate(order, IDEAL_ORDER,
                           returned_class={k: RELATION_CLASS[k] for k in order},
                           ideal_class=RELATION_CLASS)
             per_motif[motif] = {
-                "ranking": order,
+                "ranking": format_ranking(groups),
+            "groups": groups,
+            "order_for_d_A": order,
                 "scores": {k: round(v, 4) for k, v in scores.items()},
-                "analogue_beats_false_friend": order.index("X") < order.index("W"),
+                "analogue_beats_false_friend": strictly_above(groups, "X", "W"),
                 "d_A": da.as_dict(),
                 "perfect": da.is_perfect,
             }
@@ -148,7 +169,7 @@ def main() -> None:
         for motif, v in r["by_motif"].items():
             d = v["d_A"]
             flag = "yes" if v["analogue_beats_false_friend"] else "NO"
-            print(f"{mname:<22}{motif:<14}{' > '.join(v['ranking']):<22}{flag:>5}  "
+            print(f"{mname:<22}{motif:<14}{v['ranking']:<22}{flag:>5}  "
                   f"misord={d['misordered']} disp={d['rank_displacement']}")
         print()
 

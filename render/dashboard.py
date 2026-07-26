@@ -140,7 +140,8 @@ finding that produced them, because a rule without its scar is easy to forget.</
 condition set holds fixed, keep one condition where it varies.</td><td>size-matching hid a size
 bias in a measure <i>and</i> made an impostor undetectable</td></tr>
 <tr><td><b>Never state a ground truth from inspection.</b> Compute it, from the same object the
-measure sees.</td><td>seven instances, and counting</td></tr>
+measure sees.</td><td>eight instances, and counting — the latest found an "unrelated" control that
+was isomorphic to its own query</td></tr>
 <tr><td><b>Verify test cases are actually distinct</b> before counting them as separate evidence —
 compare the objects, not the names.</td><td>four "independent" agreements turned out to be two
 functions counted twice</td></tr>
@@ -160,14 +161,19 @@ can reverse a ranking.</td><td>best-case and worst-case orderings came out
 <i>anti</i>-correlated</td></tr>
 <tr><td><b>Check the container, not just the measure.</b></td><td>an invariant went unasserted for
 twenty-three experiments because every world until then was hand-built</td></tr>
+<tr><td><b>A measure that cannot separate two things must say so, not rank them.</b> Report tied
+groups. And note that making an arbitrary tie-break <i>stable</i> would only have made the error
+reproducible, not correct.</td><td>a published finding turned out to be a sort order read off a
+hash that is randomised on every run</td></tr>
 </tbody></table>
 
 <h3>6. What gets reported</h3>
 <ul>
 <li>Never a single number as the outcome — a profile, not a score.</li>
 <li>Which rung, which controls survived, and <b>which rival explanations are still live</b>.</li>
-<li>Failures written up with the same care as successes. Two of the results in this log are
-failures of the author's own proposals, and one is a correction to an earlier entry.</li>
+<li>Failures written up with the same care as successes. Three of the results in this log are
+failures of the author's own proposals, and one is a <b>retraction</b> of a claim published on
+this page — left visible, with the original wording, rather than edited away.</li>
 <li>The question is never "did it work". It is: <i>which precise claim survived which controls,
 and what else could still explain this?</i></li>
 </ul>
@@ -1553,13 +1559,20 @@ building the measure produced. And <b>paraphrase and analogue score identically 
 again</b>, which is the vocabulary-blindness signature confirmed independently rather than on my
 own writing.</div>
 
-<h3>And the generic document beats the analogue on three of four</h3>
-<div class="read warn"><b>It is structurally right to.</b> The generic item for one motif reads
+<h3 style="text-decoration:line-through;opacity:.55">And the generic document beats the analogue
+on three of four</h3>
+<div class="read warn" style="border-left-color:#dc2626"><b>RETRACTED — see Finding 25.</b> The
+heading above is the original wording and is <b>wrong</b>. The vacuous document does not beat the
+analogue; the two score <b>identically</b>, in the last bit, on all four motifs. The apparent win
+was a sorting artifact. The reasoning below survives the correction unchanged — the generic is
+isomorphic to the query, so an exact tie is the correct answer — but "beats" was noise on top of
+it, and the wrong number sat on this page until it was checked.</div>
+<div class="read warn"><b>It is structurally right to tie.</b> The generic item for one motif reads
 "a growing deviation produces a stronger control signal, increasing corrective action and a
 counteracting effect that reduces the deviation" — and its structure is a four-cycle with three
-increases and one decrease closing the loop. <b>That is isomorphic to the query.</b> The genuine
-cross-domain analogue has its decrease in a <i>different position</i>, so it matches slightly less
-exactly.<br><br>The measure is not wrong. <b>A vacuous statement can have perfect structure.</b>
+increases and one decrease closing the loop. <b>That is isomorphic to the query</b> — and so, on this
+corpus, is the genuine cross-domain analogue. Both match perfectly, so both get the same
+score.<br><br>The measure is not wrong. <b>A vacuous statement can have perfect structure.</b>
 "Systems change, factors influence outcomes, feedback occurs" describes a feedback loop exactly as
 accurately as any real feedback loop does — because it describes nothing else.</div>
 
@@ -1580,6 +1593,65 @@ that a structural analogue is preferred over something sharing the query's whole
 different wiring — which is the capability the project exists to provide, and which every baseline
 gets backwards. It cannot claim to produce a usable ranking, because a vacuous document that
 happens to share the query's shape will sit near the top and nothing in the measure objects.</div>
+
+
+<h2>Finding 25 — a retraction, and a fix that cannot work</h2>
+<p>Two results. The retraction comes first because it is against a claim published on this page.</p>
+<div class="fig">{figs['fig26_refutation.svg']}</div>
+
+<h3>What was published, and what is true</h3>
+<div class="read warn" style="border-left-color:#dc2626"><b>Retracted:</b> <i>"the vacuous document
+beats the genuine analogue on 3 of 4 motifs."</i><br><br>
+<b>True:</b> on all four motifs the paraphrase, the analogue and the vacuous document score
+<b>identically</b> — 1.98975427279772754 against 1.98975427279772754 against 1.98975427279772754,
+equal in the last bit rather than merely close. The ordering came from the sort breaking the tie on
+a hash value that Python randomises on every run. Three runs gave three different orders. One of
+them got written down as a finding.</div>
+<div class="read"><b>Two faults, and the second is the one worth having.</b> The first is that the
+tie-break was not reproducible — annoying, and fixable with a stable key. The second is that a
+total order was imposed on tied items <b>at all</b>, and that is the real error: a stable tie-break
+would have made the artifact <i>reproducible</i> rather than <i>correct</i>, and reproducibility
+would have hidden it permanently. Rankings now return tied groups, printed
+<code>{{P=V=X}} &gt; W &gt; U</code>, so the measure has to admit when it cannot separate two
+things.</div>
+<div class="read ok"><b>What survives, and it is the load-bearing claim.</b> The analogue is
+strictly above the false friend on <b>10 of 10</b> motifs across all three corpora. That never
+depended on a tie-break. And the vacuous document outranks the analogue on <b>0 of 10</b> — nowhere
+in the project, not just nowhere in the corrected corpus.</div>
+<div class="read ok"><b>The correction also improved agreement with the outside annotator.</b>
+Scored against the independent author's own "most similar" judgement, the measure went from
+<b>2 of 4 to 4 of 4</b> once ties are reported as ties. The bogus tie-break had been actively
+suppressing agreement with the only external ground truth in the project.</div>
+
+<h3>And the defence against the oldest risk is refuted</h3>
+<p>The plan for the vacuous-document problem, sketched before any code existed, was to discount a
+match by how well the document matches <i>everything</i> — a vague thing that connects to all
+topics gets penalised for explaining nothing. It was finally built. It cannot work here, and the
+reason is arithmetic rather than experimental.</p>
+<div class="read warn" style="border-left-color:#dc2626"><b>The independent author — who was never
+told what a "vague" item was for — wrote vacuous documents that are isomorphic to the query.</b>
+Confirmed by exhaustive search over every possible relabelling. And isomorphic structures are
+indistinguishable to <i>any</i> measure of structure alone, so the genericness of the analogue and
+the genericness of the vacuous document are equal <b>exactly</b>: gap 0.00e+00 on every motif. The
+discount subtracts the same number from both. <b>No strength of it, and no cleverer structural
+statistic, can separate them.</b></div>
+<div class="read"><b>The distinction is not present in what is being measured.</b> Whether a
+sentence is a real cross-domain analogue or a vacuous phrase of the same shape is not a fact about
+its relational structure. This is not a measurement failure that better technique would fix — it is
+an absence in the representation. Recorded as refuted rather than "needs tuning", because tuning is
+exactly what the arithmetic rules out.</div>
+<div class="read ok"><b>What a negative result buys.</b> The oldest risk in the project now stands
+undefended, which is worse than it looked yesterday. But the requirement on any successor is now
+stated precisely instead of hopefully: <b>it must use information from outside the relational
+structure</b>, because the structure provably does not contain it. The candidate is whether the
+participants denote anything at all — a property of the <i>nodes</i> rather than the relations, and
+so genuinely outside the measure. Every hour that would have gone into tuning a structural discount
+is saved.</div>
+<div class="read"><b>Found in passing, and logged rather than quietly fixed:</b> in one motif of the
+project's first corpus, the "unrelated" control is isomorphic to its own query — so that cell never
+tested what it claimed to. Eighth instance of the same failure, and the eighth time the wrong
+ground truth was the author's own. It changes no published claim; the analogue-over-false-friend
+result holds in that motif regardless.</div>
 
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
@@ -1616,6 +1688,17 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>A published claim on this page was wrong, and the correction is on it.</b>
+"The vacuous document beats the analogue on 3 of 4" was a sort order read off a randomised hash.
+The truth is an exact tie, and the vacuous document outranks the analogue nowhere in the project.
+The rule that came out of it: a measure that cannot separate two things has to say so rather than
+rank them — and note that making the tie-break <i>stable</i> would have preserved the error under
+a coat of reproducibility.</div>
+<div class="q"><b>The defence against the oldest risk is refuted, by arithmetic rather than by
+experiment.</b> Discounting a match by its genericness cannot separate a real analogue from a
+vacuous phrase of the same shape, because the two are isomorphic and every measure of structure
+alone must score isomorphic things equally. The risk stands undefended — but the requirement on
+any successor is now exact: it has to use information from outside the structure.</div>
 <div class="q"><b>The core claim survives an independent corpus — and the oldest risk in the
 project arrives as a measurement.</b> Analogue beats false friend 4/4 on motifs, annotations and
 judgements nobody here wrote, with paraphrase and analogue tying again. But the generic connector

@@ -5,10 +5,24 @@
   "malformed": [],
   "by_motif": {
     "diversity": {
-      "ranking": [
-        "P",
-        "V",
+      "ranking": "{P=V=X} > U > W",
+      "groups": [
+        [
+          "P",
+          "V",
+          "X"
+        ],
+        [
+          "U"
+        ],
+        [
+          "W"
+        ]
+      ],
+      "order_for_d_A": [
         "X",
+        "V",
+        "P",
         "U",
         "W"
       ],
@@ -20,6 +34,8 @@
         "V": 2.1423
       },
       "analogue_beats_false_friend": true,
+      "generic_strictly_above_analogue": false,
+      "generic_tied_with_analogue": true,
       "margin_X_over_W": 1.0135,
       "P_equals_X": true,
       "author_most_similar_is_top": true,
@@ -33,10 +49,24 @@
       }
     },
     "correction": {
-      "ranking": [
+      "ranking": "{P=V=X} > W > U",
+      "groups": [
+        [
+          "P",
+          "V",
+          "X"
+        ],
+        [
+          "W"
+        ],
+        [
+          "U"
+        ]
+      ],
+      "order_for_d_A": [
+        "X",
         "V",
         "P",
-        "X",
         "W",
         "U"
       ],
@@ -48,23 +78,39 @@
         "V": 1.9898
       },
       "analogue_beats_false_friend": true,
+      "generic_strictly_above_analogue": false,
+      "generic_tied_with_analogue": true,
       "margin_X_over_W": 0.7935,
       "P_equals_X": true,
-      "author_most_similar_is_top": false,
+      "author_most_similar_is_top": true,
       "author_least_similar_is_bottom": true,
       "d_A_vs_my_tiers": {
         "missing": 0,
         "spurious": 0,
         "misclassified": 0,
-        "misordered": 3,
-        "rank_displacement": 1.0
+        "misordered": 2,
+        "rank_displacement": 0.8
       }
     },
     "regulator": {
-      "ranking": [
-        "P",
-        "V",
+      "ranking": "{P=V=X} > W > U",
+      "groups": [
+        [
+          "P",
+          "V",
+          "X"
+        ],
+        [
+          "W"
+        ],
+        [
+          "U"
+        ]
+      ],
+      "order_for_d_A": [
         "X",
+        "V",
+        "P",
         "W",
         "U"
       ],
@@ -76,6 +122,8 @@
         "V": 1.8816
       },
       "analogue_beats_false_friend": true,
+      "generic_strictly_above_analogue": false,
+      "generic_tied_with_analogue": true,
       "margin_X_over_W": 0.7171,
       "P_equals_X": true,
       "author_most_similar_is_top": true,
@@ -89,10 +137,24 @@
       }
     },
     "rivalry": {
-      "ranking": [
+      "ranking": "{P=V=X} > W > U",
+      "groups": [
+        [
+          "P",
+          "V",
+          "X"
+        ],
+        [
+          "W"
+        ],
+        [
+          "U"
+        ]
+      ],
+      "order_for_d_A": [
         "X",
-        "P",
         "V",
+        "P",
         "W",
         "U"
       ],
@@ -104,22 +166,27 @@
         "V": 2.2912
       },
       "analogue_beats_false_friend": true,
+      "generic_strictly_above_analogue": false,
+      "generic_tied_with_analogue": true,
       "margin_X_over_W": 1.1705,
       "P_equals_X": true,
-      "author_most_similar_is_top": false,
+      "author_most_similar_is_top": true,
       "author_least_similar_is_bottom": true,
       "d_A_vs_my_tiers": {
         "missing": 0,
         "spurious": 0,
         "misclassified": 0,
-        "misordered": 1,
-        "rank_displacement": 0.4
+        "misordered": 2,
+        "rank_displacement": 0.8
       }
     }
   },
   "analogue_beats_false_friend": "4/4",
   "paraphrase_ties_analogue": "4/4",
-  "author_endpoint_top_agrees": "2/4",
+  "generic_ties_analogue": "4/4",
+  "generic_beats_analogue": "0/4",
+  "corrected_by": "EXP-027 -- the earlier hash() tie-break made the generic appear to outrank the analogue on 3 of 4; they tie exactly on 4 of 4",
+  "author_endpoint_top_agrees": "4/4",
   "author_endpoint_bottom_agrees": "3/4",
   "claim_holds": true
 }

@@ -53,8 +53,24 @@ from corpus_independent import (AUTHOR_LEAST_SIMILAR,             # noqa: E402
                                 independent_query)
 from d_a import evaluate                                          # noqa: E402
 from measures import mdl_correspondence                           # noqa: E402
+from ranking import (format_ranking, rank_with_ties,              # noqa: E402
+                     strictly_above, tied)
 
 _SEED = 7717
+
+
+def _tiebreak(doc_id: str, seed: int = 7717) -> str:
+    """Deterministic tie-break.
+
+    Python's built-in hash() is salted per process, so ties broke differently
+    on every run and a ranking among equal-scoring items was not reproducible.
+    EXP-026 reported "the generic document outranks the analogue on 3 of 4
+    motifs" on the strength of one such ordering; the items were in fact
+    exactly tied. Corrected in EXP-027.
+    """
+    import hashlib
+    return hashlib.md5(f"{doc_id}:{seed}".encode()).hexdigest()
+
 
 
 def main() -> None:
@@ -65,19 +81,28 @@ def main() -> None:
         random.Random(_SEED).shuffle(cands)
         scores = {d.kind: mdl_correspondence(q.structure, d.structure,
                                              DEFAULT_CODE).ratio for d in cands}
-        tb = {d.kind: hash((d.doc_id, _SEED)) for d in cands}
-        order = sorted(scores, key=lambda k: (-scores[k], tb[k]))
+        # Tie-aware. The earlier version sorted on hash() and reported the
+        # resulting order as a finding; see EXP-027. `order` is kept only for
+        # d_A, which needs a linear sequence, and ties are broken there by a
+        # STABLE key so the metric is reproducible -- but no claim is read off
+        # the within-group order.
+        groups = rank_with_ties(scores)
+        order = [k for g in groups for k in sorted(g, key=_tiebreak)]
         da = evaluate(order, IDEAL_ORDER,
                       returned_class={k: RELATION_CLASS[k] for k in order},
                       ideal_class=RELATION_CLASS, tiers=IDEAL_TIERS)
         per_motif[motif] = {
-            "ranking": order,
+            "ranking": format_ranking(groups),
+            "groups": groups,
+            "order_for_d_A": order,
             "scores": {k: round(v, 4) for k, v in scores.items()},
-            "analogue_beats_false_friend": order.index("X") < order.index("W"),
+            "analogue_beats_false_friend": strictly_above(groups, "X", "W"),
+            "generic_strictly_above_analogue": strictly_above(groups, "V", "X"),
+            "generic_tied_with_analogue": tied(groups, "V", "X"),
             "margin_X_over_W": round(scores["X"] - scores["W"], 4),
             "P_equals_X": abs(scores["P"] - scores["X"]) < 1e-9,
-            "author_most_similar_is_top": order[0] == AUTHOR_MOST_SIMILAR[motif],
-            "author_least_similar_is_bottom": order[-1] == AUTHOR_LEAST_SIMILAR[motif],
+            "author_most_similar_is_top": AUTHOR_MOST_SIMILAR[motif] in groups[0],
+            "author_least_similar_is_bottom": AUTHOR_LEAST_SIMILAR[motif] in groups[-1],
             "d_A_vs_my_tiers": da.as_dict(),
         }
 
@@ -95,6 +120,9 @@ def main() -> None:
         "by_motif": per_motif,
         "analogue_beats_false_friend": f"{wins}/{n}",
         "paraphrase_ties_analogue": f"{ties}/{n}",
+        "generic_ties_analogue": f"{sum(1 for v in per_motif.values() if v['generic_tied_with_analogue'])}/{n}",
+        "generic_beats_analogue": f"{sum(1 for v in per_motif.values() if v['generic_strictly_above_analogue'])}/{n}",
+        "corrected_by": "EXP-027 -- the earlier hash() tie-break made the generic appear to outrank the analogue on 3 of 4; they tie exactly on 4 of 4",
         "author_endpoint_top_agrees": f"{a_top}/{n}",
         "author_endpoint_bottom_agrees": f"{a_bot}/{n}",
         "claim_holds": wins == n,
@@ -111,7 +139,7 @@ def main() -> None:
     hdr = f"{'motif':<14}{'ranking':<24}{'X>W':>5}{'margin':>9}{'P==X':>7}"
     print(hdr); print("-" * len(hdr))
     for motif, v in per_motif.items():
-        print(f"{motif:<14}{' > '.join(v['ranking']):<24}"
+        print(f"{motif:<14}{v['ranking']:<26}"
               f"{('yes' if v['analogue_beats_false_friend'] else 'NO'):>5}"
               f"{v['margin_X_over_W']:>9.4f}{str(v['P_equals_X']):>7}")
 

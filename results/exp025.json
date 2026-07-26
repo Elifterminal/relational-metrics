@@ -22,9 +22,25 @@
     "corpus": "development (already seen)",
     "by_motif": {
       "reinforcing": {
-        "ranking": [
-          "P",
+        "ranking": "{P=X} > V > U > W",
+        "groups": [
+          [
+            "P",
+            "X"
+          ],
+          [
+            "V"
+          ],
+          [
+            "U"
+          ],
+          [
+            "W"
+          ]
+        ],
+        "order_for_d_A": [
           "X",
+          "P",
           "V",
           "U",
           "W"
@@ -48,11 +64,25 @@
         "perfect": false
       },
       "regulating": {
-        "ranking": [
-          "P",
+        "ranking": "{P=X} > {V=W} > U",
+        "groups": [
+          [
+            "P",
+            "X"
+          ],
+          [
+            "V",
+            "W"
+          ],
+          [
+            "U"
+          ]
+        ],
+        "order_for_d_A": [
           "X",
-          "W",
+          "P",
           "V",
+          "W",
           "U"
         ],
         "scores": {
@@ -68,16 +98,30 @@
           "missing": 0,
           "spurious": 0,
           "misclassified": 0,
-          "misordered": 0,
-          "rank_displacement": 0.0
+          "misordered": 1,
+          "rank_displacement": 0.4
         },
-        "perfect": true
+        "perfect": false
       },
       "cascade": {
-        "ranking": [
-          "P",
-          "X",
+        "ranking": "{P=U=X} > V > W",
+        "groups": [
+          [
+            "P",
+            "U",
+            "X"
+          ],
+          [
+            "V"
+          ],
+          [
+            "W"
+          ]
+        ],
+        "order_for_d_A": [
           "U",
+          "X",
+          "P",
           "V",
           "W"
         ],
@@ -94,8 +138,8 @@
           "missing": 0,
           "spurious": 0,
           "misclassified": 0,
-          "misordered": 3,
-          "rank_displacement": 0.8
+          "misordered": 5,
+          "rank_displacement": 1.4
         },
         "perfect": false
       }
@@ -103,15 +147,31 @@
     "analogue_beats_false_friend": "3/3",
     "wins": 3,
     "n": 3,
-    "perfect_motifs": 1
+    "perfect_motifs": 0
   },
   "holdout": {
     "corpus": "HELD-OUT (frozen before the fix)",
     "by_motif": {
       "inhibition": {
-        "ranking": [
-          "P",
+        "ranking": "{P=X} > W > V > U",
+        "groups": [
+          [
+            "P",
+            "X"
+          ],
+          [
+            "W"
+          ],
+          [
+            "V"
+          ],
+          [
+            "U"
+          ]
+        ],
+        "order_for_d_A": [
           "X",
+          "P",
           "W",
           "V",
           "U"
@@ -135,9 +195,25 @@
         "perfect": true
       },
       "threshold": {
-        "ranking": [
-          "P",
+        "ranking": "{P=X} > W > U > V",
+        "groups": [
+          [
+            "P",
+            "X"
+          ],
+          [
+            "W"
+          ],
+          [
+            "U"
+          ],
+          [
+            "V"
+          ]
+        ],
+        "order_for_d_A": [
           "X",
+          "P",
           "W",
           "U",
           "V"
@@ -161,9 +237,25 @@
         "perfect": false
       },
       "substitution": {
-        "ranking": [
-          "P",
+        "ranking": "{P=X} > U > V > W",
+        "groups": [
+          [
+            "P",
+            "X"
+          ],
+          [
+            "U"
+          ],
+          [
+            "V"
+          ],
+          [
+            "W"
+          ]
+        ],
+        "order_for_d_A": [
           "X",
+          "P",
           "U",
           "V",
           "W"

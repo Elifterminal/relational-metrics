@@ -14,46 +14,76 @@
     "F-06a (the measure)": {
       "by_motif": {
         "reinforcing": {
-          "ranking": [
-            "P",
+          "ranking": "{P=X} > V > U > W",
+          "groups": [
+            [
+              "P",
+              "X"
+            ],
+            [
+              "V"
+            ],
+            [
+              "U"
+            ],
+            [
+              "W"
+            ]
+          ],
+          "order_for_d_A": [
             "X",
+            "P",
             "V",
-            "W",
-            "U"
+            "U",
+            "W"
           ],
           "scores": {
-            "P": 2.6222,
-            "U": 1.1059,
-            "W": 1.1313,
-            "X": 1.8586,
-            "V": 1.1335
+            "P": 1.9898,
+            "U": 1.1461,
+            "W": 0.9949,
+            "X": 1.9898,
+            "V": 1.1796
           },
           "analogue_beats_false_friend": true,
           "d_A": {
             "missing": 0,
             "spurious": 0,
             "misclassified": 0,
-            "misordered": 1,
-            "rank_displacement": 0.4
+            "misordered": 3,
+            "rank_displacement": 1.2
           },
           "perfect": false
         },
         "regulating": {
-          "ranking": [
-            "P",
-            "W",
-            "V",
+          "ranking": "{P=X} > {V=W} > U",
+          "groups": [
+            [
+              "P",
+              "X"
+            ],
+            [
+              "V",
+              "W"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "order_for_d_A": [
             "X",
+            "P",
+            "V",
+            "W",
             "U"
           ],
           "scores": {
-            "P": 2.6222,
-            "U": 1.1059,
-            "W": 1.8608,
-            "X": 1.8586,
-            "V": 1.8608
+            "P": 1.9898,
+            "U": 1.1461,
+            "W": 1.9883,
+            "X": 1.9898,
+            "V": 1.9883
           },
-          "analogue_beats_false_friend": false,
+          "analogue_beats_false_friend": true,
           "d_A": {
             "missing": 0,
             "spurious": 0,
@@ -64,18 +94,32 @@
           "perfect": false
         },
         "cascade": {
-          "ranking": [
+          "ranking": "{P=U=X} > V > W",
+          "groups": [
+            [
+              "P",
+              "U",
+              "X"
+            ],
+            [
+              "V"
+            ],
+            [
+              "W"
+            ]
+          ],
+          "order_for_d_A": [
             "U",
-            "P",
             "X",
+            "P",
             "V",
             "W"
           ],
           "scores": {
-            "P": 2.1182,
-            "U": 2.1182,
-            "W": 0.9783,
-            "X": 1.7633,
+            "P": 1.8676,
+            "U": 1.8676,
+            "W": 0.9943,
+            "X": 1.8676,
             "V": 1.0
           },
           "analogue_beats_false_friend": true,
@@ -83,49 +127,36 @@
             "missing": 0,
             "spurious": 0,
             "misclassified": 0,
-            "misordered": 5,
+            "misordered": 6,
             "rank_displacement": 1.6
           },
           "perfect": false
         }
       },
-      "analogue_beats_false_friend": "2/3",
+      "analogue_beats_false_friend": "3/3",
       "motifs_perfect": 0,
       "is_impostor": false
     },
     "word overlap": {
       "by_motif": {
         "reinforcing": {
-          "ranking": [
-            "W",
-            "V",
-            "X",
-            "P",
-            "U"
+          "ranking": "W > {P=U=V=X}",
+          "groups": [
+            [
+              "W"
+            ],
+            [
+              "P",
+              "U",
+              "V",
+              "X"
+            ]
           ],
-          "scores": {
-            "P": 0.0,
-            "U": 0.0,
-            "W": 1.0,
-            "X": 0.0,
-            "V": 0.0
-          },
-          "analogue_beats_false_friend": false,
-          "d_A": {
-            "missing": 0,
-            "spurious": 0,
-            "misclassified": 0,
-            "misordered": 5,
-            "rank_displacement": 1.6
-          },
-          "perfect": false
-        },
-        "regulating": {
-          "ranking": [
+          "order_for_d_A": [
             "W",
-            "V",
             "U",
             "X",
+            "V",
             "P"
           ],
           "scores": {
@@ -141,17 +172,29 @@
             "spurious": 0,
             "misclassified": 0,
             "misordered": 7,
-            "rank_displacement": 2.4
+            "rank_displacement": 2.0
           },
           "perfect": false
         },
-        "cascade": {
-          "ranking": [
+        "regulating": {
+          "ranking": "W > {P=U=V=X}",
+          "groups": [
+            [
+              "W"
+            ],
+            [
+              "P",
+              "U",
+              "V",
+              "X"
+            ]
+          ],
+          "order_for_d_A": [
             "W",
             "U",
-            "P",
+            "X",
             "V",
-            "X"
+            "P"
           ],
           "scores": {
             "P": 0.0,
@@ -165,7 +208,44 @@
             "missing": 0,
             "spurious": 0,
             "misclassified": 0,
-            "misordered": 6,
+            "misordered": 7,
+            "rank_displacement": 2.0
+          },
+          "perfect": false
+        },
+        "cascade": {
+          "ranking": "W > {P=U=V=X}",
+          "groups": [
+            [
+              "W"
+            ],
+            [
+              "P",
+              "U",
+              "V",
+              "X"
+            ]
+          ],
+          "order_for_d_A": [
+            "W",
+            "U",
+            "X",
+            "V",
+            "P"
+          ],
+          "scores": {
+            "P": 0.0,
+            "U": 0.0,
+            "W": 1.0,
+            "X": 0.0,
+            "V": 0.0
+          },
+          "analogue_beats_false_friend": false,
+          "d_A": {
+            "missing": 0,
+            "spurious": 0,
+            "misclassified": 0,
+            "misordered": 7,
             "rank_displacement": 2.0
           },
           "perfect": false
@@ -178,12 +258,24 @@
     "same domain": {
       "by_motif": {
         "reinforcing": {
-          "ranking": [
+          "ranking": "{P=W} > {U=V=X}",
+          "groups": [
+            [
+              "P",
+              "W"
+            ],
+            [
+              "U",
+              "V",
+              "X"
+            ]
+          ],
+          "order_for_d_A": [
             "P",
             "W",
-            "V",
+            "U",
             "X",
-            "U"
+            "V"
           ],
           "scores": {
             "P": 1.0,
@@ -197,18 +289,30 @@
             "missing": 0,
             "spurious": 0,
             "misclassified": 0,
-            "misordered": 2,
-            "rank_displacement": 0.8
+            "misordered": 3,
+            "rank_displacement": 1.2
           },
           "perfect": false
         },
         "regulating": {
-          "ranking": [
-            "W",
+          "ranking": "{P=W} > {U=V=X}",
+          "groups": [
+            [
+              "P",
+              "W"
+            ],
+            [
+              "U",
+              "V",
+              "X"
+            ]
+          ],
+          "order_for_d_A": [
             "P",
-            "V",
+            "W",
             "U",
-            "X"
+            "X",
+            "V"
           ],
           "scores": {
             "P": 1.0,
@@ -222,18 +326,30 @@
             "missing": 0,
             "spurious": 0,
             "misclassified": 0,
-            "misordered": 4,
-            "rank_displacement": 1.6
+            "misordered": 3,
+            "rank_displacement": 1.2
           },
           "perfect": false
         },
         "cascade": {
-          "ranking": [
-            "W",
+          "ranking": "{P=W} > {U=V=X}",
+          "groups": [
+            [
+              "P",
+              "W"
+            ],
+            [
+              "U",
+              "V",
+              "X"
+            ]
+          ],
+          "order_for_d_A": [
             "P",
+            "W",
             "U",
-            "V",
-            "X"
+            "X",
+            "V"
           ],
           "scores": {
             "P": 1.0,
@@ -247,8 +363,8 @@
             "missing": 0,
             "spurious": 0,
             "misclassified": 0,
-            "misordered": 5,
-            "rank_displacement": 1.6
+            "misordered": 3,
+            "rank_displacement": 1.2
           },
           "perfect": false
         }
@@ -260,37 +376,22 @@
     "size match": {
       "by_motif": {
         "reinforcing": {
-          "ranking": [
-            "V",
-            "X",
-            "P",
-            "U",
-            "W"
+          "ranking": "{P=U=V=W=X}",
+          "groups": [
+            [
+              "P",
+              "U",
+              "V",
+              "W",
+              "X"
+            ]
           ],
-          "scores": {
-            "P": 1.0,
-            "U": 1.0,
-            "W": 1.0,
-            "X": 1.0,
-            "V": 1.0
-          },
-          "analogue_beats_false_friend": true,
-          "d_A": {
-            "missing": 0,
-            "spurious": 0,
-            "misclassified": 0,
-            "misordered": 5,
-            "rank_displacement": 1.6
-          },
-          "perfect": false
-        },
-        "regulating": {
-          "ranking": [
-            "W",
-            "V",
+          "order_for_d_A": [
             "U",
             "X",
-            "P"
+            "V",
+            "P",
+            "W"
           ],
           "scores": {
             "P": 1.0,
@@ -305,17 +406,27 @@
             "spurious": 0,
             "misclassified": 0,
             "misordered": 7,
-            "rank_displacement": 2.4
+            "rank_displacement": 2.0
           },
           "perfect": false
         },
-        "cascade": {
-          "ranking": [
-            "W",
+        "regulating": {
+          "ranking": "{P=U=V=W=X}",
+          "groups": [
+            [
+              "P",
+              "U",
+              "V",
+              "W",
+              "X"
+            ]
+          ],
+          "order_for_d_A": [
             "U",
-            "P",
+            "X",
             "V",
-            "X"
+            "P",
+            "W"
           ],
           "scores": {
             "P": 1.0,
@@ -329,18 +440,53 @@
             "missing": 0,
             "spurious": 0,
             "misclassified": 0,
-            "misordered": 6,
+            "misordered": 7,
+            "rank_displacement": 2.0
+          },
+          "perfect": false
+        },
+        "cascade": {
+          "ranking": "{P=U=V=W=X}",
+          "groups": [
+            [
+              "P",
+              "U",
+              "V",
+              "W",
+              "X"
+            ]
+          ],
+          "order_for_d_A": [
+            "U",
+            "X",
+            "V",
+            "P",
+            "W"
+          ],
+          "scores": {
+            "P": 1.0,
+            "U": 1.0,
+            "W": 1.0,
+            "X": 1.0,
+            "V": 1.0
+          },
+          "analogue_beats_false_friend": false,
+          "d_A": {
+            "missing": 0,
+            "spurious": 0,
+            "misclassified": 0,
+            "misordered": 7,
             "rank_displacement": 2.0
           },
           "perfect": false
         }
       },
-      "analogue_beats_false_friend": "1/3",
+      "analogue_beats_false_friend": "0/3",
       "motifs_perfect": 0,
       "is_impostor": true
     }
   },
-  "retrieval_claim_holds": false,
+  "retrieval_claim_holds": true,
   "candidate_order_shuffled": true,
   "d_A_separates_impostors": true
 }

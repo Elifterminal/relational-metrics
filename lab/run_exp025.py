@@ -41,8 +41,24 @@ from corpus_holdout import (HOLDOUT_QUERIES, holdout_docs_for,   # noqa: E402
                             holdout_malformed, holdout_query)
 from d_a import evaluate                                         # noqa: E402
 from measures import mdl_correspondence                          # noqa: E402
+from ranking import (format_ranking, rank_with_ties,              # noqa: E402
+                     strictly_above, tied)
 
 _SEED = 7717
+
+
+def _tiebreak(doc_id: str, seed: int = 7717) -> str:
+    """Deterministic tie-break.
+
+    Python's built-in hash() is salted per process, so ties broke differently
+    on every run and a ranking among equal-scoring items was not reproducible.
+    EXP-026 reported "the generic document outranks the analogue on 3 of 4
+    motifs" on the strength of one such ordering; the items were in fact
+    exactly tied. Corrected in EXP-027.
+    """
+    import hashlib
+    return hashlib.md5(f"{doc_id}:{seed}".encode()).hexdigest()
+
 
 
 def score_corpus(queries, q_fn, d_fn, label):
@@ -53,15 +69,20 @@ def score_corpus(queries, q_fn, d_fn, label):
         random.Random(_SEED).shuffle(cands)
         scores = {d.kind: mdl_correspondence(q.structure, d.structure,
                                              DEFAULT_CODE).ratio for d in cands}
-        tb = {d.kind: hash((d.doc_id, _SEED)) for d in cands}
-        order = sorted(scores, key=lambda k: (-scores[k], tb[k]))
+        tb = {d.kind: _tiebreak(d.doc_id) for d in cands}
+        groups = rank_with_ties(scores)
+        # Linear form kept ONLY for d_A, which needs a sequence. No claim is
+        # read off the within-group order -- see EXP-027 and P-18.
+        order = [k for g in groups for k in sorted(g, key=_tiebreak)]
         da = evaluate(order, IDEAL_ORDER,
                       returned_class={k: RELATION_CLASS[k] for k in order},
                       ideal_class=RELATION_CLASS, tiers=IDEAL_TIERS)
         out[motif] = {
-            "ranking": order,
+            "ranking": format_ranking(groups),
+            "groups": groups,
+            "order_for_d_A": order,
             "scores": {k: round(v, 4) for k, v in scores.items()},
-            "analogue_beats_false_friend": order.index("X") < order.index("W"),
+            "analogue_beats_false_friend": strictly_above(groups, "X", "W"),
             "margin_X_over_W": round(scores["X"] - scores["W"], 4),
             "d_A": da.as_dict(),
             "perfect": da.is_perfect,
@@ -107,7 +128,7 @@ def main() -> None:
         print(f"  {'motif':<16}{'ranking':<24}{'X>W':>5}{'margin':>10}  d_A")
         for motif, v in r["by_motif"].items():
             d = v["d_A"]
-            print(f"  {motif:<16}{' > '.join(v['ranking']):<24}"
+            print(f"  {motif:<16}{v['ranking']:<24}"
                   f"{('yes' if v['analogue_beats_false_friend'] else 'NO'):>5}"
                   f"{v['margin_X_over_W']:>10.4f}  "
                   f"misord={d['misordered']} disp={d['rank_displacement']}")

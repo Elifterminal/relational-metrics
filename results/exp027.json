@@ -1,0 +1,415 @@
+{
+  "experiment": "EXP-027",
+  "part1_correction": {
+    "retracted_claim": "EXP-026: generic outranks analogue on 3 of 4 motifs",
+    "cause": "sorted() tie-break on hash(), salted per process",
+    "truth": "generic TIES analogue exactly on 4 of 4 motifs",
+    "surviving_claim": "analogue strictly above false friend",
+    "surviving_claim_score": "10/10"
+  },
+  "part2_f09": {
+    "verdict": "REFUTED",
+    "reason": "generic documents are isomorphic to the query, so any function of structure alone scores them identically",
+    "separation_test": {
+      "max_genericness_gap_X_vs_V": 0.0,
+      "discount_can_separate": false,
+      "by_motif": {
+        "diversity": {
+          "genericness_X": 1.237466,
+          "genericness_V": 1.237466,
+          "gap": 0.0,
+          "n_background": 19
+        },
+        "correction": {
+          "genericness_X": 1.042501,
+          "genericness_V": 1.042501,
+          "gap": 0.0,
+          "n_background": 19
+        },
+        "regulator": {
+          "genericness_X": 1.075035,
+          "genericness_V": 1.075035,
+          "gap": 0.0,
+          "n_background": 19
+        },
+        "rivalry": {
+          "genericness_X": 1.053744,
+          "genericness_V": 1.053744,
+          "gap": 0.0,
+          "n_background": 19
+        }
+      }
+    }
+  },
+  "corpora": [
+    {
+      "corpus": "independent (externally written)",
+      "n": 4,
+      "by_motif": {
+        "diversity": {
+          "ranking": "{P=V=X} > U > W",
+          "groups": [
+            [
+              "P",
+              "V",
+              "X"
+            ],
+            [
+              "U"
+            ],
+            [
+              "W"
+            ]
+          ],
+          "scores": {
+            "P": 2.142279,
+            "X": 2.142279,
+            "W": 1.128784,
+            "V": 2.142279,
+            "U": 1.253873
+          },
+          "analogue_strictly_above_false_friend": true,
+          "generic_strictly_above_analogue": false,
+          "generic_tied_with_analogue": true,
+          "isomorphic_to_query": {
+            "P": true,
+            "X": true,
+            "W": false,
+            "V": true,
+            "U": false
+          }
+        },
+        "correction": {
+          "ranking": "{P=V=X} > W > U",
+          "groups": [
+            [
+              "P",
+              "V",
+              "X"
+            ],
+            [
+              "W"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "scores": {
+            "P": 1.989754,
+            "X": 1.989754,
+            "W": 1.196304,
+            "V": 1.989754,
+            "U": 1.146082
+          },
+          "analogue_strictly_above_false_friend": true,
+          "generic_strictly_above_analogue": false,
+          "generic_tied_with_analogue": true,
+          "isomorphic_to_query": {
+            "P": true,
+            "X": true,
+            "W": false,
+            "V": true,
+            "U": false
+          }
+        },
+        "regulator": {
+          "ranking": "{P=V=X} > W > U",
+          "groups": [
+            [
+              "P",
+              "V",
+              "X"
+            ],
+            [
+              "W"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "scores": {
+            "P": 1.881612,
+            "X": 1.881612,
+            "W": 1.16447,
+            "V": 1.881612,
+            "U": 1.098426
+          },
+          "analogue_strictly_above_false_friend": true,
+          "generic_strictly_above_analogue": false,
+          "generic_tied_with_analogue": true,
+          "isomorphic_to_query": {
+            "P": true,
+            "X": true,
+            "W": false,
+            "V": true,
+            "U": false
+          }
+        },
+        "rivalry": {
+          "ranking": "{P=V=X} > W > U",
+          "groups": [
+            [
+              "P",
+              "V",
+              "X"
+            ],
+            [
+              "W"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "scores": {
+            "P": 2.291232,
+            "X": 2.291232,
+            "W": 1.120716,
+            "V": 2.291232,
+            "U": 0.871354
+          },
+          "analogue_strictly_above_false_friend": true,
+          "generic_strictly_above_analogue": false,
+          "generic_tied_with_analogue": true,
+          "isomorphic_to_query": {
+            "P": true,
+            "X": true,
+            "W": false,
+            "V": true,
+            "U": false
+          }
+        }
+      },
+      "analogue_beats_false_friend": 4,
+      "generic_beats_analogue": 0,
+      "generic_ties_analogue": 4,
+      "generic_isomorphic_to_query": 4
+    },
+    {
+      "corpus": "held-out (mine)",
+      "n": 3,
+      "by_motif": {
+        "inhibition": {
+          "ranking": "{P=X} > W > V > U",
+          "groups": [
+            [
+              "P",
+              "X"
+            ],
+            [
+              "W"
+            ],
+            [
+              "V"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "scores": {
+            "P": 2.034952,
+            "X": 2.034952,
+            "W": 1.198943,
+            "V": 1.180411,
+            "U": 0.994294
+          },
+          "analogue_strictly_above_false_friend": true,
+          "generic_strictly_above_analogue": false,
+          "generic_tied_with_analogue": false,
+          "isomorphic_to_query": {
+            "P": true,
+            "X": false,
+            "W": false,
+            "V": false,
+            "U": false
+          }
+        },
+        "threshold": {
+          "ranking": "{P=X} > W > U > V",
+          "groups": [
+            [
+              "P",
+              "X"
+            ],
+            [
+              "W"
+            ],
+            [
+              "U"
+            ],
+            [
+              "V"
+            ]
+          ],
+          "scores": {
+            "P": 1.989754,
+            "X": 1.989754,
+            "W": 1.988349,
+            "V": 1.0,
+            "U": 1.146082
+          },
+          "analogue_strictly_above_false_friend": true,
+          "generic_strictly_above_analogue": false,
+          "generic_tied_with_analogue": false,
+          "isomorphic_to_query": {
+            "P": true,
+            "X": false,
+            "W": false,
+            "V": false,
+            "U": false
+          }
+        },
+        "substitution": {
+          "ranking": "{P=X} > U > V > W",
+          "groups": [
+            [
+              "P",
+              "X"
+            ],
+            [
+              "U"
+            ],
+            [
+              "V"
+            ],
+            [
+              "W"
+            ]
+          ],
+          "scores": {
+            "P": 1.989754,
+            "X": 1.989754,
+            "W": 0.994877,
+            "V": 1.0,
+            "U": 1.146082
+          },
+          "analogue_strictly_above_false_friend": true,
+          "generic_strictly_above_analogue": false,
+          "generic_tied_with_analogue": false,
+          "isomorphic_to_query": {
+            "P": true,
+            "X": false,
+            "W": false,
+            "V": false,
+            "U": false
+          }
+        }
+      },
+      "analogue_beats_false_friend": 3,
+      "generic_beats_analogue": 0,
+      "generic_ties_analogue": 0,
+      "generic_isomorphic_to_query": 0
+    },
+    {
+      "corpus": "dev (mine)",
+      "n": 3,
+      "by_motif": {
+        "reinforcing": {
+          "ranking": "{P=X} > V > U > W",
+          "groups": [
+            [
+              "P",
+              "X"
+            ],
+            [
+              "V"
+            ],
+            [
+              "U"
+            ],
+            [
+              "W"
+            ]
+          ],
+          "scores": {
+            "P": 1.989754,
+            "X": 1.989754,
+            "W": 0.994877,
+            "V": 1.179583,
+            "U": 1.146082
+          },
+          "analogue_strictly_above_false_friend": true,
+          "generic_strictly_above_analogue": false,
+          "generic_tied_with_analogue": false,
+          "isomorphic_to_query": {
+            "P": true,
+            "X": false,
+            "W": false,
+            "V": false,
+            "U": false
+          }
+        },
+        "regulating": {
+          "ranking": "{P=X} > {V=W} > U",
+          "groups": [
+            [
+              "P",
+              "X"
+            ],
+            [
+              "V",
+              "W"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "scores": {
+            "P": 1.989754,
+            "X": 1.989754,
+            "W": 1.988349,
+            "V": 1.988349,
+            "U": 1.146082
+          },
+          "analogue_strictly_above_false_friend": true,
+          "generic_strictly_above_analogue": false,
+          "generic_tied_with_analogue": false,
+          "isomorphic_to_query": {
+            "P": true,
+            "X": false,
+            "W": false,
+            "V": false,
+            "U": false
+          }
+        },
+        "cascade": {
+          "ranking": "{P=U=X} > V > W",
+          "groups": [
+            [
+              "P",
+              "U",
+              "X"
+            ],
+            [
+              "V"
+            ],
+            [
+              "W"
+            ]
+          ],
+          "scores": {
+            "P": 1.867607,
+            "X": 1.867607,
+            "W": 0.994294,
+            "V": 1.0,
+            "U": 1.867607
+          },
+          "analogue_strictly_above_false_friend": true,
+          "generic_strictly_above_analogue": false,
+          "generic_tied_with_analogue": false,
+          "isomorphic_to_query": {
+            "P": true,
+            "X": false,
+            "W": false,
+            "V": false,
+            "U": true
+          }
+        }
+      },
+      "analogue_beats_false_friend": 3,
+      "generic_beats_analogue": 0,
+      "generic_ties_analogue": 0,
+      "generic_isomorphic_to_query": 0
+    }
+  ],
+  "generic_beats_analogue_anywhere": 0
+}
