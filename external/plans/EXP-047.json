@@ -1,0 +1,31 @@
+{
+  "experiment": "EXP-047",
+  "question": "Does the measure rank a structural analogue above a same-vocabulary rewiring, robustly, at a sample size that can actually settle it?",
+  "what_this_settles_and_what_it_does_not": {
+    "settles": "whether the MEASURE has the property C-03 claims, at n large enough to be conclusive, across a range of how-different-is-the-analogue. No annotation exists anywhere in this experiment, so no annotation bias can enter it.",
+    "does_not_settle": "whether hand-annotated corpora behave the same way. That confound is unremovable without commissioning both documents and annotations from outside, which needs two relays. This is the strongest test available without them, and it is a DIFFERENT test, not a substitute."
+  },
+  "why_not_rebuild_the_corpus": "Rebuilding 30 hand-made motifs means I write the documents and someone annotates them. EXP-033 found my documents announce their roles in the prose; EXP-040 found my annotation applies a four-relation template. Both biases would be rebuilt along with the corpus.",
+  "design": {
+    "query": "randomly generated typed directed structure, seeded",
+    "analogue": "the query with EVERY node renamed (a different vocabulary) and a controlled fraction of its relations perturbed -- so it is a structural correspondent, not an exact relabelling",
+    "false_friend": "the query's OWN node names kept, and the same number of relations rewired -- so it shares vocabulary and differs in structure",
+    "control_arm": "an unrelated structure of matched size, to check the measure is not simply preferring anything renamed"
+  },
+  "the_sweep": "perturbation fraction from 0.0 to 0.6 in steps. At 0.0 the analogue is an exact relabelling and the test is trivial; the question is where it stops working. Reporting the whole curve, not a point -- protocol section 9.",
+  "statistic": "mean margin in bits = correspondence(query, analogue) - correspondence(query, false_friend), per motif, at each perturbation level",
+  "tests": "two-sided one-sample t-test and Wilcoxon at each level; both must fall below 0.05. Holm correction across the levels, because a sweep is many chances to find something.",
+  "n": "120 motifs per perturbation level -- four times the 30 EXP-037 said was needed, because generation is free and there is no reason to be underpowered when it costs nothing",
+  "robustness": "leave-one-out is not meaningful at n=120; instead report the margin distribution and the fraction of individual motifs where the analogue wins, alongside the mean.",
+  "falsification": [
+    "margin CI includes zero at LOW perturbation -> the measure does not have the property at all and C-03 was an artifact of the corpora",
+    "margin positive at low perturbation and crossing zero as perturbation rises -> the property is real and bounded; report where the boundary is",
+    "margin positive at ALL perturbation levels including 0.6 -> suspicious. Check the false friend is genuinely being made different, because a measure that always prefers the renamed structure is detecting renaming, not structure"
+  ],
+  "predictions": [
+    {"claim": "margin strongly positive at low perturbation and declining as perturbation rises", "confidence": "high"},
+    {"claim": "it will cross into non-significance somewhere in the sweep -- there will be a boundary", "confidence": "medium-high", "reason": "at some point the analogue is more damaged than the false friend and there is nothing left to prefer"},
+    {"claim": "the control arm (unrelated structure) will score BELOW the false friend, not above", "confidence": "high", "reason": "if an unrelated structure beats a same-vocabulary rewiring, the measure is rewarding renaming and the whole result is an artifact"},
+    {"claim": "at n=120 this will NOT be fragile -- unlike every corpus result in this project", "confidence": "high"}
+  ]
+}
