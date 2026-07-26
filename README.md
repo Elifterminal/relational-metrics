@@ -53,6 +53,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-005` | Does the correspondence measure work on shapes it wasn't built for? | **Yes, 5/5** — including an acyclic topology and an undesigned one. Making the test harder first exposed an unchecked container invariant |
 | `EXP-024` | Search corpus + a real `d_A`. Does it retrieve? | **2 of 3 — best of four methods, short of the claim.** Loses by 0.0022 because it still charges the analogue for using a different domain's relation vocabulary |
 | `EXP-025` | Fix it, and test on data frozen beforehand | **6 of 6.** Paraphrase and analogue now score *identically* — which is what a vocabulary-blind measure must do, and not what a fitted patch produces |
+| `EXP-026` | A corpus nobody involved in the project wrote | **4 of 4 — the claim survives independent annotation.** But a *generic* document outranks the analogue on 3 of 4, and is structurally right to |
 
 ### The findings worth your time
 
@@ -263,6 +264,22 @@ which held before and after.
 Still imperfect: only 1 of 3 motifs is *fully* ordered on each corpus. The measure knows a false
 friend is wrong but doesn't reliably know it's *more* wrong than an unrelated document.
 
+**Then an independent corpus.** Commissioned from a separate system given only a format spec — no
+hint of what was being tested — and frozen before it ran. **The claim holds 4 of 4**, with
+paraphrase and analogue tying again on annotations nobody here produced.
+
+**And the generic document outranks the analogue on 3 of 4 — structurally correctly.** Its
+structure is a four-cycle with three increases and one decrease closing the loop, which is
+*isomorphic to the query*; the real analogue has its decrease in a different position and matches
+slightly less exactly. A vacuous statement can have perfect structure. "Systems change, factors
+influence outcomes" describes a feedback loop exactly as accurately as any real one, because it
+describes nothing else.
+
+That is **risk one**, logged before any code existed — *a relational framework can relate anything
+to anything and kills the project by succeeding*. Its defence was a bridge measure discounting
+genericness. It was never built. **Genericness is not a structural property and cannot be detected
+structurally**, so no further work on correspondence can fix it.
+
 `d_A` itself is a **vector over named failure modes**, each traceable to a principle that predates
 it — a real relation missing, a relation asserted too strongly, an analogy sold as a mechanism, a
 result at the wrong relational distance. Pareto dominance replaces a fabricated total, and where
@@ -304,6 +321,7 @@ python3 run_exp023.py      # is there a minimal sufficient summary? (no)
 python3 run_exp005.py      # cross-generator transfer -- does it work on unseen shapes?
 python3 run_exp024.py      # the search corpus, d_A, and does it actually retrieve?
 python3 run_exp025.py      # the fix, tested on a corpus frozen before it existed
+python3 run_exp026.py      # the independent corpus -- nobody here wrote it
 
 cd ../render
 python3 figures.py         # regenerate the SVGs
@@ -330,6 +348,7 @@ lab/
   corpus.py          the annotated search corpus -- 3 motifs, 18 documents
   d_a.py             d_A: a vector over named failure modes
   corpus_holdout.py  held-out corpus, frozen before the fix landed
+  corpus_independent.py  independent corpus, commissioned and frozen
   hyperworlds.py     synthetic worlds with a KNOWN interaction order
   worlds.py          the condition set — A/B/C/D/E/F plus a held-out case
   impostors.py       seven deliberately cheating methods

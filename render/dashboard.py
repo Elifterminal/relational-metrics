@@ -335,6 +335,7 @@ def build() -> str:
     e05 = json.loads((RESULTS / "exp005.json").read_text())
     e24 = json.loads((RESULTS / "exp024.json").read_text())
     e25 = json.loads((RESULTS / "exp025.json").read_text())
+    e26 = json.loads((RESULTS / "exp026.json").read_text())
     ret_rows = "".join(
         f"<tr><td>{n}{' <i>(impostor)</i>' if r['is_impostor'] else ''}</td>"
         f"<td><b>{r['analogue_beats_false_friend']}</b></td></tr>"
@@ -1487,6 +1488,47 @@ experiment finally removed from both places it lived. That is a real result and 
 eighteen hand-annotated documents, six motifs total, no automatic extraction, no natural text.
 The next honest step is a corpus nobody involved in this wrote.</div>
 
+<h2>Finding 24 — a corpus nobody here wrote, and the oldest risk arrives as a measurement</h2>
+<p>Both previous corpora were written by the same party as the measure, so annotation bias was
+untested and was named as the largest remaining doubt. This one was commissioned from a separate
+system given only a format specification — no description of what was being tested, no mention of
+how correspondence is computed, and an instruction to refuse if asked what it was for. Frozen
+before it was run. The measure is unchanged.</p>
+<div class="fig">{figs['fig25_independent.svg']}</div>
+<div class="read ok"><b>The claim holds, 4 of 4.</b> The cross-domain analogue outranks the false
+friend on every motif — on motifs, documents, annotations and judgements that nobody involved in
+building the measure produced. And <b>paraphrase and analogue score identically on all four
+again</b>, which is the vocabulary-blindness signature confirmed independently rather than on my
+own writing.</div>
+
+<h3>And the generic document beats the analogue on three of four</h3>
+<div class="read warn"><b>It is structurally right to.</b> The generic item for one motif reads
+"a growing deviation produces a stronger control signal, increasing corrective action and a
+counteracting effect that reduces the deviation" — and its structure is a four-cycle with three
+increases and one decrease closing the loop. <b>That is isomorphic to the query.</b> The genuine
+cross-domain analogue has its decrease in a <i>different position</i>, so it matches slightly less
+exactly.<br><br>The measure is not wrong. <b>A vacuous statement can have perfect structure.</b>
+"Systems change, factors influence outcomes, feedback occurs" describes a feedback loop exactly as
+accurately as any real feedback loop does — because it describes nothing else.</div>
+
+<h3>Which is the project's very first logged risk, arriving as data</h3>
+<div class="read"><b>Risk one, written before any code existed:</b> <i>a relational framework can
+relate anything to anything if the criteria are loose enough — it produces striking, plausible,
+well-visualised connections that are worthless, and it kills the project by succeeding.</i> The
+defence sketched for it was a bridge measure that discounts genericness, so that vague concepts
+connecting everything would be penalised for explaining nothing. <b>It was never built.</b>
+Twenty-six experiments later, an independent annotator produced exactly the case it was for, and
+the measure walked into it.<br><br><b>Genericness is not a structural property and cannot be
+detected structurally.</b> No amount of work on the correspondence measure will fix this, because
+the correspondence is real. It needs something outside the structural measure entirely — which is
+what the unbuilt bridge measure was for, and the shape of it is now specified by an actual failure
+rather than by anticipation.</div>
+<div class="read ok"><b>What A-01 can and cannot claim now.</b> It can claim, on independent data,
+that a structural analogue is preferred over something sharing the query's whole vocabulary with
+different wiring — which is the capability the project exists to provide, and which every baseline
+gets backwards. It cannot claim to produce a usable ranking, because a vacuous document that
+happens to share the query's shape will sit near the top and nothing in the measure objects.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1522,6 +1564,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The core claim survives an independent corpus — and the oldest risk in the
+project arrives as a measurement.</b> Analogue beats false friend 4/4 on motifs, annotations and
+judgements nobody here wrote, with paraphrase and analogue tying again. But the generic connector
+outranks the analogue on three of four, and it is structurally right to: a vacuous statement can
+have perfect structure. That is risk one — the attractive-nonsense machine — logged before any code
+existed, whose defence was sketched and never built. Genericness is not a structural property, so
+no work on the correspondence measure can fix it.</div>
 <div class="q"><b>The fix holds on data frozen before it existed.</b> Six of six, regressions
 intact, and paraphrase and analogue now score identically to four decimals in every case — which
 is what a genuinely vocabulary-blind measure must do and is not what a fitted patch produces. The

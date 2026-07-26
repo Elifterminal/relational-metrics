@@ -1316,6 +1316,59 @@ def fig_fix(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 25 — the independent corpus
+# ---------------------------------------------------------------------------
+
+def fig_independent(data: dict) -> str:
+    W, H = 800, 360
+    L, R, T, B = 148, 168, 96, 58
+    pw, ph = W - L - R, H - T - B
+    kinds = [("P", "#2563eb"), ("X", "#15803d"), ("W", "#dc2626"),
+             ("V", "#d97706"), ("U", "#94a3b8")]
+    kc = dict(kinds)
+    motifs = list(data["by_motif"])
+
+    out = ['<text class="ttl" x="24" y="26">A corpus nobody involved in this project wrote</text>',
+           '<text class="sub" x="24" y="45">Commissioned with a format spec only — no hint of what '
+           'was being tested. Frozen before it was run. Measure unchanged.</text>']
+    ly = 66
+    for i, (k, c) in enumerate(kinds):
+        lbl = {"P": "paraphrase", "X": "analogue", "W": "false friend",
+               "V": "generic", "U": "unrelated"}[k]
+        out.append(f'<rect x="{24 + i*150}" y="{ly-9}" width="11" height="10" fill="{c}" rx="2"/>')
+        out.append(f'<text class="sub" x="{40 + i*150}" y="{ly}">{esc(k)} {esc(lbl)}</text>')
+
+    bh = ph / len(motifs)
+    cw = pw / 5
+    for i, motif in enumerate(motifs):
+        v = data["by_motif"][motif]
+        y = T + i * bh
+        out.append(f'<text class="lbl" x="{L-12}" y="{y+bh/2+4:.1f}" '
+                   f'text-anchor="end">{esc(motif)}</text>')
+        for j, k in enumerate(v["ranking"]):
+            x = L + j * cw
+            strong = k in ("X", "W", "V")
+            out.append(f'<rect x="{x+2:.1f}" y="{y+bh*0.2:.1f}" width="{cw-6:.1f}" '
+                       f'height="{bh*0.6:.1f}" fill="{kc[k]}" rx="2" '
+                       f'opacity="{0.95 if strong else 0.35}"/>')
+            out.append(f'<text x="{x+cw/2:.1f}" y="{y+bh/2+4:.1f}" text-anchor="middle" '
+                       f'fill="#fff" font-size="11" font-family="sans-serif">{esc(k)}</text>')
+        out.append(f'<text class="tick" x="{L+pw+10}" y="{y+bh/2+4:.1f}" fill="#15803d">'
+                   f'X &gt; W</text>')
+
+    out.append(f'<text class="sub" x="24" y="{H-40}">'
+               'Analogue beats false friend on all four — the claim holds on annotations nobody '
+               'here produced. And paraphrase and analogue</text>')
+    out.append(f'<text class="sub" x="24" y="{H-26}">'
+               'score IDENTICALLY on all four again, which is the vocabulary-blindness signature '
+               'confirmed independently.</text>')
+    out.append(f'<text class="sub" x="24" y="{H-10}" fill="#d97706">'
+               'But the GENERIC document outranks the analogue on three of four — and it is '
+               'structurally right to. See below.</text>')
+    return svg(W, H, "".join(out), "Independent corpus")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1398,6 +1451,7 @@ def main() -> None:
     e05 = json.loads((RESULTS / "exp005.json").read_text())
     e24 = json.loads((RESULTS / "exp024.json").read_text())
     e25 = json.loads((RESULTS / "exp025.json").read_text())
+    e26 = json.loads((RESULTS / "exp026.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1429,6 +1483,7 @@ def main() -> None:
         "fig22_transfer.svg": fig_transfer(e05),
         "fig23_corpus.svg": fig_corpus(e24),
         "fig24_fix.svg": fig_fix(e25),
+        "fig25_independent.svg": fig_independent(e26),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

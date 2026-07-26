@@ -1,0 +1,125 @@
+{
+  "experiment": "EXP-026",
+  "corpus": "independent, commissioned, frozen at 4966e1e",
+  "measure": "unchanged since EXP-025",
+  "malformed": [],
+  "by_motif": {
+    "diversity": {
+      "ranking": [
+        "P",
+        "V",
+        "X",
+        "U",
+        "W"
+      ],
+      "scores": {
+        "P": 2.1423,
+        "U": 1.2539,
+        "W": 1.1288,
+        "X": 2.1423,
+        "V": 2.1423
+      },
+      "analogue_beats_false_friend": true,
+      "margin_X_over_W": 1.0135,
+      "P_equals_X": true,
+      "author_most_similar_is_top": true,
+      "author_least_similar_is_bottom": false,
+      "d_A_vs_my_tiers": {
+        "missing": 0,
+        "spurious": 0,
+        "misclassified": 0,
+        "misordered": 3,
+        "rank_displacement": 1.2
+      }
+    },
+    "correction": {
+      "ranking": [
+        "V",
+        "P",
+        "X",
+        "W",
+        "U"
+      ],
+      "scores": {
+        "P": 1.9898,
+        "U": 1.1461,
+        "W": 1.1963,
+        "X": 1.9898,
+        "V": 1.9898
+      },
+      "analogue_beats_false_friend": true,
+      "margin_X_over_W": 0.7935,
+      "P_equals_X": true,
+      "author_most_similar_is_top": false,
+      "author_least_similar_is_bottom": true,
+      "d_A_vs_my_tiers": {
+        "missing": 0,
+        "spurious": 0,
+        "misclassified": 0,
+        "misordered": 3,
+        "rank_displacement": 1.0
+      }
+    },
+    "regulator": {
+      "ranking": [
+        "P",
+        "V",
+        "X",
+        "W",
+        "U"
+      ],
+      "scores": {
+        "P": 1.8816,
+        "U": 1.0984,
+        "W": 1.1645,
+        "X": 1.8816,
+        "V": 1.8816
+      },
+      "analogue_beats_false_friend": true,
+      "margin_X_over_W": 0.7171,
+      "P_equals_X": true,
+      "author_most_similar_is_top": true,
+      "author_least_similar_is_bottom": true,
+      "d_A_vs_my_tiers": {
+        "missing": 0,
+        "spurious": 0,
+        "misclassified": 0,
+        "misordered": 2,
+        "rank_displacement": 0.8
+      }
+    },
+    "rivalry": {
+      "ranking": [
+        "X",
+        "P",
+        "V",
+        "W",
+        "U"
+      ],
+      "scores": {
+        "P": 2.2912,
+        "U": 0.8714,
+        "W": 1.1207,
+        "X": 2.2912,
+        "V": 2.2912
+      },
+      "analogue_beats_false_friend": true,
+      "margin_X_over_W": 1.1705,
+      "P_equals_X": true,
+      "author_most_similar_is_top": false,
+      "author_least_similar_is_bottom": true,
+      "d_A_vs_my_tiers": {
+        "missing": 0,
+        "spurious": 0,
+        "misclassified": 0,
+        "misordered": 1,
+        "rank_displacement": 0.4
+      }
+    }
+  },
+  "analogue_beats_false_friend": "4/4",
+  "paraphrase_ties_analogue": "4/4",
+  "author_endpoint_top_agrees": "2/4",
+  "author_endpoint_bottom_agrees": "3/4",
+  "claim_holds": true
+}
