@@ -1,0 +1,243 @@
+{
+  "experiment": "EXP-049",
+  "second_filter": {
+    "why": "'not ruled out' is not 'worth doing'. A surviving question can still be trivial, not a measurement problem, or already solved better by mature incumbents",
+    "survivors_assessed": 5,
+    "real_candidates": [
+      "are these two systems structurally analogous?"
+    ],
+    "conclusion": "of 5 questions that survive the impossibility screen, 1 is a genuine target. The rest are trivial, not measurement problems, or have decades of incumbent work"
+  },
+  "plan_locked_at": "8e48f0269e332a65c69af478417c9fd0eead7b59",
+  "plan_sha256": "860bf5e0ae6bea3a",
+  "soundness": "A witness pair PROVES a question is not identifiable. Failing to construct one proves nothing \u2014 it may mean I did not think of the right pair. So this screen rules domains OUT and can never rule one IN. Every 'identifiable' verdict below means only 'not ruled out here'.",
+  "bias_declared": "I am choosing both the domains' central questions AND the witness pairs. Two degrees of freedom, both mine. A domain could be exonerated because I picked a question it happens to handle, or condemned because I picked an unrepresentative one. This is stated because it cannot be engineered away without a practitioner from each domain, which the project does not have.",
+  "questions_tested": 10,
+  "blocked": 5,
+  "by_domain": {
+    "causal / systems models": {
+      "identifiable": 2,
+      "blocked": 0,
+      "questions": [
+        {
+          "question": "will this feedback loop settle or oscillate?",
+          "identifiable": false,
+          "channel_required": "temporal order and delay"
+        },
+        {
+          "question": "which link dominates this loop's behaviour?",
+          "identifiable": true,
+          "channel_required": "magnitude (added EXP-034)"
+        },
+        {
+          "question": "are these two systems structurally analogous?",
+          "identifiable": true,
+          "channel_required": "none needed"
+        }
+      ]
+    },
+    "biological pathways": {
+      "identifiable": 1,
+      "blocked": 0,
+      "questions": [
+        {
+          "question": "is this participant catalytic or consumed? (ontology does NOT type it)",
+          "identifiable": false,
+          "channel_required": "relation typing the domain must declare"
+        },
+        {
+          "question": "is this participant catalytic or consumed? (ontology DOES type it)",
+          "identifiable": true,
+          "channel_required": "none needed"
+        },
+        {
+          "question": "is this intermediate a real metabolite or a modelling convenience?",
+          "identifiable": false,
+          "channel_required": "ontological role declaration"
+        }
+      ]
+    },
+    "dependency / provenance graphs": {
+      "identifiable": 1,
+      "blocked": 0,
+      "questions": [
+        {
+          "question": "will a change here propagate to there?",
+          "identifiable": true,
+          "channel_required": "none needed"
+        },
+        {
+          "question": "which of two identical dependencies actually caused the outage?",
+          "identifiable": false,
+          "channel_required": "provenance / evidence"
+        }
+      ]
+    },
+    "knowledge graphs": {
+      "identifiable": 1,
+      "blocked": 0,
+      "questions": [
+        {
+          "question": "is this subgraph a meaningful analogy or a generic pattern that matches everything?",
+          "identifiable": false,
+          "channel_required": "specificity / referential content"
+        },
+        {
+          "question": "do these two entities play the same structural role?",
+          "identifiable": true,
+          "channel_required": "none needed"
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "distinction": "will this feedback loop settle or oscillate?",
+      "identifiable_from_structure": false,
+      "witness": [
+        "settles",
+        "oscillates"
+      ],
+      "structures_equivalent": true,
+      "answers_differ": true,
+      "required_channel": "temporal order and delay",
+      "note": "witness pair refutes identifiability",
+      "domain": "causal / systems models"
+    },
+    {
+      "distinction": "which link dominates this loop's behaviour?",
+      "identifiable_from_structure": true,
+      "witness": [
+        "weak_loop",
+        "strong_loop"
+      ],
+      "structures_equivalent": false,
+      "answers_differ": true,
+      "required_channel": "magnitude (added EXP-034)",
+      "note": "this witness pair does not refute it; absence of a witness is not a proof",
+      "domain": "causal / systems models",
+      "second_filter": "MATURE INCUMBENTS",
+      "second_filter_note": "sensitivity and eigenvalue analysis in system dynamics answer this directly and are well established"
+    },
+    {
+      "distinction": "are these two systems structurally analogous?",
+      "identifiable_from_structure": true,
+      "witness": [
+        "sys_a",
+        "sys_b"
+      ],
+      "structures_equivalent": false,
+      "answers_differ": true,
+      "required_channel": "none needed",
+      "note": "this witness pair does not refute it; absence of a witness is not a proof",
+      "domain": "causal / systems models",
+      "second_filter": "THE REAL CANDIDATE",
+      "second_filter_note": "this is the capability EXP-048 established. Incumbents exist (graph edit distance, graph kernels) but an MDL framing is a genuine alternative rather than a reimplementation"
+    },
+    {
+      "distinction": "is this participant catalytic or consumed? (ontology does NOT type it)",
+      "identifiable_from_structure": false,
+      "witness": [
+        "catalyst_untyped",
+        "consumed_untyped"
+      ],
+      "structures_equivalent": true,
+      "answers_differ": true,
+      "required_channel": "relation typing the domain must declare",
+      "note": "witness pair refutes identifiability",
+      "domain": "biological pathways"
+    },
+    {
+      "distinction": "is this participant catalytic or consumed? (ontology DOES type it)",
+      "identifiable_from_structure": true,
+      "witness": [
+        "catalyst_typed",
+        "consumed_typed"
+      ],
+      "structures_equivalent": false,
+      "answers_differ": true,
+      "required_channel": "none needed",
+      "note": "this witness pair does not refute it; absence of a witness is not a proof",
+      "domain": "biological pathways",
+      "second_filter": "TRIVIAL",
+      "second_filter_note": "once the ontology types it, this is a lookup, not a measurement"
+    },
+    {
+      "distinction": "is this intermediate a real metabolite or a modelling convenience?",
+      "identifiable_from_structure": false,
+      "witness": [
+        "real_intermediate",
+        "lumped_step"
+      ],
+      "structures_equivalent": true,
+      "answers_differ": true,
+      "required_channel": "ontological role declaration",
+      "note": "witness pair refutes identifiability",
+      "domain": "biological pathways"
+    },
+    {
+      "distinction": "will a change here propagate to there?",
+      "identifiable_from_structure": true,
+      "witness": [
+        "reaches",
+        "does_not_reach"
+      ],
+      "structures_equivalent": false,
+      "answers_differ": true,
+      "required_channel": "none needed",
+      "note": "this witness pair does not refute it; absence of a witness is not a proof",
+      "domain": "dependency / provenance graphs",
+      "second_filter": "NOT A MEASUREMENT PROBLEM",
+      "second_filter_note": "reachability. Breadth-first search solves it exactly and in linear time"
+    },
+    {
+      "distinction": "which of two identical dependencies actually caused the outage?",
+      "identifiable_from_structure": false,
+      "witness": [
+        "culprit",
+        "bystander"
+      ],
+      "structures_equivalent": true,
+      "answers_differ": true,
+      "required_channel": "provenance / evidence",
+      "note": "witness pair refutes identifiability",
+      "domain": "dependency / provenance graphs"
+    },
+    {
+      "distinction": "is this subgraph a meaningful analogy or a generic pattern that matches everything?",
+      "identifiable_from_structure": false,
+      "witness": [
+        "specific_pattern",
+        "generic_pattern"
+      ],
+      "structures_equivalent": true,
+      "answers_differ": true,
+      "required_channel": "specificity / referential content",
+      "note": "witness pair refutes identifiability",
+      "domain": "knowledge graphs"
+    },
+    {
+      "distinction": "do these two entities play the same structural role?",
+      "identifiable_from_structure": true,
+      "witness": [
+        "role_a",
+        "role_b"
+      ],
+      "structures_equivalent": false,
+      "answers_differ": true,
+      "required_channel": "none needed",
+      "note": "this witness pair does not refute it; absence of a witness is not a proof",
+      "domain": "knowledge graphs",
+      "second_filter": "MATURE INCUMBENTS",
+      "second_filter_note": "role and regular equivalence, blockmodelling in social network analysis. Decades of work"
+    }
+  ],
+  "channels_that_block": [
+    "ontological role declaration",
+    "provenance / evidence",
+    "relation typing the domain must declare",
+    "specificity / referential content",
+    "temporal order and delay"
+  ],
+  "verdict": "MAP PRODUCED -- 5 of 10 questions are not ruled out; 5 are provably outside the representation. Viability is per QUESTION, not per domain"
+}

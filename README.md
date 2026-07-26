@@ -84,6 +84,7 @@ current. That check exists because both happened.
 | `EXP-046` | Is the signal BURIED in the prose annotations, or ABSENT from them? | **The signal is ABSENT, not buried. Q-40 is dead.** Exhaustive subset search over query relations: observed **+0.0787** against a label-permuted null of **+0.0932** — the observed value is *below* chance, p = 0.771. Subset selection genuinely works (strict subset chosen on 21/30) and cannot help. The locked plan carried a **commitment** to report this dead rather than propose a variant; honoured |
 | `EXP-047` | Settle C-03 at adequate n by generating structures instead of annotating them | **Design flawed — the sweep swept nothing.** Damage was specified as a fraction, and with 5 relations every level from 0.1 to 0.2 rounded to the same single rewire, so analogue and false friend ended up *equally damaged*. The apparent boundary was rounding. One interpretable point survives (exact relabelling: margin +0.399, d=3.31, 120/120 wins). Plan was locked and **not edited** — the corrected design is a separate experiment |
 | `EXP-048` | How much damage can a structural analogue take and still be preferred? | **Settled, and better than predicted.** 8 relations, analogue rewires k, false friend k+2, n=200 per level. Holds strongly to **2 rewires of 8** — a quarter of the structure altered — with **d=1.24 and 90% of individual cases agreeing**; gone by 4. **Not fragile.** My predeclared control rule fired at k=3 and was too coarse (by then the false friend is near-unrelated itself) — both readings reported, k=3 marked unreadable, rule not quietly replaced. **Fourth over-coarse verdict rule today** |
+| `EXP-049` | Which Stage 3 candidate domains have questions that are answerable in this representation? | **Five of ten questions are provably outside the representation** — ruled out by the same four channels EXP-031 already proved absent. Viability is per *question*, not per domain. **Then a second filter mattered more**: of the five survivors, two have mature incumbents, one is trivial, one is reachability (not a measurement problem). **One is a genuine target — 'are these two systems structurally analogous?' — which is exactly the capability EXP-048 already established.** So Stage 3 on this list is a *product* question, not a research one. Predicted in the locked plan. 4/4 predictions |
 
 ### What this project established
 
@@ -193,6 +194,7 @@ python3 run_exp045.py    # cheap test before commissioning -- and it says don't
 python3 run_exp046.py    # buried or absent? absent. Q-40 closed
 python3 run_exp047.py    # a sweep that swept nothing -- my design error
 python3 run_exp048.py    # the measure's real boundary -- a quarter of the structure
+python3 run_exp049.py    # impossibility screen -- and it leaves one candidate
 
 cd ..
 python3 render/figures.py     # regenerate the SVGs

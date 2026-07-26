@@ -637,6 +637,20 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "the measure's real boundary -- a quarter of the structure"
+    },
+    {
+      "id": "EXP-049",
+      "question": "Which Stage 3 candidate domains have questions that are answerable in this representation?",
+      "result": "**Five of ten questions are provably outside the representation** \u2014 ruled out by the same four channels EXP-031 already proved absent. Viability is per *question*, not per domain. **Then a second filter mattered more**: of the five survivors, two have mature incumbents, one is trivial, one is reachability (not a measurement problem). **One is a genuine target \u2014 'are these two systems structurally analogous?' \u2014 which is exactly the capability EXP-048 already established.** So Stage 3 on this list is a *product* question, not a research one. Predicted in the locked plan. 4/4 predictions",
+      "status": "complete",
+      "rung": 2,
+      "stage": 3,
+      "entry_point": "lab/run_exp049.py",
+      "result_file": "results/exp049.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "impossibility screen -- and it leaves one candidate"
     }
   ],
   "claims": [
@@ -810,7 +824,8 @@
   ],
   "stages": {
     "1": "Given structures, can we tell a real analogy from a fake? Qualified yes, fragile.",
-    "2": "Can text become structure automatically, on natural prose? ANSWERED: NO, four independent ways. The representation CAN hold these analogies (EXP-041); a rule-based reader cannot produce structure (EXP-042); a competent reader produces structure carrying no signal (EXP-043, effect 0.045 vs 0.788); and that missing signal is not buried under manufactured noise (EXP-045, EXP-046). These analogies do not survive reduction to typed binary relations."
+    "2": "Can text become structure automatically, on natural prose? ANSWERED: NO, four independent ways. The representation CAN hold these analogies (EXP-041); a rule-based reader cannot produce structure (EXP-042); a competent reader produces structure carrying no signal (EXP-043, effect 0.045 vs 0.788); and that missing signal is not buried under manufactured noise (EXP-045, EXP-046). These analogies do not survive reduction to typed binary relations.",
+    "3": "Where else might this apply? SCREENED, NOT CHARTERED. EXP-049: 5 of 10 candidate questions provably outside the representation; of the 5 survivors, 4 are trivial, not measurement problems, or have mature incumbents. The one genuine target is the capability EXP-048 already established \u2014 so Stage 3 on this list is a product question, not a research one. Find the user first, then screen their question."
   },
   "consolidation": {
     "date": "2026-07-26",

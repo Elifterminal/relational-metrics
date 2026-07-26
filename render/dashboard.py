@@ -537,6 +537,31 @@ the threshold for "earns its keep" gets set before the domain, and the impossibi
 first — because if the distinction a domain cares about isn't in the representation, no measure helps
 and that's knowable in an afternoon.</div>
 
+<h3>The impossibility screen, run before choosing anything</h3>
+<p>Rather than pick a domain and hope, the cheap test first: for each candidate, construct two cases
+a practitioner would need <i>different</i> answers for, and check whether the representation can even
+tell them apart. A pair that it can't is a proof, and it costs an afternoon.</p>
+<div class="read"><b>Five of ten questions are provably outside the representation</b> — and the
+things ruling them out are the same four gaps identified earlier: timing, whether a node is real,
+where a claim came from, and how specific it is. Viability turns out to be per <i>question</i>, not
+per domain. Every domain has some of each.</div>
+<div class="read warn"><b>Then a second filter mattered more than the first.</b> "Not ruled out"
+isn't "worth doing". Of the five surviving questions: two have decades of mature work behind them
+already, one is a lookup rather than a measurement, and one is reachability — which breadth-first
+search solves exactly, in linear time.<br><br>
+<b>That leaves one genuine target: "are these two systems structurally analogous?" — which is exactly
+the capability already established.</b></div>
+<div class="read"><b>Which I wrote down as a possibility before running it</b>, along with why it
+would be uncomfortable: if the survivors are the thing we already have, then this next stage isn't
+testing a new capability. It's taking one we've measured and finding out whether anyone wants it.
+<br><br>That's not nothing — a working instrument with no user is a real problem. But it's a
+<b>product question rather than a research question</b>, and the two shouldn't be dressed as each
+other.</div>
+<div class="read warn"><b>And the candidate list may be the actual problem.</b> Every domain on it
+was chosen by me for having convenient data, not for having a person with a question. The honest next
+move isn't a better screen — it's to <b>find the user first, then screen their question.</b>
+Screening domains I picked myself is answering a question nobody asked.</div>
+
 <h2>Methodology changes</h2>
 <div class="read sub"><b>None yet.</b> Every change to the charter gets logged here with its date and
 reason, rather than edited silently into the text above. Stage 1 had three occasions where a
