@@ -1,0 +1,31 @@
+{
+  "experiment": "EXP-048",
+  "question": "How much damage can a structural analogue take and still be preferred to a more-damaged same-vocabulary rival?",
+  "why_this_replaces_EXP-047": "EXP-047's sweep silently collapsed. It perturbed by FRACTION, and with five relations every level from 0.1 to 0.2 rounded to the same single rewire — so the analogue and the false friend ended up equally damaged and there was nothing for the measure to prefer. Its apparent boundary was rounding, not a property. The locked plan cannot be edited, so EXP-047 stands as run and this is a separate experiment with a corrected design.",
+  "the_fix": "damage is specified in ABSOLUTE relations rewired, and the false friend is always rewired exactly `gap` more than the analogue. The analogue therefore has a real and constant advantage at every point of the sweep. Verified before running: at k=0..4 the analogue differs from the query by 0.0/1.0/2.0/2.9/3.9 relations and the false friend by 2.0/2.9/3.9/4.8/5.7.",
+  "design": {
+    "structures": "6 nodes, 8 relations, typed POS/NEG",
+    "analogue": "every node renamed, k relations rewired",
+    "false_friend": "query's own vocabulary, k+2 relations rewired",
+    "unrelated": "independently generated, matched size — control arm",
+    "sweep": "k = 0,1,2,3,4",
+    "gap": 2
+  },
+  "statistic": "mean margin in bits = correspondence(query, analogue) − correspondence(query, false_friend), per motif, at each k",
+  "tests": "two-sided one-sample t-test and Wilcoxon at each k; both must be below 0.05. Holm correction across the five levels.",
+  "n": "200 per level",
+  "exclusion_rule": "a motif is excluded if any of the four structures ends with zero relations, or if the false friend comes out identical to the query. Counted per level; a level above 10% excluded is flagged as a generator problem rather than a measure result.",
+  "robustness": "report the fraction of individual motifs where the analogue wins, alongside the mean, at every level. A mean driven by a minority is visible that way.",
+  "falsification": [
+    "margin not significant even at k=0 -> the measure does not have the property at all",
+    "significant at k=0 and dropping to non-significant as k rises -> the property is real and bounded; the boundary is the result",
+    "significant at every k -> report where the win fraction falls toward chance anyway, because a significant mean with a 55% win rate is a different thing from a robust preference",
+    "control arm positive anywhere (unrelated beating the false friend) -> the measure rewards renaming rather than structure and nothing else in the experiment can be read"
+  ],
+  "predictions": [
+    {"claim": "strongly significant at k=0, since that is an exact relabelling against a 2-relation rewiring", "confidence": "high"},
+    {"claim": "there WILL be a boundary within k=0..4, and I expect it early — around k=1 or k=2", "confidence": "medium", "reason": "EXP-047's one interpretable point showed a very large effect for an exact copy and nothing beyond; the honest reading is that the measure may be detecting near-identity rather than analogy"},
+    {"claim": "the control arm stays negative at every level", "confidence": "high"},
+    {"claim": "if the boundary is at k=1, that is the real finding and it is bad news for C-03 — it would mean the measure prefers an analogue only when the analogue is almost an exact structural copy", "confidence": "n/a — stated so it cannot be softened later"}
+  ]
+}

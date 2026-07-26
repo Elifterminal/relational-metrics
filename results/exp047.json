@@ -1,0 +1,134 @@
+{
+  "experiment": "EXP-047",
+  "question": "settle C-03 at adequate n",
+  "plan_locked_at": "440c44528d812bdd8dc10bd3e8df301c5a5ca0a9",
+  "plan_sha256": "4dc5d514ed483bc7",
+  "n_per_level": 120,
+  "annotation_involved": "none",
+  "does_not_settle": "whether hand-annotated corpora behave the same way. That confound is unremovable without commissioning both documents and annotations from outside, which needs two relays. This is the strongest test available without them, and it is a DIFFERENT test, not a substitute.",
+  "levels": [
+    {
+      "perturbation": 0.0,
+      "n": 120,
+      "excluded": 0,
+      "mean_margin": 0.3991,
+      "ci95": [
+        0.3771,
+        0.4211
+      ],
+      "effect_size_d": 3.315,
+      "t_p_raw": 3.1646458977904955e-66,
+      "wilcoxon_p_raw": 0.0,
+      "analogue_wins_fraction": 1.0,
+      "control_mean_unrelated_minus_false_friend": -0.108,
+      "t_p_holm": 0.0,
+      "significant": true
+    },
+    {
+      "perturbation": 0.1,
+      "n": 120,
+      "excluded": 0,
+      "mean_margin": 0.0085,
+      "ci95": [
+        -0.0175,
+        0.0346
+      ],
+      "effect_size_d": 0.06,
+      "t_p_raw": 0.5127899804074773,
+      "wilcoxon_p_raw": 0.36353600797509245,
+      "analogue_wins_fraction": 0.2,
+      "control_mean_unrelated_minus_false_friend": -0.1149,
+      "t_p_holm": 1.0,
+      "significant": false
+    },
+    {
+      "perturbation": 0.2,
+      "n": 120,
+      "excluded": 0,
+      "mean_margin": -0.0095,
+      "ci95": [
+        -0.0367,
+        0.0177
+      ],
+      "effect_size_d": -0.064,
+      "t_p_raw": 0.48800484550458667,
+      "wilcoxon_p_raw": 0.23805454823339045,
+      "analogue_wins_fraction": 0.183,
+      "control_mean_unrelated_minus_false_friend": -0.1258,
+      "t_p_holm": 1.0,
+      "significant": false
+    },
+    {
+      "perturbation": 0.3,
+      "n": 120,
+      "excluded": 0,
+      "mean_margin": -0.0126,
+      "ci95": [
+        -0.0365,
+        0.0113
+      ],
+      "effect_size_d": -0.096,
+      "t_p_raw": 0.29430463470467555,
+      "wilcoxon_p_raw": 0.23888282411339112,
+      "analogue_wins_fraction": 0.258,
+      "control_mean_unrelated_minus_false_friend": -0.0474,
+      "t_p_holm": 1.0,
+      "significant": false
+    },
+    {
+      "perturbation": 0.4,
+      "n": 120,
+      "excluded": 0,
+      "mean_margin": 0.0058,
+      "ci95": [
+        -0.017,
+        0.0286
+      ],
+      "effect_size_d": 0.047,
+      "t_p_raw": 0.6100822072377428,
+      "wilcoxon_p_raw": 0.5550443711927491,
+      "analogue_wins_fraction": 0.342,
+      "control_mean_unrelated_minus_false_friend": -0.0185,
+      "t_p_holm": 1.0,
+      "significant": false
+    },
+    {
+      "perturbation": 0.5,
+      "n": 120,
+      "excluded": 0,
+      "mean_margin": 0.0077,
+      "ci95": [
+        -0.0163,
+        0.0317
+      ],
+      "effect_size_d": 0.059,
+      "t_p_raw": 0.522163915525164,
+      "wilcoxon_p_raw": 0.7132287608306445,
+      "analogue_wins_fraction": 0.358,
+      "control_mean_unrelated_minus_false_friend": -0.032,
+      "t_p_holm": 1.0,
+      "significant": false
+    },
+    {
+      "perturbation": 0.6,
+      "n": 120,
+      "excluded": 0,
+      "mean_margin": 0.0137,
+      "ci95": [
+        -0.0125,
+        0.0398
+      ],
+      "effect_size_d": 0.096,
+      "t_p_raw": 0.29736961352022656,
+      "wilcoxon_p_raw": 0.3191324612812305,
+      "analogue_wins_fraction": 0.35,
+      "control_mean_unrelated_minus_false_friend": -0.0028,
+      "t_p_holm": 1.0,
+      "significant": false
+    }
+  ],
+  "control_arm_ok": true,
+  "significant_levels": 1,
+  "boundary": 0.1,
+  "verdict": "SUPPORTED AND BOUNDED -- the property holds and stops holding at perturbation 0.1. That boundary is the result"
+}
