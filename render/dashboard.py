@@ -1667,6 +1667,60 @@ tested what it claimed to. Eighth instance of the same failure, and the eighth t
 ground truth was the author's own. It changes no published claim; the analogue-over-false-friend
 result holds in that motif regardless.</div>
 
+
+<h2>Finding 26 — the same process, written down differently</h2>
+<p>Every invariance shown so far is about <i>vocabulary</i> — what the participants are called — and
+<i>labels</i> — which node is which. Nobody had asked whether the measure survives a change of
+<b>representation</b>: the same process written down a different but equally legitimate way. A
+mediator node instead of a direct link. The passive voice. A relation turned into a node, which is
+how the same fact gets written whenever the formalism has no typed edges.</p>
+<div class="fig">{figs['fig27_reencoding.svg']}</div>
+<div class="read warn" style="border-left-color:#dc2626"><b>It fails, and the two ranges overlap
+completely.</b> There is no threshold that separates "wrote it differently" from "said something
+different." Writing <i>B is increased by A</i> instead of <i>A increases B</i> costs more than
+deleting a relation from the loop outright.</div>
+
+<h3>The obvious objection, and why it doesn't hold</h3>
+<p>Deleting a relation keeps the structure small; subdividing every edge doubles it, and the code
+charges for size. So the gap could be a size artifact rather than anything about encoding. Removing
+size from the comparison — subdividing <i>both</i> sides, so the correct version and a corrupted
+version are the same size:</p>
+<div class="read warn" style="border-left-color:#dc2626"><b>The measure returns the identical number
+for both, on six of six.</b> Not close — identical. And an exhaustive search over every possible
+relabelling confirms the two structures are <b>not</b> isomorphic, so an exact tie is not the right
+answer here. This is blindness, not bias.</div>
+
+<h3>Why — and it isn't the reason I first wrote down</h3>
+<p>My first explanation was that subdivision means none of the original relations land. Checking it:
+<b>three of four land.</b> The real mechanism is visible in the mapping the search actually returns,
+which isn't even the natural alignment — it's a shifted one that happens to catch three half-edges.</p>
+<div class="read"><b>The measure maximises over ways of lining up two structures.</b> Subdivision
+roughly doubles the node count, so the search gets more places to try — enough that it finds
+<i>some</i> three-of-four alignment in almost any subdivided structure, whether or not that structure
+was corrupted first. <b>Maximising over a search space that grows with the target destroys
+discrimination.</b> The code already carried a warning about this for partial alignments; the same
+effect arrives through complete ones whenever the target is bigger.</div>
+
+<h3>What it costs the main result</h3>
+<div class="read warn"><b>The load-bearing claim is re-scoped, not withdrawn.</b> "Analogue beats
+false friend" holds 6/6 under the two invariances already known, 5/6 with a mediator, <b>3/6 in the
+passive voice</b> and <b>2/6 under subdivision</b>. The correct statement is now: the analogue
+outranks the false friend on 10/10 motifs <b>within a fixed representation convention</b> — and
+across equivalent re-encodings of those same processes it holds on two to six of six, depending on
+how you write them down.</div>
+<div class="read"><b>Padding is a related and live weakness.</b> If extra nodes buy the search
+freedom, junk should buy score. It does: nonsense nodes added to a false friend raise its score on
+two of three motifs. It flips no ranking — padding costs as well as pays — so it lifts a weak
+document without promoting it past a strong one. Logged as a live vulnerability rather than a fired
+one, because the mechanism is confirmed even though the exploit isn't.</div>
+<div class="read ok"><b>What a negative result buys, again.</b> The defect is in the <i>space of
+alignments</i>, not in the criterion or the code. The search can map a participant to a participant
+but cannot map one relation onto a <i>chain</i> of relations, so any re-encoding that stretches a
+link into a path is outside its reach by construction. Two routes out: put structures in a canonical
+form first, contracting chains so subdivision becomes a no-op; or let a relation match a path,
+priced by length. Taking the first — it's the smaller change, and the second widens exactly the
+search space that caused this.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1702,6 +1756,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The measure sees the encoding, not only the process — and this is the largest
+re-scoping the project has taken.</b> Vocabulary invariance and label invariance hold. Invariance
+across equivalent re-encodings does not, and at matched size the measure cannot tell a correct
+re-encoding from a corrupted one at all. Everything the search results claim is therefore true
+within a fixed representation convention, which is a real limit and one that gates any application
+to domains that write the same reality in different forms. The successor is specified: canonicalise
+before comparing, rather than widening the space of alignments.</div>
 <div class="q"><b>A published claim on this page was wrong, and the correction is on it.</b>
 "The vacuous document beats the analogue on 3 of 4" was a sort order read off a randomised hash.
 The truth is an exact tie, and the vacuous document outranks the analogue nowhere in the project.

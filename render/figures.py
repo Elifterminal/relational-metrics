@@ -1471,6 +1471,71 @@ def fig_refutation(e27: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 27 — representation invariance fails
+# ---------------------------------------------------------------------------
+
+def fig_reencoding(e28: dict) -> str:
+    W, H = 800, 430
+    L, T = 190, 92
+    out = ['<text class="ttl" x="24" y="26">The same process, written down differently</text>',
+           '<text class="sub" x="24" y="45">Blue: re-encodings that change nothing about the '
+           'process. Red: changes that alter what is being claimed.</text>',
+           '<text class="sub" x="24" y="62">If the measure saw the process, every blue bar would '
+           'sit right of every red one.</text>']
+
+    pres = e28["preserving_mean"]
+    chng = e28["changing_mean"]
+    self_v = e28["self_correspondence_mean"]
+    rows = ([(k, v, True) for k, v in pres.items()]
+            + [(k, v, False) for k, v in chng.items()])
+    rows.sort(key=lambda r: -r[1])
+
+    lo = 1.0
+    hi = max(self_v, max(v for _, v, _ in rows)) * 1.02
+    pw = W - L - 130
+    bh = (H - T - 96) / len(rows)
+
+    def xf(v):
+        return L + (v - lo) / (hi - lo) * pw
+
+    out.append(f'<line x1="{xf(self_v):.1f}" y1="{T-8}" x2="{xf(self_v):.1f}" '
+               f'y2="{T + bh*len(rows) + 6:.1f}" stroke="var(--mut)" stroke-width="1" '
+               f'stroke-dasharray="3 3"/>')
+    out.append(f'<text class="tick" x="{xf(self_v):.1f}" y="{T-14}" text-anchor="middle">'
+               f'identical copy ({self_v:.2f})</text>')
+
+    for i, (k, v, keep) in enumerate(rows):
+        y = T + i * bh
+        col = "#2563eb" if keep else "#dc2626"
+        out.append(f'<text class="lbl" x="{L-12}" y="{y+bh/2+4:.1f}" text-anchor="end">'
+                   f'{esc(k)}</text>')
+        out.append(f'<rect x="{L}" y="{y+bh*0.2:.1f}" width="{max(xf(v)-L, 1):.1f}" '
+                   f'height="{bh*0.6:.1f}" fill="{col}" rx="2" opacity="0.9"/>')
+        out.append(f'<text class="tick" x="{xf(v)+8:.1f}" y="{y+bh/2+4:.1f}" '
+                   f'font-family="monospace">{v:.4f}</text>')
+
+    worst = e28["worst_preserving"]
+    best = e28["best_changing"]
+    y0 = T + bh * len(rows) + 22
+    out.append(f'<text class="sub" x="24" y="{y0}" fill="#dc2626">'
+               f'They overlap. &quot;{esc(worst)}&quot; changes nothing and scores BELOW '
+               f'&quot;{esc(best)}&quot;, which changes the process.</text>')
+    sm = e28["size_matched_control"]
+    out.append(f'<text class="sub" x="24" y="{y0+18}">'
+               f'Size is not the explanation: subdividing BOTH sides, the measure separates '
+               f'correct from corrupted on {sm["discriminates"]} of {sm["of"]} —</text>')
+    out.append(f'<text class="sub" x="24" y="{y0+32}">'
+               'it returns the identical number for both, and the two structures are '
+               'not isomorphic. Blind, not merely biased.</text>')
+    app = e28["application"]
+    out.append(f'<text class="sub" x="24" y="{y0+52}" fill="#d97706">'
+               f'Cost to the headline claim: holds {app["relabel"]["held"]}/6 under renaming, '
+               f'{app["converse"]["held"]}/6 in the passive voice, '
+               f'{app["subdivide_all"]["held"]}/6 under subdivision.</text>')
+    return svg(W, H, "".join(out), "Representation invariance")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1555,6 +1620,7 @@ def main() -> None:
     e25 = json.loads((RESULTS / "exp025.json").read_text())
     e26 = json.loads((RESULTS / "exp026.json").read_text())
     e27 = json.loads((RESULTS / "exp027.json").read_text())
+    e28 = json.loads((RESULTS / "exp028.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1588,6 +1654,7 @@ def main() -> None:
         "fig24_fix.svg": fig_fix(e25),
         "fig25_independent.svg": fig_independent(e26),
         "fig26_refutation.svg": fig_refutation(e27),
+        "fig27_reencoding.svg": fig_reencoding(e28),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

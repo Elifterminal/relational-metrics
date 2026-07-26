@@ -1,0 +1,505 @@
+{
+  "experiment": "EXP-028",
+  "size_matched_control": {
+    "rows": [
+      {
+        "base": "m1_D",
+        "preserved": 1.1108702447230447,
+        "rewired": 1.1108702447230447,
+        "flipped": 1.1108702447230447,
+        "discriminates": false,
+        "tie_is_correct_isomorphism": false
+      },
+      {
+        "base": "m2_D",
+        "preserved": 1.1108702447230447,
+        "rewired": 1.1108702447230447,
+        "flipped": 1.1108702447230447,
+        "discriminates": false,
+        "tie_is_correct_isomorphism": false
+      },
+      {
+        "base": "m3_D",
+        "preserved": 1.2718681213180123,
+        "rewired": 1.2718681213180123,
+        "flipped": 1.3000370570213384,
+        "discriminates": false,
+        "tie_is_correct_isomorphism": false
+      },
+      {
+        "base": "m4_D",
+        "preserved": 1.028390698354514,
+        "rewired": 1.028390698354514,
+        "flipped": 1.028390698354514,
+        "discriminates": false,
+        "tie_is_correct_isomorphism": false
+      },
+      {
+        "base": "m5_D",
+        "preserved": 1.1108702447230447,
+        "rewired": 1.1108702447230447,
+        "flipped": 1.1108702447230447,
+        "discriminates": false,
+        "tie_is_correct_isomorphism": false
+      },
+      {
+        "base": "m6_D",
+        "preserved": 1.1108702447230447,
+        "rewired": 1.1108702447230447,
+        "flipped": 1.1108702447230447,
+        "discriminates": false,
+        "tie_is_correct_isomorphism": false
+      }
+    ],
+    "discriminates": 0,
+    "of": 6,
+    "any_tie_explained_by_isomorphism": false
+  },
+  "padding_probe": {
+    "rows": [
+      {
+        "motif": "reinforcing",
+        "false_friend_unpadded": 0.9949,
+        "false_friend_best_padded": 1.1109,
+        "at_k": 4,
+        "padding_raises_score": true,
+        "analogue": 1.9898,
+        "padding_flips_ranking": false
+      },
+      {
+        "motif": "regulating",
+        "false_friend_unpadded": 1.9883,
+        "false_friend_best_padded": 1.4277,
+        "at_k": 2,
+        "padding_raises_score": false,
+        "analogue": 1.9898,
+        "padding_flips_ranking": false
+      },
+      {
+        "motif": "cascade",
+        "false_friend_unpadded": 0.9943,
+        "false_friend_best_padded": 1.2289,
+        "at_k": 6,
+        "padding_raises_score": true,
+        "analogue": 1.8676,
+        "padding_flips_ranking": false
+      }
+    ],
+    "raises_score": 2,
+    "flips_ranking": 0,
+    "of": 3
+  },
+  "question": "Q-21 -- is the measure invariant across equivalent re-encodings?",
+  "n_base_structures": 6,
+  "self_correspondence_mean": 1.9769,
+  "preserving_mean": {
+    "relabel": 1.9769,
+    "retype": 1.9769,
+    "converse": 1.2429,
+    "mediate_one": 1.3343,
+    "subdivide_all": 1.124,
+    "reify_one": 1.2051
+  },
+  "changing_mean": {
+    "flip_type_one": 1.198,
+    "reverse_one": 1.2547,
+    "rewire_one": 1.1884,
+    "delete_one": 1.3503
+  },
+  "exactly_free": {
+    "relabel": true,
+    "retype": true,
+    "converse": false,
+    "mediate_one": false,
+    "subdivide_all": false,
+    "reify_one": false
+  },
+  "worst_preserving": "subdivide_all",
+  "best_changing": "delete_one",
+  "separation_holds": false,
+  "verdict": "ENCODING-SENSITIVE",
+  "application": {
+    "relabel": {
+      "held": 6,
+      "of": 6
+    },
+    "retype": {
+      "held": 6,
+      "of": 6
+    },
+    "converse": {
+      "held": 3,
+      "of": 6
+    },
+    "mediate_one": {
+      "held": 5,
+      "of": 6
+    },
+    "subdivide_all": {
+      "held": 2,
+      "of": 6
+    },
+    "reify_one": {
+      "held": 5,
+      "of": 6
+    }
+  },
+  "by_base": {
+    "reinforcing": {
+      "self": 1.9897542727977275,
+      "preserving": {
+        "relabel": 1.9897542727977275,
+        "retype": 1.9897542727977275,
+        "converse": 1.1963039644928748,
+        "mediate_one": 1.138823956078875,
+        "subdivide_all": 1.1108702447230447,
+        "reify_one": 1.199645658365509
+      },
+      "changing": {
+        "flip_type_one": 1.1963039644928748,
+        "reverse_one": 1.1963039644928748,
+        "rewire_one": 1.1963039644928748,
+        "delete_one": 1.3602162257530988
+      }
+    },
+    "regulating": {
+      "self": 1.9897542727977275,
+      "preserving": {
+        "relabel": 1.9897542727977275,
+        "retype": 1.9897542727977275,
+        "converse": 1.1963039644928748,
+        "mediate_one": 1.138823956078875,
+        "subdivide_all": 1.1108702447230447,
+        "reify_one": 1.199645658365509
+      },
+      "changing": {
+        "flip_type_one": 1.1963039644928748,
+        "reverse_one": 1.1963039644928748,
+        "rewire_one": 1.1963039644928748,
+        "delete_one": 1.3602162257530988
+      }
+    },
+    "cascade": {
+      "self": 1.8676068541722544,
+      "preserving": {
+        "relabel": 1.8676068541722544,
+        "retype": 1.8676068541722544,
+        "converse": 1.8676068541722544,
+        "mediate_one": 1.457128060429625,
+        "subdivide_all": 1.2718681213180123,
+        "reify_one": 1.201737736235515
+      },
+      "changing": {
+        "flip_type_one": 1.203875658962895,
+        "reverse_one": 1.14608235504712,
+        "rewire_one": 1.14608235504712,
+        "delete_one": 1.2881670971665744
+      }
+    },
+    "inhibition": {
+      "self": 2.034952095646576,
+      "preserving": {
+        "relabel": 2.034952095646576,
+        "retype": 2.034952095646576,
+        "converse": 1.0057582615054637,
+        "mediate_one": 1.1661821000763466,
+        "subdivide_all": 1.028390698354514,
+        "reify_one": 1.2300135608752631
+      },
+      "changing": {
+        "flip_type_one": 1.198943037134601,
+        "reverse_one": 1.596973897828289,
+        "rewire_one": 1.198943037134601,
+        "delete_one": 1.3726029849851502
+      }
+    },
+    "threshold": {
+      "self": 1.9897542727977275,
+      "preserving": {
+        "relabel": 1.9897542727977275,
+        "retype": 1.9897542727977275,
+        "converse": 1.1963039644928748,
+        "mediate_one": 1.5524716228157363,
+        "subdivide_all": 1.1108702447230447,
+        "reify_one": 1.199645658365509
+      },
+      "changing": {
+        "flip_type_one": 1.1963039644928748,
+        "reverse_one": 1.1963039644928748,
+        "rewire_one": 1.1963039644928748,
+        "delete_one": 1.3602162257530988
+      }
+    },
+    "substitution": {
+      "self": 1.9897542727977275,
+      "preserving": {
+        "relabel": 1.9897542727977275,
+        "retype": 1.9897542727977275,
+        "converse": 0.9948771363988638,
+        "mediate_one": 1.5524716228157363,
+        "subdivide_all": 1.1108702447230447,
+        "reify_one": 1.199645658365509
+      },
+      "changing": {
+        "flip_type_one": 1.1963039644928748,
+        "reverse_one": 1.1963039644928748,
+        "rewire_one": 1.1963039644928748,
+        "delete_one": 1.3602162257530988
+      }
+    }
+  },
+  "application_detail": {
+    "relabel": {
+      "held": 6,
+      "of": 6,
+      "rows": [
+        {
+          "before": "{P=X} > V > U > W",
+          "after": "{P=X} > V > U > W",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > {V=W} > U",
+          "after": "{P=X} > {V=W} > U",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=U=X} > V > W",
+          "after": "{P=U=X} > V > W",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > W > V > U",
+          "after": "{P=X} > W > V > U",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > W > U > V",
+          "after": "{P=X} > W > U > V",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > U > V > W",
+          "after": "{P=X} > U > V > W",
+          "claim_before": true,
+          "claim_after": true
+        }
+      ]
+    },
+    "retype": {
+      "held": 6,
+      "of": 6,
+      "rows": [
+        {
+          "before": "{P=X} > V > U > W",
+          "after": "{P=X} > V > U > W",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > {V=W} > U",
+          "after": "{P=X} > {V=W} > U",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=U=X} > V > W",
+          "after": "{P=U=X} > V > W",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > W > V > U",
+          "after": "{P=X} > W > V > U",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > W > U > V",
+          "after": "{P=X} > W > U > V",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > U > V > W",
+          "after": "{P=X} > U > V > W",
+          "claim_before": true,
+          "claim_after": true
+        }
+      ]
+    },
+    "converse": {
+      "held": 3,
+      "of": 6,
+      "rows": [
+        {
+          "before": "{P=X} > V > U > W",
+          "after": "V > {P=W=X} > U",
+          "claim_before": true,
+          "claim_after": false
+        },
+        {
+          "before": "{P=X} > {V=W} > U",
+          "after": "{P=X} > {V=W} > U",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=U=X} > V > W",
+          "after": "{P=U=X} > V > W",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > W > V > U",
+          "after": "W > V > {P=X} > U",
+          "claim_before": true,
+          "claim_after": false
+        },
+        {
+          "before": "{P=X} > W > U > V",
+          "after": "{P=X} > W > U > V",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > U > V > W",
+          "after": "W > U > V > {P=X}",
+          "claim_before": true,
+          "claim_after": false
+        }
+      ]
+    },
+    "mediate_one": {
+      "held": 5,
+      "of": 6,
+      "rows": [
+        {
+          "before": "{P=X} > V > U > W",
+          "after": "{P=W=X} > V > U",
+          "claim_before": true,
+          "claim_after": false
+        },
+        {
+          "before": "{P=X} > {V=W} > U",
+          "after": "{P=X} > {V=W} > U",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=U=X} > V > W",
+          "after": "{P=U=X} > V > W",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > W > V > U",
+          "after": "{P=X} > V > U > W",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > W > U > V",
+          "after": "V > {P=X} > W > U",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > U > V > W",
+          "after": "V > {P=X} > W > U",
+          "claim_before": true,
+          "claim_after": true
+        }
+      ]
+    },
+    "subdivide_all": {
+      "held": 2,
+      "of": 6,
+      "rows": [
+        {
+          "before": "{P=X} > V > U > W",
+          "after": "{P=W=X} > V > U",
+          "claim_before": true,
+          "claim_after": false
+        },
+        {
+          "before": "{P=X} > {V=W} > U",
+          "after": "{P=X} > {V=W} > U",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=U=X} > V > W",
+          "after": "W > V > {P=U=X}",
+          "claim_before": true,
+          "claim_after": false
+        },
+        {
+          "before": "{P=X} > W > V > U",
+          "after": "V > U > {P=W=X}",
+          "claim_before": true,
+          "claim_after": false
+        },
+        {
+          "before": "{P=X} > W > U > V",
+          "after": "{P=X} > V > W > U",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > U > V > W",
+          "after": "{P=W=X} > V > U",
+          "claim_before": true,
+          "claim_after": false
+        }
+      ]
+    },
+    "reify_one": {
+      "held": 5,
+      "of": 6,
+      "rows": [
+        {
+          "before": "{P=X} > V > U > W",
+          "after": "{P=W=X} > V > U",
+          "claim_before": true,
+          "claim_after": false
+        },
+        {
+          "before": "{P=X} > {V=W} > U",
+          "after": "{P=X} > {V=W} > U",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=U=X} > V > W",
+          "after": "{P=U=X} > V > W",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > W > V > U",
+          "after": "{P=X} > V > U > W",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > W > U > V",
+          "after": "{P=X} > W > V > U",
+          "claim_before": true,
+          "claim_after": true
+        },
+        {
+          "before": "{P=X} > U > V > W",
+          "after": "V > {P=X} > W > U",
+          "claim_before": true,
+          "claim_after": true
+        }
+      ]
+    }
+  }
+}

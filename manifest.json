@@ -319,6 +319,19 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "the retraction, and F-09 refuted by arithmetic"
+    },
+    {
+      "id": "EXP-028",
+      "question": "Q-21 \u2014 is the measure invariant across equivalent *re-encodings* of the same process?",
+      "result": "**No \u2014 and blind, not merely biased.** At matched size it scores a correct re-encoding and a corrupted one **identically** (0/6 discriminated; the pairs are not isomorphic). The load-bearing claim survives 6/6 under the two known invariances and **2/6** under subdivision. Re-scopes `C-03`",
+      "status": "complete",
+      "rung": 1,
+      "entry_point": "lab/run_exp028.py",
+      "result_file": "results/exp028.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "representation invariance -- the measure sees the encoding"
     }
   ],
   "claims": [
@@ -350,12 +363,13 @@
       "claim": "MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.",
       "status": "ACTIVE_WITHIN_TESTED_SCOPE",
       "rung": 3,
-      "scope": "10/10 motifs across development, frozen held-out and independently authored corpora; hand-annotated typed structures, not natural text",
+      "scope": "10/10 motifs across development, frozen held-out and independently authored corpora \u2014 but only WITHIN A FIXED REPRESENTATION CONVENTION. Across equivalent re-encodings of the same processes it holds on 2\u20136 of 6 depending on the encoding (EXP-028). Hand-annotated typed structures, not natural text",
       "evidence": [
         "EXP-024",
         "EXP-025",
         "EXP-026",
-        "EXP-027"
+        "EXP-027",
+        "EXP-028"
       ]
     },
     {
@@ -404,11 +418,13 @@
     },
     {
       "id": "C-08",
-      "claim": "The measure is invariant to how the same process is legitimately re-encoded (mediator nodes, hyperedge vs factor node, subdivision, latent variables).",
-      "status": "UNTESTED",
+      "claim": "The measure is invariant to how the same process is legitimately re-encoded (mediator nodes, hyperedge vs factor node, subdivision, converse relations).",
+      "status": "REFUTED",
       "rung": 0,
-      "scope": "named as the next foundational test family. Vocabulary and label invariance are shown; representation invariance is not",
-      "evidence": []
+      "scope": "refuted. Content-preserving and content-changing transforms produce OVERLAPPING score ranges, and at matched size the measure returns identical values for a correct re-encoding and a corrupted one. Cause: the mapping space cannot match a relation to a path, and gains freedom as the target grows",
+      "evidence": [
+        "EXP-028"
+      ]
     },
     {
       "id": "C-09",
@@ -437,6 +453,14 @@
       "status": "UNTESTED",
       "rung": 0,
       "scope": "unsupported and not currently testable. Prediction P6 says it will not, and P6 stands",
+      "evidence": []
+    },
+    {
+      "id": "C-12",
+      "claim": "Canonical contraction restores representation invariance without costing the capability.",
+      "status": "UNTESTED",
+      "rung": 0,
+      "scope": "the successor proposed by EXP-028 (Q-24). Contract chains of same-typed relations before comparing, so subdivision becomes the identity. Preferred over path-aware mapping because widening the mapping space is what caused the blindness",
       "evidence": []
     }
   ]
