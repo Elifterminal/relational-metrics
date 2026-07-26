@@ -806,6 +806,53 @@ def fig_audit(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 16 — retention is a vector, not a number
+# ---------------------------------------------------------------------------
+
+def fig_vector(data: dict) -> str:
+    W, H = 800, 360
+    L, R, T, B = 74, 200, 78, 58
+    pw, ph = W - L - R, H - T - B
+    c3 = data["census"]["k=3"]; c4 = data["census"]["k=4"]
+    groups = [("functions that vanish\n(lose everything)", c3["at_zero_best"], c3["at_zero_worst"], c3["scored"]),
+              ("functions at exactly 0.5", c3["at_half_best"], c3["at_half_worst"], c3["scored"])]
+
+    out = ['<text class="ttl" x="24" y="26">Which participant you lose changes the answer — often completely</text>',
+           '<text class="sub" x="24" y="45">Same functions, same law. Only the choice of which '
+           'participant is missing differs.</text>']
+    bh = ph / 2
+    vmax = max(max(a, b) for _, a, b, _ in groups) * 1.25
+    for i, (lbl, best, worst, tot) in enumerate(groups):
+        y = T + i * bh
+        for j, (tag, v, col) in enumerate((("best case  (lose your least important)", best, "#2563eb"),
+                                           ("WORST case (lose your most important)", worst, "#dc2626"))):
+            yy = y + j * (bh * 0.42) + 6
+            w = max((v / vmax) * pw, 1.5)
+            out.append(f'<text class="sub" x="{L-12}" y="{yy+11:.1f}" text-anchor="end">{esc(tag)}</text>')
+            out.append(f'<rect x="{L}" y="{yy:.1f}" width="{w:.1f}" height="{bh*0.3:.1f}" '
+                       f'fill="{col}" rx="2"/>')
+            out.append(f'<text class="tick" x="{L+w+9:.1f}" y="{yy+bh*0.21:.1f}" '
+                       f'fill="{col}">{v} of {tot}</text>')
+        out.append(f'<text class="lbl" x="24" y="{y+16:.0f}">{esc(lbl.split(chr(10))[0])}</text>')
+
+    ly = T + 4
+    for lbl in ["Parity is unique in", "vanishing NO MATTER which",
+                "participant you lose.", "",
+                "38 functions at k=3 and 942",
+                "at k=4 vanish if you lose",
+                "the WRONG one.", "",
+                "Median spread within a",
+                "function: 0.52 at k=3.",
+                "Only 39% have no spread."]:
+        out.append(f'<text class="sub" x="{L+pw+18}" y="{ly}">{esc(lbl)}</text>')
+        ly += 15
+    out.append(f'<text class="sub" x="24" y="{H-12}">'
+               'Every earlier finding here summarised retention with the best case. The law was '
+               'always per-participant; the summary was the error.</text>')
+    return svg(W, H, "".join(out), "Retention is a vector")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -879,6 +926,7 @@ def main() -> None:
     e15 = json.loads((RESULTS / "exp015.json").read_text())
     e16 = json.loads((RESULTS / "exp016.json").read_text())
     e17 = json.loads((RESULTS / "exp017.json").read_text())
+    e18 = json.loads((RESULTS / "exp018.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -901,6 +949,7 @@ def main() -> None:
         "fig13_k4.svg": fig_k4(e15),
         "fig14_noise.svg": fig_noise(e16),
         "fig15_audit.svg": fig_audit(e17),
+        "fig16_vector.svg": fig_vector(e18),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

@@ -326,6 +326,12 @@ def build() -> str:
     e15 = json.loads((RESULTS / "exp015.json").read_text())
     e16 = json.loads((RESULTS / "exp016.json").read_text())
     e17 = json.loads((RESULTS / "exp017.json").read_text())
+    e18 = json.loads((RESULTS / "exp018.json").read_text())
+    fam_rows = "".join(
+        f"<tr><td><code>{k}</code></td><td>{v['per_participant']}</td>"
+        f"<td>{v['best']:.4f}</td><td>{v['worst']:.4f}</td>"
+        f"<td><b>{v['spread']:.4f}</b></td></tr>"
+        for k, v in e18["structure_families_reported_properly"].items())
     n16_rows = "".join(
         f"<tr><td><code>{k}</code></td><td>{v['max_error_general_form']:.1e}</td>"
         f"<td>{v['max_error_deterministic_form']:.4f}</td></tr>"
@@ -1016,6 +1022,61 @@ being a lesson to rediscover and becomes part of the protocol.<br><br>Arity was 
 parameter that preserved order cleanly. That is worth knowing too: results can be carried between
 three and four participants without re-ranking.</div>
 
+<h2>Finding 15 — re-reporting properly, and a claim that does not survive it</h2>
+<p>The previous finding showed that best-case and worst-case retention rank structures
+anti-correlated. Every result here from Finding 10 onward summarised retention with a best case.
+The law is per-participant and exact, so the mathematics was never wrong — but every
+<i>conclusion</i> drawn from that summary needed re-checking. This is the re-check, recomputed
+rather than re-worded.</p>
+<div class="fig">{figs['fig16_vector.svg']}</div>
+
+<h3>What survives</h3>
+<ul>
+<li><b>Quantisation.</b> Pooling every participant of every function gives the same counts as
+before — 7 distinct values at three variables, 21 at four. Robust to how it is reported.</li>
+<li><b>One half is still a real class</b>, in every reporting mode.</li>
+<li><b>The closed form</b> — untouched. It was always stated per-participant.</li>
+</ul>
+
+<h3>What does not survive</h3>
+<div class="read warn"><b>"Parity is the only structure that vanishes" was an artifact of
+best-case reporting.</b> Under worst-case, the number of functions losing <i>everything</i> goes
+from 2 to <b>38</b> at three variables and from 2 to <b>942</b> at four.<br><br>The corrected
+claim is narrower and more useful: <b>parity is unique in vanishing no matter which participant
+you lose.</b> Plenty of other structures vanish too — if you lose the right one. For anything
+practical that is the more alarming version, and it was hidden by taking a best case.</div>
+<div class="read warn"><b>And the spread is not small.</b> Within a single function, best minus
+worst has a median of <b>0.52</b> at three variables. Only 39% of functions have no spread at all
+at k=3, and just 11% at k=4. So for the large majority of structures, <i>which</i> participant
+goes missing changes the answer substantially. Retention has to be carried as a vector.</div>
+
+<h3>Why the earlier tables came out unscathed — and what that says</h3>
+<table><thead><tr><th>family</th><th>per participant</th><th>best</th><th>worst</th><th>spread</th>
+</tr></thead><tbody>{fam_rows}</tbody></table>
+<div class="read"><b>Every family previously tested has spread exactly zero.</b> Parity, AND, OR,
+threshold, majority — all <i>symmetric</i> functions, where every participant has identical
+influence, so best and worst coincide and the best-case summary happened to be harmless.<br><br>
+That is lucky rather than sound, and it is the third time the symmetry of my chosen test functions
+has produced a misleadingly clean picture. Majority and threshold turned out to be the same
+function; AND and OR turned out to be duals; and now every family in the table turns out to be
+symmetric. <b>The test set has a systematic bias toward symmetric structures</b>, which are
+precisely the ones on which the sloppy summary is safe. Logged as its own thing to check for,
+because it has now cost three corrections.</div>
+
+<h3>The rules this produced</h3>
+<p>Five hard-won rules from this run of work are now written into the protocol rather than living
+in the write-ups where they get rediscovered:</p>
+<ol>
+<li>Report rankings as a <b>curve over the nuisance parameter</b>, not at a point.</li>
+<li>For every variable a condition set holds fixed, keep <b>one condition where it varies</b>.</li>
+<li><b>Verify test cases are actually distinct</b> before counting them as separate evidence —
+compare the objects, not the names.</li>
+<li>State the <b>condition set inside the claim</b>; before generalising, name the case that
+would break it and check the test set contains one.</li>
+<li>An <b>unexplained regularity is a debt</b>, not a curiosity. Two findings used one as evidence
+before understanding it.</li>
+</ol>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1051,6 +1112,12 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>Retention is a vector and the test set was biased toward hiding that.</b> Under
+worst-case reporting the number of structures that lose everything goes from 2 to 38 at three
+participants and 942 at four — so "only parity vanishes" was an artifact of a best-case summary.
+The corrected claim, that parity is unique in vanishing <i>whichever</i> participant you lose, is
+both narrower and more alarming. The earlier tables survived only because every family in them was
+symmetric, which is now the third correction traceable to symmetric test choices.</div>
 <div class="q"><b>Reordering is this project's default, not its exception.</b> Four of five
 audited parameters change the ranking rather than just the values — including one believed safe.
 The most consequential is that "retention" turns out to be one number per participant you might

@@ -1,0 +1,140 @@
+{
+  "experiment": "EXP-018",
+  "question": "do the retention conclusions survive per-participant reporting?",
+  "census": {
+    "k=3": {
+      "k": 3,
+      "scored": 254,
+      "distinct_best": 7,
+      "distinct_worst": 5,
+      "distinct_pooled": 7,
+      "at_zero_best": 2,
+      "at_zero_worst": 38,
+      "at_half_best": 56,
+      "at_half_worst": 32,
+      "at_half_pooled": 144,
+      "spread_mean": 0.3507,
+      "spread_median": 0.5239,
+      "spread_max": 1.0,
+      "frac_with_zero_spread": 0.3858
+    },
+    "k=4": {
+      "k": 4,
+      "scored": 65534,
+      "distinct_best": 21,
+      "distinct_worst": 14,
+      "distinct_pooled": 21,
+      "at_zero_best": 2,
+      "at_zero_worst": 942,
+      "at_half_best": 5896,
+      "at_half_worst": 2840,
+      "at_half_pooled": 26880,
+      "spread_mean": 0.3356,
+      "spread_median": 0.2619,
+      "spread_max": 1.0,
+      "frac_with_zero_spread": 0.1094
+    }
+  },
+  "structure_families_reported_properly": {
+    "parity_k3": {
+      "per_participant": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "best": 0.0,
+      "worst": 0.0,
+      "spread": 0.0
+    },
+    "and_k3": {
+      "per_participant": [
+        0.5401,
+        0.5401,
+        0.5401
+      ],
+      "best": 0.5401,
+      "worst": 0.5401,
+      "spread": 0.0
+    },
+    "or_k3": {
+      "per_participant": [
+        0.5401,
+        0.5401,
+        0.5401
+      ],
+      "best": 0.5401,
+      "worst": 0.5401,
+      "spread": 0.0
+    },
+    "threshold2_k3": {
+      "per_participant": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "best": 0.5,
+      "worst": 0.5,
+      "spread": 0.0
+    },
+    "majority_k3": {
+      "per_participant": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "best": 0.5,
+      "worst": 0.5,
+      "spread": 0.0
+    },
+    "parity_k4": {
+      "per_participant": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "best": 0.0,
+      "worst": 0.0,
+      "spread": 0.0
+    },
+    "and_k4": {
+      "per_participant": [
+        0.6294,
+        0.6294,
+        0.6294,
+        0.6294
+      ],
+      "best": 0.6294,
+      "worst": 0.6294,
+      "spread": 0.0
+    },
+    "or_k4": {
+      "per_participant": [
+        0.6294,
+        0.6294,
+        0.6294,
+        0.6294
+      ],
+      "best": 0.6294,
+      "worst": 0.6294,
+      "spread": 0.0
+    },
+    "threshold2_k4": {
+      "per_participant": [
+        0.5815,
+        0.5815,
+        0.5815,
+        0.5815
+      ],
+      "best": 0.5815,
+      "worst": 0.5815,
+      "spread": 0.0
+    }
+  },
+  "verdicts": {
+    "quantisation_survives": true,
+    "parity_still_unique_zero_best_case": true,
+    "zero_class_grows_under_worst_case": true,
+    "half_survives_worst_case": true
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360" role="img" aria-label="Retention is a vector">
+<style>
+  :root { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  }
+  :root[data-theme="dark"] { --fg:#e8e8ea; --mut:#9ca3af; --grid:#2f3542; --bg:#0f1115; --accent:#f3f4f6; }
+  :root[data-theme="light"] { --fg:#1a1a1a; --mut:#6b7280; --grid:#e5e7eb; --bg:#ffffff; --accent:#111827; }
+  .bg { fill: var(--bg); }
+  .ax { stroke: var(--grid); stroke-width: 1; }
+  .tick { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .lbl { fill: var(--fg); font: 12px ui-sans-serif, system-ui, sans-serif; }
+  .ttl { fill: var(--fg); font: 600 14px ui-sans-serif, system-ui, sans-serif; }
+  .sub { fill: var(--mut); font: 11px ui-sans-serif, system-ui, sans-serif; }
+  .node { fill: var(--bg); stroke: var(--fg); stroke-width: 1.5; }
+  .ntxt { fill: var(--fg); font: 10px ui-sans-serif, system-ui, sans-serif; text-anchor: middle; }
+</style>
+<rect class="bg" width="800" height="360"/><text class="ttl" x="24" y="26">Which participant you lose changes the answer — often completely</text><text class="sub" x="24" y="45">Same functions, same law. Only the choice of which participant is missing differs.</text><text class="sub" x="62" y="95.0" text-anchor="end">best case  (lose your least important)</text><rect x="74" y="84.0" width="15.0" height="33.6" fill="#2563eb" rx="2"/><text class="tick" x="98.0" y="107.5" fill="#2563eb">2 of 254</text><text class="sub" x="62" y="142.0" text-anchor="end">WORST case (lose your most important)</text><rect x="74" y="131.0" width="285.5" height="33.6" fill="#dc2626" rx="2"/><text class="tick" x="368.5" y="154.6" fill="#dc2626">38 of 254</text><text class="lbl" x="24" y="94">functions that vanish</text><text class="sub" x="62" y="207.0" text-anchor="end">best case  (lose your least important)</text><rect x="74" y="196.0" width="420.8" height="33.6" fill="#2563eb" rx="2"/><text class="tick" x="503.8" y="219.5" fill="#2563eb">56 of 254</text><text class="sub" x="62" y="254.0" text-anchor="end">WORST case (lose your most important)</text><rect x="74" y="243.0" width="240.5" height="33.6" fill="#dc2626" rx="2"/><text class="tick" x="323.5" y="266.6" fill="#dc2626">32 of 254</text><text class="lbl" x="24" y="206">functions at exactly 0.5</text><text class="sub" x="618" y="82">Parity is unique in</text><text class="sub" x="618" y="97">vanishing NO MATTER which</text><text class="sub" x="618" y="112">participant you lose.</text><text class="sub" x="618" y="127"></text><text class="sub" x="618" y="142">38 functions at k=3 and 942</text><text class="sub" x="618" y="157">at k=4 vanish if you lose</text><text class="sub" x="618" y="172">the WRONG one.</text><text class="sub" x="618" y="187"></text><text class="sub" x="618" y="202">Median spread within a</text><text class="sub" x="618" y="217">function: 0.52 at k=3.</text><text class="sub" x="618" y="232">Only 39% have no spread.</text><text class="sub" x="24" y="348">Every earlier finding here summarised retention with the best case. The law was always per-participant; the summary was the error.</text></svg>
