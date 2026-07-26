@@ -662,7 +662,7 @@
       "claim": "Structural correspondence cannot distinguish cases whose representations are isomorphic \u2014 a general limit, not a defect of this measure.",
       "status": "ACTIVE_WITHIN_TESTED_SCOPE",
       "rung": 3,
-      "scope": "representation-relative non-identifiability (EXP-031). Proved by witness pair for: analogue vs vacuous restatement, participant vs mediator, strong vs negligible coupling, delay-driven behaviour, asserted vs observed. Level 1 in the three-level hierarchy \u2014 no stronger observer or algorithm helps. Distinct from the Ugly Duckling / observer-relative shape of C-02 and P-01",
+      "scope": "THE THEOREM is mathematics and stands alone: isomorphic structures receive equal values from every isomorphism-invariant measure. ITS ORIGINAL INSTANCES did not \u2014 EXP-027 claimed an outside author wrote vacuous documents isomorphic to the query, and EXP-035 showed I annotated them into that state (4/4 sighted, 2/4 blind). Generalised into a pre-test (EXP-031) that found three dead ends and one vacuous control. Both facts belong in the record",
       "evidence": [
         "EXP-026",
         "EXP-027",
@@ -698,7 +698,7 @@
       "claim": "The correspondence measure transfers to topologies it was not developed against.",
       "status": "PROVISIONAL",
       "rung": 2,
-      "scope": "5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process",
+      "scope": "5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process. One experiment, never repeated \u2014 the weakest active claim in the project",
       "evidence": [
         "EXP-005"
       ]
@@ -748,7 +748,7 @@
       "claim": "Canonicalising before measuring restores exact invariance under a DECLARED typed graph-homeomorphism relation, at no cost to capability.",
       "status": "ACTIVE_WITHIN_TESTED_SCOPE",
       "rung": 2,
-      "scope": "subdivision and suppression of degree-2 vertices only. Exact (cost 0, 6/6 recovery); capability 3/3, 3/3, 4/4 including under subdivision. Rewrite terminating, idempotent, confluent. NOT converse or reification (Q-25). And the equivalence must be DECLARED \u2014 blind suppression damages 5/6 structures, because whether a vertex is representational is not decidable from structure",
+      "scope": "subdivision and suppression of degree-2 vertices only. Exact (cost 0, 6/6 recovery); capability 3/3, 3/3, 4/4 including under subdivision. Rewrite terminating, idempotent, confluent. NOT converse or reification (Q-25). And the equivalence must be DECLARED \u2014 blind suppression damages 5/6 structures, because whether a vertex is representational is not decidable from structure. AUDIT NOTE: the invariance arm is computation (exact recovery, confluence over 24 orders); the 'no cost to capability' arm rests on hand-annotated corpora and inherits their limits",
       "evidence": [
         "EXP-029"
       ]
@@ -781,5 +781,32 @@
   "stages": {
     "1": "Given structures, can we tell a real analogy from a fake? Qualified yes, fragile.",
     "2": "Can text become structure automatically, on natural prose? ANSWERED: NO, four independent ways. The representation CAN hold these analogies (EXP-041); a rule-based reader cannot produce structure (EXP-042); a competent reader produces structure carrying no signal (EXP-043, effect 0.045 vs 0.788); and that missing signal is not buried under manufactured noise (EXP-045, EXP-046). These analogies do not survive reduction to typed binary relations."
+  },
+  "consolidation": {
+    "date": "2026-07-26",
+    "organising_distinction": "6 claims rest on exhaustive computation with no annotation involved; 3 depend on hand annotation, which this project spent a day showing was biased and is the bottleneck. Conflating them is how a project like this fools itself",
+    "tier_1_exhaustive_computation": [
+      "C-01",
+      "C-02",
+      "C-05",
+      "C-06",
+      "C-04 (theorem only)"
+    ],
+    "tier_2_about_the_measure": [
+      "C-12",
+      "C-14",
+      "C-08 (refuted)",
+      "C-07 (provisional)"
+    ],
+    "tier_3_the_application": [
+      "C-03",
+      "C-13"
+    ],
+    "tier_4_closed": [
+      "C-09",
+      "C-10",
+      "C-11"
+    ],
+    "summary": "A working instrument with a hand-prepared input. The comparison engine does what it claims on formalised relational descriptions, confirmed by an independent party. The text-to-structure step is unsolved, was doing more of the work than the engine, and on prose appears unsolvable in this representation. Smaller than the goal, and a real result \u2014 most projects that fail here never learn which half was broken"
   }
 }

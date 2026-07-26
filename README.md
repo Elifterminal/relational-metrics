@@ -83,64 +83,64 @@ current. That check exists because both happened.
 | `EXP-045` | Does the hedge-channel hypothesis leave a trace in data already collected? | **Doesn't support Q-40.** If manufactured relations were noise, items with fewer relations should carry more signal: ρ = **−0.107, p = 0.565**; median split p = 0.212. Direction right, magnitude undetectable. Locked plan says **no commission on this basis**. Relation count is a crude proxy — stated as a limitation, not used as a rescue |
 | `EXP-046` | Is the signal BURIED in the prose annotations, or ABSENT from them? | **The signal is ABSENT, not buried. Q-40 is dead.** Exhaustive subset search over query relations: observed **+0.0787** against a label-permuted null of **+0.0932** — the observed value is *below* chance, p = 0.771. Subset selection genuinely works (strict subset chosen on 21/30) and cannot help. The locked plan carried a **commitment** to report this dead rather than propose a variant; honoured |
 
-### What currently survives
+### What this project established
 
-*Present tense, generated from `manifest.json`. The table above is the history; this is the state.*
+*Consolidated after 43 experiments, generated from `manifest.json`. Sorted by what each claim RESTS ON — six come from exhaustive computation with no annotation involved; three depend on hand annotation, which this project spent a day showing was biased and is the bottleneck.*
 
 **ACTIVE WITHIN TESTED SCOPE**
 
-- **Higher-order dependence can exist that no pairwise view contains, and it is detectable.** · rung 2  
+- **Higher-order dependence can exist that no pairwise view contains, and it is detectable.** · rung 2 · *rests on: computation*  
   *scope*: small discrete Boolean configurations, exhaustively enumerated  
   *evidence*: `EXP-002`, `EXP-011`, `EXP-012`
-- **Connected information locates the order at which dependence appears.** · rung 2  
+- **Connected information locates the order at which dependence appears.** · rung 2 · *rests on: computation*  
   *scope*: k<=4 discrete variables; requires an outcome-permutation calibration to be an answer  
   *evidence*: `EXP-011`, `EXP-012`
-- **Structural correspondence cannot distinguish cases whose representations are isomorphic — a general limit, not a defect of this measure.** · rung 3  
-  *scope*: representation-relative non-identifiability (EXP-031). Proved by witness pair for: analogue vs vacuous restatement, participant vs mediator, strong vs negligible coupling, delay-driven behaviour, asserted vs observed. Level 1 in the three-level hierarchy — no stronger observer or algorithm helps. Distinct from the Ugly Duckling / observer-relative shape of C-02 and P-01  
+- **Structural correspondence cannot distinguish cases whose representations are isomorphic — a general limit, not a defect of this measure.** · rung 3 · *rests on: theorem (instances were annotation)*  
+  *scope*: THE THEOREM is mathematics and stands alone: isomorphic structures receive equal values from every isomorphism-invariant measure. ITS ORIGINAL INSTANCES did not — EXP-027 claimed an outside author wrote vacuous documents isomorphic to the query, and EXP-035 showed I annotated them into that state (4/4 sighted, 2/4 blind). Generalised into a pre-test (EXP-031) that found three dead ends and one vacuous control. Both facts belong in the record  
   *evidence*: `EXP-026`, `EXP-027`, `EXP-029`, `EXP-031`
-- **Retention obeys an exact closed form: 1 - influence(hidden)/H(outcome).** · rung 2  
+- **Retention obeys an exact closed form: 1 - influence(hidden)/H(outcome).** · rung 2 · *rests on: computation*  
   *scope*: verified to 1e-16 over all 65,536 functions at k=4; a robustness law, NOT a measure of how participants jointly organise  
   *evidence*: `EXP-015`, `EXP-016`, `EXP-021`
-- **Relational structure is not reducible to a scalar, nor to a pair of profiles.** · rung 2  
+- **Relational structure is not reducible to a scalar, nor to a pair of profiles.** · rung 2 · *rests on: computation*  
   *scope*: at k=3 the two profiles suffice; at k=4 they do not. The complete invariant is one number per subset  
   *evidence*: `EXP-022`, `EXP-023`
-- **Canonicalising before measuring restores exact invariance under a DECLARED typed graph-homeomorphism relation, at no cost to capability.** · rung 2  
-  *scope*: subdivision and suppression of degree-2 vertices only. Exact (cost 0, 6/6 recovery); capability 3/3, 3/3, 4/4 including under subdivision. Rewrite terminating, idempotent, confluent. NOT converse or reification (Q-25). And the equivalence must be DECLARED — blind suppression damages 5/6 structures, because whether a vertex is representational is not decidable from structure  
+- **Canonicalising before measuring restores exact invariance under a DECLARED typed graph-homeomorphism relation, at no cost to capability.** · rung 2 · *rests on: computation + annotation*  
+  *scope*: subdivision and suppression of degree-2 vertices only. Exact (cost 0, 6/6 recovery); capability 3/3, 3/3, 4/4 including under subdivision. Rewrite terminating, idempotent, confluent. NOT converse or reification (Q-25). And the equivalence must be DECLARED — blind suppression damages 5/6 structures, because whether a vertex is representational is not decidable from structure. AUDIT NOTE: the invariance arm is computation (exact recovery, confluence over 24 orders); the 'no cost to capability' arm rests on hand-annotated corpora and inherits their limits  
   *evidence*: `EXP-029`
-- **The corpus results measure a real analogy-detection effect AND were inflated by annotation — both, now separably.** · rung 3  
+- **The corpus results measure a real analogy-detection effect AND were inflated by annotation — both, now separably.** · rung 3 · *rests on: hand annotation*  
   *scope*: SETTLED by EXP-039. An independent annotator with no stake recovers effect size 0.788 against my sighted 2.045, so there is a real effect and my sighted annotation inflated it ~2.6×. The answer was never one or the other. What remains unsettled is whether the effect is large enough to be useful — 9 motifs is fragile under leave-one-out  
   *evidence*: `EXP-030`, `EXP-032`, `EXP-033`, `EXP-039`
-- **The measure is invariant to unit conversion of relation weights.** · rung 2  
+- **The measure is invariant to unit conversion of relation weights.** · rung 2 · *rests on: computation*  
   *scope*: REPAIRED by EXP-034. Was vacuous — the measure did not read weights, so it could not fail the test. Weights now enter normalised by geometric mean, making rescaling invariant by construction while relative coupling is visible. The control now measures its own capacity to fail each run. Untested on data where weights actually vary (Q-33) — a capability, not yet a result  
   *evidence*: `EXP-031`, `EXP-034`
 
 **PROVISIONAL**
 
-- **MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.** · rung 3  
+- **MDL correspondence ranks a cross-domain analogue above a same-vocabulary false friend.** · rung 3 · *rests on: hand annotation*  
   *scope*: INDEPENDENTLY ANNOTATED (EXP-039): effect size 0.788, mean margin +0.165 bits, 95% CI excluding zero, both tests p<0.05 — but leave-one-act survives 3/9, so **fragile, not established** by the pre-locked rule. Sighted annotation inflates 2.6× (2.045 vs 0.788), confirmed from outside. Remaining exposure is SAMPLE SIZE not bias: 9 motifs where EXP-037 called for ~30 (Q-32). Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal on an external benchmark annotated blind, because that annotation carries none (EXP-030)  
   *evidence*: `EXP-024`, `EXP-025`, `EXP-026`, `EXP-027`, `EXP-028`, `EXP-029`, `EXP-030`, `EXP-032`, `EXP-033`, `EXP-036`, `EXP-037`, `EXP-038`, `EXP-039`
-- **The correspondence measure transfers to topologies it was not developed against.** · rung 2  
-  *scope*: 5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process  
+- **The correspondence measure transfers to topologies it was not developed against.** · rung 2 · *rests on: computation*  
+  *scope*: 5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process. One experiment, never repeated — the weakest active claim in the project  
   *evidence*: `EXP-005`
 
 **UNTESTED**
 
-- **Any of this reaches a claim about physical reality.**  
+- **Any of this reaches a claim about physical reality.** · *rests on: untested*  
   *scope*: unsupported and not currently testable. Prediction P6 says it will not, and P6 stands  
   *evidence*: —
 
 **DEMOTED / REPLACED**
 
-- **The higher-order remainder statistic measures synergy.**  
+- **The higher-order remainder statistic measures synergy.** · *rests on: computation*  
   *scope*: conflated synergy with redundancy; replaced by connected information (C-02)  
   *evidence*: `EXP-002`, `EXP-011`
 
 **REFUTED / RETRACTED**
 
-- **The measure is invariant to how the same process is legitimately re-encoded (mediator nodes, hyperedge vs factor node, subdivision, converse relations).**  
+- **The measure is invariant to how the same process is legitimately re-encoded (mediator nodes, hyperedge vs factor node, subdivision, converse relations).** · *rests on: computation*  
   *scope*: refuted. Content-preserving and content-changing transforms produce OVERLAPPING score ranges, and at matched size the measure returns identical values for a correct re-encoding and a corrupted one. Cause: the mapping space cannot match a relation to a path, and gains freedom as the target grows. Partially repaired by EXP-029 for the subdivision class via canonicalisation (C-12); converse and reification still unaddressed  
   *evidence*: `EXP-028`
-- **F-09 bridge value: discounting a match by genericness defends against the attractive-nonsense failure.**  
+- **F-09 bridge value: discounting a match by genericness defends against the attractive-nonsense failure.** · *rests on: hand annotation*  
   *scope*: refuted EMPIRICALLY, not by impossibility. EXP-027 argued the discount can never act because the structures are isomorphic; EXP-035 showed that isomorphism was largely annotator-supplied (4/4 sighted, 2/4 blind). Blind, the discount CAN act on 1/4 motifs — and helps on 0/4, making one motif worse. So: still refuted, on weaker grounds than published  
   *evidence*: `EXP-027`, `EXP-035`
 
