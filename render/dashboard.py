@@ -17,6 +17,14 @@ RESULTS = ROOT / "results"
 DESKTOP = Path("/home/lee/Desktop/RelationalMetrics")
 
 CSS = """
+.jump-card{border-left:4px solid var(--mut)}
+a.jump{display:block;padding:5px 8px;border-radius:4px;text-decoration:none;
+  color:var(--fg);font-size:13px;line-height:1.35}
+a.jump:hover{background:var(--bd)}
+a.jump b{display:inline-block;min-width:26px;color:var(--mut);font-weight:600}
+@media(min-width:700px){a.jump{display:inline-block;width:calc(50% - 6px);
+  vertical-align:top}}
+
 .survives-card{border-left:4px solid var(--ok);margin-bottom:18px}
 .survives-card h2{margin-top:0}
 table.survives{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}
@@ -2558,8 +2566,41 @@ document.querySelectorAll('.tab').forEach(function (t) {{
 </body></html>"""
 
 
+
+def _anchor_findings(html: str) -> tuple[str, str]:
+    """Give every Finding heading an id, and build a jump index.
+
+    Lee went looking for the latest results and could not find them: 37 findings,
+    the newest 90% down a 379 KB page. The log grew past the point where reading
+    it top to bottom is reasonable and nothing had been done about that.
+    """
+    import re as _re
+    items = []
+
+    def tag(m):
+        num, title = m.group(1), m.group(2)
+        items.append((num, title))
+        return f'<h2 id="f{num}">Finding {num} \u2014 {title}</h2>'
+
+    html = _re.sub(r'<h2>Finding (\d+) \u2014 (.*?)</h2>', tag, html)
+    if not items:
+        return html, ""
+    links = "".join(
+        f'<a class="jump" href="#f{n}"><b>{n}</b> {t}</a>' for n, t in reversed(items))
+    index = ('<div class="card jump-card"><h3 style="margin-top:0">Jump to a finding</h3>'
+             '<p class="sub" style="margin-bottom:10px">Newest first. The log runs in the '
+             'order things were discovered, so the most recent work is at the bottom.</p>'
+             + links + '</div>')
+    return html, index
+
+
 if __name__ == "__main__":
     DESKTOP.mkdir(parents=True, exist_ok=True)
     out = DESKTOP / "index.html"
-    out.write_text(build())
+    page, jump = _anchor_findings(build())
+    if jump:
+        # in front of the first finding, so the newest work is one click away
+        i = page.index("<h2 id=\"f")
+        page = page[:i] + jump + page[i:]
+    out.write_text(page)
     print(f"wrote {out}  ({out.stat().st_size // 1024} KB)")

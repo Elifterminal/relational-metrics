@@ -1,6 +1,14 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Relational Metrics — findings</title><style>
+.jump-card{border-left:4px solid var(--mut)}
+a.jump{display:block;padding:5px 8px;border-radius:4px;text-decoration:none;
+  color:var(--fg);font-size:13px;line-height:1.35}
+a.jump:hover{background:var(--bd)}
+a.jump b{display:inline-block;min-width:26px;color:var(--mut);font-weight:600}
+@media(min-width:700px){a.jump{display:inline-block;width:calc(50% - 6px);
+  vertical-align:top}}
+
 .survives-card{border-left:4px solid var(--ok);margin-bottom:18px}
 .survives-card h2{margin-top:0}
 table.survives{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}
@@ -243,7 +251,7 @@ organisation wearing completely different words. <b>C</b> and <b>D</b> must scor
 measure is reading vocabulary. <b>E</b> is the trap — identical to A except one edge, but that
 edge inverts what the system does.</p>
 
-<h2>Finding 1 — the penalty decides the ranking</h2>
+<div class="card jump-card"><h3 style="margin-top:0">Jump to a finding</h3><p class="sub" style="margin-bottom:10px">Newest first. The log runs in the order things were discovered, so the most recent work is at the bottom.</p><a class="jump" href="#f37"><b>37</b> someone else annotated it</a><a class="jump" href="#f36"><b>36</b> the same data, summarised competently</a><a class="jump" href="#f35"><b>35</b> the evidence wasn't weak, the summary was</a><a class="jump" href="#f34"><b>34</b> a control that didn't work, and the check I should have run first</a><a class="jump" href="#f33"><b>33</b> the one motif that inverted, and the edge that wasn't there</a><a class="jump" href="#f32"><b>32</b> the missing channel, and a control that can fail again</a><a class="jump" href="#f31"><b>31</b> the same test on the other two corpora, and two defects in the corpora themselves</a><a class="jump" href="#f30"><b>30</b> how much did knowing the answer help?</a><a class="jump" href="#f29"><b>29</b> the wall has a name, and it can be checked before you build</a><a class="jump" href="#f28"><b>28</b> a benchmark nobody here touched, and it moves the problem</a><a class="jump" href="#f27"><b>27</b> declare the equivalence, then measure through it</a><a class="jump" href="#f26"><b>26</b> the same process, written down differently</a><a class="jump" href="#f25"><b>25</b> a retraction, and a fix that cannot work</a><a class="jump" href="#f24"><b>24</b> a corpus nobody here wrote, and the oldest risk arrives as a measurement</a><a class="jump" href="#f23"><b>23</b> the fix, and the discipline that makes it mean something</a><a class="jump" href="#f22"><b>22</b> the search corpus, a real d_A, and the measure falls short</a><a class="jump" href="#f21"><b>21</b> does it work on shapes it was never built for?</a><a class="jump" href="#f20"><b>20</b> the search for a minimal summary, and why it fails</a><a class="jump" href="#f19"><b>19</b> the two instruments are enough, until they aren't</a><a class="jump" href="#f18"><b>18</b> what the predictive equation cannot see</a><a class="jump" href="#f17"><b>17</b> the census, and the bias measured rather than confessed</a><a class="jump" href="#f16"><b>16</b> the asymmetric families, and the bug they found immediately</a><a class="jump" href="#f15"><b>15</b> re-reporting properly, and a claim that does not survive it</a><a class="jump" href="#f14"><b>14</b> the reordering audit: it is the norm, not the exception</a><a class="jump" href="#f13"><b>13</b> the law under noise: it generalises, but stops being safe to rank with</a><a class="jump" href="#f12"><b>12</b> it survives at four variables, and there is a closed form</a><a class="jump" href="#f11"><b>11</b> the number was real. The evidence for it was not.</a><a class="jump" href="#f10"><b>10</b> the cliff is a gradient, and the last finding was over-stated</a><a class="jump" href="#f9"><b>9</b> what the observer actually chooses, and what it costs</a><a class="jump" href="#f8"><b>8</b> attacking the thing that worked, and what broke</a><a class="jump" href="#f7"><b>7</b> a replacement that works, found by reading instead of inventing</a><a class="jump" href="#f6"><b>6</b> the central claim demonstrated, and the statistic for it demoted</a><a class="jump" href="#f5"><b>5</b> a candidate for the blindness, and a correction to Finding 3</a><a class="jump" href="#f4"><b>4</b> the laboratory checks itself, and catches its own author</a><a class="jump" href="#f3"><b>3</b> neither measure knows which change matters</a><a class="jump" href="#f2"><b>2</b> description length removes the dial</a><a class="jump" href="#f1"><b>1</b> the penalty decides the ranking</a></div><h2 id="f1">Finding 1 — the penalty decides the ranking</h2>
 <p>The inherited formula divides match quality by a mapping-complexity penalty, scaled by a
 parameter η. That penalty charges for asserting that one thing corresponds to another across
 vocabularies. Which means it charges most for exactly the cross-domain analogy the theory
@@ -272,7 +280,7 @@ organisation — beats B. Nothing about the structures changed between those reg
 dial moved. Whoever sets η decides whether the system can see analogy at all, and 0.22 is not
 an exotic setting; it is the kind of number anyone would pick.</div>
 
-<h2>Finding 2 — description length removes the dial</h2>
+<h2 id="f2">Finding 2 — description length removes the dial</h2>
 <p>The replacement asks a different question: <i>does knowing A, plus a mapping, let me write
 the other structure down in fewer bits than writing it from scratch?</i> The complexity
 penalty stops being chosen and becomes the number of bits the mapping costs. Counted, not set.</p>
@@ -318,7 +326,7 @@ invariance testing — the thing I'd have reached for first — would never have
 Two independent failure modes; surviving one says nothing about the other. That's a lesson
 about the test suite, not about the formula.</div>
 
-<h2>Finding 3 — neither measure knows which change matters</h2>
+<h2 id="f3">Finding 3 — neither measure knows which change matters</h2>
 <p>A contains one feedback loop: <code>flow → erosion → capacity → flow</code>, all
 reinforcing. Flip any one of those three edges and the loop becomes self-limiting — the system
 stops running away and settles. Flip any of the other three and behaviour is untouched. So
@@ -361,7 +369,7 @@ counting. The blindness finding survives (five of six still score identically); 
 don't. Left visible rather than quietly fixed, because how the error happened matters more
 than the row it corrupted.</div>
 
-<h2>Finding 4 — the laboratory checks itself, and catches its own author</h2>
+<h2 id="f4">Finding 4 — the laboratory checks itself, and catches its own author</h2>
 <p>Before any of the above is allowed to count, the protocol requires proving the laboratory can
 catch a method that cheats. Seven deliberately fake measures were built — ones that read node
 names, count edges, compare densities and degree sequences, predict a constant, memorise the
@@ -419,7 +427,7 @@ the near-miss. The earlier experiment could not have found this: every condition
 size-matched, so the confound had been controlled away. A control that hides a defect is still
 a control doing its job — on the wrong variable.</div>
 
-<h2>Finding 5 — a candidate for the blindness, and a correction to Finding 3</h2>
+<h2 id="f5">Finding 5 — a candidate for the blindness, and a correction to Finding 3</h2>
 <p>If a measure can't see which change matters, maybe the information is there and nothing ever
 composed it. A relation type carries a polarity; compose polarities around a cycle and you get
 its sign — positive loops run away, negative loops settle. That's derived from the structure,
@@ -444,7 +452,7 @@ held-out traffic one — polarity travels with the relation type, not the vocabu
 structures agree about every reinforcing and self-limiting loop they contain despite sharing
 no words. Sign survives translation.</div>
 
-<h2>Finding 6 — the central claim demonstrated, and the statistic for it demoted</h2>
+<h2 id="f6">Finding 6 — the central claim demonstrated, and the statistic for it demoted</h2>
 <p>Everything above uses <b>arity 2</b>. So none of it touched the one claim that makes this
 project different from ordinary graph similarity: that some structure exists only in
 configurations of three or more participants and cannot be recovered from the pairs inside it.</p>
@@ -503,7 +511,7 @@ information decomposition exists. What's new here is only that it was measured a
 predeclared falsification condition rather than assumed away, and the formula is demoted
 accordingly.</p>
 
-<h2>Finding 7 — a replacement that works, found by reading instead of inventing</h2>
+<h2 id="f7">Finding 7 — a replacement that works, found by reading instead of inventing</h2>
 <p>The obvious replacement was <b>partial information decomposition</b>, which exists precisely
 because interaction information conflates synergy with redundancy. Reading it first turned out to
 matter: for <b>three or more sources, antichain-lattice PID is provably impossible</b>. The
@@ -559,7 +567,7 @@ reported it. Caught only because this measure separates orders and the number lo
 place it shouldn't. Fixed, both experiments re-run, everything else unchanged. Four instances now
 of the same error: asserting a property from how code reads rather than computing it.</div>
 
-<h2>Finding 8 — attacking the thing that worked, and what broke</h2>
+<h2 id="f8">Finding 8 — attacking the thing that worked, and what broke</h2>
 <p>F-04a passed its acceptance test on the first attempt, on worlds written by the same person who
 wrote the measure. That is a reason for suspicion, not confidence — it is the exact shape of a
 measure fitted to its own test. So the next step was to try to break it, including with one case
@@ -635,7 +643,7 @@ synergy together placed the redundant copy in a variable that was not in the tes
 tested nothing it claimed to. Caught by reading an output that disagreed with the intent — 0.0004
 where a full bit was planted. Fixed and re-run. The running count stands at five.</div>
 
-<h2>Finding 9 — what the observer actually chooses, and what it costs</h2>
+<h2 id="f9">Finding 9 — what the observer actually chooses, and what it costs</h2>
 <p>The last gap was that nothing in the mathematics says <i>what to condition on</i>. The
 temptation is to answer that philosophically. Instead: the observer makes three concrete choices,
 each can be varied while the world is held fixed, and if the answer moves then the size of the
@@ -707,7 +715,7 @@ cannot be defined without naming a question.</b> That is not a missing feature o
 to be engineered around. It is a property of the subject matter, and it is now measured from
 three independent directions rather than assumed.</div>
 
-<h2>Finding 10 — the cliff is a gradient, and the last finding was over-stated</h2>
+<h2 id="f10">Finding 10 — the cliff is a gradient, and the last finding was over-stated</h2>
 <p>Finding 9 concluded that partial observation erases higher-order structure, and turned that
 into a governing constraint on applications. But it was measured on <b>parity</b> — a function
 built so that no subset of its inputs carries any information whatsoever. That is the worst case
@@ -768,7 +776,7 @@ and 0.4996, suspiciously close to exactly half. Flagged rather than claimed. Fin
 one half <i>is</i> real — and that these four were not four, and two of them are not in that
 class at all.</div>
 
-<h2>Finding 11 — the number was real. The evidence for it was not.</h2>
+<h2 id="f11">Finding 11 — the number was real. The evidence for it was not.</h2>
 <p>The previous finding flagged a suspicious result: four structures all retaining almost exactly
 half. Flagged, not claimed. Testing it turned up something in both directions.</p>
 
@@ -837,7 +845,7 @@ what you stand to lose is predictable from the shape of what you are looking at,
 at four or more variables, for non-Boolean participants, or for non-uniform inputs. Three binary
 variables is a very small world, and the clean structure found here may be a property of it.</div>
 
-<h2>Finding 12 — it survives at four variables, and there is a closed form</h2>
+<h2 id="f12">Finding 12 — it survives at four variables, and there is a closed form</h2>
 <p>The obvious worry about the last finding was that seven neat values might be a property of a
 very small world. Four variables is 65,536 functions — still exhaustive, still exact.</p>
 
@@ -901,7 +909,7 @@ inputs, hiding exactly one participant, noiseless. Noise adds a term that does n
 is why AND drifted with noise in the previous finding. Non-Boolean participants, non-uniform
 inputs, and hiding several participants at once are all untested.</div>
 
-<h2>Finding 13 — the law under noise: it generalises, but stops being safe to rank with</h2>
+<h2 id="f13">Finding 13 — the law under noise: it generalises, but stops being safe to rank with</h2>
 <p>The previous finding stated plainly that its derivation assumed no noise, and that the noise
 term does not cancel. Carrying it through rather than dropping it gives</p>
 <p style="text-align:center"><code>retention<sub>e</sub> = 1 − Influence · (1 − h(e)) / (H<sub>e</sub> − h(e))</code></p>
@@ -957,7 +965,7 @@ are indicative. The existence of discordance is what matters and that is not sam
 <div class="read"><b>Quantisation is untouched.</b> Exactly seven distinct retention values at
 every noise level tested. The values move; the count does not.</div>
 
-<h2>Finding 14 — the reordering audit: it is the norm, not the exception</h2>
+<h2 id="f14">Finding 14 — the reordering audit: it is the norm, not the exception</h2>
 <p>Twice a parameter had changed the <i>order</i> of results rather than their size. Rather than
 meet it a third time by surprise, every nuisance parameter in the project was audited against one
 question: holding everything else fixed, does varying this change the ranking?</p>
@@ -1023,7 +1031,7 @@ being a lesson to rediscover and becomes part of the protocol.<br><br>Arity was 
 parameter that preserved order cleanly. That is worth knowing too: results can be carried between
 three and four participants without re-ranking.</div>
 
-<h2>Finding 15 — re-reporting properly, and a claim that does not survive it</h2>
+<h2 id="f15">Finding 15 — re-reporting properly, and a claim that does not survive it</h2>
 <p>The previous finding showed that best-case and worst-case retention rank structures
 anti-correlated. Every result here from Finding 10 onward summarised retention with a best case.
 The law is per-participant and exact, so the mathematics was never wrong — but every
@@ -1095,7 +1103,7 @@ would break it and check the test set contains one.</li>
 before understanding it.</li>
 </ol>
 
-<h2>Finding 16 — the asymmetric families, and the bug they found immediately</h2>
+<h2 id="f16">Finding 16 — the asymmetric families, and the bug they found immediately</h2>
 <p>Three corrections traced to a test set where every structure treated its participants
 identically. Adding families that don't was the outstanding fix. It paid for itself on the first
 run, in a way worth describing precisely.</p>
@@ -1151,7 +1159,7 @@ the previous worlds no matter how carefully anyone looked at them.<br><br>That i
 argument for the rule that this run of work has produced: a condition set does not merely fail to
 cover cases it omits — it can be <i>provably unable</i> to detect entire classes of error.</div>
 
-<h2>Finding 17 — the census, and the bias measured rather than confessed</h2>
+<h2 id="f17">Finding 17 — the census, and the bias measured rather than confessed</h2>
 <p>The asymmetric families were <i>chosen</i> to span a range, which is a sample with a taste in
 it. The systematic version indexes every Boolean function by its <b>influence profile</b> — the
 sorted list of how much each participant matters — because that, together with the outcome
@@ -1207,7 +1215,7 @@ build the test set by <b>enumerating the property you care about</b> — influen
 than by collecting examples. That is a rule with teeth, because it says <i>where</i> the examples
 must come from rather than merely asking for more of them.</div>
 
-<h2>Finding 18 — what the predictive equation cannot see</h2>
+<h2 id="f18">Finding 18 — what the predictive equation cannot see</h2>
 <p>The census so far measured how much each participant matters <i>on its own</i>. That is a
 first-order quantity, and the Fourier expansion of a Boolean function shows exactly how
 first-order it is: influence is a <b>marginal</b> of the full interaction structure —
@@ -1269,7 +1277,7 @@ per-participant importance and is blind to order. They are complementary blindne
 object, which suggests the honest instrument is the pair rather than either alone — and that a
 single scalar for "relational structure" was never going to exist.</div>
 
-<h2>Finding 19 — the two instruments are enough, until they aren't</h2>
+<h2 id="f19">Finding 19 — the two instruments are enough, until they aren't</h2>
 <p>The previous finding left the two measures with complementary blind spots and asked whether
 together they are sufficient. As originally posed the question is empty — you can always staple
 two things together. The version that can be answered is: <b>if two structures agree on both
@@ -1331,7 +1339,7 @@ sufficiency below it — which is a more useful result and not one that arguing 
 Second prediction of mine to fail in this run of work; both times the measured answer was more
 structured than the guess.</div>
 
-<h2>Finding 20 — the search for a minimal summary, and why it fails</h2>
+<h2 id="f20">Finding 20 — the search for a minimal summary, and why it fails</h2>
 <p>The previous finding left a gap: the pair of profiles is insufficient at four participants, and
 the full subset-indexed spectrum is sufficient but is 2<sup>k</sup> numbers. What sits between?</p>
 
@@ -1394,7 +1402,7 @@ structure resists compression harder than the tidy arc of the last few findings 
 law, the profiles, and the census were each real, and none of them adds up to a description of a
 configuration.</div>
 
-<h2>Finding 21 — does it work on shapes it was never built for?</h2>
+<h2 id="f21">Finding 21 — does it work on shapes it was never built for?</h2>
 <p>Every result about the correspondence measure so far rested on one structure family: the
 reinforcing-channel motif it was developed against. A measure tested only on the worlds it was
 built for may have learned those worlds, and every application downstream inherits that doubt.
@@ -1448,7 +1456,7 @@ container now asserts that a structure's declared size equals its distinct-relat
 every experiment checks it before running. The generator was fixed to match. Re-run:
 <b>5 of 5, graded ordering everywhere.</b></div>
 
-<h2>Finding 22 — the search corpus, a real d_A, and the measure falls short</h2>
+<h2 id="f22">Finding 22 — the search corpus, a real d_A, and the measure falls short</h2>
 <p>Two pieces of infrastructure the project has been blocked on since day one, and the first test
 that puts the measure in front of something resembling an application.</p>
 
@@ -1523,7 +1531,7 @@ until this corpus passes is a fix fitted to three motifs. It needs a held-out co
 before the change lands. Publishing the failure and the diagnosis is the honest state; publishing
 a same-day fix that makes the number go green would not be.</div>
 
-<h2>Finding 23 — the fix, and the discipline that makes it mean something</h2>
+<h2 id="f23">Finding 23 — the fix, and the discipline that makes it mean something</h2>
 <p>The previous finding diagnosed the shortfall precisely and stopped there, because the corpus
 that produced the diagnosis could not also test the cure. The order this was done in is the whole
 result:</p>
@@ -1591,7 +1599,7 @@ experiment finally removed from both places it lived. That is a real result and 
 eighteen hand-annotated documents, six motifs total, no automatic extraction, no natural text.
 The next honest step is a corpus nobody involved in this wrote.</div>
 
-<h2>Finding 24 — a corpus nobody here wrote, and the oldest risk arrives as a measurement</h2>
+<h2 id="f24">Finding 24 — a corpus nobody here wrote, and the oldest risk arrives as a measurement</h2>
 <p>Both previous corpora were written by the same party as the measure, so annotation bias was
 untested and was named as the largest remaining doubt. This one was commissioned from a separate
 system given only a format specification — no description of what was being tested, no mention of
@@ -1657,7 +1665,7 @@ gets backwards. It cannot claim to produce a usable ranking, because a vacuous d
 happens to share the query's shape will sit near the top and nothing in the measure objects.</div>
 
 
-<h2>Finding 25 — a retraction, and a fix that cannot work</h2>
+<h2 id="f25">Finding 25 — a retraction, and a fix that cannot work</h2>
 <p>Two results. The retraction comes first because it is against a claim published on this page.</p>
 <div class="fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-label="Retraction and refutation">
 <style>
@@ -1740,7 +1748,7 @@ ground truth was the author's own. It changes no published claim; the analogue-o
 result holds in that motif regardless.</div>
 
 
-<h2>Finding 26 — the same process, written down differently</h2>
+<h2 id="f26">Finding 26 — the same process, written down differently</h2>
 <p>Every invariance shown so far is about <i>vocabulary</i> — what the participants are called — and
 <i>labels</i> — which node is which. Nobody had asked whether the measure survives a change of
 <b>representation</b>: the same process written down a different but equally legitimate way. A
@@ -1811,7 +1819,7 @@ priced by length. Taking the first — it's the smaller change, and the second w
 search space that caused this.</div>
 
 
-<h2>Finding 27 — declare the equivalence, then measure through it</h2>
+<h2 id="f27">Finding 27 — declare the equivalence, then measure through it</h2>
 <p>The previous finding left the measure unable to tell "written differently" from "says something
 different." The problem has a name in graph theory — <b>homeomorphism</b>, equivalence under
 subdividing an edge and suppressing the vertex it created — and two standard routes. Either let one
@@ -1887,7 +1895,7 @@ That is now twice this project has hit the same wall from different directions, 
 to look like the actual subject matter rather than a series of accidents.</div>
 
 
-<h2>Finding 28 — a benchmark nobody here touched, and it moves the problem</h2>
+<h2 id="f28">Finding 28 — a benchmark nobody here touched, and it moves the problem</h2>
 <p>Every corpus so far had this project supplying the annotations, and usually the ground truth too.
 This one is published, licensed, and made by other people: 254 items in exactly this design — a
 short narrative, a genuine cross-domain analogue, and a deliberately surface-similar distractor —
@@ -1967,7 +1975,7 @@ independent corpus did — and I built the expensive one first, because it was t
 of.</b> Running it next, before spending the forty sealed items.</div>
 
 
-<h2>Finding 29 — the wall has a name, and it can be checked before you build</h2>
+<h2 id="f29">Finding 29 — the wall has a name, and it can be checked before you build</h2>
 <p>Twice now this project has discovered, by failing, that a distinction it wanted simply wasn't in
 its representation: the vacuous document that's structurally identical to a real analogue, and the
 vertex that might be a real participant or might be bookkeeping. Both were written up as surprises.
@@ -2045,7 +2053,7 @@ finding a pair is a proof, failing to find one is not. Two experiments were spen
 expensive way; the cheap version took an afternoon and found three more.</div>
 
 
-<h2>Finding 30 — how much did knowing the answer help?</h2>
+<h2 id="f30">Finding 30 — how much did knowing the answer help?</h2>
 <p>The previous finding raised a worry I couldn't dismiss: every corpus in this project was turned
 into structures by someone who <i>knew</i> which document was the paraphrase, which was the genuine
 analogue, and which was the decoy. An earlier test checked that my <i>ranking</i> wasn't biased. None
@@ -2110,7 +2118,7 @@ need separating: my blind annotation of it is poor, or that motif's analogue was
 entirely by sighted annotation and never had structure of its own.</div>
 
 
-<h2>Finding 31 — the same test on the other two corpora, and two defects in the corpora themselves</h2>
+<h2 id="f31">Finding 31 — the same test on the other two corpora, and two defects in the corpora themselves</h2>
 <p>One corpus at four motifs is thin evidence for restating a claim, so the blind protocol was
 repeated on the other two — pooled and shuffled together, so I couldn't tell which corpus a
 description came from either.</p>
@@ -2178,7 +2186,7 @@ of possible outcomes was mapped properly first. A result that lands outside ever
 evidence the buckets were wrong, not a result to be rounded to the nearest one.</div>
 
 
-<h2>Finding 32 — the missing channel, and a control that can fail again</h2>
+<h2 id="f32">Finding 32 — the missing channel, and a control that can fail again</h2>
 <p>The previous finding turned up something awkward: the measure never looked at how <i>strong</i> a
 relation was. Every structure carries a weight on every link, and the comparison threw them all away
 — so a thousandfold difference in coupling was invisible. Worse, the very first experiment had been
@@ -2235,7 +2243,7 @@ and shouldn't be described as more than that until there's a corpus where coupli
 carries information.</div>
 
 
-<h2>Finding 33 — the one motif that inverted, and the edge that wasn't there</h2>
+<h2 id="f33">Finding 33 — the one motif that inverted, and the edge that wasn't there</h2>
 <p>The blind re-annotation left exactly one clean failure: a motif where hiding the roles flipped the
 result completely, with the vacuous and unrelated documents beating everything. Two possible
 explanations were on the table — my blind annotation of it was simply poor, or its genuine analogue
@@ -2288,7 +2296,7 @@ answer inside its input — and the total absence of signal when a genuinely ext
 annotated blind is what that looks like once the help is withdrawn.</div>
 
 
-<h2>Finding 34 — a control that didn't work, and the check I should have run first</h2>
+<h2 id="f34">Finding 34 — a control that didn't work, and the check I should have run first</h2>
 <p>Two results here. The control I built failed, and while writing that up I ran a test that should
 have run two findings ago — and it changes how the whole record reads.</p>
 
@@ -2335,7 +2343,7 @@ out how many motifs would be needed to detect the effect actually being claimed,
 number — because at ten, the design can only ever confirm, never measure.</div>
 
 
-<h2>Finding 35 — the evidence wasn't weak, the summary was</h2>
+<h2 id="f35">Finding 35 — the evidence wasn't weak, the summary was</h2>
 <p>The previous finding established that our blind results can't be told apart from chance. Before
 building a bigger corpus, the obvious question: how big would it have to be?</p>
 
@@ -2372,7 +2380,7 @@ case, and then reporting that the evidence was weak.<br><br><b>The evidence wasn
 was.</b> Whatever discipline you hold the thing you're studying to, hold the ruler to it as well.</div>
 
 
-<h2>Finding 36 — the same data, summarised competently</h2>
+<h2 id="f36">Finding 36 — the same data, summarised competently</h2>
 <p>The previous finding said this project had no significant evidence for its retrieval claim once
 the annotator couldn't see the answers. Then the power analysis showed the test was throwing away the
 margin — the amount by which each comparison is won — and keeping only the yes/no.</p>
@@ -2420,7 +2428,7 @@ test, the statistic, the threshold and the failure condition can all be written 
 annotations exist. Free now, impossible later.</div>
 
 
-<h2>Finding 37 — someone else annotated it</h2>
+<h2 id="f37">Finding 37 — someone else annotated it</h2>
 <p>Every retrieval result in this project has rested on structures I wrote down myself, and the last
 several findings have been about how much that helped. This is the first result that doesn't.</p>
 <p>A second system was given a format specification, told nothing about what the annotations were
