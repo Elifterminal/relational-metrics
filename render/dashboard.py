@@ -670,13 +670,69 @@ time", and a geometry-first neural framework built on top of both. Every line in
 honesty tag — <i>assembled from known parts</i>, <i>borrowed as-is</i>, or <i>genuinely ours</i> —
 which is a discipline I recognise and respect.</p>
 
-<h3>Step two: I restated it before evaluating it</h3>
-<div class="read"><b>Before any comparison, screen or test, I wrote down what I understand her work
-to claim, in my own words, and sent it back to be checked.</b> Misreading a collaborator's work and
-then testing my misreading is the quietest way this could go wrong — it would produce confident
-results about something nobody built.<br><br>
-That restatement is now awaiting a correction from Vanta or Flouk. <b>Nothing downstream starts until
-it comes back.</b></div>
+<h3>Step two, revised: verified rather than restated</h3>
+<div class="read warn"><b>I over-applied a protocol, and Lee caught it.</b> The original step was
+"restate her work and have her check it before evaluating" — imported from an earlier lesson where the
+risk was misreading <i>documents</i>, which are only checkable against their author.<br><br>
+<b>Equations aren't like that. They're self-verifying.</b> If I've misread a formula, I find out by
+implementing it and testing whether it behaves as claimed — which is stronger evidence than someone
+confirming my prose summary, because it checks the object rather than my description of it. And the
+original step restated her project's <i>purpose</i>, which is irrelevant to whether her mathematics
+informs ours.<br><br>
+Recorded as a methodology change rather than quietly edited. It's the same error as keeping a control
+because it has always been there rather than because it works.</div>
+
+<h3>So I implemented her mathematics and tested it</h3>
+<p>From the equation sheet only, no access to her code.</p>
+<div class="read ok"><b>Every claim that is checkable in closed form, checks out.</b> The square root
+of a distribution lands on the unit sphere to machine precision. Her four metric grounds satisfy the
+triangle inequality across 60,000 trials; the fifth, which she explicitly labels a <i>divergence</i>
+rather than a metric, fails it — exactly as labelled. Her rotation-invariance theorem holds exactly,
+<b>including her exclusion of the one ground it doesn't apply to</b>. Her retired distance really is
+gameable by padding, demonstrably. <br><br>
+Her central theorem reports slopes of 1.0 and 1.9. I measured 1.0 and 1.6 — and rather than report a
+disagreement, checked why. Her theorem holds asymptotically, so the exponent should climb as the
+window narrows. It does: <b>1.999</b>. Her theorem is exactly right and my first measurement was taken
+over too wide a range.</div>
+<div class="read sub">Nothing here audits her novelty tags. Those are claims about provenance, not
+mathematics, and auditing them isn't our business — that would be the overcorrection failure this
+charter already names.</div>
+
+<h3>The screen that matters — and it disagrees with the surface questions</h3>
+<p>We have <i>proved</i> four distinctions our representation cannot carry. The sharp test is whether
+her mathematics supplies one.</p>
+<div class="read ok"><b>Timing — yes, and it is the entire axis of her work.</b> Her engine aligns
+signals in time; her second version quotients timing out and then measures it separately as its own
+number.<br><br>
+The other three — whether a node is real, where a claim came from, how specific it is — no.<br><br>
+<b>One of four, and it is the one with the most machinery behind it.</b> The surface questions said
+"different problem". The channel screen says otherwise, and the channel screen is the better test.</div>
+
+<h3>Her corrections, applied to our measure</h3>
+<div class="read warn"><b>First, an uncomfortable discovery about ours.</b> Our measure is not a
+distance at all. It doesn't return zero when comparing something with itself — it returns about 35 —
+and it's asymmetric by up to 11. Nobody had checked.</div>
+<div class="read ok"><b>Two of her constructions fix it.</b> Her debiasing (subtract half of each
+self-comparison) and her symmetrisation (average both directions) — neither of them ours. Applied
+together: <b>zero on self exactly, symmetric to 3.6e-15, non-negative, and zero triangle violations
+across 2,600 triples of real structures.</b> All four metric axioms hold.<br><br>
+Our measure was a directional compression cost. Her constructions make it behave as a metric.</div>
+<div class="read warn"><b>And it changes nothing empirically — which is the honest headline.</b>
+Re-running an earlier boundary result under both forms, the win rates track each other almost exactly
+at every level. Same boundary, same shape.<br><br>
+The charter asks whether the combination does something neither does alone. <b>For this piece: no,
+not yet.</b> It repairs a real defect at no empirical cost and no empirical gain. Any gain would show
+up where metric properties are load-bearing — and we haven't needed them.<br><br>
+<b>Reported as a repair, not a result.</b></div>
+
+<h3>What's actually promising, and is untested</h3>
+<div class="read"><b>Her time-alignment, with our structural comparison plugged in as the ground</b>,
+over a <i>sequence</i> of structures. Each moment is a structure; comparing two evolving systems needs
+alignment in time (hers) and a distance between structures at aligned moments (ours).<br><br>
+That's exactly the pluggable shape her architecture is built around, and it addresses the one gap we
+proved we had. The prerequisite is now met: her first version needs no metric, so ours could always
+have plugged in — her second needs a metric base, which ours wasn't and now is.<br><br>
+<b>None of this has been tested. It's the next experiment, not a finding.</b></div>
 
 <h3>And her own test points at "different problem" — recorded early, on purpose</h3>
 <p>Vanta proposed three questions to settle whether the two bodies of work overlap. They're sharp, so
