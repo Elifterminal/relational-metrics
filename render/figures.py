@@ -1201,6 +1201,64 @@ def fig_transfer(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 23 — the corpus test, and where the measure loses
+# ---------------------------------------------------------------------------
+
+def fig_corpus(data: dict) -> str:
+    W, H = 800, 400
+    L, R, T, B = 190, 150, 78, 58
+    pw, ph = W - L - R, H - T - B
+    ms = data["methods"]
+    names = list(ms)
+    motifs = list(next(iter(ms.values()))["by_motif"])
+    kinds = [("P", "#2563eb"), ("X", "#15803d"), ("W", "#dc2626"),
+             ("V", "#d97706"), ("U", "#94a3b8")]
+    kc = dict(kinds)
+
+    out = ['<text class="ttl" x="24" y="26">Does it retrieve the analogue, or the false friend?</text>',
+           '<text class="sub" x="24" y="45">Each row is one method on one query. Position is rank. '
+           'Green = the cross-domain analogue, red = the false friend.</text>']
+    ly = 62
+    for k, c in kinds:
+        lbl = {"P": "paraphrase", "X": "analogue", "W": "false friend",
+               "V": "generic", "U": "unrelated"}[k]
+        out.append(f'<rect x="{24 + (kinds.index((k,c)))*150}" y="{ly-9}" width="11" '
+                   f'height="10" fill="{c}" rx="2"/>')
+        out.append(f'<text class="sub" x="{40 + (kinds.index((k,c)))*150}" y="{ly}">'
+                   f'{esc(k)} {esc(lbl)}</text>')
+
+    rows = [(n, mo) for n in names for mo in motifs]
+    bh = ph / len(rows)
+    cw = pw / 5
+    for i, (n, mo) in enumerate(rows):
+        v = ms[n]["by_motif"][mo]
+        y = T + i * bh
+        imp = ms[n]["is_impostor"]
+        out.append(f'<text class="lbl" x="{L-12}" y="{y+bh/2+4:.1f}" text-anchor="end" '
+                   f'fill="{"var(--mut)" if imp else "var(--fg)"}">'
+                   f'{esc(n.split(" (")[0])} · {esc(mo)}</text>')
+        for j, k in enumerate(v["ranking"]):
+            x = L + j * cw
+            out.append(f'<rect x="{x+2:.1f}" y="{y+bh*0.2:.1f}" width="{cw-6:.1f}" '
+                       f'height="{bh*0.6:.1f}" fill="{kc[k]}" rx="2" '
+                       f'opacity="{0.95 if k in ("X","W") else 0.4}"/>')
+            out.append(f'<text x="{x+cw/2:.1f}" y="{y+bh/2+4:.1f}" text-anchor="middle" '
+                       f'fill="#fff" font-size="11" font-family="sans-serif">{esc(k)}</text>')
+        ok = v["analogue_beats_false_friend"]
+        out.append(f'<text class="tick" x="{L+pw+10}" y="{y+bh/2+4:.1f}" '
+                   f'fill="{"#15803d" if ok else "#dc2626"}">'
+                   f'{"X &gt; W" if ok else "X &lt; W"}</text>')
+
+    out.append(f'<text class="sub" x="24" y="{H-26}">'
+               'The measure gets 2 of 3 — the best of the four, and the only one above chance. '
+               'Word overlap puts the false friend FIRST every time,</text>')
+    out.append(f'<text class="sub" x="24" y="{H-12}">'
+               'which is the baseline this project exists to beat. But 2 of 3 is not the claim, '
+               'and the claim was the point.</text>')
+    return svg(W, H, "".join(out), "Corpus retrieval test")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1281,6 +1339,7 @@ def main() -> None:
     e22 = json.loads((RESULTS / "exp022.json").read_text())
     e23 = json.loads((RESULTS / "exp023.json").read_text())
     e05 = json.loads((RESULTS / "exp005.json").read_text())
+    e24 = json.loads((RESULTS / "exp024.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1310,6 +1369,7 @@ def main() -> None:
         "fig20_complete.svg": fig_complete(e22),
         "fig21_minimal.svg": fig_minimal(e23),
         "fig22_transfer.svg": fig_transfer(e05),
+        "fig23_corpus.svg": fig_corpus(e24),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

@@ -51,6 +51,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-022` | Are the two instruments *together* enough? | **At three participants yes, at four no.** The complete invariant is one number per subset — so "no single score" turns out to describe the subject matter |
 | `EXP-023` | Is there a compact summary that *is* enough? | **No.** Best candidate leaves 2 collisions in 222. And a 16-number summary distinguishes 8 structures where a 20-number one distinguishes 217 |
 | `EXP-005` | Does the correspondence measure work on shapes it wasn't built for? | **Yes, 5/5** — including an acyclic topology and an undesigned one. Making the test harder first exposed an unchecked container invariant |
+| `EXP-024` | Search corpus + a real `d_A`. Does it retrieve? | **2 of 3 — best of four methods, short of the claim.** Loses by 0.0022 because it still charges the analogue for using a different domain's relation vocabulary |
 
 ### The findings worth your time
 
@@ -228,6 +229,28 @@ the structure reported six relations and had five. **Nothing had checked that in
 twenty-three experiments**, because every earlier world was hand-built and hand-built worlds don't
 have parallel edges. The container now asserts it.
 
+**And on something resembling an application, it falls short.** A hand-annotated corpus — three
+structurally distinct motifs, six documents each, including a *false friend* that shares the
+query's entire vocabulary with different structure. The measure beats every baseline (word overlap
+puts the false friend **first** on every query) but gets **2 of 3** on the comparison that matters.
+
+The cause is exact: on the failing motif the analogue scores 1.8586 and the false friend 1.8608 —
+a margin of **0.0022**, entirely from mapping cost. The analogue pays for two relation-type
+substitutions because it uses a different domain's vocabulary for its relations, and is charged
+for saying so. **That is the same pathology that demoted the original formula**, fixed for
+participant labels (never encoded at all) and never fixed for relation-type labels. It survived
+twenty-four experiments and only surfaced when two structures came close enough for two bits to
+decide the answer.
+
+The fix is clear — encode relation types canonically, as participant labels already are — and is
+deliberately *not applied yet*: the corpus is now the development set, and a fix tuned until this
+corpus passes is a fix fitted to three motifs.
+
+`d_A` itself is a **vector over named failure modes**, each traceable to a principle that predates
+it — a real relation missing, a relation asserted too strongly, an analogy sold as a mechanism, a
+result at the wrong relational distance. Pareto dominance replaces a fabricated total, and where
+neither of two results dominates, saying they are incomparable beats inventing weights.
+
 ## Honest limits
 
 - Small worlds throughout: 5 participants, one motif family for the correspondence work, binary variables for the arity work. Arity 4 and above is untouched and the algebra gets worse there, not better.
@@ -262,6 +285,7 @@ python3 run_exp021.py      # interaction structure census -- what the law cannot
 python3 run_exp022.py      # are the two instruments together complete?
 python3 run_exp023.py      # is there a minimal sufficient summary? (no)
 python3 run_exp005.py      # cross-generator transfer -- does it work on unseen shapes?
+python3 run_exp024.py      # the search corpus, d_A, and does it actually retrieve?
 
 cd ../render
 python3 figures.py         # regenerate the SVGs
@@ -285,6 +309,8 @@ lab/
   asymworlds.py      families whose participants differ in importance
   fourier.py         Walsh-Fourier spectrum: interaction structure by order
   generators.py      five structurally distinct base topologies
+  corpus.py          the annotated search corpus -- 3 motifs, 18 documents
+  d_a.py             d_A: a vector over named failure modes
   hyperworlds.py     synthetic worlds with a KNOWN interaction order
   worlds.py          the condition set — A/B/C/D/E/F plus a held-out case
   impostors.py       seven deliberately cheating methods

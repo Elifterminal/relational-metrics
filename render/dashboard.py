@@ -333,6 +333,11 @@ def build() -> str:
     e22 = json.loads((RESULTS / "exp022.json").read_text())
     e23 = json.loads((RESULTS / "exp023.json").read_text())
     e05 = json.loads((RESULTS / "exp005.json").read_text())
+    e24 = json.loads((RESULTS / "exp024.json").read_text())
+    ret_rows = "".join(
+        f"<tr><td>{n}{' <i>(impostor)</i>' if r['is_impostor'] else ''}</td>"
+        f"<td><b>{r['analogue_beats_false_friend']}</b></td></tr>"
+        for n, r in e24["methods"].items())
     tr_rows = "".join(
         f"<tr><td>{n}</td><td>{r['scores']['B']:.4f}</td><td>{r['scores']['E']:.4f}</td>"
         f"<td>{r['scores']['C']:.4f}</td><td>{r['scores']['D']:.4f}</td>"
@@ -1372,6 +1377,64 @@ container now asserts that a structure's declared size equals its distinct-relat
 every experiment checks it before running. The generator was fixed to match. Re-run:
 <b>5 of 5, graded ordering everywhere.</b></div>
 
+<h2>Finding 22 — the search corpus, a real d_A, and the measure falls short</h2>
+<p>Two pieces of infrastructure the project has been blocked on since day one, and the first test
+that puts the measure in front of something resembling an application.</p>
+
+<h3>d_A, derived rather than invented</h3>
+<p>What blocked it was that the obvious answers are all ruled out by things this log has since
+measured. A <b>scalar</b> distance is out — relational structure is not a scalar. A <b>single
+summary over parts</b> is out — summarising a per-component quantity is a choice that can reverse
+a ranking. An <b>observer-free</b> distance is out — significance cannot be defined without naming
+a question.</p>
+<div class="read ok"><b>What remains is not a gap.</b> The components of d_A should be the ways a
+relational answer can be <i>wrong</i> — and this project already had that list, written as
+principles before any of it was measured: a real relation <b>missing</b>; a relation
+<b>asserted</b> too strongly; an analogy <b>sold as a mechanism</b>; a result placed at the wrong
+relational distance. So d_A is a <b>vector over named failure modes</b>, each traceable to a
+principle that predates it, and Pareto dominance replaces a fabricated total. Where neither of two
+results dominates, saying they are incomparable is more useful than inventing weights.</div>
+
+<h3>The corpus</h3>
+<p>Three structurally distinct motifs — a positive cycle, a negative cycle, an acyclic cascade —
+six hand-annotated documents each. For every motif: a paraphrase, a <b>cross-domain analogue</b>,
+a <b>false friend</b> that shares the query's entire vocabulary with different structure, a generic
+connector, and an unrelated control. Ground truth by construction. Relations are annotated by
+hand on purpose: testing an extractor and a measure at the same time makes every result
+uninterpretable.</p>
+
+<h3>The result</h3>
+<div class="fig">{figs['fig23_corpus.svg']}</div>
+<table><thead><tr><th>method</th><th>analogue beats false friend</th></tr></thead>
+<tbody>{ret_rows}</tbody></table>
+<div class="read warn"><b>The measure gets 2 of 3, and the claim was 3 of 3.</b> It is decisively
+the best of the four — word overlap puts the false friend <i>first</i> on every query, which is
+exactly the baseline this project exists to beat — but beating the baseline was never the claim.
+The claim was that a structural analogue outranks something that merely shares vocabulary, and on
+one motif in three it does not.</div>
+
+<h3>Why, exactly — and it is a familiar culprit</h3>
+<p>On the failing motif the analogue scores <b>1.8586</b> and the false friend <b>1.8608</b>. A
+margin of <b>0.0022</b>. Both match all four relations perfectly; the entire difference is the
+cost of the mapping — 15.75 bits against 13.58.</p>
+<div class="read warn"><b>The analogue pays for two relation-type substitutions and the false
+friend pays for one.</b> The analogue uses a different domain's vocabulary for its relations
+(<code>RAISES</code>/<code>LOWERS</code> against <code>POS</code>/<code>NEG</code>) and is charged
+for saying so.<br><br><b>That is the exact pathology that demoted the original correspondence
+formula</b> — charging for asserting correspondence across vocabularies, which penalises precisely
+the capability the theory exists to provide. It was fixed for <i>participant</i> labels, which are
+never encoded at all. It was never fixed for <i>relation-type</i> labels, and nobody re-examined
+that term. It survived twenty-four experiments and only became visible when the analogue and the
+false friend were close enough for two bits to decide the answer.</div>
+<p class="sub">A second contributor: the false friend collapsed to a single relation type, which
+makes it cheaper to describe — the alphabet-size artifact this log first noticed as a curiosity
+and has now seen three times.</p>
+<div class="read"><b>Not patching it yet.</b> The fix is clear — encode relation types canonically,
+as participant labels already are. But the corpus is now the development set, and a fix tuned
+until this corpus passes is a fix fitted to three motifs. It needs a held-out corpus written
+before the change lands. Publishing the failure and the diagnosis is the honest state; publishing
+a same-day fix that makes the number go green would not be.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1407,6 +1470,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>On something resembling an application, the measure falls short — and the
+culprit is a term nobody re-examined.</b> It beats every baseline on the search corpus but gets
+2 of 3 on the comparison that matters, losing by 0.0022 because it charges the cross-domain
+analogue for using a different domain's relation vocabulary. That is the same failure that
+demoted the original formula, fixed for participant labels and never for relation-type labels,
+surviving twenty-four experiments until two structures came close enough for two bits to decide
+it.</div>
 <div class="q"><b>The correspondence measure transfers — the n=1 doubt is discharged.</b> Graded
 ordering holds on five base topologies including an acyclic one and an undesigned one, stable
 across all three codes. Getting there required making the test harder, and the harder test
