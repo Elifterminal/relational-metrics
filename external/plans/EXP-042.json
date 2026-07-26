@@ -1,0 +1,26 @@
+{
+  "experiment": "EXP-042",
+  "question": "Can a fully automatic annotator read real narrative prose well enough for the comparison to work?",
+  "annotator": "lab/mechanical.py -- deterministic, rule-based. Satisfies S2-1 (it is not me), S2-2 (no floor, abstains: 0-4 relations with 7/60 empty on glosses), S2-3 (applied to real narratives).",
+  "data": {
+    "source": "ARN hard cell, items NOT among the 20 burned in EXP-030",
+    "sample": 30,
+    "sampling": "deterministic, seeded, drawn before annotation",
+    "burned_excluded": true
+  },
+  "statistic": "mean margin in bits = correspondence(query, correct) - correspondence(query, distractor), per item",
+  "tests": "two-sided one-sample t-test and two-sided Wilcoxon signed-rank against zero. BOTH must fall below 0.05 to count as supported, matching EXP-038 and EXP-039.",
+  "exclusion_rule": "an item is excluded if the query, the correct answer or the distractor annotates to zero relations. Count and report. Per the Stage 2 charter, if more than half are excluded the test did not run and no claim is made either way.",
+  "robustness": "leave-one-out on surviving items. Survival below half is reported as fragile regardless of headline p, per EXP-038.",
+  "falsification": [
+    "margin CI includes zero -> the mechanical annotator cannot read prose. Charter falsification 1.",
+    "more than half excluded -> the test did not run. Charter falsification 3.",
+    "significant but leave-one-out under half -> fragile, not established."
+  ],
+  "predictions": [
+    {"claim": "FAILURE. The margin confidence interval will include zero.", "confidence": "high", "reason": "the extractor manages 1.52 relations per sentence on one-line glosses engineered to be causal. ARN items are 300-400 character narratives with dialogue, time-jumps and implicit causation. I expect it to produce almost nothing usable."},
+    {"claim": "the exclusion rate will be high -- over a third of items dropped for an empty annotation somewhere", "confidence": "medium-high"},
+    {"claim": "if it somehow succeeds, that is the most surprising result in the project and I will re-check the pipeline for leakage before believing it", "confidence": "n/a"}
+  ],
+  "why_run_it_at_all": "It is fully automatic, costs nothing, and establishes the floor that any better annotator has to beat. A predicted failure that is actually run is worth more than an assumed one -- EXP-036's mechanical control failed and the failure itself was informative. And publishing a negative I predicted in advance is the cheapest possible demonstration that the lab still works."
+}
