@@ -42,6 +42,7 @@ A laboratory and four experiments. **Every result so far is a finding about meth
 | `EXP-013` | Is that erasure general? | **No — and it corrects the previous entry.** Parity vanishes at every arity; AND, OR, majority and threshold all keep ~half. A gradient, not a wall |
 | `EXP-014` | Is that "~half" real, or a coincidence? | **Both.** Exhaustive census of all 256 Boolean functions: retention is quantised to 7 values and 0.5 is a real class of 56. But the four measurements offered as evidence were two functions plus a noise artifact |
 | `EXP-015` | Does it survive at four variables? | **Yes, and it has a closed form.** `retention = 1 − influence(hidden) / H(outcome)`, verified to 1e-16. 21 distinct values across all 65,536 functions |
+| `EXP-016` | Does the law survive noise? | **The equation does; the ranking doesn't.** A general form is exact at every noise level, and balanced outcomes are exactly noise-invariant. But above ~5% noise the *order* of fragility changes |
 
 ### The findings worth your time
 
@@ -112,7 +113,12 @@ retention  =  1  −  Influence(hidden participant) / H(outcome)
 ```
 
 Verified against brute-force exact mutual information on every function at three variables and a
-spread sample at four: maximum error 1.1e-16. It explains the quantisation (both terms take
+spread sample at four: maximum error 1.1e-16. Under noise it generalises to
+`retention = 1 − Influence·(1−h(e)) / (H_e − h(e))`, also exact to ~1e-16 — and **balanced
+outcomes turn out to be exactly noise-invariant** (drift 0.00e+00), which is why some structures
+held steady across noise levels and others drifted. The catch: above about 5% noise the *ordering*
+of which structures are most fragile changes, so the clean-case law is not a safe proxy for
+ranking candidates in the field. It explains the quantisation (both terms take
 discrete values), why parity is the unique zero (it is the only function where every participant
 has maximal influence), why one half is a real class, and the anomalous 0.5401. Not a new
 mathematical result — which is the point. It is a bridge from this project's question to work
@@ -143,6 +149,7 @@ python3 run_exp010.py      # the observer's three choices, measured
 python3 run_exp013.py      # is the partial-observation cliff general?
 python3 run_exp014.py      # exhaustive census, all 256 functions of 3 variables
 python3 run_exp015.py      # k=4 census + the closed form, verified
+python3 run_exp016.py      # the law under noise, and where it stops being safe
 
 cd ../render
 python3 figures.py         # regenerate the SVGs

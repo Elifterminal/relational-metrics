@@ -324,6 +324,15 @@ def build() -> str:
     e13 = json.loads((RESULTS / "exp013.json").read_text())
     e14 = json.loads((RESULTS / "exp014.json").read_text())
     e15 = json.loads((RESULTS / "exp015.json").read_text())
+    e16 = json.loads((RESULTS / "exp016.json").read_text())
+    n16_rows = "".join(
+        f"<tr><td><code>{k}</code></td><td>{v['max_error_general_form']:.1e}</td>"
+        f"<td>{v['max_error_deterministic_form']:.4f}</td></tr>"
+        for k, v in e16["verification_k3"].items())
+    r16_rows = "".join(
+        f"<tr><td><code>{k}</code></td><td>{v['concordant']}</td>"
+        f"<td>{v['discordant']}</td><td>{v['tau_like']:.4f}</td></tr>"
+        for k, v in e16["rank_preservation_vs_noiseless"].items())
     k4_rows = "".join(
         f"<tr><td><b>{c['retention']:.6f}</b></td><td>{c['count']:,}</td></tr>"
         for c in e15["census_k4"]["top_classes"][:8])
@@ -918,6 +927,45 @@ inputs, hiding exactly one participant, noiseless. Noise adds a term that does n
 is why AND drifted with noise in the previous finding. Non-Boolean participants, non-uniform
 inputs, and hiding several participants at once are all untested.</div>
 
+<h2>Finding 13 — the law under noise: it generalises, but stops being safe to rank with</h2>
+<p>The previous finding stated plainly that its derivation assumed no noise, and that the noise
+term does not cancel. Carrying it through rather than dropping it gives</p>
+<p style="text-align:center"><code>retention<sub>e</sub> = 1 − Influence · (1 − h(e)) / (H<sub>e</sub> − h(e))</code></p>
+<p>which reduces to the deterministic form when the noise is zero.</p>
+<div class="fig">{figs['fig14_noise.svg']}</div>
+<table><thead><tr><th>noise</th><th>error, general form</th><th>error, deterministic form</th>
+</tr></thead><tbody>{n16_rows}</tbody></table>
+<div class="read ok"><b>The general form holds exactly.</b> Worst-case error against brute-force
+mutual information is ~10⁻¹⁶ at every noise level, across all 254 functions, and 4.4×10⁻¹⁶ on a
+spread sample at four variables. The deterministic form degrades steadily — 0.015 at 1% noise,
+0.089 at 20%, 0.109 at 40%. It was never claimed to survive noise; now the size of the failure
+is measured rather than assumed.</div>
+
+<h3>And it explains something that had been sitting unexplained for two findings</h3>
+<div class="read ok"><b>Balanced outcomes are <i>exactly</i> noise-invariant.</b> Maximum drift
+across every noise level tested: <b>0.00e+00</b>. Not small — zero. A balanced outcome stays
+balanced under symmetric noise, so its entropy remains 1, the noise terms cancel completely, and
+retention collapses to <code>1 − Influence</code> with no noise term at all. Unbalanced functions
+drift by up to 0.109.<br><br>That is why <code>majority</code> sat at exactly 0.5000 at every
+noise level while <code>AND</code> slid from 0.5401 to 0.4958. That asymmetry was observed two
+findings ago, used as evidence, and never understood. It now falls out of the algebra.</div>
+
+<h3>The part that is a genuine limit</h3>
+<table><thead><tr><th>noise</th><th>concordant pairs</th><th>discordant</th><th>rank agreement</th>
+</tr></thead><tbody>{r16_rows}</tbody></table>
+<div class="read warn"><b>Noise reorders which structures are most fragile.</b> At 1% noise the
+ordering is untouched. From 5% upward, discordant pairs appear and rank agreement drops to 0.938
+and stays there. So the deterministic law is <b>not a safe proxy for relative fragility once data
+is noisy</b> — and data is always noisy.<br><br>Practically: you cannot rank candidate structures
+by their clean-case retention and expect that ordering to hold in the field. The general form
+needs the actual noise level, and getting that wrong changes the answer's <i>order</i>, not just
+its magnitude. This is the same shape of failure as the very first finding in this log, where a
+free parameter reordered results — arriving from a completely different direction.</div>
+<p class="sub">Rank comparison is over a strided sample of pairs, not all of them, so the counts
+are indicative. The existence of discordance is what matters and that is not sample-dependent.</p>
+<div class="read"><b>Quantisation is untouched.</b> Exactly seven distinct retention values at
+every noise level tested. The values move; the count does not.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -953,6 +1001,13 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The predictive equation survives noise, with a caveat that bites.</b> The
+general form is exact at every noise level, and balanced outcomes turn out to be exactly
+noise-invariant — which retroactively explains an asymmetry the log had used as evidence without
+understanding. But noise <i>reorders</i> which structures are most fragile above about 5%, so the
+clean-case law cannot be used to rank candidates in the field. A free parameter reordering results
+was the very first failure this project found; it has now arrived a second time from an entirely
+different direction, which suggests it is a shape of error worth watching for by default.</div>
 <div class="q"><b>The project has its first equation that predicts rather than describes.</b>
 Retention = 1 − influence of the hidden participant / entropy of the outcome. Verified to 1e-16
 against brute force, exhaustive at two arities, and it explains every earlier retention number

@@ -1,0 +1,87 @@
+{
+  "experiment": "EXP-016",
+  "question": "does the retention law survive noise?",
+  "general_form": "retention_e = 1 - I_j(1-h(e)) / (H_e - h(e))",
+  "verification_k3": {
+    "0.00": {
+      "functions": 254,
+      "max_error_general_form": 1.1102230246251565e-16,
+      "max_error_deterministic_form": 0.0,
+      "general_form_holds": true
+    },
+    "0.01": {
+      "functions": 254,
+      "max_error_general_form": 2.220446049250313e-16,
+      "max_error_deterministic_form": 0.015399,
+      "general_form_holds": true
+    },
+    "0.05": {
+      "functions": 254,
+      "max_error_general_form": 2.220446049250313e-16,
+      "max_error_deterministic_form": 0.044229,
+      "general_form_holds": true
+    },
+    "0.10": {
+      "functions": 254,
+      "max_error_general_form": 2.220446049250313e-16,
+      "max_error_deterministic_form": 0.064921,
+      "general_form_holds": true
+    },
+    "0.20": {
+      "functions": 254,
+      "max_error_general_form": 8.326672684688674e-16,
+      "max_error_deterministic_form": 0.089101,
+      "general_form_holds": true
+    },
+    "0.40": {
+      "functions": 254,
+      "max_error_general_form": 5.551115123125783e-17,
+      "max_error_deterministic_form": 0.109327,
+      "general_form_holds": true
+    }
+  },
+  "verification_k4": {
+    "checks": 620,
+    "max_error": 4.440892098500626e-16,
+    "holds": true
+  },
+  "balanced_max_drift_across_noise": 0.0,
+  "unbalanced_max_drift_across_noise": 0.109327,
+  "balanced_are_noise_invariant": true,
+  "distinct_values_by_noise": {
+    "0.00": 7,
+    "0.01": 7,
+    "0.05": 7,
+    "0.10": 7,
+    "0.20": 7,
+    "0.40": 7
+  },
+  "rank_preservation_vs_noiseless": {
+    "0.01": {
+      "concordant": 2267,
+      "discordant": 0,
+      "tau_like": 1.0
+    },
+    "0.05": {
+      "concordant": 2197,
+      "discordant": 70,
+      "tau_like": 0.9382
+    },
+    "0.10": {
+      "concordant": 2197,
+      "discordant": 70,
+      "tau_like": 0.9382
+    },
+    "0.20": {
+      "concordant": 2197,
+      "discordant": 70,
+      "tau_like": 0.9382
+    },
+    "0.40": {
+      "concordant": 2197,
+      "discordant": 70,
+      "tau_like": 0.9382
+    }
+  },
+  "ranking_preserved": false
+}

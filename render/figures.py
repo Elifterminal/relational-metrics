@@ -688,6 +688,68 @@ def fig_k4(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 14 — the law under noise
+# ---------------------------------------------------------------------------
+
+def fig_noise(data: dict) -> str:
+    W, H = 800, 400
+    L, R, T, B = 70, 230, 62, 60
+    pw, ph = W - L - R, H - T - B
+    ver = data["verification_k3"]
+    noises = [float(k) for k in ver]
+    det_err = [ver[k]["max_error_deterministic_form"] for k in ver]
+    emax = max(det_err) * 1.15 or 1.0
+
+    def px(i): return L + (i / (len(noises) - 1)) * pw
+    def py(v): return T + ph - (v / emax) * ph
+
+    out = ['<text class="ttl" x="24" y="26">The deterministic law breaks under noise. The general one does not.</text>',
+           '<text class="sub" x="24" y="44">Worst-case error against brute-force exact mutual '
+           'information, across all 254 functions at each noise level.</text>']
+    for i in range(5):
+        v = i / 4 * emax
+        y = py(v)
+        out.append(f'<line class="ax" x1="{L}" y1="{y:.1f}" x2="{L+pw}" y2="{y:.1f}"/>')
+        out.append(f'<text class="tick" x="{L-9}" y="{y+4:.1f}" text-anchor="end">{v:.02f}</text>')
+    for i, e in enumerate(noises):
+        out.append(f'<text class="tick" x="{px(i):.1f}" y="{T+ph+18}" '
+                   f'text-anchor="middle">{e:.2f}</text>')
+    out.append(f'<text class="lbl" x="{L+pw/2:.0f}" y="{H-14}" text-anchor="middle">'
+               'noise level</text>')
+    out.append(f'<text class="lbl" transform="translate(22,{T+ph/2:.0f}) rotate(-90)" '
+               'text-anchor="middle">worst-case error</text>')
+
+    pts = " ".join(f"{px(i):.1f},{py(v):.1f}" for i, v in enumerate(det_err))
+    out.append(f'<polyline points="{pts}" fill="none" stroke="#dc2626" stroke-width="2.6"/>')
+    for i, v in enumerate(det_err):
+        out.append(f'<circle cx="{px(i):.1f}" cy="{py(v):.1f}" r="4" fill="#dc2626"/>')
+        if v > 0:
+            out.append(f'<text class="tick" x="{px(i):.1f}" y="{py(v)-11:.1f}" '
+                       f'text-anchor="middle" fill="#dc2626">{v:.3f}</text>')
+    out.append(f'<line x1="{L}" y1="{py(0):.1f}" x2="{L+pw}" y2="{py(0):.1f}" '
+               'stroke="#15803d" stroke-width="2.6"/>')
+    out.append(f'<text class="tick" x="{L+8}" y="{py(0)-8:.1f}" fill="#15803d">'
+               'general form — error ~1e-16 everywhere</text>')
+
+    ly = T + 8
+    for lbl in ["retention_e =",
+                "  1 - I(1-h(e)) / (H_e - h(e))", "",
+                "Balanced outcomes are",
+                "EXACTLY noise-invariant:",
+                "drift 0.00e+00. H_e stays 1,",
+                "the noise term cancels, and",
+                "retention = 1 - Influence.", "",
+                "That is why majority never",
+                "moved and AND did — an",
+                "observation that sat",
+                "unexplained for two",
+                "experiments."]:
+        out.append(f'<text class="sub" x="{L+pw+20}" y="{ly}">{esc(lbl)}</text>')
+        ly += 15
+    return svg(W, H, "".join(out), "The law under noise")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -759,6 +821,7 @@ def main() -> None:
     e13 = json.loads((RESULTS / "exp013.json").read_text())
     e14 = json.loads((RESULTS / "exp014.json").read_text())
     e15 = json.loads((RESULTS / "exp015.json").read_text())
+    e16 = json.loads((RESULTS / "exp016.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -779,6 +842,7 @@ def main() -> None:
         "fig11_gradient.svg": fig_gradient(e13),
         "fig12_census.svg": fig_census(e14),
         "fig13_k4.svg": fig_k4(e15),
+        "fig14_noise.svg": fig_noise(e16),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),
