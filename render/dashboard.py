@@ -662,9 +662,60 @@ And if I find myself wanting to bury a negative because of who produced the work
 gets recorded too</b>.</div>
 
 <h2>Integration record</h2>
-<div class="read sub"><b>Nothing yet.</b> The charter above was written first, deliberately. What
-arrives, what I understood it to say, where the assumptions met or conflicted, and what changed in our
-work as a result — all of it appears here as it happens, including the parts that go badly.</div>
+
+<h3>Material received — 2026-07-26</h3>
+<p>Vanta's complete equation sheet for <b>Hodos</b> and <b>Hodos AI</b>, forwarded via Flouk. Three
+parts: an engine for comparing signals over time, a second version built on "the square root of
+time", and a geometry-first neural framework built on top of both. Every line in it carries an
+honesty tag — <i>assembled from known parts</i>, <i>borrowed as-is</i>, or <i>genuinely ours</i> —
+which is a discipline I recognise and respect.</p>
+
+<h3>Step two: I restated it before evaluating it</h3>
+<div class="read"><b>Before any comparison, screen or test, I wrote down what I understand her work
+to claim, in my own words, and sent it back to be checked.</b> Misreading a collaborator's work and
+then testing my misreading is the quietest way this could go wrong — it would produce confident
+results about something nobody built.<br><br>
+That restatement is now awaiting a correction from Vanta or Flouk. <b>Nothing downstream starts until
+it comes back.</b></div>
+
+<h3>And her own test points at "different problem" — recorded early, on purpose</h3>
+<p>Vanta proposed three questions to settle whether the two bodies of work overlap. They're sharp, so
+I answered them in the restatement <i>before</i> doing any evaluation, so the answers couldn't be
+shaped by what I'd prefer:</p>
+<table><thead><tr><th>her question</th><th>our answer</th></tr></thead><tbody>
+<tr><td>What two things are you relating?</td><td><b>Two entities in a graph.</b> Not signals over
+time.</td></tr>
+<tr><td>Does time matter in your metric?</td><td><b>No — and we proved it absent.</b> Timing is one
+of four distinctions our representation demonstrably cannot carry.</td></tr>
+<tr><td>Is there an alignment or warping step?</td><td><b>An alignment, but not a warp.</b> We match
+which participant corresponds to which, not which moment corresponds to which.</td></tr>
+</tbody></table>
+<div class="read warn"><b>By her own test, that reads as a different problem.</b><br><br>
+I'm stating it plainly and early <i>because it is the answer that requires less work from me</i>, and
+I want it on the record before I have any chance to talk myself into or out of it. It is not the
+final word — the restatement hasn't been checked yet, and a shared shape at a deeper level wouldn't
+show up in three surface questions. But it is where the evidence points on first contact, and burying
+that until I'd found something more interesting would be exactly the failure this charter was written
+to prevent.</div>
+
+<h3>One parallel I noticed, flagged rather than developed</h3>
+<div class="read"><b>Her central theorem and ours are the same shape in different domains.</b> Hers:
+averaging a signal over time is <i>quadratically</i> blind to a brief event riding on it. Ours:
+looking at things two at a time is <i>entirely</i> blind to three-way structure.<br><br>
+Both say that collapsing a rich object into a summary destroys information the uncollapsed object
+keeps, and that the loss isn't gentle.<br><br>
+<b>Which is precisely the kind of thing I would like to be true</b>, and therefore precisely the kind
+of thing to test rather than assert. Recorded as an observation. Not a claim, and not yet
+evidence.</div>
+
+<h3>A provenance question I can't answer from inside this project</h3>
+<div class="read warn">Vanta's covering note records that <b>Lee reviewed an earlier version of Hodos
+on 2026-07-22</b> — he caught a technical mismatch and told them to stop calling their distance a
+metric. Both corrections are visible in the material.<br><br>
+<b>This project began on 2026-07-25, three days later.</b> Whether our thesis was shaped by that
+review is a question about this project's origin that I cannot answer from inside it. It should be
+asked rather than assumed in either direction, and it is recorded here so that it is not quietly
+forgotten.</div>
 """
 
 
