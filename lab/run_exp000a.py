@@ -122,7 +122,17 @@ def invariance_battery() -> dict:
     for name, var in variants.items():
         g = mdl_correspondence(A, var, DEFAULT_CODE).gain_bits
         k = tunable_K(A, var, 0.5).score
+        # EXP-031: `rescale` is VACUOUS for F-06a. mdl_correspondence compares
+        # edge_set(), which returns (src, dst, type) and drops `weight`, so no
+        # weight change can move it. Passing here is blindness, not invariance,
+        # and it has been published as invariance since this file first ran.
+        # It IS a real invariance for tunable_K, which reads weights and whose
+        # ratio cancels a constant factor.
+        vacuous = name == "rescale_x1000"
         results[name] = {
+            "vacuous_for_mdl": vacuous,
+            "vacuity_note": ("F-06a never reads relation weights, so this cannot "
+                             "fail -- see EXP-031") if vacuous else "",
             "mdl_gain_bits": round(g, 6),
             "mdl_delta": round(g - base_mdl, 9),
             "tunable_K_eta0.5": round(k, 6),

@@ -1843,6 +1843,67 @@ survives. <b>That control costs an afternoon and tests something more fundamenta
 independent corpus did — and I built the expensive one first, because it was the one I had thought
 of.</b> Running it next, before spending the forty sealed items.</div>
 
+
+<h2>Finding 29 — the wall has a name, and it can be checked before you build</h2>
+<p>Twice now this project has discovered, by failing, that a distinction it wanted simply wasn't in
+its representation: the vacuous document that's structurally identical to a real analogue, and the
+vertex that might be a real participant or might be bookkeeping. Both were written up as surprises.
+They are one thing, and the condition is a single line:</p>
+<div class="read"><b>A distinction is recoverable from a representation only if it is the same for
+every pair of items the representation treats as identical.</b> So the test is: find two cases that
+need <i>different</i> answers and whose structures are <i>the same</i>. One such pair — a
+<b>witness pair</b> — proves that no measure using only that representation can ever work. Not
+"hasn't yet". Cannot. No cleverer score, no better algorithm, no post-processing.<br><br>
+Database theory has been living with the useful half of this for decades under the name
+<b>genericity</b>: a query must give the same answer for structurally identical inputs, so it can't
+depend on arbitrary internal identifiers. That's normally a virtue. The cost is exactly what bit us.</div>
+<div class="fig">{figs['fig30_identifiability.svg']}</div>
+
+<h3>Three things I had wrong</h3>
+<div class="read warn"><b>I'd been saying similarity isn't definable on structures-up-to-isomorphism.
+That's backwards.</b> Every purely structural similarity is naturally defined there — that's what
+makes it structural. What isn't definable is a distinction that <i>varies between</i> two things the
+structure treats as identical. So the fix is not to abandon the abstraction and keep raw encodings,
+which would drag node names and other irrelevant junk back in. The fix is to put more into the
+represented object — roles, referents, specificity, provenance — and abstract <i>that</i>.<br><br>
+<b>And this isn't the "ugly duckling" result</b>, which I'd assumed it might be. That one says
+similarity needs you to decide which features matter, because counting all of them equally makes
+every pair equally similar. It's about choosing among available distinctions. Ours is about a
+distinction not being available. Interestingly, the project's <i>other</i> recurring result — that
+significance only exists once you name an outcome — is the ugly-duckling-shaped one. Two different
+obstacles that I'd been treating as one.</div>
+
+<h3>Turned into a test, it immediately found three more dead ends</h3>
+<p>The audit is only worth having if it predicts a failure nobody has paid for. It found three, and
+one of them settles a question that was queued for later: a difference between a reinforcing and a
+regulating system that comes from <i>timing</i> is invisible by construction, because there is
+nowhere in the representation to record what happened first. So a temporal extension is necessary
+rather than optional — established without building anything.</p>
+<div class="read"><b>The last row of the table is a control</b>, and it comes back
+<i>identifiable</i>. That matters: it's how you know the audit is capable of returning both answers.
+A test that can only give one result isn't a test — a rule this project learned the hard way and now
+applies to its own tests.</div>
+
+<h3>And it found something embarrassing in the very first experiment</h3>
+<div class="read warn" style="border-left-color:#dc2626"><b>The measure never reads relation
+strength.</b> Structures carry a weight on every relation; the comparison throws it away. Two
+structures whose coupling differs by a factor of a thousand score identically — the same number you
+get comparing a structure with itself. The <i>old</i> measure, the one that was demoted, did read
+weights. The replacement silently stopped, and nothing noticed because every weight in every corpus
+is 1.<br><br>
+<b>Worse: the first experiment's invariance battery has published "invariant to unit conversion"
+ever since, as evidence the measure ignores arbitrary scaling.</b> It cannot fail that test. It never
+looks at the quantity being changed. That's blindness reported as a virtue, sitting inside the
+control set built to catch exactly this kind of thing, for thirty experiments. The row is now marked
+vacuous rather than quietly deleted.</div>
+
+<h3>The rule, adopted</h3>
+<div class="read ok"><b>Before building a measure for a distinction, try to construct a witness
+pair.</b> If two items that need different answers have equivalent representations, stop — name the
+missing channel or narrow the claim, and don't write the measure. It works in one direction only:
+finding a pair is a proof, failing to find one is not. Two experiments were spent learning this the
+expensive way; the cheap version took an afternoon and found three more.</div>
+
 <h2>Where this leaves the theory</h2>
 <div class="q"><b>Q-06 — the penalty problem.</b> Narrowed, not closed, and the residual is now
 stated precisely rather than vaguely. The hazard is real and measured: η reorders results. A
@@ -1878,6 +1939,12 @@ literature rather than deriving it, and the reading is what revealed that the ob
 provably closed. The project's own vocabulary hides its connections to existing work, which is
 now a standing risk with a standing mitigation: before building a formula, find the established
 name of the problem.</div>
+<div class="q"><b>The recurring obstacle has a name, and it is now a pre-test rather than a
+discovery.</b> A distinction is recoverable only if it is constant across everything the
+representation treats as identical, so a single witness pair settles it in advance. Two failures were
+paid for before this was noticed; converting it into a test found three more dead ends and one
+vacuous control immediately. The proper response to hitting it is never a cleverer structural score —
+it is to declare the missing channel, or to narrow the claim.</div>
 <div class="q"><b>The hard part is not the measure — it is getting from text to structure.</b>
 On the first benchmark this project did not build, with every passage annotated blind, there is no
 signal. But the annotation carries no signal either, by a test written down in advance, so what

@@ -1657,6 +1657,60 @@ def fig_arn(e30: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Figure 30 — the expressivity boundary audit
+# ---------------------------------------------------------------------------
+
+def fig_identifiability(e31: dict) -> str:
+    rows = e31["audits"]
+    W = 800
+    H = 150 + len(rows) * 34 + 96
+    out = ['<text class="ttl" x="24" y="26">What the representation cannot tell apart — '
+           'tested in advance</text>',
+           '<text class="sub" x="24" y="45">A witness pair is two cases needing DIFFERENT answers '
+           'whose structures are the same. One such pair proves</text>',
+           '<text class="sub" x="24" y="61">no measure on that representation can ever work. '
+           'Not "has not yet" — cannot.</text>']
+
+    y = 92
+    out.append(f'<text class="lbl" x="24" y="{y}">distinction wanted</text>')
+    out.append(f'<text class="lbl" x="480" y="{y}">verdict</text>')
+    out.append(f'<text class="lbl" x="620" y="{y}">channel it would need</text>')
+    y += 10
+    for r in rows:
+        y += 34
+        bad = not r["identifiable_from_structure"]
+        col = "#dc2626" if bad else "#15803d"
+        out.append(f'<rect x="24" y="{y-16}" width="{W-48}" height="28" '
+                   f'fill="{col}" opacity="0.07" rx="3"/>')
+        label = r["distinction"]
+        if len(label) > 54:
+            label = label[:52] + "…"
+        out.append(f'<text class="tick" x="34" y="{y+3}">{esc(label)}</text>')
+        out.append(f'<text class="tick" x="480" y="{y+3}" fill="{col}" '
+                   f'font-weight="600">{"NOT IDENTIFIABLE" if bad else "identifiable"}</text>')
+        ch = r["required_channel"]
+        if len(ch) > 26:
+            ch = ch[:24] + "…"
+        out.append(f'<text class="tick" x="620" y="{y+3}" fill="var(--mut)">{esc(ch)}</text>')
+
+    y += 40
+    out.append(f'<text class="sub" x="24" y="{y}">'
+               f'{e31["n_not_identifiable"]} of {e31["n_audited"]} are provably outside the '
+               'current representation. The last row is a CONTROL — it comes back</text>')
+    out.append(f'<text class="sub" x="24" y="{y+15}">'
+               'identifiable, which is how you know the audit can return both answers. '
+               'A test with only one possible result is not a test.</text>')
+    wc = e31["weight_blindness_check"]
+    out.append(f'<text class="sub" x="24" y="{y+37}" fill="#dc2626">'
+               f'Found by this audit, unpaid for: coupling strength differing 1000x scores '
+               f'{wc["corr(weak, strong)"]:.4f} — identical to comparing a structure with itself.</text>')
+    out.append(f'<text class="sub" x="24" y="{y+52}" fill="#d97706">'
+               'The very first experiment has published "invariant to unit conversion" ever since. '
+               'It cannot fail: the measure never reads weights.</text>')
+    return svg(W, H, "".join(out), "Expressivity boundary audit")
+
+
+# ---------------------------------------------------------------------------
 # Figure 4 — the five conditions as motifs
 # ---------------------------------------------------------------------------
 
@@ -1744,6 +1798,7 @@ def main() -> None:
     e28 = json.loads((RESULTS / "exp028.json").read_text())
     e29 = json.loads((RESULTS / "exp029.json").read_text())
     e30 = json.loads((RESULTS / "exp030.json").read_text())
+    e31 = json.loads((RESULTS / "exp031.json").read_text())
 
     figs = {
         "fig1_eta_curves.svg": fig_eta_curves(a),
@@ -1780,6 +1835,7 @@ def main() -> None:
         "fig27_reencoding.svg": fig_reencoding(e28),
         "fig28_canonical.svg": fig_canonical(e29),
         "fig29_arn.svg": fig_arn(e30),
+        "fig30_identifiability.svg": fig_identifiability(e31),
         "fig6_superset.svg": fig_motifs([
             ("F", F, "superset distractor — contains all of A"),
             ("B2", B2, "held-out analogue, third vocabulary"),

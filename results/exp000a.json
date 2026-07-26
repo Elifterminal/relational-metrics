@@ -479,40 +479,40 @@
       "gamma": {
         "scores": {
           "B": {
-            "gain_bits": 26.786,
+            "gain_bits": 27.956,
             "baseline_bits": 46.863,
-            "mapping_bits": 18.077,
+            "mapping_bits": 16.907,
             "conditional_bits": 2.0,
             "matched": 6,
             "of": 6,
-            "ranking_key": 26.786322
+            "ranking_key": 27.956247
           },
           "C": {
-            "gain_bits": 12.762,
+            "gain_bits": 8.762,
             "baseline_bits": 46.863,
-            "mapping_bits": 12.907,
+            "mapping_bits": 16.907,
             "conditional_bits": 21.195,
             "matched": 4,
             "of": 6,
-            "ranking_key": 12.761644
+            "ranking_key": 8.761644
           },
           "D": {
-            "gain_bits": 2.703,
+            "gain_bits": -1.297,
             "baseline_bits": 46.863,
-            "mapping_bits": 12.907,
+            "mapping_bits": 16.907,
             "conditional_bits": 31.253,
             "matched": 3,
             "of": 6,
-            "ranking_key": 2.70275
+            "ranking_key": -1.29725
           },
           "E": {
-            "gain_bits": 19.727,
+            "gain_bits": 15.727,
             "baseline_bits": 46.863,
-            "mapping_bits": 12.907,
+            "mapping_bits": 16.907,
             "conditional_bits": 14.229,
             "matched": 5,
             "of": 6,
-            "ranking_key": 19.727428
+            "ranking_key": 15.727428
           }
         },
         "ranking": [
@@ -525,40 +525,40 @@
       "delta": {
         "scores": {
           "B": {
-            "gain_bits": 26.786,
+            "gain_bits": 27.956,
             "baseline_bits": 47.863,
-            "mapping_bits": 19.077,
+            "mapping_bits": 17.907,
             "conditional_bits": 2.0,
             "matched": 6,
             "of": 6,
-            "ranking_key": 26.786322
+            "ranking_key": 27.956247
           },
           "C": {
-            "gain_bits": 11.762,
+            "gain_bits": 6.762,
             "baseline_bits": 47.863,
-            "mapping_bits": 12.907,
+            "mapping_bits": 17.907,
             "conditional_bits": 23.195,
             "matched": 4,
             "of": 6,
-            "ranking_key": 11.761644
+            "ranking_key": 6.761644
           },
           "D": {
-            "gain_bits": 3.703,
+            "gain_bits": -1.297,
             "baseline_bits": 47.863,
-            "mapping_bits": 12.907,
+            "mapping_bits": 17.907,
             "conditional_bits": 31.253,
             "matched": 3,
             "of": 6,
-            "ranking_key": 3.70275
+            "ranking_key": -1.29725
           },
           "E": {
-            "gain_bits": 18.727,
+            "gain_bits": 13.727,
             "baseline_bits": 47.863,
-            "mapping_bits": 12.907,
+            "mapping_bits": 17.907,
             "conditional_bits": 16.229,
             "matched": 5,
             "of": 6,
-            "ranking_key": 18.727428
+            "ranking_key": 13.727428
           }
         },
         "ranking": [
@@ -571,40 +571,40 @@
       "flat32": {
         "scores": {
           "B": {
-            "gain_bits": -8.214,
+            "gain_bits": -7.044,
             "baseline_bits": 129.863,
-            "mapping_bits": 74.077,
+            "mapping_bits": 72.907,
             "conditional_bits": 64.0,
             "matched": 6,
             "of": 6,
-            "ranking_key": -8.213678
+            "ranking_key": -7.043753
           },
           "C": {
-            "gain_bits": -20.238,
+            "gain_bits": -22.238,
             "baseline_bits": 129.863,
-            "mapping_bits": 70.907,
+            "mapping_bits": 72.907,
             "conditional_bits": 79.195,
             "matched": 4,
             "of": 6,
-            "ranking_key": -20.238356
+            "ranking_key": -22.238356
           },
           "D": {
-            "gain_bits": -26.297,
+            "gain_bits": -28.297,
             "baseline_bits": 129.863,
-            "mapping_bits": 70.907,
+            "mapping_bits": 72.907,
             "conditional_bits": 85.253,
             "matched": 3,
             "of": 6,
-            "ranking_key": -26.29725
+            "ranking_key": -28.29725
           },
           "E": {
-            "gain_bits": -13.273,
+            "gain_bits": -15.273,
             "baseline_bits": 129.863,
-            "mapping_bits": 70.907,
+            "mapping_bits": 72.907,
             "conditional_bits": 72.229,
             "matched": 5,
             "of": 6,
-            "ranking_key": -13.272572
+            "ranking_key": -15.272572
           }
         },
         "ranking": [
@@ -618,11 +618,13 @@
     "ranking_stable_across_codes": true
   },
   "invariance": {
-    "baseline_mdl_bits": 31.956247,
+    "baseline_mdl_bits": 27.956247,
     "baseline_tunable": 1.0,
     "variants": {
       "identity": {
-        "mdl_gain_bits": 31.956247,
+        "vacuous_for_mdl": false,
+        "vacuity_note": "",
+        "mdl_gain_bits": 27.956247,
         "mdl_delta": 0.0,
         "tunable_K_eta0.5": 1.0,
         "tunable_delta": 0.0,
@@ -630,7 +632,9 @@
         "tunable_invariant": true
       },
       "relabel": {
-        "mdl_gain_bits": 31.956247,
+        "vacuous_for_mdl": false,
+        "vacuity_note": "",
+        "mdl_gain_bits": 27.956247,
         "mdl_delta": 0.0,
         "tunable_K_eta0.5": 1.0,
         "tunable_delta": 0.0,
@@ -638,7 +642,9 @@
         "tunable_invariant": true
       },
       "reorder": {
-        "mdl_gain_bits": 31.956247,
+        "vacuous_for_mdl": false,
+        "vacuity_note": "",
+        "mdl_gain_bits": 27.956247,
         "mdl_delta": 0.0,
         "tunable_K_eta0.5": 1.0,
         "tunable_delta": 0.0,
@@ -646,7 +652,9 @@
         "tunable_invariant": true
       },
       "reserialize": {
-        "mdl_gain_bits": 31.956247,
+        "vacuous_for_mdl": false,
+        "vacuity_note": "",
+        "mdl_gain_bits": 27.956247,
         "mdl_delta": 0.0,
         "tunable_K_eta0.5": 1.0,
         "tunable_delta": 0.0,
@@ -654,7 +662,9 @@
         "tunable_invariant": true
       },
       "rescale_x1000": {
-        "mdl_gain_bits": 31.956247,
+        "vacuous_for_mdl": true,
+        "vacuity_note": "F-06a never reads relation weights, so this cannot fail -- see EXP-031",
+        "mdl_gain_bits": 27.956247,
         "mdl_delta": 0.0,
         "tunable_K_eta0.5": 1.0,
         "tunable_delta": 0.0,
@@ -666,7 +676,7 @@
     "all_tunable_invariant": true
   },
   "near_miss": {
-    "gain_bits": 19.727,
+    "gain_bits": 15.727,
     "matched": 5,
     "of": 6,
     "predicted_but_absent": [

@@ -1,0 +1,95 @@
+{
+  "experiment": "EXP-031",
+  "principle": "representation-relative non-identifiability",
+  "test": "f recoverable from structure <=> f constant on isomorphism classes",
+  "soundness": "one-directional: a witness pair PROVES non-identifiability; failing to find one proves nothing",
+  "audits": [
+    {
+      "distinction": "genuine analogue vs vacuous restatement",
+      "identifiable_from_structure": false,
+      "witness": [
+        "i2_X",
+        "i2_V"
+      ],
+      "structures_equivalent": true,
+      "answers_differ": true,
+      "required_channel": "specificity / referential content",
+      "note": "certifies EXP-027. Real documents from the independent corpus, not constructed for this test"
+    },
+    {
+      "distinction": "real participant vs inserted mediator",
+      "identifiable_from_structure": false,
+      "witness": [
+        "cycle_real",
+        "cycle_mediated"
+      ],
+      "structures_equivalent": true,
+      "answers_differ": true,
+      "required_channel": "ontological role declaration",
+      "note": "certifies EXP-029. A 3-cycle of real participants against a 2-cycle with a mediator spliced in -- identical typed topology, opposite modelling status"
+    },
+    {
+      "distinction": "strong coupling vs negligible coupling",
+      "identifiable_from_structure": false,
+      "witness": [
+        "weak_link",
+        "strong_link"
+      ],
+      "structures_equivalent": true,
+      "answers_differ": true,
+      "required_channel": "magnitude channel (weights must enter the comparison)",
+      "note": "weight IS carried on Relation but edge_set() returns only (src, dst, type), so the measure never sees it"
+    },
+    {
+      "distinction": "reinforcing vs regulating by DELAY, same static graph",
+      "identifiable_from_structure": false,
+      "witness": [
+        "a_then_b",
+        "b_then_a"
+      ],
+      "structures_equivalent": true,
+      "answers_differ": true,
+      "required_channel": "temporal channel (order and delay)",
+      "note": "the two are the same object in this signature -- there is nowhere to record which happened first, so a delay-driven difference in behaviour is invisible by construction"
+    },
+    {
+      "distinction": "asserted claim vs empirically observed relation",
+      "identifiable_from_structure": false,
+      "witness": [
+        "asserted",
+        "observed"
+      ],
+      "structures_equivalent": true,
+      "answers_differ": true,
+      "required_channel": "provenance / evidence channel",
+      "note": "identical structures; the difference is where the relation came from, which the signature does not carry"
+    },
+    {
+      "distinction": "reinforcing vs balancing loop (CONTROL -- should be identifiable)",
+      "identifiable_from_structure": true,
+      "witness": [
+        "amplifying",
+        "damping"
+      ],
+      "structures_equivalent": false,
+      "answers_differ": true,
+      "required_channel": "none needed",
+      "note": "control. Relation polarity IS in the signature, so the structures differ and no witness pair can exist. If this came back non-identifiable the audit would be broken"
+    }
+  ],
+  "n_audited": 6,
+  "n_not_identifiable": 5,
+  "weight_blindness_check": {
+    "corr(weak, strong)": 1.377823,
+    "corr(weak, weak)": 1.377823,
+    "identical": true,
+    "note": "weights differ by 1000x and the measure returns the self-correspondence value -- confirms the audit"
+  },
+  "channels_required": [
+    "magnitude channel (weights must enter the comparison)",
+    "ontological role declaration",
+    "provenance / evidence channel",
+    "specificity / referential content",
+    "temporal channel (order and delay)"
+  ]
+}

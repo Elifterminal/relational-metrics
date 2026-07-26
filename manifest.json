@@ -358,6 +358,19 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "ARN benchmark, annotated blind -- and what it reveals about annotation"
+    },
+    {
+      "id": "EXP-031",
+      "question": "Does the recurring wall have a name \u2014 and can it be tested before building a measure?",
+      "result": "**Yes to both.** Representation-relative non-identifiability: a *witness pair* \u2014 isomorphic structures, different required answers \u2014 proves no measure on that representation can work. Certified EXP-027 and EXP-029 as proofs, then found **three dead ends nobody had paid for** (magnitude, temporal order, provenance) and **one vacuous control**: EXP-000a has published weight-invariance since the first experiment, and F-06a never reads weights",
+      "status": "complete",
+      "rung": 2,
+      "entry_point": "lab/run_exp031.py",
+      "result_file": "results/exp031.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the expressivity boundary audit -- test before you build"
     }
   ],
   "claims": [
@@ -402,13 +415,15 @@
     },
     {
       "id": "C-04",
-      "claim": "Structural correspondence cannot distinguish a genuine analogue from a vacuous statement of the same shape.",
+      "claim": "Structural correspondence cannot distinguish cases whose representations are isomorphic \u2014 a general limit, not a defect of this measure.",
       "status": "ACTIVE_WITHIN_TESTED_SCOPE",
       "rung": 3,
-      "scope": "proved for isomorphic structures: any function of structure alone scores them equally",
+      "scope": "representation-relative non-identifiability (EXP-031). Proved by witness pair for: analogue vs vacuous restatement, participant vs mediator, strong vs negligible coupling, delay-driven behaviour, asserted vs observed. Level 1 in the three-level hierarchy \u2014 no stronger observer or algorithm helps. Distinct from the Ugly Duckling / observer-relative shape of C-02 and P-01",
       "evidence": [
         "EXP-026",
-        "EXP-027"
+        "EXP-027",
+        "EXP-029",
+        "EXP-031"
       ]
     },
     {
@@ -501,6 +516,16 @@
       "scope": "R-18. Every corpus result rests on hand annotation performed KNOWING each document's designated role. EXP-026 cleared the ground-truth ordering of bias but never tested whether the structural annotation encodes the role. Decisive test is Q-26: re-annotate an existing corpus blind. Until it runs, only 'the measure ranks structures' is safe \u2014 not 'the measure retrieves analogies'",
       "evidence": [
         "EXP-030"
+      ]
+    },
+    {
+      "id": "C-14",
+      "claim": "The measure is invariant to unit conversion of relation weights.",
+      "status": "REFUTED",
+      "rung": 0,
+      "scope": "published in EXP-000a's invariance battery since the first experiment and VACUOUS for F-06a: mdl_correspondence compares edge_set(), which drops weight, so it cannot fail a test on a quantity it never reads. Blindness reported as invariance. Genuine for tunable_K, whose ratio cancels a constant factor. Repair is Q-28",
+      "evidence": [
+        "EXP-031"
       ]
     }
   ]
