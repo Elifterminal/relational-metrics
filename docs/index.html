@@ -1108,7 +1108,43 @@ attached. Sometimes the honest move is a label, not a fix.</td></tr>
 so it swept nothing. And a control rule that fired wrongly because the far end of a sweep broke its
 assumption.</td><td>Checking that the generator produced what the plan claimed — <i>after</i> running,
 which is too late and is itself now a rule.</td></tr>
+<tr><td><b>A stress test that had been rewarding the opposite of what it measured, for eighteen
+experiments.</b> One of three description codes charged 32 bits to match a relation against a 6-bit
+saving, so its cheapest answer was the one matching nothing — and that's what it returned on every
+pair.</td><td>A locked plan that <i>required</i> re-running under all three codes, and then chasing
+the disagreement instead of noting it. It was a sound check until an unrelated change killed it.</td></tr>
+<tr><td><b>Five published results that no longer reproduced.</b> Re-running their own programs gave
+different numbers than the files on disk. One stored 1.727 where its code produces 1.4059, stranded by
+a correction made twenty-nine experiments earlier.</td><td>Nothing, for a long time — found by
+accident while auditing something else. <b>The build check verified a result file existed and never
+that it was current.</b> No claim changed, but nothing had established that.</td></tr>
 </tbody></table>
+
+<h3>4b. The failure mode underneath all of them</h3>
+<div class="read bad"><b>Six of the mistakes above are the same mistake.</b> In every case a check was
+<i>correct when it was written</i> and was silently killed by a later change nobody connected to it.
+The unit-conversion control died when the measure didn't read weights. The damage sweep died to
+rounding. The stress code died when a weight channel was added. The build check never checked
+currency.<br><br>
+And then — this is the part I'd want a reviewer to see — <b>the repair had the same bug twice</b>. The
+first freshness tripwire flagged all fifty files whenever anyone touched the measure, even for a
+change that does nothing; fifty accurate warnings that would be ignored inside a day, and an ignored
+check is worse than none. Then the reproducibility sweep let a single-experiment run overwrite the
+full report, so checking one file would replace a 47-experiment audit with a 5-entry one — a partial
+run presenting as a complete one, which is exactly what it was written to detect.<br><br>
+<b>Two of the six are inside the machinery built to catch the other four.</b> That's what convinced me
+this isn't a lesson about being careful. It's structural, and the evidence is that it kept happening
+while I was writing the detector.</div>
+
+<div class="read ok"><b>What the fix looks like, and it's the transferable part.</b> A control has to
+state the condition it depends on and <b>assert that condition at run time</b> rather than inherit it.
+Concretely: the unit-conversion control now perturbs the thing it holds fixed and requires the measure
+to notice; a description code must prove that matching costs less than not matching before it's
+allowed to vote; and there's a sweep that re-runs every experiment and compares against what's on
+disk.<br><br>
+That last one <b>never edits the record</b>. If a stored number and a fresh number disagree, it
+restores the stored one and reports the disagreement — because overwriting the old number with the new
+one destroys the evidence that they ever differed, and that evidence is the whole finding.</div>
 
 <h3>5. The habits, each with the failure that taught it</h3>
 <table><thead><tr><th>habit</th><th>what it cost to learn</th></tr></thead><tbody>
