@@ -183,3 +183,45 @@ CODES: tuple[Code, ...] = (
 )
 
 DEFAULT_CODE = CODES[0]
+
+
+# ---------------------------------------------------------------------------
+# Admissibility (EXP-052, post-hoc diagnostic)
+# ---------------------------------------------------------------------------
+
+def matching_is_profitable(code: Code, n: int = 6, n_types: int = 2) -> bool:
+    """Does this code actually reward correspondence?
+
+    Matching a relation SAVES the cost of inserting it and PAYS a weight
+    correction -- charged for every matched edge, including edges whose weights
+    agree exactly, where the delta is zero. If the correction exceeds the
+    saving then the cheapest description is the one that matches NOTHING, and
+    the code is not implementing "shorter description = better correspondence".
+    It is implementing something else.
+
+    This is a coherence condition on the CODE, not a property of any structure,
+    and it is checked rather than assumed because a code silently stopped
+    satisfying it and nothing objected for eighteen experiments.
+
+    HISTORY. flat32 was declared as a deliberate stress case: crude, and if a
+    verdict flips under it the verdict was fragile. That was true and useful
+    while structures were unweighted, because the weight term was empty and
+    cost nothing. EXP-034 added the weight channel to fix EXP-000a's vacuous
+    control. From that commit on, flat32 charged a flat 32 bits per matched
+    edge against a per-edge saving of about six, so its best mapping matches
+    zero edges on every pair. No experiment between EXP-034 and EXP-052 ran the
+    code sweep on weighted structures, so the stress case sat there looking
+    like a passing control while measuring nothing.
+
+    Third of its kind in this project, after EXP-000a's control that could not
+    fail and EXP-047's sweep that swept nothing. The pattern is a check that
+    was valid when written and was invalidated by a later change nobody
+    connected to it.
+    """
+    saved = 2.0 * log2(max(n, 1)) + log2(max(n_types, 1))
+    paid = code.integer(1)          # _zigzag(0) + 1 -- a ZERO weight delta
+    return saved > paid
+
+
+def admissible_codes(n: int = 6, n_types: int = 2) -> tuple[Code, ...]:
+    return tuple(c for c in CODES if matching_is_profitable(c, n, n_types))

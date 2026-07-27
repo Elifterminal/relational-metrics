@@ -65,7 +65,8 @@ class Mapping:
 
 
 def enumerate_mappings(a: Structure, b: Structure,
-                       total_only: bool = True) -> Iterator[Mapping]:
+                       total_only: bool = True,
+                       type_filter=None) -> Iterator[Mapping]:
     """All node injections from `a` into `b`, crossed with all relation-type
     substitutions.
 
@@ -73,6 +74,16 @@ def enumerate_mappings(a: Structure, b: Structure,
     mappings are where a permissive search finds contrived correspondences,
     so they matter to the theory -- but for equal-sized structures the total
     maps are the honest comparison and keep the enumeration finite.
+
+    `type_filter` (EXP-052 / Q-41) is an optional predicate on a single
+    (source_type, target_type) pair. None means no filtering, which is the
+    path every published result was computed on -- unchanged, including the
+    order in which mappings are yielded, so a re-run reproduces bit for bit.
+
+    Filtering can only REMOVE mappings, and every score here is a maximum over
+    mappings, so a filtered score is necessarily <= its unfiltered counterpart.
+    A score that drops under a filter is arithmetic, not evidence. Only changes
+    in RANKING mean anything.
     """
     a_nodes, b_nodes = a.nodes, b.nodes
     if total_only and len(a_nodes) > len(b_nodes):
@@ -80,6 +91,9 @@ def enumerate_mappings(a: Structure, b: Structure,
 
     a_types, b_types = a.types, b.types
     type_options = list(product(b_types, repeat=len(a_types)))
+    if type_filter is not None:
+        type_options = [c for c in type_options
+                        if all(type_filter(s, t) for s, t in zip(a_types, c))]
 
     for target in permutations(b_nodes, len(a_nodes)):
         node_pairs = tuple(zip(a_nodes, target))

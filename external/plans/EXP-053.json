@@ -1,0 +1,41 @@
+{
+  "experiment": "EXP-053",
+  "question": "If the polarity-preserving constraint were adopted as the measure's default, which published results would move?",
+
+  "background": "EXP-052 established that the unconstrained type search never distinguishes a structure from its sign-flipped twin (0/40 at every size tested), that it exercises this freedom on 30-47% of real corpus pairs, and that the polarity-preserving constraint removes the degeneracy while preserving cross-vocabulary correspondence. It also established that the corpus retrieval verdicts are unchanged under the constraint. That is ONE family of results out of twenty-six runners that call mdl_correspondence. EXP-052 explicitly refused to adopt on that evidence, because a change made in one place while checks elsewhere go unre-run is precisely the failure mode it had just caught in flat32.",
+
+  "instrument": "An environment variable RM_POLARITY_PRESERVING. When set, mdl_correspondence defaults its type_filter to polarity_preserving; when unset, behaviour is byte-identical to every published run. This is an AUDIT instrument, not a configuration option -- it exists so both regimes can be produced from one source tree without editing twenty-six runners, and the writeup must say so. An explicitly-passed type_filter always wins over the variable.",
+
+  "statistic": "For each of the 26 runners that call mdl_correspondence: run under both regimes, capture the result JSON, and compare. Report per experiment: whether the JSON is byte-identical, the set of top-level keys whose values differ, and -- for any key whose name or value indicates a verdict, claim, ranking or boolean outcome -- the before and after values in full.",
+
+  "verdict_keys": "A differing key is treated as VERDICT-BEARING if its value is a boolean, or its name contains any of: claim, holds, verdict, survives, refuted, retracted, ranking, beats, above, wins, identifiable, separates, passes, fails. Numeric-only differences in scores, ratios, bits and margins are recorded but are NOT verdict changes -- EXP-052 established that constraining can only lower a score, so numeric movement is arithmetic.",
+
+  "exclusion_rule": "No runner is excluded for being slow or awkward. A runner that ERRORS under either regime is reported as an error, with its traceback, and is never quietly dropped -- an experiment that will not run is a finding about the lab. Runners whose output embeds a timestamp or absolute path are normalised before diffing, and the normalisation is listed in the result.",
+
+  "robustness": "Both regimes are run from the same commit with the same seeds. Any runner producing non-identical output when run twice under the SAME regime is flagged NON-DETERMINISTIC and excluded from the comparison, because a diff against it means nothing. That check runs first, before any cross-regime comparison.",
+
+  "tests": [
+    "exact JSON comparison after normalisation -- the population is the entire published record, not a sample, so no inference is required or appropriate"
+  ],
+
+  "predictions": {
+    "P1": "At least one runner produces numerically different output. If nothing anywhere moves, the constraint is inert and the semantic argument for adopting it is the ONLY argument for it.",
+    "P2": "Zero verdict-bearing keys change. EXP-052 found the corpus verdicts stable and the constraint only forbids sign inversion, which no experiment's claim was about.",
+    "P3": "The experiments most likely to move are those involving relation-type manipulation -- EXP-029 (contraction), EXP-030, EXP-032, EXP-033 -- because they are the ones whose designs touch polarity at all."
+  },
+
+  "verdict_bands": {
+    "note": "Graded. The quantity is the number of VERDICT-BEARING keys that change across the whole record.",
+    "0": "Adopt the constraint as the default. The migration is safe, the semantic argument stands unopposed, and every published claim survives verbatim.",
+    "1_to_3": "Adopt, but the affected experiments are re-run, re-written and their manifest entries amended BEFORE the default flips. The changed verdicts are published as changes, not folded into a revision.",
+    "4_or_more": "Do not adopt on this evidence. A constraint that moves this much of the record is not a correction, it is a different measure, and it needs its own validation from rung 1 rather than a migration."
+  },
+
+  "falsification": {
+    "of_adoption": "P2 failing at 4 or more verdict changes falsifies the claim that this is a safe correction.",
+    "of_the_audit_itself": "If more than 3 of the 26 runners are NON-DETERMINISTIC or ERROR under both regimes, the audit cannot answer its own question and must report that instead of a verdict. A record that cannot be re-run is not a record.",
+    "prediction_space_wrong": "If verdict-bearing keys change in the direction of the constraint AGREEING with a previously-retracted claim, that is neither 'safe' nor 'unsafe' and must be reported as its own case -- it would mean a retraction was caused by the degeneracy rather than by the thing it was blamed on."
+  },
+
+  "capacity_to_fail": "The audit's own instrument is checked first: a runner known to exercise the freedom (EXP-024, where EXP-052 measured a 0.467 inversion rate) MUST produce different numeric output under the two regimes. If it does not, the environment variable is not reaching the measure and every 'identical' verdict below would be vacuous -- the same class of error as EXP-000a's control that could not fail."
+}

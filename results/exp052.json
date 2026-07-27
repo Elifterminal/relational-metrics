@@ -1,0 +1,803 @@
+{
+  "experiment": "EXP-052",
+  "plan_locked_at": "1f1cd8ba824ad42ed893d19d608c14f25de086d3",
+  "plan_sha256": "f03d085683ae908e",
+  "question": "Q-41",
+  "instrument": "polarity-preserving type map (weaker than name-preserving)",
+  "monotonicity": "constrained ratio <= unconstrained ratio by construction; only ranking changes are evidence",
+  "part_a_prevalence": {
+    "dev (mine)": {
+      "pairs": 15,
+      "inverting": 7,
+      "rate": 0.4667,
+      "families_in_play": [
+        "DRIVES",
+        "GROWS",
+        "POS",
+        "RAISES"
+      ],
+      "examples": [
+        {
+          "motif": "reinforcing",
+          "kind": "W",
+          "type_map": {
+            "NEG": "NEG",
+            "POS": "NEG"
+          },
+          "ratio": 1.148841
+        },
+        {
+          "motif": "reinforcing",
+          "kind": "V",
+          "type_map": {
+            "NEG": "POS",
+            "POS": "POS"
+          },
+          "ratio": 1.220784
+        },
+        {
+          "motif": "reinforcing",
+          "kind": "U",
+          "type_map": {
+            "NEG": "POS",
+            "POS": "POS"
+          },
+          "ratio": 1.19219
+        },
+        {
+          "motif": "regulating",
+          "kind": "W",
+          "type_map": {
+            "NEG": "POS",
+            "POS": "POS"
+          },
+          "ratio": 1.542225
+        },
+        {
+          "motif": "regulating",
+          "kind": "V",
+          "type_map": {
+            "NEG": "POS",
+            "POS": "POS"
+          },
+          "ratio": 1.542225
+        },
+        {
+          "motif": "regulating",
+          "kind": "U",
+          "type_map": {
+            "NEG": "POS",
+            "POS": "POS"
+          },
+          "ratio": 1.19219
+        },
+        {
+          "motif": "cascade",
+          "kind": "W",
+          "type_map": {
+            "POS": "NEG"
+          },
+          "ratio": 1.138725
+        }
+      ]
+    },
+    "held-out (mine)": {
+      "pairs": 15,
+      "inverting": 6,
+      "rate": 0.4,
+      "families_in_play": [
+        "BUILDS",
+        "CARRIES",
+        "FEEDS",
+        "POS"
+      ],
+      "examples": [
+        {
+          "motif": "inhibition",
+          "kind": "W",
+          "type_map": {
+            "NEG": "POS",
+            "POS": "NEG"
+          },
+          "ratio": 1.234775
+        },
+        {
+          "motif": "inhibition",
+          "kind": "V",
+          "type_map": {
+            "NEG": "POS",
+            "POS": "POS"
+          },
+          "ratio": 1.225161
+        },
+        {
+          "motif": "threshold",
+          "kind": "W",
+          "type_map": {
+            "NEG": "POS",
+            "POS": "POS"
+          },
+          "ratio": 1.542225
+        },
+        {
+          "motif": "threshold",
+          "kind": "U",
+          "type_map": {
+            "NEG": "POS",
+            "POS": "POS"
+          },
+          "ratio": 1.19219
+        },
+        {
+          "motif": "substitution",
+          "kind": "W",
+          "type_map": {
+            "NEG": "NEG",
+            "POS": "NEG"
+          },
+          "ratio": 1.148841
+        },
+        {
+          "motif": "substitution",
+          "kind": "U",
+          "type_map": {
+            "NEG": "POS",
+            "POS": "POS"
+          },
+          "ratio": 1.19219
+        }
+      ]
+    },
+    "independent (externally written)": {
+      "pairs": 20,
+      "inverting": 6,
+      "rate": 0.3,
+      "families_in_play": [
+        "INCREASES"
+      ],
+      "examples": [
+        {
+          "motif": "diversity",
+          "kind": "W",
+          "type_map": {
+            "INCREASES": "DECREASES"
+          },
+          "ratio": 1.23514
+        },
+        {
+          "motif": "correction",
+          "kind": "U",
+          "type_map": {
+            "DECREASES": "INCREASES",
+            "INCREASES": "INCREASES"
+          },
+          "ratio": 1.19219
+        },
+        {
+          "motif": "regulator",
+          "kind": "W",
+          "type_map": {
+            "DECREASES": "INCREASES",
+            "INCREASES": "DECREASES"
+          },
+          "ratio": 1.202896
+        },
+        {
+          "motif": "regulator",
+          "kind": "U",
+          "type_map": {
+            "DECREASES": "INCREASES",
+            "INCREASES": "INCREASES"
+          },
+          "ratio": 1.151731
+        },
+        {
+          "motif": "rivalry",
+          "kind": "W",
+          "type_map": {
+            "DECREASES": "INCREASES",
+            "INCREASES": "INCREASES"
+          },
+          "ratio": 1.235233
+        },
+        {
+          "motif": "rivalry",
+          "kind": "U",
+          "type_map": {
+            "DECREASES": "INCREASES",
+            "INCREASES": "INCREASES"
+          },
+          "ratio": 1.044849
+        }
+      ]
+    }
+  },
+  "part_b_impact": {
+    "gamma": {
+      "rows": [
+        {
+          "corpus": "dev (mine)",
+          "motif": "reinforcing",
+          "ranking_free": "{P=X} > V > U > W",
+          "ranking_constrained": "{P=X} > W > {U=V}",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.220784
+        },
+        {
+          "corpus": "dev (mine)",
+          "motif": "regulating",
+          "ranking_free": "{P=X} > {V=W} > U",
+          "ranking_constrained": "{P=X} > {U=V=W}",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.542225
+        },
+        {
+          "corpus": "dev (mine)",
+          "motif": "cascade",
+          "ranking_free": "{P=U=X} > W > V",
+          "ranking_constrained": "{P=U=X} > V > W",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.144223
+        },
+        {
+          "corpus": "held-out (mine)",
+          "motif": "inhibition",
+          "ranking_free": "{P=X} > W > V > U",
+          "ranking_constrained": "{P=X} > W > U > V",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.225161
+        },
+        {
+          "corpus": "held-out (mine)",
+          "motif": "threshold",
+          "ranking_free": "{P=X} > W > U > V",
+          "ranking_constrained": "{P=X} > {U=V=W}",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.542225
+        },
+        {
+          "corpus": "held-out (mine)",
+          "motif": "substitution",
+          "ranking_free": "{P=X} > U > W > V",
+          "ranking_constrained": "{P=X} > W > {U=V}",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.19219
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "diversity",
+          "ranking_free": "{P=V=X} > U > W",
+          "ranking_constrained": "{P=V=X} > U > W",
+          "ranking_identical": true,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.157324
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "correction",
+          "ranking_free": "{P=V=X} > W > U",
+          "ranking_constrained": "{P=V=X} > W > U",
+          "ranking_identical": true,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.19219
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "regulator",
+          "ranking_free": "{P=V=X} > W > U",
+          "ranking_constrained": "{P=V=X} > W > U",
+          "ranking_identical": true,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.151731
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "rivalry",
+          "ranking_free": "{P=V=X} > W > U",
+          "ranking_constrained": "{P=V=X} > W > U",
+          "ranking_identical": true,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.0
+        }
+      ],
+      "motifs": 10,
+      "published_verdicts": 20,
+      "verdicts_changed": 0,
+      "rankings_identical": 4,
+      "X_above_W_free": "10/10",
+      "X_above_W_constrained": "10/10",
+      "P_ties_X_free": "10/10",
+      "P_ties_X_constrained": "10/10",
+      "any_score_moved": true,
+      "motifs_with_score_movement": 9
+    },
+    "delta": {
+      "rows": [
+        {
+          "corpus": "dev (mine)",
+          "motif": "reinforcing",
+          "ranking_free": "{P=X} > V > U > W",
+          "ranking_constrained": "{P=X} > W > {U=V}",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.162057
+        },
+        {
+          "corpus": "dev (mine)",
+          "motif": "regulating",
+          "ranking_free": "{P=X} > {V=W} > U",
+          "ranking_constrained": "{P=X} > {U=V=W}",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.456389
+        },
+        {
+          "corpus": "dev (mine)",
+          "motif": "cascade",
+          "ranking_free": "{P=U=X} > W > V",
+          "ranking_constrained": "{P=U=X} > W > V",
+          "ranking_identical": true,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.061388
+        },
+        {
+          "corpus": "held-out (mine)",
+          "motif": "inhibition",
+          "ranking_free": "{P=X} > W > V > U",
+          "ranking_constrained": "{P=X} > W > U > V",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.168994
+        },
+        {
+          "corpus": "held-out (mine)",
+          "motif": "threshold",
+          "ranking_free": "{P=X} > W > U > V",
+          "ranking_constrained": "{P=X} > {U=V=W}",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.456389
+        },
+        {
+          "corpus": "held-out (mine)",
+          "motif": "substitution",
+          "ranking_free": "{P=X} > U > W > V",
+          "ranking_constrained": "{P=X} > W > {U=V}",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.141588
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "diversity",
+          "ranking_free": "{P=V=X} > W > U",
+          "ranking_constrained": "{P=V=X} > U > W",
+          "ranking_identical": false,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.079083
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "correction",
+          "ranking_free": "{P=V=X} > W > U",
+          "ranking_constrained": "{P=V=X} > W > U",
+          "ranking_identical": true,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.141588
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "regulator",
+          "ranking_free": "{P=V=X} > W > U",
+          "ranking_constrained": "{P=V=X} > W > U",
+          "ranking_identical": true,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.109893
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "rivalry",
+          "ranking_free": "{P=V=X} > W > U",
+          "ranking_constrained": "{P=V=X} > W > U",
+          "ranking_identical": true,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.0
+        }
+      ],
+      "motifs": 10,
+      "published_verdicts": 20,
+      "verdicts_changed": 0,
+      "rankings_identical": 4,
+      "X_above_W_free": "10/10",
+      "X_above_W_constrained": "10/10",
+      "P_ties_X_free": "10/10",
+      "P_ties_X_constrained": "10/10",
+      "any_score_moved": true,
+      "motifs_with_score_movement": 9
+    },
+    "flat32": {
+      "rows": [
+        {
+          "corpus": "dev (mine)",
+          "motif": "reinforcing",
+          "ranking_free": "V > U > {P=W=X}",
+          "ranking_constrained": "{P=W=X} > {U=V}",
+          "ranking_identical": false,
+          "X_above_W_free": false,
+          "X_above_W_constrained": false,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.615237
+        },
+        {
+          "corpus": "dev (mine)",
+          "motif": "regulating",
+          "ranking_free": "{V=W} > U > {P=X}",
+          "ranking_constrained": "{P=X} > {U=V=W}",
+          "ranking_identical": false,
+          "X_above_W_free": false,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 1,
+          "max_score_drop": 0.615237
+        },
+        {
+          "corpus": "dev (mine)",
+          "motif": "cascade",
+          "ranking_free": "{P=U=X} > W > V",
+          "ranking_constrained": "{P=U=X} > W > V",
+          "ranking_identical": true,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.0
+        },
+        {
+          "corpus": "held-out (mine)",
+          "motif": "inhibition",
+          "ranking_free": "{P=W=X} > U > V",
+          "ranking_constrained": "{P=X} > U > W > V",
+          "ranking_identical": false,
+          "X_above_W_free": false,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 1,
+          "max_score_drop": 0.268568
+        },
+        {
+          "corpus": "held-out (mine)",
+          "motif": "threshold",
+          "ranking_free": "W > U > {P=X} > V",
+          "ranking_constrained": "{P=X} > {U=V=W}",
+          "ranking_identical": false,
+          "X_above_W_free": false,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 1,
+          "max_score_drop": 0.615237
+        },
+        {
+          "corpus": "held-out (mine)",
+          "motif": "substitution",
+          "ranking_free": "U > {P=W=X} > V",
+          "ranking_constrained": "{P=W=X} > {U=V}",
+          "ranking_identical": false,
+          "X_above_W_free": false,
+          "X_above_W_constrained": false,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.580478
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "diversity",
+          "ranking_free": "{P=V=X} > W > U",
+          "ranking_constrained": "{P=V=X} > W > U",
+          "ranking_identical": true,
+          "X_above_W_free": true,
+          "X_above_W_constrained": true,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.0
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "correction",
+          "ranking_free": "U > {P=V=W=X}",
+          "ranking_constrained": "{P=V=W=X} > U",
+          "ranking_identical": false,
+          "X_above_W_free": false,
+          "X_above_W_constrained": false,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.580478
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "regulator",
+          "ranking_free": "U > {P=V=W=X}",
+          "ranking_constrained": "{P=V=W=X} > U",
+          "ranking_identical": false,
+          "X_above_W_free": false,
+          "X_above_W_constrained": false,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.546926
+        },
+        {
+          "corpus": "independent (externally written)",
+          "motif": "rivalry",
+          "ranking_free": "{P=V=W=X} > U",
+          "ranking_constrained": "{P=V=W=X} > U",
+          "ranking_identical": true,
+          "X_above_W_free": false,
+          "X_above_W_constrained": false,
+          "P_ties_X_free": true,
+          "P_ties_X_constrained": true,
+          "verdicts_changed": 0,
+          "max_score_drop": 0.0
+        }
+      ],
+      "motifs": 10,
+      "published_verdicts": 20,
+      "verdicts_changed": 3,
+      "rankings_identical": 3,
+      "X_above_W_free": "2/10",
+      "X_above_W_constrained": "5/10",
+      "P_ties_X_free": "10/10",
+      "P_ties_X_constrained": "10/10",
+      "any_score_moved": true,
+      "motifs_with_score_movement": 7
+    }
+  },
+  "part_c_degeneracy_sweep": {
+    "2": {
+      "seeds": 40,
+      "reran_at_higher_n": false,
+      "degeneracy_rate_unconstrained": 1.0,
+      "ci95_unconstrained": [
+        0.9119,
+        1.0
+      ],
+      "degeneracy_rate_constrained": 0.3,
+      "ci95_constrained": [
+        0.1656,
+        0.4653
+      ],
+      "symmetric_polarity_multiset_rate": 0.4
+    },
+    "3": {
+      "seeds": 40,
+      "reran_at_higher_n": false,
+      "degeneracy_rate_unconstrained": 1.0,
+      "ci95_unconstrained": [
+        0.9119,
+        1.0
+      ],
+      "degeneracy_rate_constrained": 0.0,
+      "ci95_constrained": [
+        0.0,
+        0.0881
+      ],
+      "symmetric_polarity_multiset_rate": 0.0
+    },
+    "4": {
+      "seeds": 40,
+      "reran_at_higher_n": false,
+      "degeneracy_rate_unconstrained": 1.0,
+      "ci95_unconstrained": [
+        0.9119,
+        1.0
+      ],
+      "degeneracy_rate_constrained": 0.1,
+      "ci95_constrained": [
+        0.0279,
+        0.2366
+      ],
+      "symmetric_polarity_multiset_rate": 0.375
+    },
+    "5": {
+      "seeds": 40,
+      "reran_at_higher_n": false,
+      "degeneracy_rate_unconstrained": 1.0,
+      "ci95_unconstrained": [
+        0.9119,
+        1.0
+      ],
+      "degeneracy_rate_constrained": 0.0,
+      "ci95_constrained": [
+        0.0,
+        0.0881
+      ],
+      "symmetric_polarity_multiset_rate": 0.0
+    },
+    "6": {
+      "seeds": 40,
+      "reran_at_higher_n": false,
+      "degeneracy_rate_unconstrained": 1.0,
+      "ci95_unconstrained": [
+        0.9119,
+        1.0
+      ],
+      "degeneracy_rate_constrained": 0.0,
+      "ci95_constrained": [
+        0.0,
+        0.0881
+      ],
+      "symmetric_polarity_multiset_rate": 0.4
+    },
+    "7": {
+      "seeds": 40,
+      "reran_at_higher_n": false,
+      "degeneracy_rate_unconstrained": 1.0,
+      "ci95_unconstrained": [
+        0.9119,
+        1.0
+      ],
+      "degeneracy_rate_constrained": 0.0,
+      "ci95_constrained": [
+        0.0,
+        0.0881
+      ],
+      "symmetric_polarity_multiset_rate": 0.0
+    },
+    "8": {
+      "seeds": 40,
+      "reran_at_higher_n": false,
+      "degeneracy_rate_unconstrained": 1.0,
+      "ci95_unconstrained": [
+        0.9119,
+        1.0
+      ],
+      "degeneracy_rate_constrained": 0.0,
+      "ci95_constrained": [
+        0.0,
+        0.0881
+      ],
+      "symmetric_polarity_multiset_rate": 0.325
+    }
+  },
+  "part_d_admissibility": {
+    "self_ratio": 1.658049,
+    "faithful_translation_ratio": 1.658049,
+    "faithful_matched": "5/5",
+    "faithful_type_map": {
+      "NEG": "PRUNES",
+      "POS": "GROWS"
+    },
+    "inverted_translation_ratio": 1.311308,
+    "inverted_matched": "4/5",
+    "cross_vocabulary_preserved": true,
+    "constraint_admissible": true,
+    "control_can_fail": true
+  },
+  "verdict": {
+    "band": "prediction space wrong (ii) -- margins moved, verdicts did not",
+    "verdicts_changed": 0,
+    "codes_agree": false,
+    "statement": "The constraint moved scores on 9/10 motifs and changed no verdict anywhere. Q-41 is a question about CONFIDENCE, not about verdicts. Reporting it as '0 changes' would say nothing happened, and something did."
+  },
+  "margin_stats": {
+    "n_motifs": 10,
+    "max_score_drop_over_all_motifs": 0.542225,
+    "mean_score_drop": 0.236805,
+    "motifs_with_any_movement": 9,
+    "note": "drops are arithmetic, not effect sizes -- reported so the claim 'nothing changed' can be checked against 'nothing moved'"
+  },
+  "leave_one_out": {
+    "unit": "motif",
+    "verdicts_changed_excluding_each_motif": {
+      "reinforcing": 0,
+      "regulating": 0,
+      "cascade": 0,
+      "inhibition": 0,
+      "threshold": 0,
+      "substitution": 0,
+      "diversity": 0,
+      "correction": 0,
+      "regulator": 0,
+      "rivalry": 0
+    },
+    "note": "part B enumerates the whole published record rather than sampling it, so leave-one-out shows dependence on any single motif rather than estimating variance"
+  },
+  "abstention_rate": {
+    "unconstrained_ties_in_top_group": 1.0,
+    "constrained_ties_in_top_group": 1.0
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "label": "POST-HOC DIAGNOSTIC, triggered by EXP-052's locked code-robustness rule",
+  "not_predeclared": "The locked plan said a ranking change under one code and not the others is reported as code-dependent. It fired. This addendum asks WHY it fired, which the plan did not specify and which is therefore post-hoc.",
+  "finding": "flat32 has charged more to match a relation than to insert one since EXP-034 added the weight channel. Its best mapping matches zero edges on every corpus pair, so its disagreement with gamma and delta is not evidence about the retrieval claim.",
+  "codes": {
+    "gamma": {
+      "coherence_check_passes": true,
+      "zero_delta_cost_bits": 3.0,
+      "per_edge_saving_bits": 6.17,
+      "best_mapping_matched_edges": {
+        "min": 0,
+        "max": 4
+      },
+      "matches_nothing_ever": false
+    },
+    "delta": {
+      "coherence_check_passes": true,
+      "zero_delta_cost_bits": 4.0,
+      "per_edge_saving_bits": 6.17,
+      "best_mapping_matched_edges": {
+        "min": 0,
+        "max": 4
+      },
+      "matches_nothing_ever": false
+    },
+    "flat32": {
+      "coherence_check_passes": false,
+      "zero_delta_cost_bits": 32.0,
+      "per_edge_saving_bits": 6.17,
+      "best_mapping_matched_edges": {
+        "min": 0,
+        "max": 0
+      },
+      "matches_nothing_ever": true
+    }
+  },
+  "admissible_codes": [
+    "gamma",
+    "delta"
+  ],
+  "residual_weakness": "The two surviving codes are both Elias codes. The project's code-robustness argument now rests on two members of one family, which is weaker than it has been presented as. Logged as Q-43 rather than repaired here, because inventing a third code now, knowing what it needs to show, is the move the protocol exists to prevent."
+}

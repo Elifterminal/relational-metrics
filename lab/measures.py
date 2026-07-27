@@ -101,7 +101,8 @@ class MDLResult:
 
 
 def mdl_correspondence(a: Structure, b: Structure,
-                       code: Code = DEFAULT_CODE) -> MDLResult:
+                       code: Code = DEFAULT_CODE,
+                       type_filter=None) -> MDLResult:
     """F-06a.
 
     Question asked: does knowing A, plus a mapping, let me write B down in
@@ -109,6 +110,11 @@ def mdl_correspondence(a: Structure, b: Structure,
 
     If yes, A and B share organisation and the gain says how much, in bits.
     If no, there is no correspondence worth claiming. Nothing to tune.
+
+    `type_filter` is EXP-052's instrument for Q-41 and defaults to None, which
+    is exactly the behaviour that produced every published result. See
+    enumerate_mappings for what it does and for why a filtered score being
+    lower is arithmetic rather than a finding.
     """
     b_edges = b.edge_set()
     # Q-28: weights now enter the comparison. Normalised by geometric mean, so
@@ -124,7 +130,7 @@ def mdl_correspondence(a: Structure, b: Structure,
     baseline = code.structure(b.n, b.m, len(b.types), b_levels)
 
     best: MDLResult | None = None
-    for phi in enumerate_mappings(a, b):
+    for phi in enumerate_mappings(a, b, type_filter=type_filter):
         predicted = phi.predicted_edges(a)
         hits = predicted & b_edges
         deleted = len(predicted) - len(hits)
