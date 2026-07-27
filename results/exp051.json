@@ -1,0 +1,68 @@
+{
+  "experiment": "EXP-051",
+  "plan_locked_at": "9ea05492f3dca30ff9f5bc47f2575c38b61e68db",
+  "plan_sha256": "1d2b654e2f31f132",
+  "systems": 400,
+  "excluded_degenerate": 0,
+  "distinct_under_full_invariant": 400,
+  "property_ceiling": 0.6425,
+  "rows": [
+    {
+      "fraction": 0.1,
+      "n_relational_terms": 2,
+      "n_property_terms": 1,
+      "relational_discrimination": 0.1226,
+      "property_discrimination": 0.0309
+    },
+    {
+      "fraction": 0.2,
+      "n_relational_terms": 3,
+      "n_property_terms": 1,
+      "relational_discrimination": 0.3452,
+      "property_discrimination": 0.0309
+    },
+    {
+      "fraction": 0.3,
+      "n_relational_terms": 4,
+      "n_property_terms": 1,
+      "relational_discrimination": 0.6474,
+      "property_discrimination": 0.0314
+    },
+    {
+      "fraction": 0.4,
+      "n_relational_terms": 6,
+      "n_property_terms": 2,
+      "relational_discrimination": 0.9242,
+      "property_discrimination": 0.1243
+    },
+    {
+      "fraction": 0.5,
+      "n_relational_terms": 8,
+      "n_property_terms": 2,
+      "relational_discrimination": 0.9836,
+      "property_discrimination": 0.1264
+    },
+    {
+      "fraction": 0.6,
+      "n_relational_terms": 9,
+      "n_property_terms": 2,
+      "relational_discrimination": 0.9935,
+      "property_discrimination": 0.1241
+    },
+    {
+      "fraction": 0.8,
+      "n_relational_terms": 12,
+      "n_property_terms": 3,
+      "relational_discrimination": 1.0,
+      "property_discrimination": 0.3407
+    },
+    {
+      "fraction": 1.0,
+      "n_relational_terms": 15,
+      "n_property_terms": 4,
+      "relational_discrimination": 1.0,
+      "property_discrimination": 0.6425
+    }
+  ],
+  "verdict": "DISTRIBUTED -- relational fragments degrade gracefully toward full discrimination while property measurements hit a hard ceiling. The second holographic property holds on this class of systems"
+}

@@ -665,6 +665,20 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "her warp + our ground -- the sequence works, the warp doesn't"
+    },
+    {
+      "id": "EXP-051",
+      "question": "Does relational structure have holography's SECOND property \u2014 does every fragment carry the whole?",
+      "result": "**The analogy decomposes, and half of it isn't about relations.** First pass looked like strong confirmation (40% of relational terms \u2192 0.924 discrimination; *all* property terms \u2192 0.642 ceiling). **The matched-term-count control killed it**: at equal counts property terms are just as informative, slightly more (0.698 vs 0.651). The advantage was pool size, not distributedness. Sharper test: one property coefficient carries **3.048 bits**, one relational coefficient **3.021**, one raw value **0.999** \u2014 **distributedness belongs to the transform domain, not to relational content.** The thesis is half right and half misattributed",
+      "status": "complete",
+      "rung": 2,
+      "stage": 3,
+      "entry_point": "lab/run_exp051.py",
+      "result_file": "results/exp051.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the holographic analogy decomposes -- one half isn't ours"
     }
   ],
   "claims": [

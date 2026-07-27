@@ -661,6 +661,68 @@ wording. Anyone else's would be treated identically — no softer, and no harshe
 And if I find myself wanting to bury a negative because of who produced the work, <b>that impulse
 gets recorded too</b>.</div>
 
+<h2>Testing the thesis itself</h2>
+<p>The project's founding image is holography: light's interference pattern records relationships
+that ordinary intensity recording throws away. The bet was that other domains have something
+analogous.</p>
+<div class="read"><b>Holography has two properties, and this project had only ever tested one.</b>
+<br><br>
+<b>First</b> — interference records what intensity discards. Tested early and it holds: there is
+structure no pairwise view contains.<br><br>
+<b>Second</b> — <i>every fragment of the plate carries the whole scene</i>, at reduced resolution. Cut
+a hologram in half and you don't get half a picture. <b>Never tested, and it's the sharper
+claim.</b></div>
+
+<h3>The first pass looked like a strong confirmation</h3>
+<table><thead><tr><th>fragment of the record</th><th>relational</th><th>property</th></tr></thead><tbody>
+<tr><td>40%</td><td><b>0.924</b></td><td>0.124</td></tr>
+<tr><td>50%</td><td><b>0.984</b></td><td>0.126</td></tr>
+<tr><td>100%</td><td><b>1.000</b></td><td><b>0.642</b> — a hard ceiling</td></tr>
+</tbody></table>
+<p>A <i>fragment</i> of the relational record recovers nearly everything, while the <i>complete</i>
+property record can't exceed 0.642. That reads exactly like the hologram.</p>
+
+<h3>And the control killed it</h3>
+<div class="read warn" style="border-left-color:#dc2626"><b>The two arms were drawing from
+different-sized pools</b> — fifteen relational measurements against four property ones — so equal
+percentages meant unequal counts. At <b>matched count</b>:<br><br>
+four property measurements → <b>0.698</b><br>
+four relational measurements → <b>0.651</b><br><br>
+<b>Identical, and if anything the property measurements are slightly better.</b> The advantage was
+entirely that there are more relational terms available, not that each fragment carries the whole. My
+prediction was right for the wrong reason, which is worse than being wrong.</div>
+
+<h3>Then the question got sharper, and the answer is the interesting part</h3>
+<p>In real holography the fragment is a <i>spatial region of the plate</i>, and every region carries
+the whole object <b>because the plate records a transform rather than an image</b>. So: does the
+distributedness come from the relations, or from the transform?</p>
+<div class="read warn">one property measurement &nbsp;&nbsp;<b>3.048 bits</b><br>
+one relational measurement &nbsp;<b>3.021 bits</b><br>
+one raw value (the "image") &nbsp;<b>0.999 bits</b><br><br>
+A raw value splits the population in two and can do no more. A transform measurement — <b>of either
+kind</b> — splits it far more finely.<br><br>
+<b>Distributedness comes from working in a transform domain. It has nothing to do with the
+measurements being relational.</b></div>
+
+<h3>How this reshapes the idea — and it's more useful than a confirmation</h3>
+<div class="read ok"><b>The analogy doesn't fail. It decomposes, and the two halves land in different
+places.</b><br><br>
+<b>Phase versus intensity → relational versus property content.</b> This <b>holds</b>. The property
+record ceilings where the relational one reaches everything. It's the project's oldest and strongest
+result and it survives.<br><br>
+<b>Fourier plane versus image plane → transform versus raw.</b> This also <b>holds</b> — and it isn't
+about relations at all. You get it whether your measurements are relational or not.<br><br>
+So the founding intuition is <b>half right and half misattributed</b>. Relations really do carry what
+properties cannot. But the every-fragment-contains-the-whole magic belongs to the transform, and
+welding the two together overclaims.<br><br>
+That separation is worth more than a confirmation would have been. It says where each half actually
+lives.</div>
+<div class="read sub"><b>What it doesn't say:</b> this tests one reading of "fragment" — a random
+subset of transform coefficients. Holography's fragment is a spatial region, which may not be the same
+thing. A structural notion of fragment might behave differently, and that retest is logged with a
+warning attached: the first pass here looked like a confirmation and was an artifact of unequal pool
+sizes.</div>
+
 <h2>Integration record</h2>
 
 <h3>Material received — 2026-07-26</h3>
