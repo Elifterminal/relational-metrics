@@ -1,0 +1,365 @@
+{
+  "experiment": "EXP-054",
+  "plan_locked_at": "ed4d0246750fe4f97fb42de5c5ef6f1398ab7306",
+  "plan_sha256": "2a6738588deb2bfb",
+  "question": "Q-44",
+  "parts_passed": {
+    "A": true,
+    "B": true,
+    "C": false,
+    "D": true
+  },
+  "n_passed": 3,
+  "part_a_impostors": {
+    "gamma": {
+      "F-06a constrained": {
+        "analogue_above_false_friend": "10/10",
+        "wins": 10,
+        "n": 10,
+        "mean_margin": 0.455721,
+        "motifs_scored_flat": 0,
+        "is_impostor": false
+      },
+      "F-06a unconstrained": {
+        "analogue_above_false_friend": "10/10",
+        "wins": 10,
+        "n": 10,
+        "mean_margin": 0.311019,
+        "motifs_scored_flat": 0,
+        "is_impostor": false
+      },
+      "polarity overlap (impostor)": {
+        "analogue_above_false_friend": "9/10",
+        "wins": 9,
+        "n": 10,
+        "mean_margin": 0.305,
+        "motifs_scored_flat": 0,
+        "is_impostor": true
+      },
+      "word overlap (impostor)": {
+        "analogue_above_false_friend": "0/10",
+        "wins": 0,
+        "n": 10,
+        "mean_margin": -1.0,
+        "motifs_scored_flat": 0,
+        "is_impostor": true
+      },
+      "size match (impostor)": {
+        "analogue_above_false_friend": "0/10",
+        "wins": 0,
+        "n": 10,
+        "mean_margin": 0.0,
+        "motifs_scored_flat": 10,
+        "is_impostor": true
+      }
+    },
+    "delta": {
+      "F-06a constrained": {
+        "analogue_above_false_friend": "10/10",
+        "wins": 10,
+        "n": 10,
+        "mean_margin": 0.375561,
+        "motifs_scored_flat": 0,
+        "is_impostor": false
+      },
+      "F-06a unconstrained": {
+        "analogue_above_false_friend": "10/10",
+        "wins": 10,
+        "n": 10,
+        "mean_margin": 0.268048,
+        "motifs_scored_flat": 0,
+        "is_impostor": false
+      },
+      "polarity overlap (impostor)": {
+        "analogue_above_false_friend": "9/10",
+        "wins": 9,
+        "n": 10,
+        "mean_margin": 0.305,
+        "motifs_scored_flat": 0,
+        "is_impostor": true
+      },
+      "word overlap (impostor)": {
+        "analogue_above_false_friend": "0/10",
+        "wins": 0,
+        "n": 10,
+        "mean_margin": -1.0,
+        "motifs_scored_flat": 0,
+        "is_impostor": true
+      },
+      "size match (impostor)": {
+        "analogue_above_false_friend": "0/10",
+        "wins": 0,
+        "n": 10,
+        "mean_margin": 0.0,
+        "motifs_scored_flat": 10,
+        "is_impostor": true
+      }
+    }
+  },
+  "part_b_reencoding_fresh": {
+    "gamma": {
+      "n": 60,
+      "mean_margin": 0.0697,
+      "sd": 0.09469,
+      "effect_size_d": 0.7361,
+      "ci95": [
+        0.04525,
+        0.09415
+      ],
+      "t_p": 0.0,
+      "wilcoxon_p": 0.0,
+      "ci_excludes_zero": true,
+      "passes": true,
+      "sample_rows": [
+        {
+          "case": 0,
+          "preserving": {
+            "mediate": 1.40261,
+            "relabel": 1.65421
+          },
+          "changing": {
+            "flip_sign": 1.40983,
+            "rewire": 1.34106
+          },
+          "margin": -0.00722
+        },
+        {
+          "case": 1,
+          "preserving": {
+            "mediate": 1.42612,
+            "relabel": 1.72237
+          },
+          "changing": {
+            "flip_sign": 1.3812,
+            "rewire": 1.3812
+          },
+          "margin": 0.04492
+        },
+        {
+          "case": 2,
+          "preserving": {
+            "mediate": 1.42612,
+            "relabel": 1.72237
+          },
+          "changing": {
+            "flip_sign": 1.3812,
+            "rewire": 1.3812
+          },
+          "margin": 0.04492
+        },
+        {
+          "case": 3,
+          "preserving": {
+            "mediate": 1.42612,
+            "relabel": 1.72237
+          },
+          "changing": {
+            "flip_sign": 1.3812,
+            "rewire": 1.3812
+          },
+          "margin": 0.04492
+        },
+        {
+          "case": 4,
+          "preserving": {
+            "mediate": 1.42612,
+            "relabel": 1.72237
+          },
+          "changing": {
+            "flip_sign": 1.3812,
+            "rewire": 1.3812
+          },
+          "margin": 0.04492
+        },
+        {
+          "case": 5,
+          "preserving": {
+            "mediate": 1.42612,
+            "relabel": 1.72237
+          },
+          "changing": {
+            "flip_sign": 1.3812,
+            "rewire": 1.3812
+          },
+          "margin": 0.04492
+        }
+      ]
+    },
+    "delta": {
+      "n": 60,
+      "mean_margin": 0.11516,
+      "sd": 0.08178,
+      "effect_size_d": 1.4082,
+      "ci95": [
+        0.09405,
+        0.13628
+      ],
+      "t_p": 0.0,
+      "wilcoxon_p": 0.0,
+      "ci_excludes_zero": true,
+      "passes": true,
+      "sample_rows": [
+        {
+          "case": 0,
+          "preserving": {
+            "mediate": 1.38327,
+            "relabel": 1.55129
+          },
+          "changing": {
+            "flip_sign": 1.33376,
+            "rewire": 1.27233
+          },
+          "margin": 0.04951
+        },
+        {
+          "case": 1,
+          "preserving": {
+            "mediate": 1.40512,
+            "relabel": 1.61361
+          },
+          "changing": {
+            "flip_sign": 1.31046,
+            "rewire": 1.31046
+          },
+          "margin": 0.09467
+        },
+        {
+          "case": 2,
+          "preserving": {
+            "mediate": 1.40512,
+            "relabel": 1.61361
+          },
+          "changing": {
+            "flip_sign": 1.31046,
+            "rewire": 1.31046
+          },
+          "margin": 0.09467
+        },
+        {
+          "case": 3,
+          "preserving": {
+            "mediate": 1.40512,
+            "relabel": 1.61361
+          },
+          "changing": {
+            "flip_sign": 1.31046,
+            "rewire": 1.31046
+          },
+          "margin": 0.09467
+        },
+        {
+          "case": 4,
+          "preserving": {
+            "mediate": 1.40512,
+            "relabel": 1.61361
+          },
+          "changing": {
+            "flip_sign": 1.31046,
+            "rewire": 1.31046
+          },
+          "margin": 0.09467
+        },
+        {
+          "case": 5,
+          "preserving": {
+            "mediate": 1.40512,
+            "relabel": 1.61361
+          },
+          "changing": {
+            "flip_sign": 1.31046,
+            "rewire": 1.31046
+          },
+          "margin": 0.09467
+        }
+      ]
+    }
+  },
+  "part_c_severity_matched_random": {
+    "arms": {
+      "exact_k_matches_locked_plan": {
+        "n": 200,
+        "median": 0.0,
+        "max": 9,
+        "at_or_above": 33,
+        "percentile": 0.835,
+        "degenerate": 0,
+        "degenerate_rate": 0.0,
+        "passes": false,
+        "below_median": false
+      },
+      "bernoulli_expected_k_first_implementation": {
+        "n": 200,
+        "median": 0.0,
+        "max": 9,
+        "at_or_above": 29,
+        "percentile": 0.855,
+        "degenerate": 0,
+        "degenerate_rate": 0.0,
+        "passes": false,
+        "below_median": false
+      }
+    },
+    "arms_agree_on_verdict": true,
+    "deviation_declared": "the first implementation drew each substitution independently at rate `severity`, matching the locked plan in expectation only. The exact-k arm is the one the plan specified and is the one that decides.",
+    "unconstrained_leave_one_out": "3/9",
+    "polarity_constrained_leave_one_out": "9/9",
+    "severity_fraction_permitted": 0.5017,
+    "n_random_restrictions": 200,
+    "random_leave_one_out_median": 0.0,
+    "random_leave_one_out_max": 9,
+    "random_at_or_above_constrained": 33,
+    "percentile_of_polarity_constraint": 0.835,
+    "resampled_or_failed": 0,
+    "resample_rate": 0.0,
+    "passes": false,
+    "polarity_below_random_median": false
+  },
+  "part_d_permutation": {
+    "n_motifs": 9,
+    "observed_mean_margin": 0.15546,
+    "permutation_p": 0.011,
+    "n_permutations": 10000,
+    "passes": true,
+    "what_this_cannot_establish": "Re-uses the same nine observations EXP-039 used. A sign-permutation test says the observed mean is unlikely under a symmetric null; it says nothing about whether a DIFFERENT independent annotator would reproduce it. That needs new material and is not available here."
+  },
+  "codes_used": [
+    "gamma",
+    "delta"
+  ],
+  "verdict": {
+    "band": "ADOPTION REFUSED -- part C veto",
+    "statement": "An arbitrary restriction of equal severity reproduces the improvement, so the gain is from restricting the search at all, not from restricting it correctly. The polarity degeneracy is still a real defect; this is not the demonstrated fix, and EXP-053's 42 changes are an artifact of search restriction."
+  },
+  "margin_stats": {
+    "part_b_mean_margin": 0.0697,
+    "part_b_effect_size": 0.7361,
+    "part_b_ci95": [
+      0.04525,
+      0.09415
+    ],
+    "part_a_mean_margins": {
+      "F-06a constrained": 0.455721,
+      "F-06a unconstrained": 0.311019,
+      "polarity overlap (impostor)": 0.305,
+      "word overlap (impostor)": -1.0,
+      "size match (impostor)": 0.0
+    }
+  },
+  "leave_one_out": {
+    "unit": "EXP-039 motif",
+    "unconstrained": "3/9",
+    "constrained": "9/9",
+    "random_restriction_median": 0.0,
+    "note": "the random-restriction median is the number that decides this, not the constrained score on its own"
+  },
+  "abstention_rate": {
+    "part_a_motifs_scored_flat": {
+      "F-06a constrained": 0,
+      "F-06a unconstrained": 0,
+      "polarity overlap (impostor)": 0,
+      "word overlap (impostor)": 0,
+      "size match (impostor)": 10
+    },
+    "part_c_resample_rate": 0.0
+  }
+}

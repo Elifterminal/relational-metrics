@@ -1,8 +1,10 @@
 {
-  "checked": 47,
-  "runners_present": 47,
-  "full_sweep": true,
-  "partial_run_of": null,
+  "checked": 48,
+  "runners_present": 48,
+  "full_sweep": false,
+  "partial_run_of": [
+    "exp054"
+  ],
   "stale": [],
   "broken": [],
   "by_experiment": {
@@ -52,6 +54,7 @@
     "exp049": "reproduces",
     "exp050": "reproduces",
     "exp051": "reproduces",
-    "exp052": "reproduces"
+    "exp052": "reproduces",
+    "exp054": "reproduces"
   }
 }

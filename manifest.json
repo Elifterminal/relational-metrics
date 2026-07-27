@@ -707,6 +707,20 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "42 verdicts move and all of them favour us -- so do not adopt"
+    },
+    {
+      "id": "EXP-054",
+      "question": "Q-44 \u2014 does the polarity-constrained measure earn adoption from rung 1, with nothing inherited?",
+      "result": "**No. Adoption refused by a control built to kill it.** The polarity filter permits 50.17% of type substitutions, so 200 *arbitrary* filters permitting the same fraction were run against `EXP-039`'s leave-one-out. Unconstrained 3/9, polarity-constrained 9/9, **random restrictions median 0/9 \u2014 but 33 of 200 matched or beat it**. That puts polarity at the **83.5th percentile against a predeclared threshold of the 95th**. Both arms agree. So most ways of crippling the search hurt and this one genuinely helps, but **one arbitrary restriction in six helps as much** \u2014 too many to credit polarity rather than luck. Parts A, B and D all passed and none of them mattered; C had veto power, declared before running. **`EXP-053`'s 42 changes are an artifact of search restriction, not a discovery about polarity.** The degeneracy stays real, the default stays unconstrained, every published number stands. Separately, an impostor comparing only the *fraction of amplifying relations* \u2014 blind to structure \u2014 scored **9/10** on the retrieval claim \u2192 `Q-46`: the corpus may be separable by polarity profile alone",
+      "status": "complete",
+      "rung": 1,
+      "stage": 3,
+      "entry_point": "lab/run_exp054.py",
+      "result_file": "results/exp054.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the improvement was restriction, not polarity -- refused"
     }
   ],
   "claims": [
