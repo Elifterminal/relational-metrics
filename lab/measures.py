@@ -10,6 +10,7 @@ verdict is a difference in criterion and nothing else.
 
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
 
 from codes import Code, DEFAULT_CODE, weight_levels
@@ -115,7 +116,21 @@ def mdl_correspondence(a: Structure, b: Structure,
     is exactly the behaviour that produced every published result. See
     enumerate_mappings for what it does and for why a filtered score being
     lower is arithmetic rather than a finding.
+
+    RM_POLARITY_PRESERVING is EXP-053's AUDIT instrument, not a configuration
+    option. It exists so both regimes can be produced from one source tree
+    without editing twenty-six runners. Unset -- which is how everything runs
+    unless the audit is driving -- leaves this function byte-identical to the
+    version that produced every published number. An explicitly-passed filter
+    always wins.
     """
+    if type_filter is None and os.environ.get("RM_POLARITY_PRESERVING"):
+        from relalgebra import POLARITY
+
+        def type_filter(s, t):
+            ps, pt = POLARITY.get(s), POLARITY.get(t)
+            return ps is None or pt is None or ps == pt
+
     b_edges = b.edge_set()
     # Q-28: weights now enter the comparison. Normalised by geometric mean, so
     # a unit conversion is invariant BY CONSTRUCTION rather than by the measure
