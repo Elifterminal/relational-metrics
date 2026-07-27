@@ -1,0 +1,26 @@
+{
+  "experiment": "EXP-051",
+  "question": "Does relational structure have the SECOND holographic property — distributedness? Does every fragment carry information about the whole, or does information sit in specific places?",
+  "why_this_is_the_on-thesis_test": "Lee's restatement: the thesis is that nothing exists in a vacuum and everything leaves an imprint on everything else, with holography as the model — light's interference records relationships that intensity recording discards. We have verified the FIRST holographic property (C-01: structure exists that no pairwise view contains, i.e. interference carries what intensity does not). The SECOND property is distributedness: cut a hologram in half and you get the whole scene at reduced resolution, not half a scene. Nobody has tested whether relational structure behaves that way, and it is the sharper of the two claims.",
+  "the_analogy_made_precise": {
+    "intensity recording": "measure each thing's own properties — single-variable influences",
+    "interference recording": "measure the relations — the subset-indexed invariant, all orders",
+    "a fragment of the plate": "a random subset of those measurements",
+    "the holographic claim": "a fragment of the interference record still describes the WHOLE object, degrading in resolution rather than in coverage. A fragment of an intensity record describes only the part it covers."
+  },
+  "design": "Exhaustive over Boolean systems of 4 variables where the complete invariant is known. Take a fraction f of the available measurements, and ask how many distinct systems that fragment can still tell apart. Two conditions: RELATIONAL fragments (drawn from the subset-indexed invariant at all orders) and PROPERTY fragments (drawn from single-variable terms only). Sweep f.",
+  "statistic": "discrimination retained = (distinct equivalence classes under the fragment) / (distinct classes under the full invariant), per fraction f",
+  "tests": "descriptive curves over f, averaged across many random fragments per f. No null-hypothesis test: the shape of the curve is the answer.",
+  "exclusion_rule": "systems whose full invariant is degenerate (all-zero) are excluded and counted — they are indistinguishable from each other under any fragment and would flatter both arms equally.",
+  "robustness": "report the whole curve, not a point. Report the property arm's ceiling explicitly, since a hard ceiling is the signature the analogy predicts.",
+  "falsification": [
+    "relational fragments degrade at the SAME rate as property fragments -> relational structure is not distributed, the holographic analogy fails at its second property, and the thesis loses its sharper half",
+    "relational fragments degrade GRACEFULLY while property fragments hit a hard ceiling -> the analogy holds on this class of systems",
+    "both hit ceilings -> neither is distributed and the analogy is decorative"
+  ],
+  "predictions": [
+    {"claim": "property fragments will hit a hard ceiling well below 1.0", "confidence": "high", "reason": "single-variable influences are a lossy summary by C-06 — two systems can agree on every influence and still differ. The ceiling is the size of that collision set"},
+    {"claim": "relational fragments will degrade gracefully and approach 1.0", "confidence": "medium", "reason": "this is the thesis's own claim and I am therefore inclined to believe it, which is the reason to be careful. It could equally be that discrimination sits concentrated in the high-order terms, in which case a random fragment usually misses them and degrades sharply"},
+    {"claim": "if prediction 2 fails, that is the most important negative the project could produce — it would mean the holographic analogy is decorative rather than structural", "confidence": "n/a — stated so it cannot be softened later"}
+  ]
+}
