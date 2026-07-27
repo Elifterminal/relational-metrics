@@ -1,0 +1,49 @@
+{
+  "experiment": "EXP-055",
+  "question": "Q-42 -- holography's fragment is a SPATIAL region of the plate. Under a structural fragment (a subset of participants) rather than a random subset of transform coefficients, is a relational record distributed where a property record is not?",
+
+  "background": "EXP-051 tested distributedness with 'fragment' meaning a random subset of transform coefficients, and found the apparent relational advantage was pool size: at matched term count, property terms carried 3.048 bits each against relational terms' 3.021. It concluded distributedness belongs to the transform domain rather than to relational content, and logged Q-42 because holography's fragment is SPATIAL -- a piece of the plate -- which is a different object. The predeclared caution attached to Q-42 is that EXP-051's first pass looked like a confirmation and was an artifact of unequal pool sizes, so any retest needs matched-size arms from the start.",
+
+  "the_sharp_question": "Cutting a hologram in half does not lose half the scene. So the test is not whether a fragment describes ITSELF -- that is trivial for both arms -- but whether a fragment constrains the part of the system IT CANNOT SEE. That is the primary statistic here, and it is the one EXP-051 never asked.",
+
+  "setup": "K=4 Boolean variables, all 65,536 functions enumerated exactly. No sampling of the universe, so 'how many whole-systems are consistent with this fragment' is exact rather than estimated. Each function's complete invariant is one Walsh coefficient per subset (C-06). A structural fragment is a set P of participants. The RELATIONAL arm takes coefficients on subsets S of P with |S|>=2; the PROPERTY arm takes coefficients on singletons in P.",
+
+  "matched_arms": "MATCHED FROM THE START, per Q-42's predeclared caution. For each fragment size p, m = min(relational terms available, property terms available), and both arms use exactly m coefficients. p=2: relational has 1 ({A,B}), property has 2, so m=1. p=3: relational has 4, property has 3, so m=3. Term choices are enumerated where the count is small and sampled with a fixed seed otherwise; the number of choices per arm is equal across arms.",
+
+  "statistic": "PRIMARY -- outside determination: for every subset T not contained in P, the number of DISTINCT values that coefficient takes across the set of functions consistent with the observed fragment, and the fraction of such T uniquely determined. Lower distinct count and higher unique fraction = the fragment says more about what it cannot see = more holographic. SECONDARY -- consistent-set size: how many of the 65,536 functions match the target on the chosen m coefficients. Reported as log2, i.e. remaining bits of ambiguity about the whole system.",
+
+  "control": "A RANDOM arm: m coefficients drawn from anywhere in the whole system, ignoring the fragment entirely. This is not a fragment at all and should outperform both -- if it does not, the measurement is not sensitive enough to arbitrate and the experiment cannot answer its question. It is the can-this-fail check.",
+
+  "exclusion_rule": "No function excluded. Constant functions and functions with degenerate invariants are RETAINED and reported separately, since they are exactly where a fragment might trivially determine the whole.",
+
+  "robustness": "Every combination of (fragment size, arm, term choice) is run against 200 target functions drawn with a fixed seed from the full 65,536, and additionally against ALL 65,536 as targets for the consistent-set-size statistic, which is a dictionary lookup and therefore cheap. Results are reported per fragment size, never pooled across sizes, because pooling two points would hide a trend.",
+
+  "tests": [
+    "exact enumeration -- the universe is complete, so no inference is required for the consistent-set statistics",
+    "Wilcoxon signed-rank on paired per-target outside-determination between the relational and property arms",
+    "effect size with bootstrap CI95 on the paired difference"
+  ],
+
+  "predictions": {
+    "P1": "At matched count, a relational fragment determines MORE about the participants it cannot see than a property fragment does. This is the thesis prediction and the whole point.",
+    "P2": "Neither arm fully determines the whole system from a proper fragment -- ambiguity remains in both, because holography degrades resolution rather than losing coverage.",
+    "P3": "The relational advantage grows from p=2 to p=3 as higher-order terms within the fragment become available.",
+    "P4": "The random control beats both arms, since it is not restricted to a region at all."
+  },
+
+  "verdict_bands": {
+    "note": "Graded. The quantity is the paired difference in outside determination between the relational and property arms, at matched count, per fragment size.",
+    "relational_clearly_higher_both_sizes": "The structural reading of distributedness HOLDS. EXP-051's negative was specific to coefficient-fragments and the holographic analogy's second half is recovered in its proper form. This would be the strongest positive result the project has produced about the thesis itself.",
+    "relational_higher_at_one_size_only": "Suggestive and not settled. Report as a size-dependent effect with the direction named, and do not generalise from two points.",
+    "no_difference": "Distributedness is not a property of relational content under EITHER reading. The holographic analogy is decisively half-sized: interference-records-what-intensity-discards holds, every-fragment-carries-the-whole does not. That is a real negative about the founding intuition and gets reported as prominently as a positive would.",
+    "property_higher": "Stronger negative than no-difference, and must be reported as its own case rather than folded into it -- it would mean a property record is MORE distributed than a relational one, inverting the thesis."
+  },
+
+  "falsification": {
+    "of_the_thesis_half": "P1 failing at both fragment sizes falsifies the structural reading of distributedness, which is the last reading available. EXP-051 already falsified the coefficient reading.",
+    "of_the_experiment": "If the random control does NOT beat both arms, the outside-determination statistic is not sensitive enough to arbitrate and no verdict may be read from it.",
+    "prediction_space_wrong": "Two cases to report as themselves: (i) a fragment fully determines the whole system in a non-trivial fraction of cases, which would mean the universe is too small for the question and K=4 cannot host it; (ii) both arms determine the outside equally well but far above chance, which would mean distributedness is a property of the INVARIANT REPRESENTATION rather than of either relational or property content -- the same shape as EXP-051's transform-domain finding, arriving by a second route, and a more interesting answer than either band above."
+  },
+
+  "capacity_to_fail": "The random control is the required check. It must beat both fragment arms; if it does not, the statistic cannot discriminate and the run reports that instead of a verdict."
+}
