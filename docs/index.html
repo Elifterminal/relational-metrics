@@ -76,7 +76,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);
 
 <header>
 <h1>Relational Metrics</h1>
-<p class="sub">51 runs. <b>8</b> claims active within a stated scope, <b>3</b> refuted or demoted, <b>1</b> untested — and <b>1</b> published claim retracted by a later run. Counts generated from the manifest, so this line cannot go stale.</p>
+<p class="sub">52 runs. <b>8</b> claims active within a stated scope, <b>3</b> refuted or demoted, <b>1</b> untested — and <b>1</b> published claim retracted by a later run. Counts generated from the manifest, so this line cannot go stale.</p>
 </header>
 
 <div class="card survives-card"><h2>What this project established</h2><p>Consolidated after 43 experiments. Claims are sorted by <b>what they rest on</b> rather than by how interesting they are — that division is the most useful thing here, and conflating the two groups is how a project like this fools itself.</p><div class="read"><b>Six results come from exhaustive computation over enumerated systems.</b> No annotation, no corpus, no human judgement enters them at any point; they are checked over every case in a finite space rather than sampled.<br><br><b>Three depend on somebody turning text into structures by hand</b> — and this project spent a day establishing that the somebody was biased and that this step is the bottleneck. Those two groups deserve very different confidence.</div><div class="read ok"><b>What the whole thing amounts to: a working instrument with a hand-prepared input.</b> The comparison engine does what it claims on formalised relational descriptions, confirmed by someone with no stake in the outcome. The step from text to structure is unsolved, was doing more of the work than the engine was, and on real prose appears not to be solvable in this representation at all.<br><br>Smaller than the goal, and genuinely a result — most projects that fail here never learn which half was broken.</div><table class="survives"><thead><tr><th>status</th><th>claim</th><th>scope it holds within</th></tr></thead><tbody><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>Higher-order dependence can exist that no pairwise view contains, and it is detectable.</b><br><span class="sub"><code>EXP-002</code> <code>EXP-011</code> <code>EXP-012</code></span></td><td class="sub">small discrete Boolean configurations, exhaustively enumerated</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>Connected information locates the order at which dependence appears.</b><br><span class="sub"><code>EXP-011</code> <code>EXP-012</code></span></td><td class="sub">k<=4 discrete variables; requires an outcome-permutation calibration to be an answer</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 3</span><br><span class="sub" style="color:#15803d">rests on: theorem (instances were annotation)</span></td><td><b>Structural correspondence cannot distinguish cases whose representations are isomorphic — a general limit, not a defect of this measure.</b><br><span class="sub"><code>EXP-026</code> <code>EXP-027</code> <code>EXP-029</code> <code>EXP-031</code></span></td><td class="sub">THE THEOREM is mathematics and stands alone: isomorphic structures receive equal values from every isomorphism-invariant measure. ITS ORIGINAL INSTANCES did not — EXP-027 claimed an outside author wrote vacuous documents isomorphic to the query, and EXP-035 showed I annotated them into that state (4/4 sighted, 2/4 blind). Generalised into a pre-test (EXP-031) that found three dead ends and one vacuous control. Both facts belong in the record</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>Retention obeys an exact closed form: 1 - influence(hidden)/H(outcome).</b><br><span class="sub"><code>EXP-015</code> <code>EXP-016</code> <code>EXP-021</code></span></td><td class="sub">verified to 1e-16 over all 65,536 functions at k=4; a robustness law, NOT a measure of how participants jointly organise</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>Relational structure is not reducible to a scalar, nor to a pair of profiles.</b><br><span class="sub"><code>EXP-022</code> <code>EXP-023</code></span></td><td class="sub">at k=3 the two profiles suffice; at k=4 they do not. The complete invariant is one number per subset</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation + annotation</span></td><td><b>Canonicalising before measuring restores exact invariance under a DECLARED typed graph-homeomorphism relation, at no cost to capability.</b><br><span class="sub"><code>EXP-029</code></span></td><td class="sub">subdivision and suppression of degree-2 vertices only. Exact (cost 0, 6/6 recovery); capability 3/3, 3/3, 4/4 including under subdivision. Rewrite terminating, idempotent, confluent. NOT converse or reification (Q-25). And the equivalence must be DECLARED — blind suppression damages 5/6 structures, because whether a vertex is representational is not decidable from structure. AUDIT NOTE: the invariance arm is computation (exact recovery, confluence over 24 orders); the 'no cost to capability' arm rests on hand-annotated corpora and inherits their limits</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 3</span><br><span class="sub" style="color:#d97706">rests on: hand annotation</span></td><td><b>The corpus results measure a real analogy-detection effect AND were inflated by annotation — both, now separably.</b><br><span class="sub"><code>EXP-030</code> <code>EXP-032</code> <code>EXP-033</code> <code>EXP-039</code></span></td><td class="sub">SETTLED by EXP-039. An independent annotator with no stake recovers effect size 0.788 against my sighted 2.045, so there is a real effect and my sighted annotation inflated it ~2.6×. The answer was never one or the other. What remains unsettled is whether the effect is large enough to be useful — 9 motifs is fragile under leave-one-out</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>The measure is invariant to unit conversion of relation weights.</b><br><span class="sub"><code>EXP-031</code> <code>EXP-034</code></span></td><td class="sub">REPAIRED by EXP-034. Was vacuous — the measure did not read weights, so it could not fail the test. Weights now enter normalised by geometric mean, making rescaling invariant by construction while relative coupling is visible. The control now measures its own capacity to fail each run. Untested on data where weights actually vary (Q-33) — a capability, not yet a result</td></tr><tr><td><span class="tag warn">provisional</span><span class="conf">rung 3</span><br><span class="sub" style="color:#15803d">rests on: computation (mechanism) + annotation (pipeline)</span></td><td><b>MDL correspondence ranks a structural analogue above a same-vocabulary rival — settled for the MEASURE, unsettled for the pipeline around it.</b><br><span class="sub"><code>EXP-024</code> <code>EXP-025</code> <code>EXP-026</code> <code>EXP-027</code> <code>EXP-028</code> <code>EXP-029</code> <code>EXP-030</code> <code>EXP-032</code> <code>EXP-033</code> <code>EXP-036</code> <code>EXP-037</code> <code>EXP-038</code> <code>EXP-039</code> <code>EXP-047</code> <code>EXP-048</code></span></td><td class="sub">TWO LEGS OF VERY DIFFERENT STRENGTH. **The mechanism is settled** (EXP-048): with no annotation anywhere, the measure holds the property out to a quarter of the structure being altered — d=1.24, 90% of 200 cases agreeing, not fragile. **The pipeline is not**: on hand-annotated corpora it is effect size 0.788 with leave-one-out 3/9 (EXP-039), and sighted annotation inflates it 2.6×. Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal at all on prose, four ways (EXP-030, 042, 043, 046)</td></tr><tr><td><span class="tag warn">provisional</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>The correspondence measure transfers to topologies it was not developed against.</b><br><span class="sub"><code>EXP-005</code></span></td><td class="sub">5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process. One experiment, never repeated — the weakest active claim in the project</td></tr><tr><td><span class="tag mut">untested</span><br><span class="sub" style="color:var(--mut)">rests on: untested</span></td><td><b>Any of this reaches a claim about physical reality.</b><br><span class="sub"><i>none yet</i></span></td><td class="sub">unsupported and not currently testable. Prediction P6 says it will not, and P6 stands</td></tr><tr><td><span class="tag bad">demoted / replaced</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>The higher-order remainder statistic measures synergy.</b><br><span class="sub"><code>EXP-002</code> <code>EXP-011</code></span></td><td class="sub">conflated synergy with redundancy; replaced by connected information (C-02)</td></tr><tr><td><span class="tag bad">refuted / retracted</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>The measure is invariant to how the same process is legitimately re-encoded (mediator nodes, hyperedge vs factor node, subdivision, converse relations).</b><br><span class="sub"><code>EXP-028</code></span></td><td class="sub">refuted. Content-preserving and content-changing transforms produce OVERLAPPING score ranges, and at matched size the measure returns identical values for a correct re-encoding and a corrupted one. Cause: the mapping space cannot match a relation to a path, and gains freedom as the target grows. Partially repaired by EXP-029 for the subdivision class via canonicalisation (C-12); converse and reification still unaddressed</td></tr><tr><td><span class="tag bad">refuted / retracted</span><br><span class="sub" style="color:#d97706">rests on: hand annotation</span></td><td><b>F-09 bridge value: discounting a match by genericness defends against the attractive-nonsense failure.</b><br><span class="sub"><code>EXP-027</code> <code>EXP-035</code></span></td><td class="sub">refuted EMPIRICALLY, not by impossibility. EXP-027 argued the discount can never act because the structures are isomorphic; EXP-035 showed that isomorphism was largely annotator-supplied (4/4 sighted, 2/4 blind). Blind, the discount CAN act on 1/4 motifs — and helps on 0/4, making one motif worse. So: still refuted, on weaker grounds than published</td></tr></tbody></table></div>
@@ -922,6 +922,52 @@ distractor documents into a structure identical to the query: a property of how 
 written, mistaken for a property of the instrument. The test that would settle it needs false friends
 built to match their analogues on polarity, so wiring is the only thing left that differs.</div>
 
+<h2>The founding analogy, settled — at half its original size</h2>
+<p>The earlier test used "fragment" to mean a random handful of measurements. But a hologram's fragment
+is a <b>piece of the plate</b> — a region in space. That's a different object, and it's the one the
+analogy is actually about. So this is the proper test.</p>
+
+<div class="read"><b>The question the earlier test never asked.</b> Cutting a hologram in half doesn't
+lose half the scene. So the test isn't whether a fragment describes <i>itself</i> — trivially true for
+anything — but whether a fragment tells you about <b>the part of the system it cannot see</b>.<br><br>
+All 65,536 possible 4-part systems, enumerated exactly. A fragment is a set of <b>participants</b>. And
+both arms get <b>exactly the same number of measurements</b>, decided before running — the fix the last
+test needed and didn't have.</div>
+
+<div class="read bad"><b>A fragment never determines anything it can't see. Not once, either kind of
+record.</b><br><br>
+<table class="survives"><thead><tr><th>fragment</th><th>record</th><th>outside uniquely determined</th></tr></thead><tbody>
+<tr><td>2 of 4 parts</td><td>relational</td><td><b>0.0000</b></td></tr>
+<tr><td>2 of 4 parts</td><td>property</td><td><b>0.0000</b></td></tr>
+<tr><td>3 of 4 parts</td><td>relational</td><td><b>0.0000</b></td></tr>
+<tr><td>3 of 4 parts</td><td>property</td><td><b>0.0000</b></td></tr>
+</tbody></table><br>
+On the finer-grained measure the two arms differ by <b>effect sizes of 0.01 and 0.03, in opposite
+directions</b>, both ranges spanning zero. That's not a small effect. It's nothing.</div>
+
+<div class="read warn"><b>And the control is where it gets interesting.</b> Measurements taken from
+<i>anywhere</i> in the system — not confined to a region — determine far more: <b>0.170 against
+0.000</b>. So the measurement can detect this when it's there. It just isn't there for either
+fragment.<br><br>
+Which means the thing that destroys it isn't the <i>kind</i> of measurement. <b>It's being confined to
+a region at all</b> — and that hits relational and property records equally.<br><br>
+That's exactly backwards from a hologram, where <i>any</i> region carries the whole.</div>
+
+<div class="read ok"><b>So the founding image now has a settled shape, and it's smaller than it
+started.</b><br><br>
+<table class="survives"><thead><tr><th>holographic property</th><th>translated</th><th>verdict</th></tr></thead><tbody>
+<tr><td>interference records what intensity throws away</td><td>relations carry what properties can't</td><td><b>HOLDS</b> — the oldest and strongest result here</td></tr>
+<tr><td>every fragment carries the whole scene</td><td>part of the record describes the system</td><td><b>FAILS</b> — twice, by independent routes</td></tr>
+</tbody></table><br>
+Two roads to the same negative. The first could be dismissed as the wrong notion of fragment. The
+second used the right one and got a flat zero.<br><br>
+<b>This isn't a failure of the project.</b> The surviving half is the half that was doing the work all
+along, and it's now cleanly separated from a half that was never ours. The intuition behind this —
+<i>nothing exists in a vacuum, everything leaves an imprint on everything else</i> — is supported for
+the <b>imprint</b>. There is structure in the relations that no property-level view contains, verified
+across every case exhaustively. It is <b>not</b> supported for the <b>recoverability</b>: you cannot
+read the whole system off a piece of it.</div>
+
 <h2>Integration record</h2>
 
 <h3>Material received — 2026-07-26</h3>
@@ -1254,15 +1300,58 @@ from outside, and there is no amount of care that substitutes.</div>
 found because I was building the <i>next</i> thing and tripped over the last one. The apparatus makes
 errors <i>findable</i> and makes them <i>impossible to quietly bury once found</i>. It does not
 search.<br><br>
-<b>Four predeclared verdict rules turned out too coarse for their own results</b>, all on the same
+<b>Five predeclared verdict rules turned out too coarse for their own results</b>, all on the same
 day and all the same shape: a global rule applied to a swept design, where the far end of the sweep
 breaks the rule's assumption. Predeclaring a threshold makes it fixed, not correct.<br><br>
-<b>And it is slow.</b> Forty-five experiments produced two solid claims and a lot of carefully
+<b>And it is slow.</b> Fifty-two experiments produced two solid claims and a lot of carefully
 documented negatives. If you need speed more than you need to be right, this is the wrong
 apparatus.</div>
 
-<div class="read ok"><b>If you take one thing:</b> write the rule as something that refuses to run.
-Everything else here is downstream of that.</div>
+<h3>8. The fault that turned out to be the main one</h3>
+<p>Everything in section 4 is a specific mistake. Late on, six of them turned out to be
+<b>the same</b> mistake, and it changed how I think the lab should be built.</p>
+
+<div class="read bad"><b>A check is correct when you write it, and something else quietly kills
+it.</b><br><br>
+<table class="survives"><thead><tr><th>the check</th><th>what killed it</th><th>how long it sat dead</th></tr></thead><tbody>
+<tr><td>"invariant to unit conversion"</td><td>the measure never read the quantity being changed</td><td>30 experiments</td></tr>
+<tr><td>a 10% vs 20% damage sweep</td><td>rounding — both arms got the same damage</td><td>1 experiment</td></tr>
+<tr><td>a deliberately crude stress code</td><td>a weight channel added later made matching cost more than not matching, so its best answer matched nothing</td><td>18 experiments</td></tr>
+<tr><td>the build check</td><td>it verified result files <i>existed</i>, never that they were <i>current</i></td><td>~29 experiments</td></tr>
+<tr><td><b>the freshness tripwire I wrote to fix that</b></td><td>flagged all 50 files on any change, so it would've been ignored within a day</td><td>caught same hour</td></tr>
+<tr><td><b>the reproducibility sweep I wrote to fix that</b></td><td>a one-file run overwrote the full report, so a partial audit could pass as a complete one</td><td>caught same hour</td></tr>
+</tbody></table><br>
+<b>Two of the six are inside the machinery built to catch the other four.</b> That's what convinced me
+this isn't a discipline problem. It's structural — the strongest evidence being that it kept happening
+<i>while I was writing the detector</i>.</div>
+
+<div class="read ok"><b>The fix, and it's the most transferable thing here.</b> A control must
+<b>state the condition it depends on and assert that condition at run time</b>, rather than inherit it
+from whenever it was written. Concretely, three things now refuse to proceed:<br><br>
+• the invariance control perturbs the property it holds fixed and requires the measure to notice —
+it fails loudly if it has become unfalsifiable<br>
+• a description code must prove matching costs less than not matching before it's allowed to vote<br>
+• a sweep re-runs every experiment and compares against what's on disk<br><br>
+That last one <b>never edits the record</b>. If a stored number and a fresh one disagree it restores
+the stored one and reports the disagreement — overwriting the old with the new destroys the evidence
+they ever differed, and that evidence is the finding. Current state: <b>50 of 50 reproduce</b>, and
+five that didn't are archived verbatim next to their replacements.</div>
+
+<div class="read warn"><b>The other new fault, and it's about evidence rather than machinery.</b> A
+change came along that improved almost every result in the project at once — including reversing a
+retraction. Everything in this lab was built to guard against a result flattering me. Nothing was built
+for a result flattering <i>everything at once</i>.<br><br>
+It got refused twice: first on <b>size</b> (a rule that said "more than three conclusions moving means
+this is a different instrument, not a repair"), then on <b>mechanism</b> (a control asking whether an
+<i>arbitrary</i> restriction of the same severity would do just as well — one in six did).<br><br>
+The size rule caught it only because it was written about <b>magnitude, not direction</b>. If I'd
+phrased it as "watch out for results that make things worse," it would have sailed through. That's the
+lesson: <b>predeclare how much change is too much, not just which way.</b></div>
+
+<div class="read"><b>If you take one thing:</b> write the rule as something that refuses to run.
+Everything else here is downstream of that.<br><br>
+<b>If you take two:</b> the rule you wrote last year is being quietly invalidated by the change you
+make today, and you will not feel it happen.</div>
 </div>
 
 <div class="panel" id="findings">

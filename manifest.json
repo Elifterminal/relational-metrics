@@ -721,6 +721,20 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "the improvement was restriction, not polarity -- refused"
+    },
+    {
+      "id": "EXP-055",
+      "question": "Q-42 \u2014 holography's fragment is a SPATIAL region. Under a structural fragment (a subset of participants), is a relational record distributed where a property record is not?",
+      "result": "**No \u2014 and this closes the founding analogy at half its original size.** All 65,536 Boolean functions enumerated exactly; arms **matched from the start** per `Q-42`'s predeclared caution. A structural fragment **never uniquely determines anything it cannot see** \u2014 0.0000 at both fragment sizes for *both* relational and property records. Paired differences on the continuous statistic: d = 0.012 and d = \u22120.025, **in opposite directions**, both CIs spanning zero. **The control is the interesting part**: measurements drawn from *anywhere*, unconfined to a region, determine far more (0.170 vs 0.000). So being confined to a region is what destroys recoverability \u2014 equally for both kinds of record \u2014 which is precisely backwards from a hologram, where any region carries the whole. Two independent routes now reach the same negative (`EXP-051` coefficient fragments, `EXP-055` spatial fragments). **Interference-records-what-intensity-discards holds (`C-01`); every-fragment-carries-the-whole does not.**",
+      "status": "complete",
+      "rung": 2,
+      "stage": 3,
+      "entry_point": "lab/run_exp055.py",
+      "result_file": "results/exp055.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the second holographic property fails under the RIGHT notion of fragment too"
     }
   ],
   "claims": [

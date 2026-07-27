@@ -1,9 +1,9 @@
 {
-  "checked": 48,
-  "runners_present": 48,
+  "checked": 49,
+  "runners_present": 49,
   "full_sweep": false,
   "partial_run_of": [
-    "exp054"
+    "exp055"
   ],
   "stale": [],
   "broken": [],
@@ -55,6 +55,7 @@
     "exp050": "reproduces",
     "exp051": "reproduces",
     "exp052": "reproduces",
-    "exp054": "reproduces"
+    "exp054": "reproduces",
+    "exp055": "reproduces"
   }
 }

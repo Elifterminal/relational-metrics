@@ -1,0 +1,203 @@
+{
+  "experiment": "EXP-055",
+  "plan_locked_at": "01fc1c519fd59321fbd2889183b34e5793e5d4a4",
+  "plan_sha256": "5662f04c7c0eb352",
+  "question": "Q-42",
+  "universe": "all 65,536 Boolean functions of 4 variables, enumerated exactly",
+  "fragment": "a set of PARTICIPANTS (spatial), not a subset of coefficients",
+  "primary_statistic": "fraction of outside subsets uniquely determined by the fragment",
+  "arms_matched_from_the_start": true,
+  "by_fragment_size": {
+    "2": {
+      "participants_in_fragment": 2,
+      "participants_outside": 2,
+      "matched_terms_per_arm": 1,
+      "arms": {
+        "relational": {
+          "n_terms": 1,
+          "n_choices": 1,
+          "outside_uniquely_determined_mean": 0.0,
+          "outside_distinct_values_mean": 7.475,
+          "consistent_set_size_mean": 9273.53,
+          "remaining_bits_about_whole_system": 12.9324,
+          "fully_determined_cases": 0,
+          "n_measurements": 200
+        },
+        "property": {
+          "n_terms": 1,
+          "n_choices": 2,
+          "outside_uniquely_determined_mean": 0.0,
+          "outside_distinct_values_mean": 7.455,
+          "consistent_set_size_mean": 9249.14,
+          "remaining_bits_about_whole_system": 12.9818,
+          "fully_determined_cases": 0,
+          "n_measurements": 400
+        },
+        "random": {
+          "n_terms": 1,
+          "n_choices": 6,
+          "outside_uniquely_determined_mean": 0.069444,
+          "outside_distinct_values_mean": 6.9912,
+          "consistent_set_size_mean": 9200.15,
+          "remaining_bits_about_whole_system": 12.9621,
+          "fully_determined_cases": 0,
+          "n_measurements": 1200
+        }
+      },
+      "relational_minus_property_DISTINCT_VALUES": {
+        "note": "the arbitrating statistic -- lower distinct count means MORE determined, so a NEGATIVE mean favours relational",
+        "mean": 0.02,
+        "sd": 1.68934,
+        "effect_size_d": 0.0118,
+        "ci95": [
+          -0.218909,
+          0.258909
+        ],
+        "t_p": 0.867185,
+        "wilcoxon_p": 0.496418,
+        "ci_excludes_zero": false,
+        "direction": "property more determined"
+      },
+      "relational_minus_property": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "effect_size_d": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "t_p": 1.0,
+        "wilcoxon_p": 1.0,
+        "ci_excludes_zero": false,
+        "direction": "identical"
+      }
+    },
+    "3": {
+      "participants_in_fragment": 3,
+      "participants_outside": 1,
+      "matched_terms_per_arm": 3,
+      "arms": {
+        "relational": {
+          "n_terms": 3,
+          "n_choices": 4,
+          "outside_uniquely_determined_mean": 0.0,
+          "outside_distinct_values_mean": 6.34,
+          "consistent_set_size_mean": 685.52,
+          "remaining_bits_about_whole_system": 8.8664,
+          "fully_determined_cases": 0,
+          "n_measurements": 800
+        },
+        "property": {
+          "n_terms": 3,
+          "n_choices": 1,
+          "outside_uniquely_determined_mean": 0.0,
+          "outside_distinct_values_mean": 6.385,
+          "consistent_set_size_mean": 691.35,
+          "remaining_bits_about_whole_system": 8.9128,
+          "fully_determined_cases": 0,
+          "n_measurements": 200
+        },
+        "random": {
+          "n_terms": 3,
+          "n_choices": 6,
+          "outside_uniquely_determined_mean": 0.170208,
+          "outside_distinct_values_mean": 5.2011,
+          "consistent_set_size_mean": 686.23,
+          "remaining_bits_about_whole_system": 8.859,
+          "fully_determined_cases": 0,
+          "n_measurements": 1200
+        }
+      },
+      "relational_minus_property_DISTINCT_VALUES": {
+        "note": "the arbitrating statistic -- lower distinct count means MORE determined, so a NEGATIVE mean favours relational",
+        "mean": -0.045,
+        "sd": 1.77021,
+        "effect_size_d": -0.0254,
+        "ci95": [
+          -0.295345,
+          0.205345
+        ],
+        "t_p": 0.7196,
+        "wilcoxon_p": 0.590652,
+        "ci_excludes_zero": false,
+        "direction": "relational more determined"
+      },
+      "relational_minus_property": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "effect_size_d": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "t_p": 1.0,
+        "wilcoxon_p": 1.0,
+        "ci_excludes_zero": false,
+        "direction": "identical"
+      }
+    }
+  },
+  "control_discriminates": true,
+  "verdict": {
+    "band": "NO DIFFERENCE -- the analogy is decisively half-sized",
+    "statement": "Distributedness is not a property of relational content under EITHER reading. Interference-records-what-intensity-discards holds; every-fragment-carries-the-whole does not. A real negative about the founding intuition, reported as prominently as a positive would be."
+  },
+  "primary_statistic_hit_a_floor": true,
+  "floor_note": "neither fragment arm EVER uniquely determines an outside coefficient, at either size. That is P2 confirmed hard -- ambiguity always remains -- and it means the unique-fraction statistic compares two zeros. The distinct-value count, predeclared alongside it, is what arbitrates.",
+  "margin_stats": {
+    "2": {
+      "note": "the arbitrating statistic -- lower distinct count means MORE determined, so a NEGATIVE mean favours relational",
+      "mean": 0.02,
+      "sd": 1.68934,
+      "effect_size_d": 0.0118,
+      "ci95": [
+        -0.218909,
+        0.258909
+      ],
+      "t_p": 0.867185,
+      "wilcoxon_p": 0.496418,
+      "ci_excludes_zero": false,
+      "direction": "property more determined"
+    },
+    "3": {
+      "note": "the arbitrating statistic -- lower distinct count means MORE determined, so a NEGATIVE mean favours relational",
+      "mean": -0.045,
+      "sd": 1.77021,
+      "effect_size_d": -0.0254,
+      "ci95": [
+        -0.295345,
+        0.205345
+      ],
+      "t_p": 0.7196,
+      "wilcoxon_p": 0.590652,
+      "ci_excludes_zero": false,
+      "direction": "relational more determined"
+    }
+  },
+  "leave_one_out": {
+    "unit": "fragment size",
+    "note": "only two fragment sizes are available at K=4 (p=2 and p=3), so leave-one-out is reported as the per-size verdicts themselves rather than a resampling. Two points is a stated limitation, not a trend.",
+    "per_size_direction": {
+      "2": "identical",
+      "3": "identical"
+    }
+  },
+  "abstention_rate": {
+    "2": {
+      "fully_determined_cases": {
+        "relational": 0,
+        "property": 0,
+        "random": 0
+      },
+      "of_measurements": 200
+    },
+    "3": {
+      "fully_determined_cases": {
+        "relational": 0,
+        "property": 0,
+        "random": 0
+      },
+      "of_measurements": 800
+    }
+  }
+}
