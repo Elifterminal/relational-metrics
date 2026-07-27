@@ -1,0 +1,52 @@
+{
+  "experiment": "EXP-052",
+  "question": "Q-41 -- the type-substitution search is unconstrained and can invert polarity. Does constraining it to preserve declared polarity change any published result?",
+
+  "background": "EXP-050 found that mdl_correspondence matched a reinforcing loop to a balancing loop at exactly 0 distance, by choosing the type map {POS->NEG, NEG->POS}. Type-blindness is deliberate: it is what lets a geological POS correspond to an ecological GROWS, and it produces the P==X vocabulary-blindness signature that runs through the entire corpus record. But a GLOBAL sign flip turns a reinforcing system into a balancing one, which is a semantic difference we would want to keep. relalgebra.POLARITY already declares +1/-1 for every relation type in use across all three corpora, so the constraint is available without inventing anything.",
+
+  "intervention": "An OPTIONAL type_filter on enumerate_mappings, defaulting to None. The unconstrained path is byte-identical to what produced every published result; the constrained path additionally requires POLARITY[a] == POLARITY[b] for every type pair in the map. Polarity-preserving is strictly WEAKER than name-preserving: it permits POS->GROWS (both +1) and forbids POS->NEG. That is the whole design -- it should keep cross-vocabulary correspondence and kill sign inversion, and part D exists to check that it actually does.",
+
+  "statistic": "Per (query, document) pair: the MDL ratio, the chosen type map, and a boolean inverts_polarity = any(POLARITY[a] != POLARITY[b] for a,b in type_map). Per motif: the tie-aware ranking groups, strictly_above(X,W), and tied(P,X). Aggregate over 10 motifs across three corpora. For part C: the fraction of synthetic pairs where a structure and its polarity-inverted twin are scored at equal ratio.",
+
+  "monotonicity_note": "Constraining the search can only remove mappings, and the score is a max over mappings, so every constrained ratio is <= its unconstrained ratio, necessarily. Absolute score drops are therefore NOT evidence of anything. Only RANKING changes and TIE structure carry information. Any part of the writeup that treats a score drop as a finding is wrong by construction.",
+
+  "parts": {
+    "A_prevalence": "Across all (query, doc) pairs in dev, holdout and independent corpora: how often does the unconstrained search actually CHOOSE a polarity-inverting type map for its best mapping? Reported as a count and a rate, split by corpus.",
+    "B_impact": "Rerun all three corpora under the constraint. Compare, per motif: ranking groups, X>W, P==X. Count how many published results change.",
+    "C_degeneracy_sweep": "Synthetic. For m in 2..8 relations over a single family, build a structure and its polarity-inverted twin (every type replaced by its family opposite). 40 seeds per m. Measure the fraction where unconstrained scores the twin identically to a self-comparison, and the same fraction under the constraint. Also record the polarity multiset of each source so the symmetry condition can be read off rather than assumed.",
+    "D_admissibility_control": "The constraint must NOT destroy cross-vocabulary correspondence. Build a structure in POS/NEG and its faithful translation into GROWS/PRUNES (amplifying->amplifying, damping->damping). Under the constraint this must still score as a perfect match. This control CAN fail and its failure is the finding, not an error."
+  },
+
+  "tests": [
+    "part A: descriptive rate, no inference",
+    "part B: exact comparison of ranking groups, no statistic needed -- the population is the whole published record, not a sample",
+    "part C: binomial proportion with Clopper-Pearson 95% interval per m",
+    "part D: exact -- perfect match or not"
+  ],
+
+  "exclusion_rule": "No pair is excluded. Motifs whose corpus uses only one relation family (the independent corpus is entirely INCREASES/DECREASES) are RETAINED and reported separately, because a single family is exactly where inversion is available and cheapest.",
+
+  "robustness": "Part B is run under all three codes (gamma, delta, flat32). A ranking change that appears under one code and not the others is reported as code-dependent rather than as a result. Part C is run at 40 seeds per m; if any m shows a rate strictly between 0.15 and 0.85 it is rerun at 200 seeds before being reported.",
+
+  "predictions": {
+    "P1": "The unconstrained search chooses a polarity-inverting best mapping on a NONZERO fraction of corpus pairs. If it is zero everywhere, the freedom exists but is never exercised on real data.",
+    "P2": "Under the constraint, the load-bearing claim -- analogue strictly above false friend on 10/10 motifs -- is UNCHANGED.",
+    "P3": "The vocabulary-blindness signature P==X SURVIVES the constraint, because polarity-preserving is weaker than name-preserving.",
+    "P4": "In part C the degeneracy bites when the polarity multiset is symmetric under the flip and not otherwise, so the rate rises with m and is near zero at m=2 (consistent with EXP-049, where the 2-relation reinforcing-vs-balancing control came back identifiable)."
+  },
+
+  "verdict_bands": {
+    "note": "Graded rather than binary. P-23: five predeclared rules in this project have been too coarse for their own results, always a global rule on a graded design. The quantity is the number of PUBLISHED corpus results (10 motif X>W verdicts plus 10 P==X signature verdicts) that change under the constraint.",
+    "0_changes": "The freedom is real but unexercised on this corpus. Record as a SCOPE LIMIT on every corpus claim -- they hold under a search that could have inverted polarity and did not -- not as a defect. Q-41 closes with the degeneracy documented and the constraint NOT adopted, because adopting an intervention that changes nothing adds a modelling choice for no evidence.",
+    "1_to_2_changes": "The freedom is doing work on a minority of cases. Neither answer is empirically privileged; the choice becomes semantic and must be argued, declared, and applied uniformly thereafter. Q-41 stays open until that argument is made.",
+    "3_or_more_changes": "Published results depend on polarity inversion. Retraction-level. The affected claims are demoted and re-run under both regimes with the difference published."
+  },
+
+  "falsification": {
+    "of_the_constraint": "If part D fails -- the constraint breaks cross-vocabulary correspondence -- then polarity-preserving is INADMISSIBLE regardless of what parts A-C show, the freedom is load-bearing, and the degeneracy is documented as an accepted cost of the thing that makes the measure work at all.",
+    "of_the_central_claim": "If part B shows >= 3 changes AND part D passes, then the measure has been quotienting away a distinction the project cares about, across the published record. That is a defect in the central claim, not in a corner case.",
+    "prediction_space_wrong": "Two ways this can land outside every band above, both of which must be reported AS SUCH rather than forced into a band: (i) part C shows the degeneracy never bites even on symmetric multisets, which would make EXP-050's observation a special case I have over-generalised into a question; (ii) the constraint changes SCORES and MARGINS everywhere but no ranking anywhere, which would make Q-41 a question about confidence rather than about verdicts, and the writeup must say that instead of reporting '0 changes' as if nothing happened."
+  },
+
+  "capacity_to_fail": "Part D is the required can-this-control-fail check and is wired through protocol2.check_capacity_to_fail: the perturbation replaces the faithful translation with a polarity-INVERTED translation, and the constrained measure must notice. If it does not notice, the constraint is not doing what it claims and the run aborts."
+}
