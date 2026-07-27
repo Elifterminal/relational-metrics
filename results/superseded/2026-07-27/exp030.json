@@ -4,14 +4,14 @@
   "items_scored": 20,
   "items_reserved_unannotated": 40,
   "annotation_sealed_as": "72b590bfc3d14d06",
-  "correct_ties_as_wrong": 5,
-  "p_ties_as_wrong": 0.04139,
+  "correct_ties_as_wrong": 4,
+  "p_ties_as_wrong": 0.01182,
   "ties": 9,
   "discriminating_items": 11,
-  "correct_on_discriminating": 5,
-  "p_on_discriminating": 1.0,
-  "score_ties_as_coinflip": 9.5,
-  "p_ties_as_coinflip": 1.0,
+  "correct_on_discriminating": 4,
+  "p_on_discriminating": 0.5488,
+  "score_ties_as_coinflip": 8.5,
+  "p_ties_as_coinflip": 0.5034,
   "chance": 0.5,
   "predeclared_threshold": 15,
   "beats_chance": false,
@@ -38,19 +38,19 @@
     {
       "item": "104",
       "proverb": "A friend in need is a friend indeed",
-      "score_first": 1.1922,
+      "score_first": 1.1461,
       "score_second": 1.0,
       "predicted": 1,
       "truth": 1,
       "correct": true,
       "tie": false,
-      "margin": 0.1922
+      "margin": 0.1461
     },
     {
       "item": "159",
       "proverb": "It's no use crying over spilt milk",
-      "score_first": 1.1387,
-      "score_second": 1.1387,
+      "score_first": 0.9943,
+      "score_second": 0.9943,
       "predicted": 0,
       "truth": 1,
       "correct": false,
@@ -60,19 +60,19 @@
     {
       "item": "17",
       "proverb": "Live for today for tomorrow never comes",
-      "score_first": 1.1155,
-      "score_second": 1.1666,
-      "predicted": 2,
+      "score_first": 1.0306,
+      "score_second": 1.0229,
+      "predicted": 1,
       "truth": 2,
-      "correct": true,
+      "correct": false,
       "tie": false,
-      "margin": 0.0512
+      "margin": 0.0077
     },
     {
       "item": "176",
       "proverb": "Beat swords into ploughshares",
-      "score_first": 1.0828,
-      "score_second": 1.0828,
+      "score_first": 0.994,
+      "score_second": 0.994,
       "predicted": 0,
       "truth": 1,
       "correct": false,
@@ -82,30 +82,30 @@
     {
       "item": "243",
       "proverb": "Put your best foot forward",
-      "score_first": 1.3387,
-      "score_second": 1.377,
+      "score_first": 1.3407,
+      "score_second": 1.3923,
       "predicted": 2,
       "truth": 1,
       "correct": false,
       "tie": false,
-      "margin": 0.0383
+      "margin": 0.0516
     },
     {
       "item": "295",
       "proverb": "A golden key can open any door",
-      "score_first": 1.2341,
+      "score_first": 1.2039,
       "score_second": 1.0,
       "predicted": 1,
       "truth": 2,
       "correct": false,
       "tie": false,
-      "margin": 0.2341
+      "margin": 0.2039
     },
     {
       "item": "338",
       "proverb": "Worrying never did anyone any good",
-      "score_first": 1.1121,
-      "score_second": 1.1121,
+      "score_first": 0.9673,
+      "score_second": 0.9673,
       "predicted": 0,
       "truth": 1,
       "correct": false,
@@ -126,19 +126,19 @@
     {
       "item": "411",
       "proverb": "Charity begins at home",
-      "score_first": 1.2506,
-      "score_second": 1.231,
-      "predicted": 1,
+      "score_first": 1.1872,
+      "score_second": 1.326,
+      "predicted": 2,
       "truth": 2,
-      "correct": false,
+      "correct": true,
       "tie": false,
-      "margin": 0.0196
+      "margin": 0.1388
     },
     {
       "item": "441",
       "proverb": "It takes two to tango",
-      "score_first": 1.1387,
-      "score_second": 1.1387,
+      "score_first": 0.9943,
+      "score_second": 0.9943,
       "predicted": 0,
       "truth": 1,
       "correct": false,
@@ -171,23 +171,23 @@
       "item": "658",
       "proverb": "Haste makes waste",
       "score_first": 1.0,
-      "score_second": 1.2029,
+      "score_second": 1.1645,
       "predicted": 2,
       "truth": 2,
       "correct": true,
       "tie": false,
-      "margin": 0.2029
+      "margin": 0.1645
     },
     {
       "item": "68",
       "proverb": "You are never too old to learn",
-      "score_first": 1.2029,
+      "score_first": 1.1645,
       "score_second": 1.0,
       "predicted": 1,
       "truth": 2,
       "correct": false,
       "tie": false,
-      "margin": 0.2029
+      "margin": 0.1645
     },
     {
       "item": "748",
@@ -203,46 +203,46 @@
     {
       "item": "75",
       "proverb": "A friend in need is a friend indeed",
-      "score_first": 1.0484,
-      "score_second": 1.1922,
+      "score_first": 0.9613,
+      "score_second": 1.1461,
       "predicted": 2,
       "truth": 2,
       "correct": true,
       "tie": false,
-      "margin": 0.1438
+      "margin": 0.1848
     },
     {
       "item": "762",
       "proverb": "April showers bring forth May flowers",
-      "score_first": 1.377,
+      "score_first": 1.3923,
       "score_second": 1.0,
       "predicted": 1,
       "truth": 2,
       "correct": false,
       "tie": false,
-      "margin": 0.377
+      "margin": 0.3923
     },
     {
       "item": "907",
       "proverb": "History repeats itself",
-      "score_first": 1.1501,
-      "score_second": 1.4416,
+      "score_first": 1.0699,
+      "score_second": 1.7141,
       "predicted": 2,
       "truth": 1,
       "correct": false,
       "tie": false,
-      "margin": 0.2915
+      "margin": 0.6442
     },
     {
       "item": "96",
       "proverb": "Haste makes waste",
-      "score_first": 1.1155,
-      "score_second": 1.1185,
-      "predicted": 2,
+      "score_first": 1.0306,
+      "score_second": 0.9808,
+      "predicted": 1,
       "truth": 2,
-      "correct": true,
+      "correct": false,
       "tie": false,
-      "margin": 0.003
+      "margin": 0.0497
     }
   ]
 }

@@ -76,7 +76,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);
 
 <header>
 <h1>Relational Metrics</h1>
-<p class="sub">48 runs. <b>8</b> claims active within a stated scope, <b>3</b> refuted or demoted, <b>1</b> untested — and <b>1</b> published claim retracted by a later run. Counts generated from the manifest, so this line cannot go stale.</p>
+<p class="sub">50 runs. <b>8</b> claims active within a stated scope, <b>3</b> refuted or demoted, <b>1</b> untested — and <b>1</b> published claim retracted by a later run. Counts generated from the manifest, so this line cannot go stale.</p>
 </header>
 
 <div class="card survives-card"><h2>What this project established</h2><p>Consolidated after 43 experiments. Claims are sorted by <b>what they rest on</b> rather than by how interesting they are — that division is the most useful thing here, and conflating the two groups is how a project like this fools itself.</p><div class="read"><b>Six results come from exhaustive computation over enumerated systems.</b> No annotation, no corpus, no human judgement enters them at any point; they are checked over every case in a finite space rather than sampled.<br><br><b>Three depend on somebody turning text into structures by hand</b> — and this project spent a day establishing that the somebody was biased and that this step is the bottleneck. Those two groups deserve very different confidence.</div><div class="read ok"><b>What the whole thing amounts to: a working instrument with a hand-prepared input.</b> The comparison engine does what it claims on formalised relational descriptions, confirmed by someone with no stake in the outcome. The step from text to structure is unsolved, was doing more of the work than the engine was, and on real prose appears not to be solvable in this representation at all.<br><br>Smaller than the goal, and genuinely a result — most projects that fail here never learn which half was broken.</div><table class="survives"><thead><tr><th>status</th><th>claim</th><th>scope it holds within</th></tr></thead><tbody><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>Higher-order dependence can exist that no pairwise view contains, and it is detectable.</b><br><span class="sub"><code>EXP-002</code> <code>EXP-011</code> <code>EXP-012</code></span></td><td class="sub">small discrete Boolean configurations, exhaustively enumerated</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>Connected information locates the order at which dependence appears.</b><br><span class="sub"><code>EXP-011</code> <code>EXP-012</code></span></td><td class="sub">k<=4 discrete variables; requires an outcome-permutation calibration to be an answer</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 3</span><br><span class="sub" style="color:#15803d">rests on: theorem (instances were annotation)</span></td><td><b>Structural correspondence cannot distinguish cases whose representations are isomorphic — a general limit, not a defect of this measure.</b><br><span class="sub"><code>EXP-026</code> <code>EXP-027</code> <code>EXP-029</code> <code>EXP-031</code></span></td><td class="sub">THE THEOREM is mathematics and stands alone: isomorphic structures receive equal values from every isomorphism-invariant measure. ITS ORIGINAL INSTANCES did not — EXP-027 claimed an outside author wrote vacuous documents isomorphic to the query, and EXP-035 showed I annotated them into that state (4/4 sighted, 2/4 blind). Generalised into a pre-test (EXP-031) that found three dead ends and one vacuous control. Both facts belong in the record</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>Retention obeys an exact closed form: 1 - influence(hidden)/H(outcome).</b><br><span class="sub"><code>EXP-015</code> <code>EXP-016</code> <code>EXP-021</code></span></td><td class="sub">verified to 1e-16 over all 65,536 functions at k=4; a robustness law, NOT a measure of how participants jointly organise</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>Relational structure is not reducible to a scalar, nor to a pair of profiles.</b><br><span class="sub"><code>EXP-022</code> <code>EXP-023</code></span></td><td class="sub">at k=3 the two profiles suffice; at k=4 they do not. The complete invariant is one number per subset</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation + annotation</span></td><td><b>Canonicalising before measuring restores exact invariance under a DECLARED typed graph-homeomorphism relation, at no cost to capability.</b><br><span class="sub"><code>EXP-029</code></span></td><td class="sub">subdivision and suppression of degree-2 vertices only. Exact (cost 0, 6/6 recovery); capability 3/3, 3/3, 4/4 including under subdivision. Rewrite terminating, idempotent, confluent. NOT converse or reification (Q-25). And the equivalence must be DECLARED — blind suppression damages 5/6 structures, because whether a vertex is representational is not decidable from structure. AUDIT NOTE: the invariance arm is computation (exact recovery, confluence over 24 orders); the 'no cost to capability' arm rests on hand-annotated corpora and inherits their limits</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 3</span><br><span class="sub" style="color:#d97706">rests on: hand annotation</span></td><td><b>The corpus results measure a real analogy-detection effect AND were inflated by annotation — both, now separably.</b><br><span class="sub"><code>EXP-030</code> <code>EXP-032</code> <code>EXP-033</code> <code>EXP-039</code></span></td><td class="sub">SETTLED by EXP-039. An independent annotator with no stake recovers effect size 0.788 against my sighted 2.045, so there is a real effect and my sighted annotation inflated it ~2.6×. The answer was never one or the other. What remains unsettled is whether the effect is large enough to be useful — 9 motifs is fragile under leave-one-out</td></tr><tr><td><span class="tag ok">active within tested scope</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>The measure is invariant to unit conversion of relation weights.</b><br><span class="sub"><code>EXP-031</code> <code>EXP-034</code></span></td><td class="sub">REPAIRED by EXP-034. Was vacuous — the measure did not read weights, so it could not fail the test. Weights now enter normalised by geometric mean, making rescaling invariant by construction while relative coupling is visible. The control now measures its own capacity to fail each run. Untested on data where weights actually vary (Q-33) — a capability, not yet a result</td></tr><tr><td><span class="tag warn">provisional</span><span class="conf">rung 3</span><br><span class="sub" style="color:#15803d">rests on: computation (mechanism) + annotation (pipeline)</span></td><td><b>MDL correspondence ranks a structural analogue above a same-vocabulary rival — settled for the MEASURE, unsettled for the pipeline around it.</b><br><span class="sub"><code>EXP-024</code> <code>EXP-025</code> <code>EXP-026</code> <code>EXP-027</code> <code>EXP-028</code> <code>EXP-029</code> <code>EXP-030</code> <code>EXP-032</code> <code>EXP-033</code> <code>EXP-036</code> <code>EXP-037</code> <code>EXP-038</code> <code>EXP-039</code> <code>EXP-047</code> <code>EXP-048</code></span></td><td class="sub">TWO LEGS OF VERY DIFFERENT STRENGTH. **The mechanism is settled** (EXP-048): with no annotation anywhere, the measure holds the property out to a quarter of the structure being altered — d=1.24, 90% of 200 cases agreeing, not fragile. **The pipeline is not**: on hand-annotated corpora it is effect size 0.788 with leave-one-out 3/9 (EXP-039), and sighted annotation inflates it 2.6×. Holds within a fixed representation convention (EXP-028), restored under subdivision once canonicalised (EXP-029). No signal at all on prose, four ways (EXP-030, 042, 043, 046)</td></tr><tr><td><span class="tag warn">provisional</span><span class="conf">rung 2</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>The correspondence measure transfers to topologies it was not developed against.</b><br><span class="sub"><code>EXP-005</code></span></td><td class="sub">5/5 base topologies including one acyclic and one undesigned. Untested across SCALE and across equivalent re-encodings of the same process. One experiment, never repeated — the weakest active claim in the project</td></tr><tr><td><span class="tag mut">untested</span><br><span class="sub" style="color:var(--mut)">rests on: untested</span></td><td><b>Any of this reaches a claim about physical reality.</b><br><span class="sub"><i>none yet</i></span></td><td class="sub">unsupported and not currently testable. Prediction P6 says it will not, and P6 stands</td></tr><tr><td><span class="tag bad">demoted / replaced</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>The higher-order remainder statistic measures synergy.</b><br><span class="sub"><code>EXP-002</code> <code>EXP-011</code></span></td><td class="sub">conflated synergy with redundancy; replaced by connected information (C-02)</td></tr><tr><td><span class="tag bad">refuted / retracted</span><br><span class="sub" style="color:#15803d">rests on: computation</span></td><td><b>The measure is invariant to how the same process is legitimately re-encoded (mediator nodes, hyperedge vs factor node, subdivision, converse relations).</b><br><span class="sub"><code>EXP-028</code></span></td><td class="sub">refuted. Content-preserving and content-changing transforms produce OVERLAPPING score ranges, and at matched size the measure returns identical values for a correct re-encoding and a corrupted one. Cause: the mapping space cannot match a relation to a path, and gains freedom as the target grows. Partially repaired by EXP-029 for the subdivision class via canonicalisation (C-12); converse and reification still unaddressed</td></tr><tr><td><span class="tag bad">refuted / retracted</span><br><span class="sub" style="color:#d97706">rests on: hand annotation</span></td><td><b>F-09 bridge value: discounting a match by genericness defends against the attractive-nonsense failure.</b><br><span class="sub"><code>EXP-027</code> <code>EXP-035</code></span></td><td class="sub">refuted EMPIRICALLY, not by impossibility. EXP-027 argued the discount can never act because the structures are isomorphic; EXP-035 showed that isomorphism was largely annotator-supplied (4/4 sighted, 2/4 blind). Blind, the discount CAN act on 1/4 motifs — and helps on 0/4, making one motif worse. So: still refuted, on weaker grounds than published</td></tr></tbody></table></div>
@@ -715,6 +715,158 @@ subset of transform coefficients. Holography's fragment is a spatial region, whi
 thing. A structural notion of fragment might behave differently, and that retest is logged with a
 warning attached: the first pass here looked like a confirmation and was an artifact of unequal pool
 sizes.</div>
+
+<h2>The measure cannot tell reinforcement from balance</h2>
+<p>A reinforcing loop and a balancing loop are the textbook case of <i>same participants, different
+relationship</i>. If a relational measure can't separate those, the hole is exactly where the claim
+is. An earlier experiment caught the measure scoring one against the other at zero distance, and this
+went after it properly.</p>
+
+<div class="read bad"><b>It never separates them. Not once.</b><br><br>
+Structures tested against their own sign-flipped twins — every relation reversed:<br><br>
+<table class="survives"><thead><tr><th>relations</th><th>told apart, as shipped</th><th>told apart, with the fix</th></tr></thead><tbody>
+<tr><td>2</td><td><b>0 / 40</b></td><td>28 / 40</td></tr>
+<tr><td>3</td><td><b>0 / 40</b></td><td>40 / 40</td></tr>
+<tr><td>4</td><td><b>0 / 40</b></td><td>36 / 40</td></tr>
+<tr><td>5</td><td><b>0 / 40</b></td><td>40 / 40</td></tr>
+<tr><td>6</td><td><b>0 / 40</b></td><td>40 / 40</td></tr>
+<tr><td>7</td><td><b>0 / 40</b></td><td>40 / 40</td></tr>
+<tr><td>8</td><td><b>0 / 40</b></td><td>40 / 40</td></tr>
+</tbody></table><br>
+The reason is simple once seen: flipping every sign is a <b>relabelling</b> of relation types, so the
+measure just relabels them back. No size or balance condition — my own notes had claimed one, and
+invented it. On the real corpora the search actually <i>chooses</i> a sign-inverting match on
+<b>30–47%</b> of pairs.</div>
+
+<div class="read ok"><b>The fix keeps what it's supposed to keep.</b> Allow a relation type to stand
+in for another of the <i>same polarity</i> — an amplifying one for an amplifying one — and refuse
+sign inversion. Deliberately weaker than demanding the names match, because name-matching would
+destroy the cross-vocabulary correspondence the whole project rests on.<br><br>
+Checked: a structure and its faithful translation into a completely different vocabulary still score
+<b>identically</b>; the sign-inverted translation drops. The 16 residual ties above were examined one
+by one and all 16 are genuinely the same structure, so tying them is correct.<br><br>
+<b>No published verdict changes.</b> Analogue above false friend: 10/10 before, 10/10 after.</div>
+
+<div class="read warn"><b>But that isn't "nothing happened".</b> Rankings shifted on 6 motifs of 10
+and scores moved on 9 of 10. The conclusions held; the margins didn't. This was a question about
+<b>confidence</b>, not about conclusions — and the plan had predeclared that exact outcome as a
+possibility, which is the only reason it got reported as itself rather than rounded to a null.</div>
+
+<h3>The part that actually bothers me</h3>
+<p>The locked plan insisted every result be re-run under all three description codes. It flagged a
+disagreement. Chasing it turned up something worse than a fragile claim.</p>
+
+<div class="read bad"><b>One of the three codes had been rewarding the opposite of what it was
+measuring — for eighteen experiments.</b><br><br>
+<table class="survives"><thead><tr><th>code</th><th>cost to match a relation</th><th>saving from matching</th><th>what its best mapping matches</th></tr></thead><tbody>
+<tr><td>gamma</td><td>3.0 bits</td><td>6.2 bits</td><td>up to 4 relations</td></tr>
+<tr><td>delta</td><td>4.0 bits</td><td>6.2 bits</td><td>up to 4 relations</td></tr>
+<tr><td><b>flat32</b></td><td><b>32.0 bits</b></td><td>6.2 bits</td><td><b>zero, on every pair</b></td></tr>
+</tbody></table><br>
+Under that code the cheapest description is the one that matches <i>nothing</i>. It wasn't testing
+whether the verdict was fragile; it wasn't testing anything.<br><br>
+<b>And it wasn't always broken.</b> It was a sound stress case while structures had no weights. Then
+an earlier experiment added a weight channel — to fix a different vacuous control — and from that
+commit onward this one was dead. Nothing in between re-ran the code sweep on weighted structures, so
+it sat there looking like a passing check.</div>
+
+<div class="read"><b>Third time this exact thing has happened</b>, and it's now the named failure mode
+of this lab:<br><br>
+<table class="survives"><thead><tr><th>the check</th><th>how it died</th></tr></thead><tbody>
+<tr><td>"invariant to unit conversion"</td><td>the measure never read weights — passed vacuously for 30 experiments</td></tr>
+<tr><td>a 10%-vs-20% damage sweep</td><td>with 5 relations both round to 1 change — both arms identical</td></tr>
+<tr><td>the flat32 stress code</td><td>the weight channel made matching cost more than not matching</td></tr>
+</tbody></table><br>
+None was careless when written. All three were <b>valid when written and silently invalidated by a
+later change nobody connected to them</b>. That's decay, not sloppiness, and it's invisible from
+inside the control. So a control now has to state the condition it depends on and <i>assert it at run
+time</i> rather than assume it.</div>
+
+<div class="read sub"><b>What was deliberately not done:</b> no replacement stress code was invented.
+Designing one now, knowing what it needs to show, is the move the protocol exists to prevent. Which
+leaves a weakness worth stating rather than hiding — <b>the two surviving codes are both Elias
+codes</b>. "The verdict doesn't depend on which code we picked" has been presented as robustness; it's
+currently a statement about two close relatives.</div>
+
+<h2>The fix improves almost everything, so we're not adopting it</h2>
+<p>The check above only proved the fix was safe for <i>one family</i> of results — the retrieval
+rankings. Twenty-six separate programs use this measure. Before changing anything, all of them got
+re-run under both versions and compared.</p>
+
+<div class="read bad"><b>42 conclusions change. And nearly every change makes this project look
+better.</b><br><br>
+<table class="survives"><thead><tr><th>experiment</th><th>before</th><th>after</th></tr></thead><tbody>
+<tr><td><b>the weakest load-bearing result</b></td><td><i>fragile, not established</i> — survives dropping one case 3 times in 9</td><td><b><i>supported</i> — 9 times in 9</b></td></tr>
+<tr><td>its companion</td><td>5 of 10</td><td><b>10 of 10</b></td></tr>
+<tr><td><b>a claim we retracted</b></td><td>refuted on 4 rows</td><td><b>upheld on all 4</b></td></tr>
+<tr><td>a blind-annotation check</td><td>one corpus below chance</td><td>none below chance</td></tr>
+</tbody></table><br>
+<b>A change that improves nearly every result you have is the most suspicious thing that can happen to
+you.</b> It's what a wishful bug looks like from the inside. So the predeclared rule — written before
+any of this was run — applies: more than three conclusions moving means this isn't a repair, it's a
+<i>different measure</i>, and it starts again from the bottom rung with no inherited credit.</div>
+
+<div class="read"><b>There is a perfectly good explanation, and that's exactly the problem.</b> A
+false friend has the wrong wiring — it <i>needs</i> the sign flip to match. A genuine analogue matches
+without it. So removing the loophole should hurt the impostors more than the real thing, which
+predicts precisely what we see.<br><br>
+A mechanism that predicts the pattern is the <b>minimum bar for investigating</b> it, not evidence it's
+real. The last time something here looked like a clean confirmation with a ready explanation, the
+explanation was pool size and the result evaporated under a control.</div>
+
+<div class="read ok"><b>So: the hole stays, documented, until the new measure earns its place.</b> It
+has to pass the impostor battery on its own, re-prove the re-encoding claim as a <i>fresh</i> claim
+rather than a restored one — a retraction reversed by a measure change needs more evidence than the
+retraction did, not less — and re-run the consequential result against independently annotated
+material. Living with a known hole beats adopting an unvalidated measure that happens to flatter the
+record.</div>
+
+<h3>And the audit found something it wasn't looking for</h3>
+<div class="read bad"><b>Four published results no longer reproduce.</b> Re-running their own programs
+produces different numbers than the ones on file. One stores a value of <b>1.727</b> where its code
+now produces <b>1.4059</b> — almost certainly stranded by a correction made twenty-nine experiments
+ago that nothing re-ran.<br><br>
+Checked three ways: the programs are deterministic, the same four fail from the pre-session code so
+today's work isn't the cause, and today's code produces byte-identical output to the old code.<br><br>
+<b>The build check verified that a result file <i>exists</i>. It never verified the file was
+<i>current</i>.</b></div>
+
+<div class="read"><b>Fourth time in one day, and this one is the worst.</b><br><br>
+<table class="survives"><thead><tr><th>the check</th><th>how it died</th></tr></thead><tbody>
+<tr><td>"invariant to unit conversion"</td><td>the measure never read weights</td></tr>
+<tr><td>a 10%-vs-20% damage sweep</td><td>both fractions rounded to the same change</td></tr>
+<tr><td>the flat32 stress code</td><td>a weight channel made matching cost more than not matching</td></tr>
+<tr><td><b>result-file freshness</b></td><td><b>existence was checked; currency never was</b></td></tr>
+</tbody></table><br>
+The last one generalises the other three: <b>the checking machinery had the same defect as the
+experiments it polices.</b> It enforced that every claim has a file and every file has a program. It
+never enforced that the file is what the program produces. There's now a reproducibility check that
+re-runs everything — and it never edits the record, because overwriting a stale number with a fresh
+one destroys the evidence that they differed.</div>
+
+<div class="read ok"><b>The full sweep, and the answer is the good one.</b><br><br>
+47 checked · <b>42 reproduce</b> · <b>5 stale</b> · 0 wouldn't run. A fifth turned up that the earlier
+partial audit couldn't have found, because its program doesn't touch the measure.<br><br>
+<b>No published claim changes.</b> Checked key by key at every depth. The one that mattered — the
+external benchmark, the only test on material nobody here wrote — keeps its headline exactly:
+<i>no signal, does not beat chance</i>. Numbers drifted; conclusions didn't.<br><br>
+So this is a <b>hygiene failure, not a retraction</b>, and it'd be dishonest to dress it up as either
+worse or better than that. The five were brought current and their published contents kept verbatim
+alongside, because deleting them erases the evidence they ever differed.</div>
+
+<div class="read warn"><b>And then the repair had the same bug twice.</b><br><br>
+The first tripwire flagged every result older than the last change to the measure — which fires on all
+fifty files the moment anyone touches the measure at all, even for a change that does nothing. Fifty
+accurate warnings that would've been ignored by tomorrow, and an ignored check is worse than none.
+Replaced with one actionable question: <i>has a full sweep been run since the measure last
+changed?</i><br><br>
+Then the sweep itself: running it on a single experiment <b>overwrote the full report</b>, so checking
+one file would replace a 47-experiment audit with a 5-entry one and the build check would pass on the
+strength of it. A partial run silently presenting as a complete one — the exact thing it was written
+to catch.<br><br>
+<b>Six instances in one day, two of them inside the machinery built to catch the other four.</b> That's
+not a lesson about being careful. It's evidence the failure is structural, and the evidence is that it
+kept happening <i>while I was writing the thing that detects it</i>.</div>
 
 <h2>Integration record</h2>
 

@@ -112,10 +112,10 @@
           "order_preserved": true
         },
         "flat32": {
-          "concordant": 3,
-          "discordant": 2,
-          "ties": 10,
-          "agreement": 0.2,
+          "concordant": 11,
+          "discordant": 3,
+          "ties": 1,
+          "agreement": 0.5714,
           "order_preserved": false
         }
       }

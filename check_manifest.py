@@ -36,6 +36,17 @@ RETRACTION_WINDOW = 700
 RETRACTION_MARKERS = ("retract", "RETRACT", "Retract", "superseded", "no longer")
 
 
+def _committed_at(relpath: str) -> int:
+    """Author timestamp of the commit that last changed `relpath`, or 0."""
+    import subprocess
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%at", "--", relpath],
+                             cwd=ROOT, capture_output=True, text=True, timeout=20)
+        return int(out.stdout.strip() or 0)
+    except Exception:
+        return 0
+
+
 def fail(msgs: list[str], check: str, problems: list[str]) -> None:
     if problems:
         msgs.append(f"  {check}:")
@@ -55,6 +66,45 @@ def main() -> int:
     fail(errs, "missing result file",
          [f'{e["id"]} -> {e["result_file"]}' for e in EXPS
           if not (ROOT / e["result_file"]).exists()])
+
+    # 2b. result files must not be OLDER than the measure that produced them.
+    #
+    # EXP-053 found four committed results that no longer reproduce from their
+    # own runners -- exp009.json stores an MDL ratio of 1.727 where its code now
+    # produces 1.4059, almost certainly left behind by EXP-024's relation-type
+    # encoding correction. This script checked that a result file EXISTS. It
+    # never checked the file was CURRENT, so the drift was invisible.
+    #
+    # Fourth instance of P-26 in one session, and the one that generalises: the
+    # manifest machinery had the same defect as the experiments it polices. It
+    # enforced that every claim has a file and every file has a runner, never
+    # that the file is what the runner produces.
+    #
+    # Re-running everything here would make the check too slow to run often, so
+    # this asks the one cheap question that is actually actionable: HAS A
+    # REPRODUCIBILITY SWEEP BEEN RUN SINCE THE MEASURE LAST CHANGED?
+    #
+    # The first version of this flagged every result older than the measure.
+    # That fires on all fifty files the moment anyone touches measures.py --
+    # including for an inert optional parameter -- so it would have been ignored
+    # within a day, and a check that gets ignored is worse than no check. One
+    # actionable line beats fifty accurate ones.
+    core = ["lab/measures.py", "lab/codes.py", "lab/mapping.py", "lab/structure.py"]
+    core_t = max([t for t in (_committed_at(p) for p in core) if t] or [0])
+    sweep = ROOT / "results" / "reproducibility.json"
+    sweep_t = _committed_at("results/reproducibility.json")
+    if core_t:
+        if not sweep.exists():
+            fail(errs, "reproducibility never verified",
+                 ["no results/reproducibility.json -- run check_reproducible.py"])
+        elif sweep_t and sweep_t < core_t:
+            fail(errs, "reproducibility sweep predates the measure",
+                 ["the measure changed after the last sweep; "
+                  "run check_reproducible.py and commit the result"])
+        else:
+            data = json.loads(sweep.read_text()) if sweep.exists() else {}
+            bad = sorted(data.get("stale", [])) + sorted(data.get("broken", []))
+            fail(errs, "results that do not reproduce", bad)
 
     # 3. retracted claims must never read as current
     targets = [ROOT / "README.md", ROOT / "docs" / "index.html"]

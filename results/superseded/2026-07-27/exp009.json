@@ -10,8 +10,8 @@
       "f14_signature_divergence": 2,
       "f14_flags_as_critical": true,
       "signature_after": "{len3:+\u00d71, len5:+\u00d71}",
-      "mdl_ratio": 1.4059,
-      "mdl_gain_bits": 18.727
+      "mdl_ratio": 1.727,
+      "mdl_gain_bits": 19.727
     },
     {
       "edge": "advantage -POS-> flow",
@@ -19,8 +19,8 @@
       "f14_signature_divergence": 2,
       "f14_flags_as_critical": true,
       "signature_after": "{len3:+\u00d71, len5:+\u00d71}",
-      "mdl_ratio": 1.4059,
-      "mdl_gain_bits": 18.727
+      "mdl_ratio": 1.727,
+      "mdl_gain_bits": 19.727
     },
     {
       "edge": "flow -POS-> erosion",
@@ -28,8 +28,8 @@
       "f14_signature_divergence": 4,
       "f14_flags_as_critical": true,
       "signature_after": "{len3:-\u00d71, len5:+\u00d71}",
-      "mdl_ratio": 1.4059,
-      "mdl_gain_bits": 18.727
+      "mdl_ratio": 1.727,
+      "mdl_gain_bits": 19.727
     },
     {
       "edge": "erosion -POS-> capacity",
@@ -37,8 +37,8 @@
       "f14_signature_divergence": 4,
       "f14_flags_as_critical": true,
       "signature_after": "{len3:-\u00d71, len5:+\u00d71}",
-      "mdl_ratio": 1.4059,
-      "mdl_gain_bits": 18.727
+      "mdl_ratio": 1.727,
+      "mdl_gain_bits": 19.727
     },
     {
       "edge": "capacity -POS-> flow",
@@ -46,8 +46,8 @@
       "f14_signature_divergence": 2,
       "f14_flags_as_critical": true,
       "signature_after": "{len3:-\u00d71, len5:-\u00d71}",
-      "mdl_ratio": 1.4059,
-      "mdl_gain_bits": 18.727
+      "mdl_ratio": 1.727,
+      "mdl_gain_bits": 19.727
     },
     {
       "edge": "capacity -NEG-> paths",
@@ -55,8 +55,8 @@
       "f14_signature_divergence": 2,
       "f14_flags_as_critical": true,
       "signature_after": "{len3:+\u00d71, len5:+\u00d71}",
-      "mdl_ratio": 1.6863,
-      "mdl_gain_bits": 23.956
+      "mdl_ratio": 2.282,
+      "mdl_gain_bits": 22.956
     }
   ],
   "f14_discriminates_among_flips": true,

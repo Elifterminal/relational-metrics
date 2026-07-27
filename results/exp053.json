@@ -1,0 +1,722 @@
+{
+  "experiment": "EXP-053",
+  "plan_locked_at": "4b17e9f1efd41e3bdf70391a9c26c3a534b77dea",
+  "plan_sha256": "23319b9a5ee62823",
+  "question": "adoption migration for the Q-41 polarity constraint",
+  "instrument_reached_the_measure": true,
+  "normalisations_applied": [
+    "absolute paths",
+    "plan commit hashes"
+  ],
+  "runners_audited": 26,
+  "non_deterministic": [],
+  "errored": [],
+  "experiments_with_any_movement": [
+    "EXP-000B",
+    "EXP-005",
+    "EXP-009",
+    "EXP-024",
+    "EXP-025",
+    "EXP-026",
+    "EXP-027",
+    "EXP-028",
+    "EXP-030",
+    "EXP-032",
+    "EXP-033",
+    "EXP-036",
+    "EXP-037",
+    "EXP-038",
+    "EXP-039",
+    "EXP-043",
+    "EXP-045",
+    "EXP-046",
+    "EXP-047",
+    "EXP-048",
+    "EXP-052"
+  ],
+  "total_verdict_changes": 42,
+  "by_experiment": {
+    "EXP-000A": {
+      "status": "ok",
+      "identical": true,
+      "top_level": {},
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-000B": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "mdl_gains_benign",
+          "rows"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "mdl_gains_benign",
+          "rows"
+        ]
+      },
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-005": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "results"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "results"
+        ]
+      },
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-009": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "rows"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "rows"
+        ]
+      },
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-017": {
+      "status": "ok",
+      "identical": true,
+      "top_level": {},
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-024": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "methods"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "methods"
+        ]
+      },
+      "verdict_changes_any_depth": [
+        {
+          "path": "/methods/F-06a (the measure)/by_motif/reinforcing/ranking",
+          "before": "{P=X} > V > U > W",
+          "after": "{P=X} > W > {U=V}"
+        },
+        {
+          "path": "/methods/F-06a (the measure)/by_motif/cascade/ranking",
+          "before": "{P=U=X} > W > V",
+          "after": "{P=U=X} > V > W"
+        },
+        {
+          "path": "/methods/F-06a (the measure)/by_motif/regulating/ranking",
+          "before": "{P=X} > {V=W} > U",
+          "after": "{P=X} > {U=V=W}"
+        }
+      ],
+      "n_verdict_changes": 3
+    },
+    "EXP-025": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "development",
+          "holdout"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "development",
+          "holdout"
+        ]
+      },
+      "verdict_changes_any_depth": [
+        {
+          "path": "/development/by_motif/reinforcing/ranking",
+          "before": "{P=X} > V > U > W",
+          "after": "{P=X} > W > {U=V}"
+        },
+        {
+          "path": "/development/by_motif/cascade/ranking",
+          "before": "{P=U=X} > W > V",
+          "after": "{P=U=X} > V > W"
+        },
+        {
+          "path": "/development/by_motif/regulating/ranking",
+          "before": "{P=X} > {V=W} > U",
+          "after": "{P=X} > {U=V=W}"
+        },
+        {
+          "path": "/holdout/by_motif/inhibition/perfect",
+          "before": true,
+          "after": false
+        },
+        {
+          "path": "/holdout/by_motif/inhibition/ranking",
+          "before": "{P=X} > W > V > U",
+          "after": "{P=X} > W > U > V"
+        },
+        {
+          "path": "/holdout/by_motif/substitution/ranking",
+          "before": "{P=X} > U > W > V",
+          "after": "{P=X} > W > {U=V}"
+        },
+        {
+          "path": "/holdout/by_motif/threshold/ranking",
+          "before": "{P=X} > W > U > V",
+          "after": "{P=X} > {U=V=W}"
+        }
+      ],
+      "n_verdict_changes": 7
+    },
+    "EXP-026": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "by_motif"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "by_motif"
+        ]
+      },
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-027": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "corpora",
+          "part2_f09"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "corpora",
+          "part2_f09"
+        ]
+      },
+      "verdict_changes_any_depth": [
+        {
+          "path": "/corpora[1]/by_motif/inhibition/ranking",
+          "before": "{P=X} > W > V > U",
+          "after": "{P=X} > W > U > V"
+        },
+        {
+          "path": "/corpora[1]/by_motif/substitution/ranking",
+          "before": "{P=X} > U > W > V",
+          "after": "{P=X} > W > {U=V}"
+        },
+        {
+          "path": "/corpora[1]/by_motif/threshold/ranking",
+          "before": "{P=X} > W > U > V",
+          "after": "{P=X} > {U=V=W}"
+        },
+        {
+          "path": "/corpora[2]/by_motif/reinforcing/ranking",
+          "before": "{P=X} > V > U > W",
+          "after": "{P=X} > W > {U=V}"
+        },
+        {
+          "path": "/corpora[2]/by_motif/cascade/ranking",
+          "before": "{P=U=X} > W > V",
+          "after": "{P=U=X} > V > W"
+        },
+        {
+          "path": "/corpora[2]/by_motif/regulating/ranking",
+          "before": "{P=X} > {V=W} > U",
+          "after": "{P=X} > {U=V=W}"
+        }
+      ],
+      "n_verdict_changes": 6
+    },
+    "EXP-028": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "application",
+          "application_detail",
+          "by_base",
+          "padding_probe",
+          "preserving_mean",
+          "size_matched_control"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "application",
+          "application_detail",
+          "by_base",
+          "padding_probe",
+          "preserving_mean",
+          "size_matched_control"
+        ]
+      },
+      "verdict_changes_any_depth": [
+        {
+          "path": "/application_detail/subdivide_all/rows[1]/claim_after",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/application_detail/subdivide_all/rows[3]/claim_after",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/application_detail/subdivide_all/rows[4]/claim_after",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/application_detail/reify_one/rows[0]/claim_after",
+          "before": false,
+          "after": true
+        }
+      ],
+      "n_verdict_changes": 4
+    },
+    "EXP-029": {
+      "status": "ok",
+      "identical": true,
+      "top_level": {},
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-030": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "annotation_diagnostic",
+          "correct_on_discriminating",
+          "correct_ties_as_wrong",
+          "discriminating_items",
+          "p_on_discriminating",
+          "p_ties_as_coinflip",
+          "p_ties_as_wrong",
+          "rows",
+          "score_ties_as_coinflip",
+          "ties"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "annotation_diagnostic",
+          "correct_on_discriminating",
+          "correct_ties_as_wrong",
+          "discriminating_items",
+          "p_on_discriminating",
+          "p_ties_as_coinflip",
+          "p_ties_as_wrong",
+          "rows",
+          "score_ties_as_coinflip",
+          "ties"
+        ]
+      },
+      "verdict_changes_any_depth": [
+        {
+          "path": "/rows[1]/tie",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/rows[1]/correct",
+          "before": true,
+          "after": false
+        },
+        {
+          "path": "/rows[9]/correct",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/rows[16]/correct",
+          "before": true,
+          "after": false
+        }
+      ],
+      "n_verdict_changes": 4
+    },
+    "EXP-031": {
+      "status": "ok",
+      "identical": true,
+      "top_level": {},
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-032": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "leak",
+          "rows"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "leak",
+          "rows"
+        ]
+      },
+      "verdict_changes_any_depth": [
+        {
+          "path": "/rows[0]/ranking",
+          "before": "{P=V=X} > U > W",
+          "after": "{P=V=X} > {U=W}"
+        },
+        {
+          "path": "/rows[3]/ranking",
+          "before": "P > {V=X} > W > U",
+          "after": "P > {V=X} > U > W"
+        }
+      ],
+      "n_verdict_changes": 2
+    },
+    "EXP-033": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "any_corpus_below_half",
+          "blind_all_three_corpora",
+          "blind_this_run",
+          "per_corpus",
+          "verdict"
+        ],
+        "verdict_bearing": [
+          "any_corpus_below_half",
+          "verdict"
+        ],
+        "verdict_before": {
+          "any_corpus_below_half": true,
+          "verdict": "R-18 CONFIRMED AND ENLARGED, but the size is not cleanly measured here. Blind rate falls to 6/10 from 10/10 sighted. The drop is real; how much of it is role-knowledge versus annotation granularity is NOT separable from this run. Cleanest number remains EXP-032's 1.34x on the corpus where granularity matched. Two corpus defects found: false-friend glosses state their role, and sighted structures over-annotate relative to their text"
+        },
+        "verdict_after": {
+          "any_corpus_below_half": false,
+          "verdict": "R-18 CONFIRMED AND ENLARGED, but the size is not cleanly measured here. Blind rate falls to 8/10 from 10/10 sighted. The drop is real; how much of it is role-knowledge versus annotation granularity is NOT separable from this run. Cleanest number remains EXP-032's 1.34x on the corpus where granularity matched. Two corpus defects found: false-friend glosses state their role, and sighted structures over-annotate relative to their text"
+        },
+        "numeric_only": [
+          "blind_all_three_corpora",
+          "blind_this_run",
+          "per_corpus"
+        ]
+      },
+      "verdict_changes_any_depth": [
+        {
+          "path": "/verdict",
+          "before": "R-18 CONFIRMED AND ENLARGED, but the size is not cleanly measured here. Blind rate falls to 6/10 from 10/10 sighted. The drop is real; how much of it is role-knowledge versus annotation granularity is NOT separable from this run. Cleanest number remains EXP-032's 1.34x on the corpus where granularity matched. Two corpus defects found: false-friend glosses state their role, and sighted structures over-annotate relative to their text",
+          "after": "R-18 CONFIRMED AND ENLARGED, but the size is not cleanly measured here. Blind rate falls to 8/10 from 10/10 sighted. The drop is real; how much of it is role-knowledge versus annotation granularity is NOT separable from this run. Cleanest number remains EXP-032's 1.34x on the corpus where granularity matched. Two corpus defects found: false-friend glosses state their role, and sighted structures over-annotate relative to their text"
+        },
+        {
+          "path": "/any_corpus_below_half",
+          "before": true,
+          "after": false
+        },
+        {
+          "path": "/per_corpus/dev/rows[1]/ranking",
+          "before": "W > {P=X} > {U=V}",
+          "after": "{P=X} > {U=V=W}"
+        },
+        {
+          "path": "/per_corpus/dev/rows[1]/analogue_beats_false_friend",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/per_corpus/holdout/rows[0]/ranking",
+          "before": "P > {V=W=X} > U",
+          "after": "P > X > {V=W} > U"
+        },
+        {
+          "path": "/per_corpus/holdout/rows[0]/analogue_beats_false_friend",
+          "before": false,
+          "after": true
+        }
+      ],
+      "n_verdict_changes": 6
+    },
+    "EXP-036": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "per_corpus"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "per_corpus"
+        ]
+      },
+      "verdict_changes_any_depth": [
+        {
+          "path": "/per_corpus/dev/rows[0]/analogue_beats_false_friend",
+          "before": true,
+          "after": false
+        },
+        {
+          "path": "/per_corpus/independent/rows[1]/analogue_beats_false_friend",
+          "before": false,
+          "after": true
+        }
+      ],
+      "n_verdict_changes": 2
+    },
+    "EXP-037": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "margin_test"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "margin_test"
+        ]
+      },
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-038": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "blind",
+          "leave_one_out",
+          "sighted",
+          "what_changes"
+        ],
+        "verdict_bearing": [],
+        "verdict_before": {},
+        "verdict_after": {},
+        "numeric_only": [
+          "blind",
+          "leave_one_out",
+          "sighted",
+          "what_changes"
+        ]
+      },
+      "verdict_changes_any_depth": [
+        {
+          "path": "/leave_one_out/rows[0]/still_significant_t",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/leave_one_out/rows[2]/still_significant_t",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/leave_one_out/rows[4]/still_significant_t",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/leave_one_out/rows[6]/still_significant_t",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/leave_one_out/rows[8]/still_significant_t",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "/leave_one_out/survives_t_test_after_dropping_any_single_motif",
+          "before": "5/10",
+          "after": "10/10"
+        }
+      ],
+      "n_verdict_changes": 6
+    },
+    "EXP-039": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "changed_keys": [
+          "comparison_effect_size",
+          "leave_one_out_survives",
+          "margins",
+          "result",
+          "verdict"
+        ],
+        "verdict_bearing": [
+          "leave_one_out_survives",
+          "verdict"
+        ],
+        "verdict_before": {
+          "leave_one_out_survives": "3/9",
+          "verdict": "FRAGILE, NOT ESTABLISHED -- significant but leave-one-out survives under half"
+        },
+        "verdict_after": {
+          "leave_one_out_survives": "9/9",
+          "verdict": "SUPPORTED -- significant on both tests and robust to leave-one-out"
+        },
+        "numeric_only": [
+          "comparison_effect_size",
+          "margins",
+          "result"
+        ]
+      },
+      "verdict_changes_any_depth": [
+        {
+          "path": "/verdict",
+          "before": "FRAGILE, NOT ESTABLISHED -- significant but leave-one-out survives under half",
+          "after": "SUPPORTED -- significant on both tests and robust to leave-one-out"
+        },
+        {
+          "path": "/leave_one_out_survives",
+          "before": "3/9",
+          "after": "9/9"
+        }
+      ],
+      "n_verdict_changes": 2
+    },
+    "EXP-042": {
+      "status": "ok",
+      "identical": true,
+      "top_level": {},
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-043": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "parse_failed": true
+      },
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-045": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "parse_failed": true
+      },
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-046": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "parse_failed": true
+      },
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-047": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "parse_failed": true
+      },
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-048": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "parse_failed": true
+      },
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    },
+    "EXP-052": {
+      "status": "ok",
+      "identical": false,
+      "top_level": {
+        "parse_failed": true
+      },
+      "verdict_changes_any_depth": [],
+      "n_verdict_changes": 0
+    }
+  },
+  "verdict": {
+    "band": "42 verdict changes -- DO NOT ADOPT ON THIS EVIDENCE",
+    "statement": "A constraint that moves this much of the record is not a correction, it is a different measure, and it needs its own validation from rung 1."
+  },
+  "margin_stats": {
+    "experiments_compared": 26,
+    "experiments_whose_numbers_moved": 21,
+    "experiments_byte_identical": 5,
+    "note": "numeric movement is arithmetic -- constraining removes mappings from a maximum so scores can only fall. Only verdict-bearing keys are evidence."
+  },
+  "leave_one_out": {
+    "unit": "experiment",
+    "verdict_changes_excluding_each": {
+      "EXP-000A": 42,
+      "EXP-000B": 42,
+      "EXP-005": 42,
+      "EXP-009": 42,
+      "EXP-017": 42,
+      "EXP-024": 39,
+      "EXP-025": 35,
+      "EXP-026": 42,
+      "EXP-027": 36,
+      "EXP-028": 38,
+      "EXP-029": 42,
+      "EXP-030": 38,
+      "EXP-031": 42,
+      "EXP-032": 40,
+      "EXP-033": 36,
+      "EXP-036": 40,
+      "EXP-037": 42,
+      "EXP-038": 36,
+      "EXP-039": 40,
+      "EXP-042": 42,
+      "EXP-043": 42,
+      "EXP-045": 42,
+      "EXP-046": 42,
+      "EXP-047": 42,
+      "EXP-048": 42,
+      "EXP-052": 42
+    }
+  },
+  "abstention_rate": {
+    "excluded_non_deterministic": 0.0,
+    "excluded_errored": 0.0,
+    "audited_successfully": 1.0
+  }
+}

@@ -97,5 +97,69 @@
       "parity": 0.0
     }
   },
-  "is_half_a_real_attractor": true
+  "is_half_a_real_attractor": true,
+  "retention_classes": [
+    {
+      "retention": 0.0,
+      "count": 2,
+      "ones_in_truth_table": [
+        4
+      ],
+      "label": "parity only"
+    },
+    {
+      "retention": 0.2142,
+      "count": 16,
+      "ones_in_truth_table": [
+        3,
+        5
+      ],
+      "label": ""
+    },
+    {
+      "retention": 0.3837,
+      "count": 32,
+      "ones_in_truth_table": [
+        2,
+        6
+      ],
+      "label": ""
+    },
+    {
+      "retention": 0.5,
+      "count": 56,
+      "ones_in_truth_table": [
+        4
+      ],
+      "label": "balanced"
+    },
+    {
+      "retention": 0.5401,
+      "count": 16,
+      "ones_in_truth_table": [
+        1,
+        7
+      ],
+      "label": "AND / OR"
+    },
+    {
+      "retention": 0.7381,
+      "count": 96,
+      "ones_in_truth_table": [
+        3,
+        5
+      ],
+      "label": ""
+    },
+    {
+      "retention": 1.0,
+      "count": 36,
+      "ones_in_truth_table": [
+        2,
+        4,
+        6
+      ],
+      "label": "one input idle"
+    }
+  ]
 }

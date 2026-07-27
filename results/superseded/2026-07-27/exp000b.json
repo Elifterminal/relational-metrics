@@ -8,7 +8,7 @@
       "on_loop": false,
       "behaviour_after_flip": "reinforcing",
       "behaviour_changed": false,
-      "mdl_gain_bits": 18.727,
+      "mdl_gain_bits": 19.727,
       "tunable_K_eta0.5": 0.769231,
       "matched": 5
     },
@@ -17,7 +17,7 @@
       "on_loop": false,
       "behaviour_after_flip": "reinforcing",
       "behaviour_changed": false,
-      "mdl_gain_bits": 18.727,
+      "mdl_gain_bits": 19.727,
       "tunable_K_eta0.5": 0.769231,
       "matched": 5
     },
@@ -26,7 +26,7 @@
       "on_loop": true,
       "behaviour_after_flip": "self-limiting",
       "behaviour_changed": true,
-      "mdl_gain_bits": 18.727,
+      "mdl_gain_bits": 19.727,
       "tunable_K_eta0.5": 0.769231,
       "matched": 5
     },
@@ -35,7 +35,7 @@
       "on_loop": true,
       "behaviour_after_flip": "self-limiting",
       "behaviour_changed": true,
-      "mdl_gain_bits": 18.727,
+      "mdl_gain_bits": 19.727,
       "tunable_K_eta0.5": 0.769231,
       "matched": 5
     },
@@ -44,7 +44,7 @@
       "on_loop": true,
       "behaviour_after_flip": "self-limiting",
       "behaviour_changed": true,
-      "mdl_gain_bits": 18.727,
+      "mdl_gain_bits": 19.727,
       "tunable_K_eta0.5": 0.769231,
       "matched": 5
     },
@@ -53,7 +53,7 @@
       "on_loop": false,
       "behaviour_after_flip": "reinforcing",
       "behaviour_changed": false,
-      "mdl_gain_bits": 23.956,
+      "mdl_gain_bits": 22.956,
       "tunable_K_eta0.5": 0.923077,
       "matched": 6
     }
@@ -61,11 +61,11 @@
   "n_critical": 3,
   "n_benign": 3,
   "mdl_gains_critical": [
-    18.727
+    19.727
   ],
   "mdl_gains_benign": [
-    18.727,
-    23.956
+    19.727,
+    22.956
   ],
   "mdl_separates_critical_from_benign": false,
   "tunable_gains_critical": [

@@ -679,6 +679,34 @@
       "superseded_by": null,
       "retracted_claim": null,
       "blurb": "the holographic analogy decomposes -- one half isn't ours"
+    },
+    {
+      "id": "EXP-052",
+      "question": "The type-substitution search can invert polarity, matching a reinforcing loop to a balancing one. Does constraining it to preserve declared polarity change any published result?",
+      "result": "**A real hole in the measure, and a control that had been dead for eighteen experiments.** The unconstrained search distinguished a structure from its sign-flipped twin **0 times out of 40 at every size from 2 to 8 relations** \u2014 a global sign flip is a bijection on types, so the swap always matches perfectly. No size or symmetry condition exists; the two mitigating claims in my own Q-41 note were both false. The freedom is exercised on **30\u201347% of real corpus pairs**. A **polarity-preserving** constraint (weaker than name-preserving: permits POS\u2192GROWS, refuses POS\u2192NEG) removes it, preserves cross-vocabulary correspondence exactly, and changes **no published verdict** (analogue > false friend 10/10 \u2192 10/10) \u2014 but moves rankings on 6 motifs of 10 and scores on 9 of 10, so it is a question about **confidence, not conclusions**. Separately, the plan's code-robustness rule caught that **`flat32` has charged 32 bits to match a relation against a 6-bit saving since EXP-034 added the weight channel**, so its best mapping matches zero edges on every pair. Third control to be valid when written and silently killed by a later change \u2192 `P-26`",
+      "status": "complete",
+      "rung": 3,
+      "stage": 3,
+      "entry_point": "lab/run_exp052.py",
+      "result_file": "results/exp052.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "the measure cannot tell reinforcement from balance -- and a stress code that died in EXP-034"
+    },
+    {
+      "id": "EXP-053",
+      "question": "If the polarity-preserving constraint were adopted as the measure's default, which published results would move?",
+      "result": "**42 verdict changes across 26 runners \u2014 and nearly every one flatters the project.** `EXP-039` goes from `FRAGILE, NOT ESTABLISHED` (leave-one-out 3/9) to `SUPPORTED` (9/9); `EXP-038` from 5/10 to 10/10; **`EXP-028`'s retracted re-encoding claim flips back to True on 4 rows**. The predeclared band at 4+ changes says **DO NOT ADOPT** \u2014 a constraint moving this much of the record is a different measure, not a correction, and re-enters at rung 1. There is a coherent mechanism (distractors *need* sign inversion to match; genuine analogues do not), and a mechanism that predicts the pattern is the minimum bar for investigating it, not evidence it is real. **Separately the audit found four committed results that no longer reproduce** \u2014 `exp009.json` stores 1.727 where its code produces 1.4059, stranded by `EXP-024`'s encoding correction. `check_manifest` verified a result file *exists*, never that it was *current* \u2014 the manifest machinery had the defect it was built to catch (`P-26`, fourth instance). **Full sweep: 47 checked, 42 reproduce, 5 stale** (`exp014` was invisible to the partial audit \u2014 its runner never calls the measure). **No published claim changes** \u2014 `EXP-030`'s headline stays `NO SIGNAL`, so this is a hygiene failure, not a retraction. The five were regenerated with their published contents kept verbatim in `results/superseded/2026-07-27/`. Then the repair had the same bug twice: the first tripwire flagged all 50 files on any measure touch, and the sweep let a subset run overwrite the full report \u2014 **six instances in one session, two inside the machinery built to catch the other four**",
+      "status": "complete",
+      "rung": 3,
+      "stage": 3,
+      "entry_point": "lab/run_exp053.py",
+      "result_file": "results/exp053.json",
+      "supersedes": null,
+      "superseded_by": null,
+      "retracted_claim": null,
+      "blurb": "42 verdicts move and all of them favour us -- so do not adopt"
     }
   ],
   "claims": [
