@@ -1,0 +1,51 @@
+{
+  "experiment": "EXP-054",
+  "question": "Q-44 -- the polarity-constrained measure improved 42 results. Does it earn adoption from rung 1, with no credit inherited from the unconstrained version?",
+
+  "background": "EXP-052 found the unconstrained type search never distinguishes a structure from its sign-flipped twin (0/40 at every size 2-8) and that a polarity-preserving constraint removes this. EXP-053 then found the constraint changes 42 verdict-bearing results across 26 runners, nearly all favourably: EXP-039 from FRAGILE (leave-one-out 3/9) to SUPPORTED (9/9), EXP-038 from 5/10 to 10/10, and EXP-028's RETRACTED re-encoding claim flipping back to True on 4 rows. The predeclared band refused adoption on that evidence. This is the rung-1 validation that decides it.",
+
+  "the_trap_being_guarded_against": "Every design choice here is one I would be tempted to make in the constraint's favour, because the constraint makes my project look better. The centrepiece is therefore part C, a control constructed so that the constraint can fail it, and part C has VETO POWER over the other three. If an arbitrary restriction of equal severity produces the same improvements, then the gain comes from restricting the search AT ALL rather than from restricting it CORRECTLY, and nothing else in this experiment matters.",
+
+  "parts": {
+    "A_impostors": "The constrained measure against the existing impostor battery (word overlap, same domain, size match) PLUS a new impostor built specifically to be flattered by this constraint: POLARITY OVERLAP, which ranks candidates purely by how many relation polarities they share with the query, ignoring structure entirely. If polarity overlap performs as well as the constrained measure, the constraint's gain is polarity bookkeeping rather than structural correspondence, and the measure is not measuring what it claims.",
+    "B_reencoding_fresh": "EXP-028's question re-asked as a NEW claim on NEW cases with unused seeds, not as a restored one: does an equivalence-preserving re-encoding cost LESS than a genuine change of content? Reported as margins with effect size and CI, never as binary counts (P-25). A retraction reversed by a measure change requires more evidence than the retraction did, so binary agreement with the old claim is not sufficient.",
+    "C_severity_matched_random": "THE DECIDING CONTROL. For each comparison, count how many of the |T1|x|T2| type substitutions the polarity filter permits, then build RANDOM filters permitting the same number of substitutions chosen arbitrarily. Re-run EXP-039's leave-one-out and EXP-038's under 200 such random restrictions. Question: is the polarity constraint's improvement beyond what an arbitrary restriction of equal severity produces? A random filter that admits no complete type map is resampled up to 50 times and the resampling rate is REPORTED, because it biases the control toward restrictions that function.",
+    "D_permutation": "EXP-039's improvement under the constraint, tested by permutation of the ground-truth labels rather than by re-reading the same statistic. Plus an explicit statement of what this CANNOT establish."
+  },
+
+  "statistic": "Part A: analogue-strictly-above-false-friend counts per method, and the margin distribution per method. Part B: mean margin between equivalence-preserving and content-changing transforms, Cohen's d, bootstrap CI95. Part C: the polarity constraint's leave-one-out score against the distribution of 200 severity-matched random restrictions, reported as a percentile. Part D: permutation p over 10,000 label shuffles.",
+
+  "exclusion_rule": "No case excluded. Random restrictions that admit no complete type map are resampled rather than dropped, and the resampling rate is reported as a statistic rather than a footnote.",
+
+  "robustness": "Parts A and B under both admissible codes (gamma, delta) -- flat32 is excluded by codes.matching_is_profitable, established in EXP-052. Part C at 200 restrictions; if the polarity constraint lands between the 90th and 99th percentile, rerun at 2000 before reporting. Part B uses seeds not used by EXP-028 or any prior experiment.",
+
+  "tests": [
+    "part A: exact counts plus margin comparison; no inference needed, the corpus is the population",
+    "part B: Wilcoxon signed-rank on paired margins, plus bootstrap CI on the effect size",
+    "part C: percentile of the observed improvement within the random-restriction distribution",
+    "part D: permutation test, 10,000 shuffles"
+  ],
+
+  "predictions": {
+    "P1": "Part A: the constrained measure beats every impostor, AND polarity overlap performs clearly worse than it. If polarity overlap matches it, the constraint has turned the measure into a polarity counter.",
+    "P2": "Part B: equivalence-preserving re-encodings cost less than content changes, with a CI excluding zero. This is a prediction that a previously REFUTED claim now holds, and I hold it with LOW confidence -- EXP-028 predicted its own failure in advance and was right.",
+    "P3": "Part C: the polarity constraint's improvement exceeds the 95th percentile of severity-matched random restrictions. THIS IS THE PREDICTION I LEAST TRUST. Restricting a maximisation always lowers scores, and lowering distractor scores more than target scores may be a generic consequence of restriction rather than anything about polarity.",
+    "P4": "Part D: the permutation test is significant. Weak evidence either way, because it re-uses the same nine observations."
+  },
+
+  "verdict_bands": {
+    "note": "Graded, and part C has veto power. The quantity is how many of the four parts pass.",
+    "C_fails": "ADOPTION REFUSED regardless of A, B and D. An arbitrary restriction of equal severity reproducing the improvement means the gain is from restricting the search at all, not from restricting it correctly. The polarity degeneracy would still be a real defect worth fixing, but this constraint would not be the demonstrated fix, and the 42 changes in EXP-053 would be an artifact of search restriction.",
+    "4_of_4": "ADOPT. The constraint is validated at rung 1 on its own evidence, the default flips, and the affected experiments are re-run and republished as changes with EXP-053's diff as the record of what moved.",
+    "3_of_4_with_C_passing": "ADOPT NARROWLY, and the failing part becomes a declared scope limit on every claim that depends on it. Name it explicitly rather than averaging it away.",
+    "2_or_fewer_with_C_passing": "DO NOT ADOPT YET. The constraint survives its hardest control but has not earned the rest. Default stays unconstrained, defect stays documented, and the failing parts define the next experiment."
+  },
+
+  "falsification": {
+    "of_adoption": "Part C failing, or part A showing polarity overlap matching the constrained measure.",
+    "of_the_experiment": "If more than 30% of random restrictions in part C require resampling to admit any complete type map, the severity-matching is not comparing like with like and part C cannot arbitrate. Report that instead of a verdict.",
+    "prediction_space_wrong": "Two cases to report as themselves rather than force into a band: (i) part C shows the polarity constraint performing WORSE than the median random restriction, which would mean the EXP-053 improvements came from restriction severity and the polarity structure was actively unhelpful -- a stronger negative than mere non-adoption; (ii) part B's fresh cases refute the re-encoding claim MORE decisively than EXP-028 did, which would mean the audit's flipped booleans were an artifact of EXP-028's specific cases rather than of the measure."
+  },
+
+  "capacity_to_fail": "Part A's polarity-overlap impostor is the required can-this-control-fail check: it is constructed to succeed if the constraint has degraded the measure into polarity bookkeeping. Before use it is verified to produce non-constant rankings on the corpus -- an impostor that scores everything equally cannot fail and would pass vacuously, which is EXP-000a's error and was already caught once in EXP-024 by a size-matcher scoring 3/3 on a corpus of equal-sized documents."
+}
